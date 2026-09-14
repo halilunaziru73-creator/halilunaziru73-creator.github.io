@@ -53,12 +53,12 @@
     display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;
     overflow: hidden; border-radius: 12px; }
   .hero-content { position: relative; z-index: 1; }
-  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #CFE3FF;
+  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--blue);
     letter-spacing: 0.03em; margin-bottom: 1.1rem; }
   h1, h2, h3, .nav-mark, .contact-panel h2 { font-family: 'Space Grotesk', sans-serif; }
-  .hero h1 { font-size: 2.85rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: #FFFFFF; }
-  .hero-title { font-size: 1rem; color: #DCEBFF; margin-bottom: 1.3rem; }
-  .hero-summary { font-size: 15px; color: #E8F1FF; max-width: 56ch; margin-bottom: 1.7rem; }
+  .hero h1 { font-size: 2.85rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: var(--navy); }
+  .hero-title { font-size: 1rem; color: var(--ink-soft); margin-bottom: 1.3rem; }
+  .hero-summary { font-size: 15px; color: var(--ink-soft); max-width: 56ch; margin-bottom: 1.7rem; }
   .hero-contact { display: flex; gap: 1.1rem; margin-bottom: 2.3rem; flex-wrap: wrap; font-size: 13px; }
   .hero-contact a, .hero-contact span { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line);
     padding-bottom: 2px; transition: border-color .15s, color .15s; }
@@ -73,7 +73,7 @@
   .hero-photo-wrap { position: relative; z-index: 1; justify-self: center; }
   .hero-photo { width: 240px; height: 240px; border-radius: 6px; object-fit: cover;
     border: 1px solid var(--line); box-shadow: 6px 6px 0 var(--grid); }
-  .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #CFE3FF;
+  .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
     margin-top: 0.9rem; text-align: center; }
 
   section { max-width: 1180px; margin: 0 auto 1.4rem; padding: 2.6rem 2.2rem; }
@@ -278,7 +278,7 @@
   <div class="hero-gradient-bg" aria-hidden="true"></div>
   <div class="topo-bg" aria-hidden="true">
     <svg viewBox="0 0 800 600" preserveAspectRatio="none">
-      <g fill="none" stroke="#ffffff" stroke-width="1" opacity="0.25">
+      <g fill="none" stroke="#c9cdb8" stroke-width="1">
         <path d="M -50,500 C 150,450 250,550 450,480 C 600,430 700,470 850,400" />
         <path d="M -50,450 C 150,400 250,500 450,430 C 600,380 700,420 850,350" />
         <path d="M -50,400 C 150,350 250,450 450,380 C 600,330 700,370 850,300" />
@@ -322,10 +322,10 @@
 <style>
   .hero-gradient-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(120deg, #0B4FA8, #1463C9, #2E7DE8, #0B4FA8);
+    background: linear-gradient(120deg, #C9DFF5, #BFE0C4, #F5D9AE, #DACCEB, #C9DFF5);
     background-size: 400% 400%;
-    animation: heroGradientShift 10s ease infinite;
-    opacity: 1;
+    animation: heroGradientShift 14s ease infinite;
+    opacity: 0.55;
   }
   @keyframes heroGradientShift {
     0% { background-position: 0% 50%; }
@@ -340,11 +340,10 @@
   }
   .hero-name-gradient {
     font-size: 3.1rem; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, #FFFFFF, #BFE0FF, #FFFFFF);
+    background: linear-gradient(90deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C, #3B6EA5);
     background-size: 300% auto;
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: heroNameShimmer 4s linear infinite;
-    text-shadow: 0 2px 18px rgba(255,255,255,0.35);
+    animation: heroNameShimmer 6s linear infinite;
   }
   @keyframes heroNameShimmer { to { background-position: 300% center; } }
   .email-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.3rem; }
@@ -368,23 +367,23 @@
   .impact-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; line-height: 1; margin-bottom: 0.6rem; }
   .impact-label { color: #C9CDD8; font-size: 13px; font-weight: 600; line-height: 1.4; }
   .impact-label span { font-weight: 400; color: #8A93A8; font-size: 11.5px; }
-  .hero-link-btn { font-size: 13px; font-weight: 600; color: #FFFFFF; text-decoration: none;
-    border-bottom: 2px solid #8FC1FF; padding-bottom: 1px; transition: color .15s, border-color .15s; }
-  .hero-link-btn:hover { color: #CFE3FF; border-color: #FFFFFF; }
+  .hero-link-btn { font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
+    border-bottom: 2px solid var(--blue); padding-bottom: 1px; transition: color .15s, border-color .15s; }
+  .hero-link-btn:hover { color: var(--blue); border-color: var(--green); }
   .hero-photo-glow { position: relative; display: inline-block; border-radius: 8px; }
   .hero-photo-glow::before {
     content: ''; position: absolute; inset: -6px; border-radius: 10px; z-index: -1;
-    background: linear-gradient(135deg, #2E7DE8, #0B4FA8, #5AA5FF, #0B4FA8);
+    background: linear-gradient(135deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C);
     background-size: 300% 300%;
     animation: heroGlowShift 5s ease infinite;
-    filter: blur(10px); opacity: 0.9;
+    filter: blur(10px); opacity: 0.75;
   }
   @keyframes heroGlowShift {
     0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
   }
   .scroll-cue { position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;
-    color: #FFFFFF; z-index: 2; }
+    color: var(--blue); z-index: 2; }
   .scroll-cue span { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; }
   .scroll-chevron { font-size: 18px; animation: scrollBounce 1.6s ease-in-out infinite; }
   @keyframes scrollBounce {
