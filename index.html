@@ -177,6 +177,7 @@
   footer .foot-links a:hover { color: var(--blue); }
 
   @media (max-width: 860px) {
+    .gallery-grid { column-count: 2; }
     .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
     .hero-photo-wrap { order: -1; justify-self: start; }
     .hero-photo { width: 130px; height: 130px; }
@@ -192,9 +193,9 @@
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.6rem; }
-  .gallery-thumb { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 5px; border: 1px solid var(--line);
-    cursor: pointer; transition: transform .15s, box-shadow .15s; }
+  .gallery-grid { column-count: 4; column-gap: 0.6rem; }
+  .gallery-thumb { width: 100%; height: auto; object-fit: contain; border-radius: 5px; border: 1px solid var(--line);
+    cursor: pointer; transition: transform .15s, box-shadow .15s; display: block; margin-bottom: 0.6rem; break-inside: avoid; }
   .gallery-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,20,18,0.92); z-index: 100;
     align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
