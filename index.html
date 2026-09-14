@@ -262,8 +262,7 @@
       <ul>
         <li><a href="javascript:void(0)" onclick="jumpTo('research')">Research</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('education')">Education</a></li>
-        <li><a href="javascript:void(0)" onclick="jumpTo('beng-overview')">B.Eng</a></li>
-        <li><a href="javascript:void(0)" onclick="jumpTo('nd-overview')">ND</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('programme-overview')">Overviews</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('courses')">Courses</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('experience')">Experience</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('publications')">Publications</a></li>
@@ -432,9 +431,7 @@
   <div class="quicknav-grid">
     <div class="quicknav-tile" onclick="jumpTo('research')"><span class="quicknav-icon">🔬</span><span class="quicknav-label">Research Focus</span></div>
     <div class="quicknav-tile" onclick="jumpTo('education')"><span class="quicknav-icon">🎓</span><span class="quicknav-label">Education</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('emjmd-courses')"><span class="quicknav-icon">🇪🇺</span><span class="quicknav-label">EMJMD Overview</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('beng-overview')"><span class="quicknav-icon">⚙️</span><span class="quicknav-label">B.Eng Overview</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('nd-overview')"><span class="quicknav-icon">📐</span><span class="quicknav-label">ND Overview</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('programme-overview')"><span class="quicknav-icon">🇪🇺</span><span class="quicknav-label">Programme Overviews</span></div>
     <div class="quicknav-tile" onclick="jumpTo('courses')"><span class="quicknav-icon">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" onclick="jumpTo('experience')"><span class="quicknav-icon">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" onclick="jumpTo('teaching')"><span class="quicknav-icon">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
@@ -495,12 +492,14 @@
   </div>
 </div></section>
 
-<section id="emjmd-courses" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('emjmd-courses')">
-    <h2>EMJMD Programme Overview</h2>
-    <span class="section-note mono">120 ECTS across 4 terms</span>
-  <span class="accordion-chevron" id="chevron-emjmd-courses">&#9660;</span></div><div class="section-body" id="body-emjmd-courses">
-  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">SUSTAGRI is a 2-year, 4-term Erasmus Mundus Joint Master's Degree. Each term is hosted at a different partner university, with the final term dedicated to the Master Thesis.</p>
+<section id="programme-overview" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('programme-overview')">
+    <h2>Programme Overviews</h2>
+    <span class="section-note mono">EMJMD &middot; B.Eng &middot; ND</span>
+  <span class="accordion-chevron" id="chevron-programme-overview">&#9660;</span></div><div class="section-body" id="body-programme-overview">
+
+  <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.5rem; color:var(--navy);">EMJMD Programme Overview &middot; <span class="mono" style="font-size:12px; font-weight:400; color:var(--ink-soft);">120 ECTS across 4 terms</span></h3>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:70ch;">SUSTAGRI is a 2-year, 4-term Erasmus Mundus Joint Master's Degree. Each term is hosted at a different partner university, with the final term dedicated to the Master Thesis.</p>
   <div class="skills-grid">
     <div class="skill-card" style="border-left:3px solid #3B6EA5;">
       <h4>Term 1 &middot; UPNA, Spain &middot; 30 ECTS</h4>
@@ -522,15 +521,11 @@
       <p><b>Master Thesis</b></p>
       <p style="margin-top:0.5rem;">Completed at one of the three consortium universities, or an associated partner institution.</p>
     </div>
+  
   </div>
-</div></section>
 
-<section id="beng-overview" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('beng-overview')">
-    <h2>B.Eng Agricultural &amp; Bioresources Engineering Overview</h2>
-    <span class="section-note mono">Ahmadu Bello University, Zaria &middot; 2019 &ndash; 2024</span>
-  <span class="accordion-chevron" id="chevron-beng-overview">&#9660;</span></div><div class="section-body" id="body-beng-overview">
-  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">Bachelor of Engineering, a 5-year programme, completed with First Class Honours, CGPA 4.77/5.00, Top 1% of graduating cohort.</p>
+  <h3 style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem; color:var(--navy);">B.Eng Agricultural &amp; Bioresources Engineering Overview &middot; <span class="mono" style="font-size:12px; font-weight:400; color:var(--ink-soft);">ABU, Zaria &middot; 2019&ndash;2024</span></h3>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:70ch;">Bachelor of Engineering, a 5-year programme, completed with First Class Honours, CGPA 4.77/5.00, Top 1% of graduating cohort.</p>
   <div class="skills-grid">
     <div class="skill-card" style="border-left:3px solid #3B6EA5;">
       <h4>100 Level &middot; 5 courses</h4>
@@ -552,14 +547,11 @@
       <h4>500 Level &middot; 18 courses</h4>
       <p style="margin-top:0.5rem;">Agricultural Machinery Management (3 CU) &middot; Agricultural Power (3 CU) &middot; Irrigation System Design, Management and Evaluation (3 CU) &middot; Agricultural Drainage (3 CU) &middot; Soil and Water Conservation (3 CU) &middot; Farm Water Supply and Management (2 CU) &middot; Element of Public Health Engineering (2 CU) &middot; Computer Application in Agric. &amp; Bioresource Engineering (3 CU) &middot; Processing and Storage of Agricultural Products I (3 CU) &middot; Food Engineering (3 CU) &middot; Sustainable Bio-Energy System and Design Techniques (3 CU) &middot; Welding and Brazing (2 CU) &middot; Farm Structures (3 CU) &middot; Farm Electrification and Environmental Control (3 CU) &middot; Entrepreneurship for Agricultural Engineers (2 CU) &middot; Farm Management and Agricultural Extension (2 CU) &middot; Final Year Project (3 CU) &middot; Final Year Project (3 CU)</p>
     </div>
+  
   </div>
-</div></section>
-<section id="nd-overview" style="background:#EAF1FB; border-top: 5px solid #3B6EA5; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('nd-overview')">
-    <h2>National Diploma Programme Overview</h2>
-    <span class="section-note mono">Samaru College of Agriculture, ABU &middot; 2016 &ndash; 2018</span>
-  <span class="accordion-chevron" id="chevron-nd-overview">&#9660;</span></div><div class="section-body" id="body-nd-overview">
-  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">Agricultural Engineering Technology, a 2-year National Diploma programme, completed with Distinction, CGPA 3.78/4.00, Top 1%.</p>
+
+  <h3 style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem; color:var(--navy);">National Diploma Programme Overview &middot; <span class="mono" style="font-size:12px; font-weight:400; color:var(--ink-soft);">Samaru College of Agriculture, ABU &middot; 2016&ndash;2018</span></h3>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:70ch;">Agricultural Engineering Technology, a 2-year National Diploma programme, completed with Distinction, CGPA 3.78/4.00, Top 1%.</p>
   <div class="skills-grid">
     <div class="skill-card" style="border-left:3px solid #3B6EA5;">
       <h4>ND1 &middot; 24 courses</h4>
@@ -569,7 +561,9 @@
       <h4>ND2 &middot; 19 courses</h4>
       <p style="margin-top:0.5rem;">Farm Power (2 CU) &middot; Farm Machinery &amp; Mechanization (5 CU) &middot; Farm Machinery Management (4 CU) &middot; Irrigation and Drainage (4 CU) &middot; Soil and Water Conservation (2 CU) &middot; Soil Mechanics (2 CU) &middot; Computer Aided Design &amp; Drafting (3 CU) &middot; Agricultural Materials Handling Technology (5 CU) &middot; Post Harvest Technology and Storage (5 CU) &middot; Strength of Materials (3 CU) &middot; Properties of Materials (2 CU) &middot; Applied Fluid Mechanics (2 CU) &middot; Farm Electrification (5 CU) &middot; Constr. &amp; Maint. of Farm Structures (5 CU) &middot; Calculus (2 CU) &middot; Technical Report Writing (2 CU) &middot; Use of English II (3 CU) &middot; Entrepreneurship Development (2 CU) &middot; Project (6 CU)</p>
     </div>
+  
   </div>
+
 </div></section>
 
 <section id="courses" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
