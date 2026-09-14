@@ -80,7 +80,22 @@
   section[style*="background"] { padding: 2.6rem 2.4rem; }
   .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
     margin-bottom: 2.1rem; border-bottom: 1px solid var(--line); padding-bottom: 1rem; }
-  .section-head h2 { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.015em; }
+  .section-head h2 { font-size: 1.85rem; font-weight: 700; letter-spacing: -0.015em; position: relative;
+    display: inline-block; }
+  .section-head h2::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 46px; height: 4px;
+    border-radius: 3px; background: linear-gradient(90deg, #3B6EA5, #4C8C6B, #B8763F); }
+  section { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  section.reveal { opacity: 1; transform: translateY(0); }
+  .project-card, .skill-card, .referee-card, .tl-item, .pub-item {
+    transition: transform .2s ease, box-shadow .2s ease; }
+  .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.13); }
+  .skill-card:hover, .referee-card:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
+  .stat .num { background: linear-gradient(90deg, #3B6EA5, #4C8C6B); -webkit-background-clip: text;
+    background-clip: text; color: transparent; }
+  .tag:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+  @media (prefers-reduced-motion: reduce) {
+    section { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
   .section-head .section-note { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
 
   .layers-shell { display: grid; grid-template-columns: 260px 1fr; gap: 0; border: 1px solid var(--line);
@@ -215,12 +230,12 @@
     <div class="nav-mark">NAZIRU<span>.</span>HALILU</div>
     <nav>
       <ul>
+        <li><a href="#travels">Travels</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#travels">Travels</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -245,7 +260,7 @@
     <p class="hero-coord mono">&#128205; PAMPLONA, SPAIN &middot; ORIGINALLY ZARIA, NIGERIA</p>
     <h1 class="hero-name-gradient">Naziru Halilu</h1>
     <p class="hero-title"><strong>Digital Agriculture</strong> &middot; <strong>Computer Vision</strong> &middot; <strong>Geospatial Machine Learning</strong></p>
-    <p class="hero-summary">Agricultural engineer with a long-term research focus on computer vision and geospatial machine learning for digital agriculture. Interests span self-supervised deep learning for crop-stress detection and vegetation-index estimation from UAV and multispectral imagery, hybrid deep-learning architectures for environmental process modelling, agricultural control systems, and reproducible, uncertainty-aware ML pipelines complemented by GIS and satellite remote sensing.</p>
+    <p class="hero-summary">Agricultural engineer with a long-term research focus on the <strong>digitalization of agriculture</strong>, spanning computer vision, geospatial machine learning, agricultural control systems, and high-throughput phenotyping. Interests span self-supervised deep learning for crop-stress detection and vegetation-index estimation from UAV and multispectral imagery, closed-loop sensing and control for irrigation and greenhouse automation, field-based phenotyping pipelines, hybrid deep-learning architectures for environmental process modelling, and reproducible, uncertainty-aware ML pipelines complemented by GIS and satellite remote sensing.</p>
 
     <div class="email-chips">
       <a href="mailto:halilu.175366@e.unavarra.es" class="email-chip chip-blue">&#9993;&#65039; halilu.175366@e.unavarra.es</a>
@@ -275,7 +290,7 @@
     </div>
     <p class="hero-photo-tag mono">EMJMD RESEARCH SCHOLAR</p>
   </div>
-  <a href="#research" class="scroll-cue" aria-label="Scroll down">
+  <a href="#travels" class="scroll-cue" aria-label="Scroll down">
     <span>Explore my research</span>
     <div class="scroll-chevron">&#8595;</div>
   </a>
@@ -347,6 +362,41 @@
     .scroll-cue { display: none; }
   }
 </style>
+
+<section id="travels" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
+  <div class="section-head">
+    <h2>Places I've Worked &amp; Studied</h2>
+    <span class="section-note mono">10 countries</span>
+  </div>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.4rem; max-width:70ch;">From Zaria, Nigeria, through Spain (Pamplona, Madrid, Barcelona), Portugal, Greece, Qatar, Morocco, Ethiopia, France, Italy, and Germany, over the course of research travel, conferences, and the Erasmus Mundus programme.</p>
+
+  <div id="tour-map-wrap" style="position:relative; width:100%; border-radius:10px; overflow:hidden; border: 3px double #C9B98A; background:#F2E8D0;">
+    <img src="tour_map_bg.jpg" alt="Illustrated tour map of 10 countries visited" style="width:100%; height:auto; display:block;">
+    <div id="tour-marker" style="position:absolute; font-size:22px; transform:translate(-50%,-50%); transition: left 1.4s ease-in-out, top 1.4s ease-in-out; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4)); z-index:5;">&#9992;&#65039;</div>
+    <div id="tour-label" style="position:absolute; background:rgba(26,35,24,0.85); color:white; font-family:'IBM Plex Mono',monospace; font-size:11px; padding:3px 8px; border-radius:4px; transform:translate(-50%, -140%); transition: left 1.4s ease-in-out, top 1.4s ease-in-out; z-index:6; white-space:nowrap;">Zaria, Nigeria</div>
+  </div>
+
+  <div style="margin-top:1.2rem; background:white; border-radius:10px; padding:1.2rem; overflow-x:auto;">
+    <p class="mono" style="font-size:11px; color:var(--ink-soft); margin-bottom:0.8rem; letter-spacing:0.03em;">CURRENTLY AT</p>
+    <div id="tour-strip" style="position:relative; display:flex; gap:0.7rem; min-width:max-content; padding-top:38px;">
+      <!-- waypoint pills injected by JS -->
+    </div>
+  </div>
+
+  <div class="tag-list" style="margin-top:1rem;">
+    <span class="tag" style="background:white;">&#127475;&#127468; Nigeria</span>
+    <span class="tag" style="background:white;">&#127466;&#127480; Spain</span>
+    <span class="tag" style="background:white;">&#127477;&#127481; Portugal</span>
+    <span class="tag" style="background:white;">&#127468;&#127479; Greece</span>
+    <span class="tag" style="background:white;">&#127478;&#127462; Qatar</span>
+    <span class="tag" style="background:white;">&#127474;&#127462; Morocco</span>
+    <span class="tag" style="background:white;">&#127466;&#127481; Ethiopia</span>
+    <span class="tag" style="background:white;">&#127467;&#127479; France</span>
+    <span class="tag" style="background:white;">&#127470;&#127481; Italy</span>
+    <span class="tag" style="background:white;">&#127465;&#127466; Germany</span>
+  </div>
+</section>
+
 
 <section id="research" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
   <div class="section-head">
@@ -701,41 +751,6 @@
   </div>
 </section>
 
-<section id="travels" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
-  <div class="section-head">
-    <h2>Places I've Worked &amp; Studied</h2>
-    <span class="section-note mono">10 countries</span>
-  </div>
-  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.4rem; max-width:70ch;">From Zaria, Nigeria, through Spain (Pamplona, Madrid, Barcelona), Portugal, Greece, Qatar, Morocco, Ethiopia, France, Italy, and Germany, over the course of research travel, conferences, and the Erasmus Mundus programme.</p>
-
-  <div id="tour-map-wrap" style="position:relative; width:100%; border-radius:10px; overflow:hidden; border: 3px double #C9B98A; background:#F2E8D0;">
-    <img src="tour_map_bg.jpg" alt="Illustrated tour map of 10 countries visited" style="width:100%; height:auto; display:block;">
-    <div id="tour-marker" style="position:absolute; font-size:22px; transform:translate(-50%,-50%); transition: left 1.4s ease-in-out, top 1.4s ease-in-out; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4)); z-index:5;">&#9992;&#65039;</div>
-    <div id="tour-label" style="position:absolute; background:rgba(26,35,24,0.85); color:white; font-family:'IBM Plex Mono',monospace; font-size:11px; padding:3px 8px; border-radius:4px; transform:translate(-50%, -140%); transition: left 1.4s ease-in-out, top 1.4s ease-in-out; z-index:6; white-space:nowrap;">Zaria, Nigeria</div>
-  </div>
-
-  <div style="margin-top:1.2rem; background:white; border-radius:10px; padding:1.2rem; overflow-x:auto;">
-    <p class="mono" style="font-size:11px; color:var(--ink-soft); margin-bottom:0.8rem; letter-spacing:0.03em;">CURRENTLY AT</p>
-    <div id="tour-strip" style="position:relative; display:flex; gap:0.7rem; min-width:max-content; padding-top:38px;">
-      <!-- waypoint pills injected by JS -->
-    </div>
-  </div>
-
-  <div class="tag-list" style="margin-top:1rem;">
-    <span class="tag" style="background:white;">&#127475;&#127468; Nigeria</span>
-    <span class="tag" style="background:white;">&#127466;&#127480; Spain</span>
-    <span class="tag" style="background:white;">&#127477;&#127481; Portugal</span>
-    <span class="tag" style="background:white;">&#127468;&#127479; Greece</span>
-    <span class="tag" style="background:white;">&#127478;&#127462; Qatar</span>
-    <span class="tag" style="background:white;">&#127474;&#127462; Morocco</span>
-    <span class="tag" style="background:white;">&#127466;&#127481; Ethiopia</span>
-    <span class="tag" style="background:white;">&#127467;&#127479; France</span>
-    <span class="tag" style="background:white;">&#127470;&#127481; Italy</span>
-    <span class="tag" style="background:white;">&#127465;&#127466; Germany</span>
-  </div>
-</section>
-
-
 <section id="gallery" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
   <div class="section-head">
     <h2>Gallery</h2>
@@ -774,7 +789,6 @@
     <img class="gallery-thumb" src="gallery/gallery_31.jpg" alt="Field photo 31" loading="lazy" onclick="openLightbox('gallery/gallery_31.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_32.jpg" alt="Field photo 32" loading="lazy" onclick="openLightbox('gallery/gallery_32.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_33.jpg" alt="Field photo 33" loading="lazy" onclick="openLightbox('gallery/gallery_33.jpg')">
-    <img class="gallery-thumb" src="gallery/gallery_34.jpg" alt="Field photo 34" loading="lazy" onclick="openLightbox('gallery/gallery_34.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_35.jpg" alt="Field photo 35" loading="lazy" onclick="openLightbox('gallery/gallery_35.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_36.jpg" alt="Field photo 36" loading="lazy" onclick="openLightbox('gallery/gallery_36.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_37.jpg" alt="Field photo 37" loading="lazy" onclick="openLightbox('gallery/gallery_37.jpg')">
@@ -783,6 +797,17 @@
     <img class="gallery-thumb" src="gallery/gallery_41.jpg" alt="Field photo 41" loading="lazy" onclick="openLightbox('gallery/gallery_41.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_42.jpg" alt="Graduation photo" loading="lazy" onclick="openLightbox('gallery/gallery_42.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_43.jpg" alt="Graduation photo" loading="lazy" onclick="openLightbox('gallery/gallery_43.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_44.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_44.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_45.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_45.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_46.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_46.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_47.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_47.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_48.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_48.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_49.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_49.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_50.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_50.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_51.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_51.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_52.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_52.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_53.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_53.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_54.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_54.jpg')">
   </div>
 </section>
 
@@ -1065,6 +1090,16 @@ if (document.getElementById('tour-strip')) {
   setTimeout(stepTourMarker, 100);
   setInterval(stepTourMarker, 2200);
 }
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('section').forEach(sec => revealObserver.observe(sec));
 </script>
 
 
