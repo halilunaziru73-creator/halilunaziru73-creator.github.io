@@ -433,9 +433,9 @@
     <div class="quicknav-tile" onclick="jumpTo('courses')"><span class="quicknav-icon">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" onclick="jumpTo('experience')"><span class="quicknav-icon">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" onclick="jumpTo('publications')"><span class="quicknav-icon">📄</span><span class="quicknav-label">Publications</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('teaching')"><span class="quicknav-icon">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
     <div class="quicknav-tile" onclick="jumpTo('projects')"><span class="quicknav-icon">🗂️</span><span class="quicknav-label">Projects</span></div>
     <div class="quicknav-tile" onclick="jumpTo('skills')"><span class="quicknav-icon">🛠️</span><span class="quicknav-label">Skills</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('teaching')"><span class="quicknav-icon">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
     <div class="quicknav-tile" onclick="jumpTo('awards')"><span class="quicknav-icon">🏆</span><span class="quicknav-label">Awards</span></div>
     <div class="quicknav-tile" onclick="jumpTo('certifications')"><span class="quicknav-icon">📜</span><span class="quicknav-label">Certifications</span></div>
     <div class="quicknav-tile" onclick="jumpTo('conferences')"><span class="quicknav-icon">🗣️</span><span class="quicknav-label">Conferences</span></div>
@@ -831,6 +831,36 @@
     </div>
   </div>
 </div></section>
+<section id="projects" style="background:#FFFFFF; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('projects')">
+    <h2>Project index</h2>
+    <span class="section-note mono">click a layer to filter</span>
+  <span class="accordion-chevron" id="chevron-projects">&#9660;</span></div><div class="section-body" id="body-projects">
+  <div class="layers-shell">
+    <div class="layers-list" id="layers-list">
+      <div class="layers-list-head">LAYERS</div>
+    </div>
+    <div class="layer-canvas">
+      <p class="layer-desc" id="layer-desc"></p>
+      <div class="project-grid" id="project-grid"></div>
+    </div>
+  </div>
+</div></section>
+<section id="skills" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('skills')">
+    <h2>Technical skills</h2>
+    <span class="section-note mono">tools &amp; methods</span>
+  <span class="accordion-chevron" id="chevron-skills">&#9660;</span></div><div class="section-body" id="body-skills">
+  <div class="skills-grid">
+    <div class="skill-card"><h4>Machine Learning &amp; AI</h4><p>PyTorch, TensorFlow, Keras, scikit-learn, CNNs</p></div>
+    <div class="skill-card"><h4>Geospatial AI / Remote Sensing / GIS</h4><p>ENVI, QGIS, ArcGIS, Google Earth Engine, Sentinel imagery</p></div>
+    <div class="skill-card"><h4>Crop &amp; Environmental Modelling</h4><p>APSIM Next Generation, Crop Simulation, Crop Growth Modelling</p></div>
+    <div class="skill-card"><h4>Climate &amp; Environmental AI</h4><p>CMIP6, ERA5, ACCESS-S2, Climate Downscaling, Forecasting</p></div>
+    <div class="skill-card"><h4>3D Computer Vision</h4><p>COLMAP, Open3D, Multi-View Stereo, Pix4D, Agisoft Metashape</p></div>
+    <div class="skill-card"><h4>Sensor Analytics &amp; Data Fusion</h4><p>Time-series from soil-moisture, microclimate, and environmental telemetry</p></div>
+    <div class="skill-card"><h4>Programming &amp; Data Science</h4><p>Python, MATLAB, R, Pandas, NumPy, SciPy, Jupyter, Git/GitHub, Zenodo</p></div>
+  </div>
+</div></section>
 <section id="teaching" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('teaching')">
     <h2>Teaching, leadership &amp; community</h2>
@@ -871,38 +901,6 @@
         <p>Instructed senior classes in classical physics and computational principles.</p>
       </div>
     </div>
-  </div>
-</div></section>
-
-<section id="projects" style="background:#FFFFFF; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('projects')">
-    <h2>Project index</h2>
-    <span class="section-note mono">click a layer to filter</span>
-  <span class="accordion-chevron" id="chevron-projects">&#9660;</span></div><div class="section-body" id="body-projects">
-  <div class="layers-shell">
-    <div class="layers-list" id="layers-list">
-      <div class="layers-list-head">LAYERS</div>
-    </div>
-    <div class="layer-canvas">
-      <p class="layer-desc" id="layer-desc"></p>
-      <div class="project-grid" id="project-grid"></div>
-    </div>
-  </div>
-</div></section>
-
-<section id="skills" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('skills')">
-    <h2>Technical skills</h2>
-    <span class="section-note mono">tools &amp; methods</span>
-  <span class="accordion-chevron" id="chevron-skills">&#9660;</span></div><div class="section-body" id="body-skills">
-  <div class="skills-grid">
-    <div class="skill-card"><h4>Machine Learning &amp; AI</h4><p>PyTorch, TensorFlow, Keras, scikit-learn, CNNs</p></div>
-    <div class="skill-card"><h4>Geospatial AI / Remote Sensing / GIS</h4><p>ENVI, QGIS, ArcGIS, Google Earth Engine, Sentinel imagery</p></div>
-    <div class="skill-card"><h4>Crop &amp; Environmental Modelling</h4><p>APSIM Next Generation, Crop Simulation, Crop Growth Modelling</p></div>
-    <div class="skill-card"><h4>Climate &amp; Environmental AI</h4><p>CMIP6, ERA5, ACCESS-S2, Climate Downscaling, Forecasting</p></div>
-    <div class="skill-card"><h4>3D Computer Vision</h4><p>COLMAP, Open3D, Multi-View Stereo, Pix4D, Agisoft Metashape</p></div>
-    <div class="skill-card"><h4>Sensor Analytics &amp; Data Fusion</h4><p>Time-series from soil-moisture, microclimate, and environmental telemetry</p></div>
-    <div class="skill-card"><h4>Programming &amp; Data Science</h4><p>Python, MATLAB, R, Pandas, NumPy, SciPy, Jupyter, Git/GitHub, Zenodo</p></div>
   </div>
 </div></section>
 
