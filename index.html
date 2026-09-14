@@ -50,7 +50,8 @@
   nav a:hover { color: var(--ink); }
 
   .hero { position: relative; max-width: 1180px; margin: 0 auto; padding: 4.5rem 2rem 3.5rem;
-    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; }
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;
+    overflow: hidden; border-radius: 12px; }
   .hero-content { position: relative; z-index: 1; }
   .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--blue);
     letter-spacing: 0.03em; margin-bottom: 1.1rem; }
@@ -227,7 +228,8 @@
   </div>
 </header>
 
-<div class="hero">
+<div class="hero" id="hero-flashy">
+  <div class="hero-gradient-bg" aria-hidden="true"></div>
   <div class="topo-bg" aria-hidden="true">
     <svg viewBox="0 0 800 600" preserveAspectRatio="none">
       <g fill="none" stroke="#c9cdb8" stroke-width="1">
@@ -239,24 +241,26 @@
       </g>
     </svg>
   </div>
-  <div class="hero-content">
-    <p class="hero-coord mono">PAMPLONA, SPAIN &middot; ORIGINALLY ZARIA, NIGERIA</p>
-    <h1>Naziru Halilu</h1>
-    <p class="hero-title">Digital Agriculture &middot; Computer Vision &middot; Geospatial Machine Learning</p>
+  <div class="hero-content hero-fade-in">
+    <p class="hero-coord mono">&#128205; PAMPLONA, SPAIN &middot; ORIGINALLY ZARIA, NIGERIA</p>
+    <h1 class="hero-name-gradient">Naziru Halilu</h1>
+    <p class="hero-title"><strong>Digital Agriculture</strong> &middot; <strong>Computer Vision</strong> &middot; <strong>Geospatial Machine Learning</strong></p>
     <p class="hero-summary">Agricultural engineer with a long-term research focus on computer vision and geospatial machine learning for digital agriculture. Interests span self-supervised deep learning for crop-stress detection and vegetation-index estimation from UAV and multispectral imagery, hybrid deep-learning architectures for environmental process modelling, agricultural control systems, and reproducible, uncertainty-aware ML pipelines complemented by GIS and satellite remote sensing.</p>
-    <div class="hero-contact">
-      <a href="mailto:halilu.175366@e.unavarra.es">halilu.175366@e.unavarra.es</a>
-      <span>+34 6 5296 7216</span>
-      <a href="https://github.com/halilunaziru73-creator" target="_blank">GitHub</a>
-      <a href="https://orcid.org/0009-0006-2324-9599" target="_blank">ORCID</a>
-      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank">Zenodo records</a>
+
+    <div class="email-chips">
+      <a href="mailto:halilu.175366@e.unavarra.es" class="email-chip chip-blue">&#9993;&#65039; halilu.175366@e.unavarra.es</a>
+      <a href="mailto:al2025174166@alunos.utad.pt" class="email-chip chip-green">&#9993;&#65039; al2025174166@alunos.utad.pt</a>
+      <a href="mailto:naziru.175366@aua.gr" class="email-chip chip-purple">&#9993;&#65039; naziru.175366@aua.gr</a>
+      <a href="mailto:naziruhalilu73@gmail.com" class="email-chip chip-orange">&#9993;&#65039; naziruhalilu73@gmail.com</a>
+      <span class="email-chip chip-navy">&#128222; +34 6 5296 7216</span>
     </div>
-    <div class="hero-contact" style="font-size:12px; margin-top:-1.6rem; margin-bottom:2.3rem;">
-      <span class="mono" style="border:none; padding:0; color:var(--ink-soft)">also:</span>
-      <a href="mailto:al2025174166@alunos.utad.pt">al2025174166@alunos.utad.pt</a>
-      <a href="mailto:naziru.175366@aua.gr">naziru.175366@aua.gr</a>
-      <a href="mailto:naziruhalilu73@gmail.com">naziruhalilu73@gmail.com</a>
+
+    <div class="hero-links-row">
+      <a href="https://github.com/halilunaziru73-creator" target="_blank" class="hero-link-btn">GitHub &rarr;</a>
+      <a href="https://orcid.org/0009-0006-2324-9599" target="_blank" class="hero-link-btn">ORCID &rarr;</a>
+      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" class="hero-link-btn">Zenodo records &rarr;</a>
     </div>
+
     <div class="stat-strip">
       <div class="stat"><div class="num mono">15</div><div class="label">Repositories</div></div>
       <div class="stat"><div class="num mono">4</div><div class="label">Peer-reviewed papers</div></div>
@@ -265,11 +269,84 @@
       <div class="stat"><div class="num mono">10</div><div class="label">Awards & honors</div></div>
     </div>
   </div>
-  <div class="hero-photo-wrap">
-    <img class="hero-photo" src="avatar.jpg" alt="Naziru Halilu">
+  <div class="hero-photo-wrap hero-fade-in">
+    <div class="hero-photo-glow">
+      <img class="hero-photo" src="avatar.jpg" alt="Naziru Halilu">
+    </div>
     <p class="hero-photo-tag mono">EMJMD RESEARCH SCHOLAR</p>
   </div>
+  <a href="#research" class="scroll-cue" aria-label="Scroll down">
+    <span>Explore my research</span>
+    <div class="scroll-chevron">&#8595;</div>
+  </a>
 </div>
+
+<style>
+  .hero-gradient-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(120deg, #C9DFF5, #BFE0C4, #F5D9AE, #DACCEB, #C9DFF5);
+    background-size: 400% 400%;
+    animation: heroGradientShift 14s ease infinite;
+    opacity: 0.55;
+  }
+  @keyframes heroGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .hero-fade-in { animation: heroFadeIn 1s ease both; }
+  .hero-photo-wrap.hero-fade-in { animation-delay: 0.15s; }
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-name-gradient {
+    font-size: 3.1rem; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C, #3B6EA5);
+    background-size: 300% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: heroNameShimmer 6s linear infinite;
+  }
+  @keyframes heroNameShimmer { to { background-position: 300% center; } }
+  .email-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.3rem; }
+  .email-chip { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; text-decoration: none;
+    padding: 8px 13px; border-radius: 999px; color: white; display: inline-flex; align-items: center; gap: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12); transition: transform .18s, box-shadow .18s; cursor: pointer; }
+  .email-chip:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 5px 14px rgba(0,0,0,0.22); }
+  .chip-blue { background: linear-gradient(135deg, #3B6EA5, #5A8FC7); }
+  .chip-green { background: linear-gradient(135deg, #4C8C6B, #6BAE8B); }
+  .chip-purple { background: linear-gradient(135deg, #6E5A8C, #8E74B0); }
+  .chip-orange { background: linear-gradient(135deg, #B8763F, #D6975E); }
+  .chip-navy { background: linear-gradient(135deg, #2E3A52, #4A5A78); }
+  .hero-links-row { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+  .hero-link-btn { font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
+    border-bottom: 2px solid var(--blue); padding-bottom: 1px; transition: color .15s, border-color .15s; }
+  .hero-link-btn:hover { color: var(--blue); border-color: var(--green); }
+  .hero-photo-glow { position: relative; display: inline-block; border-radius: 8px; }
+  .hero-photo-glow::before {
+    content: ''; position: absolute; inset: -6px; border-radius: 10px; z-index: -1;
+    background: linear-gradient(135deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C);
+    background-size: 300% 300%;
+    animation: heroGlowShift 5s ease infinite;
+    filter: blur(10px); opacity: 0.75;
+  }
+  @keyframes heroGlowShift {
+    0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+  }
+  .scroll-cue { position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;
+    color: var(--blue); z-index: 2; }
+  .scroll-cue span { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; }
+  .scroll-chevron { font-size: 18px; animation: scrollBounce 1.6s ease-in-out infinite; }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(6px); opacity: 1; }
+  }
+  @media (max-width: 860px) {
+    .hero-name-gradient { font-size: 2.2rem; }
+    .scroll-cue { display: none; }
+  }
+</style>
 
 <section id="research" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
   <div class="section-head">
