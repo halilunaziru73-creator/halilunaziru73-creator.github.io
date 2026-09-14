@@ -53,12 +53,12 @@
     display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;
     overflow: hidden; border-radius: 12px; }
   .hero-content { position: relative; z-index: 1; }
-  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--blue);
+  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #CFE3FF;
     letter-spacing: 0.03em; margin-bottom: 1.1rem; }
   h1, h2, h3, .nav-mark, .contact-panel h2 { font-family: 'Space Grotesk', sans-serif; }
-  .hero h1 { font-size: 2.85rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: var(--navy); }
-  .hero-title { font-size: 1rem; color: var(--ink-soft); margin-bottom: 1.3rem; }
-  .hero-summary { font-size: 15px; color: var(--ink-soft); max-width: 56ch; margin-bottom: 1.7rem; }
+  .hero h1 { font-size: 2.85rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: #FFFFFF; }
+  .hero-title { font-size: 1rem; color: #DCEBFF; margin-bottom: 1.3rem; }
+  .hero-summary { font-size: 15px; color: #E8F1FF; max-width: 56ch; margin-bottom: 1.7rem; }
   .hero-contact { display: flex; gap: 1.1rem; margin-bottom: 2.3rem; flex-wrap: wrap; font-size: 13px; }
   .hero-contact a, .hero-contact span { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line);
     padding-bottom: 2px; transition: border-color .15s, color .15s; }
@@ -73,7 +73,7 @@
   .hero-photo-wrap { position: relative; z-index: 1; justify-self: center; }
   .hero-photo { width: 240px; height: 240px; border-radius: 6px; object-fit: cover;
     border: 1px solid var(--line); box-shadow: 6px 6px 0 var(--grid); }
-  .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
+  .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #CFE3FF;
     margin-top: 0.9rem; text-align: center; }
 
   section { max-width: 1180px; margin: 0 auto 1.4rem; padding: 2.6rem 2.2rem; }
@@ -262,7 +262,6 @@
       <ul>
         <li><a href="javascript:void(0)" onclick="jumpTo('research')">Research</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('education')">Education</a></li>
-        <li><a href="javascript:void(0)" onclick="jumpTo('programme-overview')">Overviews</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('courses')">Courses</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('experience')">Experience</a></li>
         <li><a href="javascript:void(0)" onclick="jumpTo('publications')">Publications</a></li>
@@ -279,7 +278,7 @@
   <div class="hero-gradient-bg" aria-hidden="true"></div>
   <div class="topo-bg" aria-hidden="true">
     <svg viewBox="0 0 800 600" preserveAspectRatio="none">
-      <g fill="none" stroke="#c9cdb8" stroke-width="1">
+      <g fill="none" stroke="#ffffff" stroke-width="1" opacity="0.25">
         <path d="M -50,500 C 150,450 250,550 450,480 C 600,430 700,470 850,400" />
         <path d="M -50,450 C 150,400 250,500 450,430 C 600,380 700,420 850,350" />
         <path d="M -50,400 C 150,350 250,450 450,380 C 600,330 700,370 850,300" />
@@ -323,10 +322,10 @@
 <style>
   .hero-gradient-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(120deg, #C9DFF5, #BFE0C4, #F5D9AE, #DACCEB, #C9DFF5);
+    background: linear-gradient(120deg, #0B4FA8, #1463C9, #2E7DE8, #0B4FA8);
     background-size: 400% 400%;
-    animation: heroGradientShift 14s ease infinite;
-    opacity: 0.55;
+    animation: heroGradientShift 10s ease infinite;
+    opacity: 1;
   }
   @keyframes heroGradientShift {
     0% { background-position: 0% 50%; }
@@ -341,10 +340,11 @@
   }
   .hero-name-gradient {
     font-size: 3.1rem; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C, #3B6EA5);
+    background: linear-gradient(90deg, #FFFFFF, #BFE0FF, #FFFFFF);
     background-size: 300% auto;
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: heroNameShimmer 6s linear infinite;
+    animation: heroNameShimmer 4s linear infinite;
+    text-shadow: 0 2px 18px rgba(255,255,255,0.35);
   }
   @keyframes heroNameShimmer { to { background-position: 300% center; } }
   .email-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.3rem; }
@@ -368,23 +368,23 @@
   .impact-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; line-height: 1; margin-bottom: 0.6rem; }
   .impact-label { color: #C9CDD8; font-size: 13px; font-weight: 600; line-height: 1.4; }
   .impact-label span { font-weight: 400; color: #8A93A8; font-size: 11.5px; }
-  .hero-link-btn { font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
-    border-bottom: 2px solid var(--blue); padding-bottom: 1px; transition: color .15s, border-color .15s; }
-  .hero-link-btn:hover { color: var(--blue); border-color: var(--green); }
+  .hero-link-btn { font-size: 13px; font-weight: 600; color: #FFFFFF; text-decoration: none;
+    border-bottom: 2px solid #8FC1FF; padding-bottom: 1px; transition: color .15s, border-color .15s; }
+  .hero-link-btn:hover { color: #CFE3FF; border-color: #FFFFFF; }
   .hero-photo-glow { position: relative; display: inline-block; border-radius: 8px; }
   .hero-photo-glow::before {
     content: ''; position: absolute; inset: -6px; border-radius: 10px; z-index: -1;
-    background: linear-gradient(135deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C);
+    background: linear-gradient(135deg, #2E7DE8, #0B4FA8, #5AA5FF, #0B4FA8);
     background-size: 300% 300%;
     animation: heroGlowShift 5s ease infinite;
-    filter: blur(10px); opacity: 0.75;
+    filter: blur(10px); opacity: 0.9;
   }
   @keyframes heroGlowShift {
     0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
   }
   .scroll-cue { position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;
-    color: var(--blue); z-index: 2; }
+    color: #FFFFFF; z-index: 2; }
   .scroll-cue span { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; }
   .scroll-chevron { font-size: 18px; animation: scrollBounce 1.6s ease-in-out infinite; }
   @keyframes scrollBounce {
@@ -431,7 +431,6 @@
   <div class="quicknav-grid">
     <div class="quicknav-tile" onclick="jumpTo('research')"><span class="quicknav-icon">🔬</span><span class="quicknav-label">Research Focus</span></div>
     <div class="quicknav-tile" onclick="jumpTo('education')"><span class="quicknav-icon">🎓</span><span class="quicknav-label">Education</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('programme-overview')"><span class="quicknav-icon">🇪🇺</span><span class="quicknav-label">Programme Overviews</span></div>
     <div class="quicknav-tile" onclick="jumpTo('courses')"><span class="quicknav-icon">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" onclick="jumpTo('experience')"><span class="quicknav-icon">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" onclick="jumpTo('teaching')"><span class="quicknav-icon">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
@@ -490,80 +489,6 @@
       <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=1h0e5gWEy34vzVDKAq3xSdRH28XFJi5Rq&usp=drive_fs" target="_blank" style="color:var(--blue)">View transcript/certificate &rarr;</a></p>
     </div>
   </div>
-</div></section>
-
-<section id="programme-overview" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('programme-overview')">
-    <h2>Programme Overviews</h2>
-    <span class="section-note mono">EMJMD &middot; B.Eng &middot; ND</span>
-  <span class="accordion-chevron" id="chevron-programme-overview">&#9660;</span></div><div class="section-body" id="body-programme-overview">
-
-  <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.5rem; color:var(--navy);">EMJMD Programme Overview &middot; <span class="mono" style="font-size:12px; font-weight:400; color:var(--ink-soft);">120 ECTS across 4 terms</span></h3>
-  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:70ch;">SUSTAGRI is a 2-year, 4-term Erasmus Mundus Joint Master's Degree. Each term is hosted at a different partner university, with the final term dedicated to the Master Thesis.</p>
-  <div class="skills-grid">
-    <div class="skill-card" style="border-left:3px solid #3B6EA5;">
-      <h4>Term 1 &middot; UPNA, Spain &middot; 30 ECTS</h4>
-      <p><b>Technological bases for agricultural sustainability</b></p>
-      <p style="margin-top:0.5rem;">Data science and analytics in agriculture (6) &middot; Geospatial data analysis (3) &middot; Geoinformation and remote sensing (6) &middot; Sensors and the Internet of Things (6) &middot; Agricultural systems modelling (6) &middot; Practical exercise integrating disciplines I (3)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #4C8C6B;">
-      <h4>Term 2 &middot; UTAD, Portugal &middot; 30 ECTS</h4>
-      <p><b>Precision agriculture for sustainable crop production</b></p>
-      <p style="margin-top:0.5rem;">Precision agriculture (6) &middot; Identifying soil and crop variability (6) &middot; Precision agriculture machinery (6) &middot; Preventive management strategy (6) &middot; Reactive management strategy (3) &middot; Practical exercise integrating disciplines II (3)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #B8763F;">
-      <h4>Term 3 &middot; AUA, Greece &middot; 30 ECTS</h4>
-      <p><b>Efficient water use, smart irrigation</b></p>
-      <p style="margin-top:0.5rem;">Modelling crop water requirements (6) &middot; Smart design and management of irrigation systems (9) &middot; Modelling for sustainable irrigation, enhancing system efficiency and resilience (6) &middot; Agri-environmental legislation and policies (3) &middot; Technology sharing and transfer for entrepreneurship (3) &middot; Practical exercise integrating disciplines III (3)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #6E5A8C;">
-      <h4>Term 4 &middot; UPNA / UTAD / AUA &middot; 30 ECTS</h4>
-      <p><b>Master Thesis</b></p>
-      <p style="margin-top:0.5rem;">Completed at one of the three consortium universities, or an associated partner institution.</p>
-    </div>
-  
-  </div>
-
-  <h3 style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem; color:var(--navy);">B.Eng Agricultural &amp; Bioresources Engineering Overview &middot; <span class="mono" style="font-size:12px; font-weight:400; color:var(--ink-soft);">ABU, Zaria &middot; 2019&ndash;2024</span></h3>
-  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:70ch;">Bachelor of Engineering, a 5-year programme, completed with First Class Honours, CGPA 4.77/5.00, Top 1% of graduating cohort.</p>
-  <div class="skills-grid">
-    <div class="skill-card" style="border-left:3px solid #3B6EA5;">
-      <h4>100 Level &middot; 5 courses</h4>
-      <p style="margin-top:0.5rem;">Introduction to Engineering Profession (1 CU) &middot; Nationalism (1 CU) &middot; Environmental Health (1 CU) &middot; English and Communication (1 CU) &middot; History and Philosophy of Science (1 CU)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #4C8C6B;">
-      <h4>200 Level &middot; 21 courses</h4>
-      <p style="margin-top:0.5rem;">Theory of Structures (2 CU) &middot; Fluid Mechanics I (2 CU) &middot; Engineering Graphics (2 CU) &middot; Engineering Drawing (2 CU) &middot; Strength of Materials I (2 CU) &middot; Fundamentals of Dynamics (2 CU) &middot; Basic Thermodynamics (2 CU) &middot; Fundamental of Material Science (2 CU) &middot; Electrical Circuit and Field Theory (2 CU) &middot; Electronic, Measurements and Transducers (2 CU) &middot; Electric Machine, Power and Installation (2 CU) &middot; Calculus I (3 CU) &middot; Calculus II (3 CU) &middot; Methods of Linear Algebra I (2 CU) &middot; Method of Linear Algebra II (2 CU) &middot; Elements of Agricultural Engineering (2 CU) &middot; Principle of Economics (2 CU) &middot; Introduction to Management (2 CU) &middot; Moral Philosophy (1 CU) &middot; Entrepreneurship and Innovation (1 CU) &middot; SWEP 1 (1 CU)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #B8763F;">
-      <h4>300 Level &middot; 20 courses</h4>
-      <p style="margin-top:0.5rem;">Agricultural Power and Machinery (3 CU) &middot; Agricultural Climatology for Engineers (2 CU) &middot; Soil Mechanics for Agric. &amp; Bioresource Engineers (3 CU) &middot; Soil Mechanics (3 CU) &middot; Engineering Properties of Biological Materials (3 CU) &middot; Machine Design I (3 CU) &middot; Machine Design II (3 CU) &middot; Strength of Materials II (2 CU) &middot; Dynamics of Machinery II (2 CU) &middot; Dynamics of Machine I (2 CU) &middot; Applied Thermodynamics (2 CU) &middot; Metallurgy for Engineers (2 CU) &middot; Differential Equations and Transforms (3 CU) &middot; Functions of Several Variables (3 CU) &middot; Statistics (2 CU) &middot; Agricultural Surveying (3 CU) &middot; Animal Production for Agricultural Engineers (2 CU) &middot; Business Creation and Growth (2 CU) &middot; Development Economics (2 CU) &middot; Agricultural Engineering Workshop Practice (2 CU)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #6E5A8C;">
-      <h4>400 Level &middot; 12 courses</h4>
-      <p style="margin-top:0.5rem;">Irrigation II (3 CU) &middot; Agricultural Hydrology (2 CU) &middot; Hydraulics for Agric. Bioresource Engineers (3 CU) &middot; Land Clearing and Development (2 CU) &middot; Biomass Conversion &amp; Bio-Energy Feedstock Production (2 CU) &middot; Instrumentation (2 CU) &middot; Design of Experiments and Quality Control (3 CU) &middot; Element of Crop Production (2 CU) &middot; Technical Report Writing (1 CU) &middot; Financial Management (2 CU) &middot; Law for Engineers (2 CU) &middot; Students Industrial Work Experience (SIWES) (6 CU)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #2E3A52;">
-      <h4>500 Level &middot; 18 courses</h4>
-      <p style="margin-top:0.5rem;">Agricultural Machinery Management (3 CU) &middot; Agricultural Power (3 CU) &middot; Irrigation System Design, Management and Evaluation (3 CU) &middot; Agricultural Drainage (3 CU) &middot; Soil and Water Conservation (3 CU) &middot; Farm Water Supply and Management (2 CU) &middot; Element of Public Health Engineering (2 CU) &middot; Computer Application in Agric. &amp; Bioresource Engineering (3 CU) &middot; Processing and Storage of Agricultural Products I (3 CU) &middot; Food Engineering (3 CU) &middot; Sustainable Bio-Energy System and Design Techniques (3 CU) &middot; Welding and Brazing (2 CU) &middot; Farm Structures (3 CU) &middot; Farm Electrification and Environmental Control (3 CU) &middot; Entrepreneurship for Agricultural Engineers (2 CU) &middot; Farm Management and Agricultural Extension (2 CU) &middot; Final Year Project (3 CU) &middot; Final Year Project (3 CU)</p>
-    </div>
-  
-  </div>
-
-  <h3 style="font-size:1.15rem; font-weight:700; margin:2rem 0 0.5rem; color:var(--navy);">National Diploma Programme Overview &middot; <span class="mono" style="font-size:12px; font-weight:400; color:var(--ink-soft);">Samaru College of Agriculture, ABU &middot; 2016&ndash;2018</span></h3>
-  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:70ch;">Agricultural Engineering Technology, a 2-year National Diploma programme, completed with Distinction, CGPA 3.78/4.00, Top 1%.</p>
-  <div class="skills-grid">
-    <div class="skill-card" style="border-left:3px solid #3B6EA5;">
-      <h4>ND1 &middot; 24 courses</h4>
-      <p style="margin-top:0.5rem;">Tractor Operation and Maintenance (4 CU) &middot; Farm Machinery &amp; Mechanization I (5 CU) &middot; Introduction to Livestock Mechanization (2 CU) &middot; Const. &amp; Maintenance of Crop Processing (6 CU) &middot; Basic Workshop Practice (4 CU) &middot; Engineering Machines (3 CU) &middot; Thermodynamics (3 CU) &middot; Technical Drawing (4 CU) &middot; Electr. Engineering Science (3 CU) &middot; Introduction to Statistics (2 CU) &middot; Principles of Crop Production (3 CU) &middot; Introduction to Soil Science (2 CU) &middot; Introduction to Agricultural Engineering (2 CU) &middot; Repairs &amp; Maintenance of Farm Implements (6 CU) &middot; Introduction to Entrepreneurship (3 CU) &middot; Use of English (3 CU) &middot; Communication in English I (2 CU) &middot; Citizenship Education (3 CU) &middot; Citizenship Education II (2 CU) &middot; Rural Sociology and Agricultural Ext. (3 CU) &middot; Safety (2 CU) &middot; SIWES (4 CU) &middot; Computer Application I (3 CU) &middot; Computer Application II (3 CU)</p>
-    </div>
-    <div class="skill-card" style="border-left:3px solid #4C8C6B;">
-      <h4>ND2 &middot; 19 courses</h4>
-      <p style="margin-top:0.5rem;">Farm Power (2 CU) &middot; Farm Machinery &amp; Mechanization (5 CU) &middot; Farm Machinery Management (4 CU) &middot; Irrigation and Drainage (4 CU) &middot; Soil and Water Conservation (2 CU) &middot; Soil Mechanics (2 CU) &middot; Computer Aided Design &amp; Drafting (3 CU) &middot; Agricultural Materials Handling Technology (5 CU) &middot; Post Harvest Technology and Storage (5 CU) &middot; Strength of Materials (3 CU) &middot; Properties of Materials (2 CU) &middot; Applied Fluid Mechanics (2 CU) &middot; Farm Electrification (5 CU) &middot; Constr. &amp; Maint. of Farm Structures (5 CU) &middot; Calculus (2 CU) &middot; Technical Report Writing (2 CU) &middot; Use of English II (3 CU) &middot; Entrepreneurship Development (2 CU) &middot; Project (6 CU)</p>
-    </div>
-  
-  </div>
-
 </div></section>
 
 <section id="courses" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
