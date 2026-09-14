@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naziru Halilu | Digital Agriculture Researcher</title>
+<meta name="description" content="Naziru Halilu — Digital Agriculture researcher. Erasmus Mundus scholar working across computer vision, geospatial ML, and precision agriculture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F7F2;
+    --paper-raised: #FFFFFF;
+    --ink: #1A2318;
+    --ink-soft: #565f52;
+    --blue: #3B6EA5;
+    --green: #4C8C6B;
+    --brown: #8C6B4F;
+    --purple: #6E5A8C;
+    --orange: #B8763F;
+    --navy: #2E3A52;
+    --grid: #DEDCD0;
+    --line: #d7d5c8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .topo-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .topo-bg svg { width: 100%; height: 100%; opacity: 0.55; }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(247,247,242,0.92);
+    backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center;
+    justify-content: space-between; height: 64px; }
+  .nav-mark { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 14px; letter-spacing: 0.02em; }
+  .nav-mark span { color: var(--blue); }
+  nav ul { list-style: none; display: flex; gap: 1.7rem; }
+  nav a { font-size: 13.5px; text-decoration: none; color: var(--ink-soft); transition: color .15s; }
+  nav a:hover { color: var(--ink); }
+
+  .hero { position: relative; max-width: 1180px; margin: 0 auto; padding: 4.5rem 2rem 3.5rem;
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--blue);
+    letter-spacing: 0.03em; margin-bottom: 1.1rem; }
+  .hero h1 { font-size: 2.75rem; font-weight: 600; line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 0.5rem; }
+  .hero-title { font-size: 1rem; color: var(--ink-soft); margin-bottom: 1.3rem; }
+  .hero-summary { font-size: 15px; color: var(--ink-soft); max-width: 56ch; margin-bottom: 1.7rem; }
+  .hero-contact { display: flex; gap: 1.1rem; margin-bottom: 2.3rem; flex-wrap: wrap; font-size: 13px; }
+  .hero-contact a, .hero-contact span { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line);
+    padding-bottom: 2px; transition: border-color .15s, color .15s; }
+  .hero-contact a:hover { border-color: var(--blue); color: var(--blue); }
+
+  .stat-strip { display: flex; gap: 0; border-top: 1px solid var(--line); padding-top: 1.4rem; flex-wrap: wrap; }
+  .stat { flex: 1; min-width: 90px; padding-right: 1.2rem; margin-bottom: 0.5rem; }
+  .stat + .stat { border-left: 1px solid var(--line); padding-left: 1.2rem; }
+  .stat .num { font-family: 'IBM Plex Mono', monospace; font-size: 1.5rem; font-weight: 600; color: var(--navy); }
+  .stat .label { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
+
+  .hero-photo-wrap { position: relative; z-index: 1; justify-self: center; }
+  .hero-photo { width: 240px; height: 240px; border-radius: 6px; object-fit: cover;
+    border: 1px solid var(--line); box-shadow: 6px 6px 0 var(--grid); }
+  .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
+    margin-top: 0.9rem; text-align: center; }
+
+  section { max-width: 1180px; margin: 0 auto; padding: 3.6rem 2rem; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+    margin-bottom: 2.1rem; border-bottom: 1px solid var(--line); padding-bottom: 1rem; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; }
+  .section-head .section-note { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+
+  .layers-shell { display: grid; grid-template-columns: 260px 1fr; gap: 0; border: 1px solid var(--line);
+    border-radius: 6px; overflow: hidden; background: var(--paper-raised); }
+  .layers-list { border-right: 1px solid var(--line); background: #FAFAF6; }
+  .layers-list-head { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft);
+    padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--line); letter-spacing: 0.03em; }
+  .layer-item { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 1.1rem; cursor: pointer;
+    border-bottom: 1px solid var(--line); transition: background .15s; }
+  .layer-item:last-child { border-bottom: none; }
+  .layer-item:hover { background: #F1F0E8; }
+  .layer-item.active { background: #EDF2F7; }
+  .layer-swatch { width: 11px; height: 11px; border-radius: 2px; flex-shrink: 0; }
+  .layer-item span { font-size: 13px; }
+  .layer-item .layer-count { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft); }
+
+  .layer-canvas { padding: 1.6rem 1.8rem; }
+  .layer-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 1.4rem; max-width: 62ch; }
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .project-card { border: 1px solid var(--line); border-radius: 5px; padding: 0; background: var(--paper-raised); overflow: hidden; }
+  .project-thumb { width: 100%; height: 140px; object-fit: cover; display: block; border-bottom: 1px solid var(--line); background: #F1F0E8; }
+  .project-body { padding: 1.1rem 1.2rem; }
+  .project-card h3 { font-size: 14.5px; font-weight: 600; margin-bottom: 0.45rem; line-height: 1.3; }
+  .project-card .metric { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--green); margin-bottom: 0.6rem; }
+  .project-card p { font-size: 12.8px; color: var(--ink-soft); margin-bottom: 0.85rem; }
+  .project-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .project-links a { font-size: 12px; text-decoration: none; color: var(--blue); border-bottom: 1px solid transparent; }
+  .project-links a:hover { border-color: var(--blue); }
+  .doi-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
+    background: #F1F0E8; border: 1px solid var(--line); border-radius: 3px; padding: 1px 6px; margin-bottom: 0.6rem; }
+
+  /* publications */
+  .pub-group { margin-bottom: 2rem; }
+  .pub-group:last-child { margin-bottom: 0; }
+  .pub-group h3 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.03em; color: var(--blue);
+    margin-bottom: 1rem; }
+  .pub-item { padding: 0.9rem 0; border-bottom: 1px solid var(--line); font-size: 13.8px; }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-item .pub-authors { color: var(--ink); }
+  .pub-item .pub-authors b { font-weight: 600; }
+  .pub-item .pub-venue { color: var(--ink-soft); font-style: italic; }
+  .pub-item a.pub-doi { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--blue); text-decoration: none;
+    display: inline-block; margin-top: 0.3rem; }
+  .pub-item a.pub-doi:hover { text-decoration: underline; }
+
+  /* timeline (education + experience) */
+  .timeline { border-left: 2px solid var(--line); margin-left: 6px; }
+  .tl-item { position: relative; padding: 0 0 1.9rem 1.8rem; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px;
+    border-radius: 50%; background: var(--paper); border: 2px solid var(--blue); }
+  .tl-date { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--blue); margin-bottom: 0.3rem; }
+  .tl-item h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.2rem; }
+  .tl-item .tl-org { font-size: 13px; color: var(--ink-soft); margin-bottom: 0.35rem; font-style: italic; }
+  .tl-item p { font-size: 13.2px; color: var(--ink-soft); }
+
+  /* skills */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .skill-card { border: 1px solid var(--line); border-radius: 5px; padding: 1rem 1.1rem; background: var(--paper-raised); }
+  .skill-card h4 { font-size: 12.5px; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  .skill-card p { font-size: 12.8px; color: var(--ink-soft); }
+
+  /* awards / memberships / conferences as tag lists */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag { font-size: 12.5px; border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 0.9rem;
+    background: var(--paper-raised); color: var(--ink-soft); }
+  .tag b { color: var(--ink); font-weight: 500; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+
+  .referee-card { border: 1px solid var(--line); border-radius: 5px; padding: 1rem 1.2rem; background: var(--paper-raised); }
+  .referee-card h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 0.2rem; }
+  .referee-card p { font-size: 12.5px; color: var(--ink-soft); }
+
+  .contact-panel { background: var(--navy); color: #F0F1EC; border-radius: 8px; padding: 3rem 2.5rem;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; }
+  .contact-panel h2 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.9rem; max-width: 22ch; }
+  .contact-panel p { color: #c3c9d4; font-size: 14px; max-width: 42ch; }
+  .contact-field { width: 100%; padding: 10px 12px; border-radius: 5px; border: 1px solid #45516b;
+    background: #262f45; color: #F0F1EC; font-size: 13.5px; font-family: inherit; margin-bottom: 10px; }
+  .contact-field::placeholder { color: #8a93a8; }
+  textarea.contact-field { min-height: 90px; resize: vertical; }
+  .contact-btn { background: var(--blue); color: #fff; border: none; border-radius: 5px; padding: 10px 20px;
+    font-size: 13.5px; font-weight: 500; cursor: pointer; font-family: inherit; }
+  .contact-status { font-size: 12.5px; margin-top: 10px; display: none; }
+  .contact-status.ok { color: #7fd0a0; display: block; }
+  .contact-status.err { color: #e6928d; display: block; }
+
+  footer { max-width: 1180px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; display: flex;
+    justify-content: space-between; align-items: center; border-top: 1px solid var(--line); margin-top: 1rem; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 12.5px; color: var(--ink-soft); }
+  footer .foot-links { display: flex; gap: 1.4rem; }
+  footer .foot-links a { font-size: 12.5px; text-decoration: none; color: var(--ink-soft); }
+  footer .foot-links a:hover { color: var(--blue); }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
+    .hero-photo-wrap { order: -1; justify-self: start; }
+    .hero-photo { width: 130px; height: 130px; }
+    .hero h1 { font-size: 2rem; }
+    .stat-strip { flex-wrap: wrap; row-gap: 1rem; }
+    .stat { flex: 1 1 45%; }
+    .layers-shell { grid-template-columns: 1fr; }
+    .layers-list { border-right: none; border-bottom: 1px solid var(--line); display: flex; overflow-x: auto; }
+    .layer-item { border-bottom: none; border-right: 1px solid var(--line); white-space: nowrap; }
+    .contact-panel { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="nav-mark">NAZIRU<span>.</span>HALILU</div>
+    <nav>
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="topo-bg" aria-hidden="true">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="none">
+      <g fill="none" stroke="#c9cdb8" stroke-width="1">
+        <path d="M -50,500 C 150,450 250,550 450,480 C 600,430 700,470 850,400" />
+        <path d="M -50,450 C 150,400 250,500 450,430 C 600,380 700,420 850,350" />
+        <path d="M -50,400 C 150,350 250,450 450,380 C 600,330 700,370 850,300" />
+        <path d="M -50,350 C 150,300 250,400 450,330 C 600,280 700,320 850,250" />
+        <path d="M -50,300 C 150,250 250,350 450,280 C 600,230 700,270 850,200" />
+      </g>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-coord mono">PAMPLONA, SPAIN &middot; ORIGINALLY ZARIA, NIGERIA</p>
+    <h1>Naziru Halilu</h1>
+    <p class="hero-title">Digital Agriculture &middot; Computer Vision &middot; Geospatial Machine Learning</p>
+    <p class="hero-summary">Agricultural engineer with a long-term research focus on computer vision and geospatial machine learning for digital agriculture. Interests span self-supervised deep learning for crop-stress detection and vegetation-index estimation from UAV and multispectral imagery, hybrid deep-learning architectures for environmental process modelling, and reproducible, uncertainty-aware ML pipelines complemented by GIS and satellite remote sensing.</p>
+    <div class="hero-contact">
+      <a href="mailto:halilu.175366@e.unavarra.es">halilu.175366@e.unavarra.es</a>
+      <span>+34 6 5296 7216</span>
+      <a href="https://github.com/halilunaziru73-creator" target="_blank">GitHub</a>
+      <a href="https://orcid.org/0009-0006-2324-9599" target="_blank">ORCID</a>
+      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank">Zenodo records</a>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><div class="num mono">15</div><div class="label">Repositories</div></div>
+      <div class="stat"><div class="num mono">4</div><div class="label">Peer-reviewed papers</div></div>
+      <div class="stat"><div class="num mono">6</div><div class="label">Under review</div></div>
+      <div class="stat"><div class="num mono">3</div><div class="label">Preprints</div></div>
+      <div class="stat"><div class="num mono">10</div><div class="label">Awards & honors</div></div>
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    <img class="hero-photo" src="avatar.jpg" alt="Naziru Halilu">
+    <p class="hero-photo-tag mono">EMJMD RESEARCH SCHOLAR</p>
+  </div>
+</div>
+
+<section id="research">
+  <div class="section-head">
+    <h2>Research focus</h2>
+    <span class="section-note mono">6 active layers</span>
+  </div>
+  <div class="project-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+    <div class="project-card"><h3 style="color:var(--blue)">Remote Sensing &amp; Earth Observation</h3><p>Correcting and extracting information from satellite and drone imagery, the data layer beneath everything else.</p></div>
+    <div class="project-card"><h3 style="color:var(--green)">Hydrology &amp; Erosion Engineering</h3><p>Modelling how water moves and erodes land, gully formation and sediment transport.</p></div>
+    <div class="project-card"><h3 style="color:var(--navy)">Irrigation &amp; Water Management</h3><p>How much water a crop needs and when to apply it, farm-level decision-making.</p></div>
+    <div class="project-card"><h3 style="color:var(--brown)">Precision Agriculture &amp; Geostatistics</h3><p>Turning sparse field samples into reliable, spatially continuous maps.</p></div>
+    <div class="project-card"><h3 style="color:var(--purple)">Computer Vision &amp; Deep Learning</h3><p>Foundational architectures that generalize across agronomic imaging tasks.</p></div>
+    <div class="project-card"><h3 style="color:var(--orange)">Agribusiness Decision Science</h3><p>Operations research for real production and market decisions.</p></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head">
+    <h2>Project index</h2>
+    <span class="section-note mono">click a layer to filter</span>
+  </div>
+  <div class="layers-shell">
+    <div class="layers-list" id="layers-list">
+      <div class="layers-list-head">LAYERS</div>
+    </div>
+    <div class="layer-canvas">
+      <p class="layer-desc" id="layer-desc"></p>
+      <div class="project-grid" id="project-grid"></div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="section-head">
+    <h2>Publications</h2>
+    <span class="section-note mono">4 published &middot; 6 under review &middot; 3 preprints</span>
+  </div>
+
+  <div class="pub-group">
+    <h3>PEER-REVIEWED</h3>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b>, Auwal, M., &amp; Yusuf, A. (2020). Physio-chemical and bacteriological quality of water for irrigation purpose (A case study of Shika Dam).</p>
+      <p class="pub-venue">Nigerian Research Journal of Engineering and Environmental Sciences, 5(1), 198&ndash;204.</p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors">Ismail, K., &amp; <b>Halilu, N.</b> (2024). AI-Driven Precision Agriculture System for Optimizing Maize Yield in Northern Nigeria.</p>
+      <p class="pub-venue">Proc. African Conf. on Precision Agriculture (AfCPA), 2(1), 100&ndash;120.</p>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b> (2026). A Hybrid CNN&ndash;BiLSTM&ndash;Attention Deep Learning Framework for Sediment Transport in an Agricultural Gully System. <span class="mono" style="font-size:11.5px">Sole author</span></p>
+      <p class="pub-venue">International Journal of Research and Scientific Innovation (IJRSI), 13(7), 2920&ndash;2950.</p>
+      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000217" target="_blank">doi.org/10.51244/IJRSI.2026.1307000217</a>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. (2026). Real-Time RGB Proxy Vegetation Indexing and Texture Analysis for UAV and Handheld Crop Imagery. <span class="mono" style="font-size:11.5px">First author</span></p>
+      <p class="pub-venue">International Journal of Research and Scientific Innovation (IJRSI), 13(7), 2951&ndash;2989.</p>
+      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000218" target="_blank">doi.org/10.51244/IJRSI.2026.1307000218</a>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. (2026). Sensing the Invisible: A Critical Review of NIR and Hyperspectral Analysis for Crop and Food-Quality Assessment. <span class="mono" style="font-size:11.5px">First author</span></p>
+      <p class="pub-venue">International Journal of Research and Scientific Innovation (IJRSI), 13(7), 2990&ndash;3020.</p>
+      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000219" target="_blank">doi.org/10.51244/IJRSI.2026.1307000219</a>
+    </div>
+  </div>
+
+  <div class="pub-group">
+    <h3>SUBMITTED / UNDER REVIEW</h3>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. Geometry-Agnostic Contrastive Learning (GACL): A Theoretical Framework and Baseline Evaluation Protocol for Agronomic Imaging. <span class="mono" style="font-size:11.5px">First author</span></p>
+      <p class="pub-venue">Biosystems Engineering (Elsevier), Under Review.</p>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21760025" target="_blank">doi.org/10.5281/zenodo.21760025</a>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b> (2026). Digital Twin for the Evaluation of Experimental Gully Biocontrol Using Morning Glory (Ipomoea spp.). <span class="mono" style="font-size:11.5px">Sole author</span></p>
+      <p class="pub-venue">Environmental Monitoring and Assessment (Springer Nature), Under Review.</p>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21760023" target="_blank">doi.org/10.5281/zenodo.21760023</a>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. Operationalizing GIS and Machine Learning across Contrasting Cropping Systems. <span class="mono" style="font-size:11.5px">First author</span></p>
+      <p class="pub-venue">European Journal of Agronomy (Elsevier), Under Review.</p>
+      <a class="pub-doi" href="https://doi.org/10.2139/ssrn.7194382" target="_blank">doi.org/10.2139/ssrn.7194382</a>
+    </div>
+  </div>
+
+  <div class="pub-group">
+    <h3>PREPRINTS</h3>
+    <div class="pub-item">
+      <p class="pub-authors">Halilu, N. (2025). A Systematic Review of IoT, Edge Computing, Time-Series Modelling and Control Systems in Precision Irrigation.</p>
+      <p class="pub-venue">Zenodo.</p>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21843899" target="_blank">doi.org/10.5281/zenodo.21843899</a>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b> (2026). Multitask Singularity Regression Kriging for Spatio-Temporal Soil NPK Crop Stress Yield-Prediction. <span class="mono" style="font-size:11.5px">Sole author</span></p>
+      <p class="pub-venue">Zenodo Preprint (v1.0.1).</p>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21798402" target="_blank">doi.org/10.5281/zenodo.21798402</a>
+    </div>
+    <div class="pub-item">
+      <p class="pub-authors"><b>Halilu, N.</b> (2026). STADOS: Spectral-Temporal Adaptive Dark Object Subtraction for Radiometrically Harmonized Multi-Temporal Agricultural Vegetation Monitoring.</p>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21997000" target="_blank">doi.org/10.5281/zenodo.21997000</a>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-head">
+    <h2>Research &amp; professional experience</h2>
+    <span class="section-note mono">2017 &ndash; present</span>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <p class="tl-date mono">JUN &ndash; AUG 2026</p>
+      <h3>Summer Intern, Computer Vision Group</h3>
+      <p class="tl-org">Dept. of Computer Engineering, Ahmadu Bello University, Zaria</p>
+      <p>Extended the Geometry-Agnostic Contrastive Learning (GACL) self-supervised framework by developing geometry-invariant representation-learning methods for agronomic imagery.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">SEP 2025 &ndash; JUN 2026</p>
+      <h3>EMJMD Research Scholar (Mobility Track)</h3>
+      <p class="tl-org">Public University of Navarre, Spain &amp; UTAD, Portugal</p>
+      <p>Completed graduate-level research training in the technological foundations of agricultural sustainability and precision-agriculture methods for sustainable crop production, across two partner institutions.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">2024 &ndash; 2025</p>
+      <h3>Project Assistant (Remote Data Lead), Smart Greenhouse Automation</h3>
+      <p class="tl-org">IAR-ABU, Nigeria</p>
+      <p>Engineered adaptive irrigation-scheduling algorithms in Python, fusing real-time soil-moisture and microclimate telemetry to automate greenhouse environmental control.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">2022 &ndash; 2024</p>
+      <h3>Student Research Assistant, Precision Crop Systems</h3>
+      <p class="tl-org">NAERLS, Nigeria</p>
+      <p>Trained and validated CNN-based crop-stress detection models in TensorFlow, achieving 78% classification accuracy on multispectral UAV imagery; automated UAV flight-path planning for high-throughput field phenotyping.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">2021 &ndash; 2022</p>
+      <h3>Project Assistant, Smart Irrigation &amp; Water Systems</h3>
+      <p class="tl-org">BOMO-Basin Project, Nigeria</p>
+      <p>Implemented closed-loop control logic for a 1-hectare smart drip-irrigation array and quantified feedback-loop performance linking real-time soil-moisture data to automated delivery scheduling.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">2022 &ndash; 2024</p>
+      <h3>Assistant Farm Manager</h3>
+      <p class="tl-org">Yankari Nasarawa Farms, Nigeria</p>
+      <p>Managed day-to-day operations of a commercial poultry facility, including automated climate-control and water-dosing systems, optimizing resource-management workflows for animal welfare and operational efficiency.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">2017 &ndash; 2020</p>
+      <h3>Research Intern</h3>
+      <p class="tl-org">NCAM, Ilorin &amp; IAR, Zaria, Nigeria</p>
+      <p>Built Python data-logging pipelines to benchmark mechanization efficiency on locally engineered machinery; collected and documented soil-profile and environmental data supporting baseline hydrological research.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">MAR 2024 &ndash; MAR 2025</p>
+      <h3>Undergraduate Project Assistantships</h3>
+      <p class="tl-org">Depts. of Agricultural &amp; Bioresources Engineering and Animal Science, ABU, Nigeria</p>
+      <p>Data collection, analysis, and literature review across water &amp; irrigation systems, soil &amp; erosion assessment, and postharvest/animal systems.</p>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="section-head">
+    <h2>Teaching, leadership &amp; community</h2>
+    <span class="section-note mono">2020 &ndash; 2025</span>
+  </div>
+  <div class="two-col">
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-date mono">2020 &ndash; 2024</p>
+        <h3>Undergraduate Course Tutor</h3>
+        <p class="tl-org">ABU Zaria (NAMET)</p>
+        <p>Supplementary tutorials in Differential Equations &amp; Transforms, Irrigation System Design, and Computer Applications in Agric. Engineering.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date mono">2023 &ndash; 2024</p>
+        <h3>Secretary General, NAAESB</h3>
+        <p class="tl-org">National Assoc. of Agric. Engineering Students</p>
+        <p>Directed operational targets and inter-chapter scientific meetups for the national student body.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date mono">2023 &ndash; 2024</p>
+        <h3>Director, Environmental Protection Agency</h3>
+        <p class="tl-org">ABU Students' Union Government</p>
+        <p>Directed campus environmental protection and sanitation initiatives.</p>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-date mono">2020 &ndash; 2025</p>
+        <h3>Deputy Coordinator</h3>
+        <p class="tl-org">KOJYAF, Zango-Shanu, Zaria</p>
+        <p>Coordinated tutorial and mentorship programs preparing secondary students for JAMB entrance examinations.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date mono">2022 &ndash; 2023</p>
+        <h3>Physics &amp; Mathematics Teacher</h3>
+        <p class="tl-org">Takai Academy, Zaria, Nigeria</p>
+        <p>Instructed senior classes in classical physics and computational principles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-head">
+    <h2>Technical skills</h2>
+    <span class="section-note mono">tools &amp; methods</span>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card"><h4>Machine Learning &amp; AI</h4><p>PyTorch, TensorFlow, Keras, scikit-learn, CNNs</p></div>
+    <div class="skill-card"><h4>Geospatial AI / Remote Sensing / GIS</h4><p>ENVI, QGIS, ArcGIS, Google Earth Engine, Sentinel imagery</p></div>
+    <div class="skill-card"><h4>Crop &amp; Environmental Modelling</h4><p>APSIM Next Generation, Crop Simulation, Crop Growth Modelling</p></div>
+    <div class="skill-card"><h4>Climate &amp; Environmental AI</h4><p>CMIP6, ERA5, ACCESS-S2, Climate Downscaling, Forecasting</p></div>
+    <div class="skill-card"><h4>3D Computer Vision</h4><p>COLMAP, Open3D, Multi-View Stereo, Pix4D, Agisoft Metashape</p></div>
+    <div class="skill-card"><h4>Sensor Analytics &amp; Data Fusion</h4><p>Time-series from soil-moisture, microclimate, and environmental telemetry</p></div>
+    <div class="skill-card"><h4>Programming &amp; Data Science</h4><p>Python, MATLAB, R, Pandas, NumPy, SciPy, Jupyter, Git/GitHub, Zenodo</p></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-head">
+    <h2>Education</h2>
+    <span class="section-note mono">ABU &middot; UPNA &middot; UTAD &middot; AUA</span>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <p class="tl-date mono">2025 &ndash; 2027</p>
+      <h3>Erasmus Mundus Joint Master's Degree (EMJMD)</h3>
+      <p class="tl-org">Cutting-Edge Technologies for Sustainable Agriculture &mdash; Public University of Navarre, Spain &middot; UTAD, Portugal &middot; Agricultural University of Athens, Greece</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">2019 &ndash; 2024</p>
+      <h3>Bachelor of Engineering (B.Eng.), Agricultural &amp; Bioresources Engineering</h3>
+      <p class="tl-org">Ahmadu Bello University, Zaria, Nigeria</p>
+      <p>CGPA: 4.77/5.00 &middot; Top 1% of graduating cohort &middot; First Class Honours</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-date mono">2016 &ndash; 2018</p>
+      <h3>National Diploma, Agricultural Engineering Technology</h3>
+      <p class="tl-org">Division of Agricultural Colleges, Ahmadu Bello University, Zaria</p>
+      <p>CGPA: 3.78/4.00 &middot; Top 1% &middot; Distinction</p>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="section-head">
+    <h2>Awards &amp; honors</h2>
+    <span class="section-note mono">10 recognitions</span>
+  </div>
+  <div class="tag-list">
+    <span class="tag"><b>Erasmus Mundus Joint Master Scholarship</b>, European Union (2025)</span>
+    <span class="tag"><b>Best Project Award</b>, ABU Senate (2024)</span>
+    <span class="tag"><b>Best Graduating Student</b>, Agric. &amp; Bioresources Engineering (2024)</span>
+    <span class="tag"><b>Nigerian Federal Government Award</b> for Academic Excellence (2024)</span>
+    <span class="tag"><b>Best Undergraduate Research Paper Award</b>, ABU (2024)</span>
+    <span class="tag"><b>Best 300 Level Student</b>, ABU (2022)</span>
+    <span class="tag"><b>Best 200 Level Student</b>, ABU (2021)</span>
+    <span class="tag"><b>Award of Merit as Tutor</b>, Faculty of Engineering, ABU (2021)</span>
+    <span class="tag"><b>Best Graduating Student</b>, National Diploma, Samaru College of Agriculture (2019)</span>
+    <span class="tag"><b>PTDF Undergraduate Fellow</b> (2023)</span>
+    <span class="tag"><b>Needs-Based University Fellowship</b> (2022)</span>
+  </div>
+</section>
+
+<section id="conferences">
+  <div class="section-head">
+    <h2>Conferences, seminars &amp; workshops</h2>
+    <span class="section-note mono">2023 &ndash; 2026</span>
+  </div>
+  <div class="tag-list">
+    <span class="tag">Data Management Workshop: From Phenotyping Experiment to FAIR Data, Norway (2026)</span>
+    <span class="tag">Digital Agroecology Cluster Conference (EU-funded), Brussels (2025)</span>
+    <span class="tag">6th African Regional Conference on Irrigation and Drainage, ARCID (2025)</span>
+    <span class="tag">Vibrational Spectroscopy &amp; Chemometrics in Agro-Food Systems (EU-funded) (2025)</span>
+    <span class="tag">Mechanistic Modeling of Rainfall-Driven Soil Solute Transport, University of Florida (2025)</span>
+    <span class="tag">IEEE Intl. Conf. on Smart Agriculture Technologies (AgriTech), Valencia, Spain (2024)</span>
+    <span class="tag">NAERLS Technical Seminar Series: AI in the Food Value Chain (2023)</span>
+  </div>
+</section>
+
+<section id="memberships">
+  <div class="section-head">
+    <h2>Professional memberships</h2>
+    <span class="section-note mono">4 bodies</span>
+  </div>
+  <div class="tag-list">
+    <span class="tag">American Society of Agricultural and Biological Engineers (ASABE)</span>
+    <span class="tag">Nigerian Institution of Agricultural Engineers (NIAE)</span>
+    <span class="tag">Nigerian Society of Engineers (NSE)</span>
+    <span class="tag">Pupil Engineer, COREN</span>
+  </div>
+</section>
+
+<section id="referees">
+  <div class="section-head">
+    <h2>Referees</h2>
+    <span class="section-note mono">contact details on request</span>
+  </div>
+  <div class="skills-grid">
+    <div class="referee-card"><h4>Prof. Miguel &Aacute;ngel Campo Besc&oacute;s</h4><p>Public University of Navarre, Spain</p></div>
+    <div class="referee-card"><h4>Prof. Jos&eacute; Tadeu Marques Aranha</h4><p>UTAD, Portugal</p></div>
+    <div class="referee-card"><h4>Dr. Ibrahim Babangida Dalha</h4><p>Ahmadu Bello University, Nigeria</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-panel">
+    <div>
+      <h2>Get in touch about a collaboration, dataset, or project.</h2>
+      <p>Reach out directly, or send a message below. It goes straight to my inbox.</p>
+    </div>
+    <div>
+      <input class="contact-field" id="c-name" type="text" placeholder="Your name">
+      <input class="contact-field" id="c-email" type="email" placeholder="Your email">
+      <textarea class="contact-field" id="c-msg" placeholder="Your message"></textarea>
+      <button class="contact-btn" id="c-btn" onclick="sendMessage()">Send message</button>
+      <p class="contact-status" id="c-status"></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Naziru Halilu &middot; Pamplona, Spain</p>
+  <div class="foot-links">
+    <a href="https://github.com/halilunaziru73-creator" target="_blank">GitHub</a>
+    <a href="https://orcid.org/0009-0006-2324-9599" target="_blank">ORCID</a>
+    <a href="mailto:halilu.175366@e.unavarra.es">Email</a>
+  </div>
+</footer>
+
+<script>
+const domains = [
+  {
+    key: "remote-sensing", label: "Remote Sensing & EO", color: "var(--blue)",
+    desc: "Correcting, extracting, and teaching how to work with satellite and drone imagery.",
+    projects: [
+      { name: "STADOS: Radiometric Harmonization", metric: "39% & 31% less temporal variance", desc: "Extends dark-object subtraction into a self-consistent, multi-object framework for Sentinel-2 NDVI.", doi: "10.5281/zenodo.21997000", repo: "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction", thumb: "thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.png" },
+      { name: "Real-Time RGB Vegetation Indexing", metric: "Published, IJRSI 2026", desc: "Open-source vegetation indexing pipeline for UAV and handheld crop imagery.", doi: "10.51244/IJRSI.2026.1307000218", repo: "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery", thumb: "thumbs/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery.png" },
+      { name: "Geospatial Data Analysis", metric: "6-module course package", desc: "Vector/raster GIS, Sentinel-1/2 remote sensing, and classification, Python + Google Earth Engine.", doi: "10.5281/zenodo.21760031", repo: "Geospatial-data-analysis", thumb: "thumbs/Geospatial-data-analysis.png" }
+    ]
+  },
+  {
+    key: "hydrology", label: "Hydrology & Erosion", color: "var(--green)",
+    desc: "Modelling how water moves and erodes land, gully formation and sediment transport.",
+    projects: [
+      { name: "Digital Twin for Gully Biocontrol", metric: "47.8% less soil loss", desc: "Bayesian-assimilated digital twin evaluating Morning Glory biocontrol of gully erosion. Under review, Environmental Monitoring and Assessment.", doi: "10.5281/zenodo.21760023", repo: "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp", thumb: "thumbs/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.png" },
+      { name: "Hybrid CNN-BiLSTM-Attention Sediment", metric: "Published, IJRSI 2026", desc: "Physics-grounded hybrid deep learning for gully sediment transport prediction.", doi: "10.51244/IJRSI.2026.1307000217", repo: "Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System", thumb: "thumbs/Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System.png" }
+    ]
+  },
+  {
+    key: "irrigation", label: "Irrigation & Water Mgmt", color: "var(--navy)",
+    desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
+    projects: [
+      { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.png" },
+      { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.png" }
+    ]
+  },
+  {
+    key: "precision-ag", label: "Precision Ag & Geostatistics", color: "var(--brown)",
+    desc: "Turning sparse field samples into reliable, spatially continuous maps.",
+    projects: [
+      { name: "Multitask Singularity Regression Kriging", metric: "Moran's I up to 0.98", desc: "Multiscale singularity index engineering combined with multitask kriging for soil/crop prediction.", doi: "10.5281/zenodo.21798402", repo: "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction", thumb: "thumbs/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.png" },
+      { name: "GIS-Based Livestock Slurry Suitability", metric: "R\u00b2 = 0.77", desc: "GIS-MCDA overlay extended with regression kriging and deep-learning suitability surfaces.", doi: "10.5281/zenodo.21760027", repo: "GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application", thumb: "thumbs/GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application.png" },
+      { name: "Operationalizing GIS & ML", metric: "2.69t lime saved", desc: "Three field campaigns, maize, vineyard pest, and grape ripening, compared under one lens. Under review, European Journal of Agronomy.", doi: null, ssrn: "10.2139/ssrn.7194382", repo: "Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems", thumb: "thumbs/Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems.png" },
+      { name: "GIS Monitoring of Grape Moth", metric: "25 delta traps, 3 flight periods", desc: "Terrain analysis, mating-disruption costing, and spatial pest monitoring in the Douro region.", doi: "10.5281/zenodo.22741092", repo: "GIS-Monitoring-of-Grape-Moth-Vineyard-Pest", thumb: "thumbs/GIS-Monitoring-of-Grape-Moth-Vineyard-Pest.png" },
+      { name: "GIS Monitoring of Vineyard Ripening (Brix)", metric: "R\u00b2 = 0.9784", desc: "NDVI and logarithmic regression harvest-date forecasting for a 6-hectare UTAD vineyard.", doi: "10.5281/zenodo.22741094", repo: "GIS-Monitoring-of-Vineyard-Ripening-Brix", thumb: "thumbs/GIS-Monitoring-of-Vineyard-Ripening-Brix.png" }
+    ]
+  },
+  {
+    key: "vision-dl", label: "Computer Vision & DL", color: "var(--purple)",
+    desc: "Foundational architectures that generalize across agronomic imaging tasks.",
+    projects: [
+      { name: "Geometry-Agnostic Contrastive Learning", metric: "64.4% vs 5.3% chance", desc: "Unified geometry-invariant deep-learning framework spanning four architecture types. Under review, Biosystems Engineering.", doi: "10.5281/zenodo.21760025", repo: "Geometry-Agnostic-Contrastive-Learning-GACL", thumb: "thumbs/Geometry-Agnostic-Contrastive-Learning-GACL.png" }
+    ]
+  },
+  {
+    key: "agribusiness", label: "Agribusiness Decision Science", color: "var(--orange)",
+    desc: "Operations research for real production and market decisions.",
+    projects: [
+      { name: "Dairy Processing Decision-Support Model", metric: "R\u00b2 = 0.859", desc: "Model comparison, linear programming, and Monte Carlo risk simulation for dairy product mix.", doi: "10.5281/zenodo.21760085", repo: "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability", thumb: "thumbs/Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability.png" }
+    ]
+  }
+];
+
+let activeKey = "all";
+
+function allProjects() {
+  return domains.flatMap(d => d.projects.map(p => ({...p, color: d.color})));
+}
+
+function renderLayers() {
+  const list = document.getElementById('layers-list');
+  const allItem = document.createElement('div');
+  allItem.className = 'layer-item' + (activeKey === 'all' ? ' active' : '');
+  allItem.innerHTML = '<span class="layer-swatch" style="background:var(--ink-soft)"></span><span>All projects</span><span class="layer-count mono">' + allProjects().length + '</span>';
+  allItem.onclick = () => { activeKey = 'all'; render(); };
+  list.appendChild(allItem);
+
+  domains.forEach(d => {
+    const item = document.createElement('div');
+    item.className = 'layer-item' + (activeKey === d.key ? ' active' : '');
+    item.innerHTML = '<span class="layer-swatch" style="background:' + d.color + '"></span><span>' + d.label + '</span><span class="layer-count mono">' + d.projects.length + '</span>';
+    item.onclick = () => { activeKey = d.key; render(); };
+    list.appendChild(item);
+  });
+}
+
+function renderProjects() {
+  const grid = document.getElementById('project-grid');
+  const desc = document.getElementById('layer-desc');
+  grid.innerHTML = '';
+  let projects, description;
+  if (activeKey === 'all') {
+    projects = allProjects();
+    description = 'All 15 repositories across every research domain.';
+  } else {
+    const d = domains.find(x => x.key === activeKey);
+    projects = d.projects.map(p => ({...p, color: d.color}));
+    description = d.desc;
+  }
+  desc.textContent = description;
+  projects.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.style.borderLeft = '3px solid ' + p.color;
+    const doiTag = p.doi ? ('<span class="doi-tag mono">DOI: ' + p.doi + '</span>') :
+                   (p.ssrn ? ('<span class="doi-tag mono">SSRN: ' + p.ssrn + '</span>') : '');
+    card.style.borderLeft = 'none';
+    card.style.borderTop = '3px solid ' + p.color;
+    card.innerHTML =
+      '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy">' +
+      '<div class="project-body">' +
+      doiTag +
+      '<h3>' + p.name + '</h3>' +
+      '<p class="metric mono">' + p.metric + '</p>' +
+      '<p>' + p.desc + '</p>' +
+      '<div class="project-links">' +
+        '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank">Repository &rarr;</a>' +
+        '<a href="https://halilunaziru73-creator.github.io/' + p.repo + '/" target="_blank">Walkthrough &rarr;</a>' +
+      '</div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+function render() {
+  document.getElementById('layers-list').innerHTML = '<div class="layers-list-head">LAYERS</div>';
+  renderLayers();
+  renderProjects();
+}
+render();
+
+async function sendMessage() {
+  const name = document.getElementById('c-name').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  const message = document.getElementById('c-msg').value.trim();
+  const status = document.getElementById('c-status');
+  const btn = document.getElementById('c-btn');
+  status.className = 'contact-status';
+  if (!message) { status.textContent = 'Please enter a message.'; status.className = 'contact-status err'; return; }
+  if (!email) { status.textContent = 'Please enter your email so I can reply.'; status.className = 'contact-status err'; return; }
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: 'b58a03ec-1761-4115-8b5b-7bba5bc4b65a',
+        subject: 'Portfolio contact form message',
+        name: name || 'Anonymous',
+        email: email,
+        message: message
+      })
+    });
+    const result = await res.json();
+    if (result.success) {
+      status.textContent = 'Sent, thank you. I will reply to your email.';
+      status.className = 'contact-status ok';
+      document.getElementById('c-name').value = '';
+      document.getElementById('c-email').value = '';
+      document.getElementById('c-msg').value = '';
+    } else {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.className = 'contact-status err';
+    }
+  } catch (e) {
+    status.textContent = 'Network error. Please try again.';
+    status.className = 'contact-status err';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Send message';
+}
+</script>
+
+</body>
+</html>
