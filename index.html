@@ -100,7 +100,8 @@
   .layer-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 1.4rem; max-width: 62ch; }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
   .project-card { border: 1px solid var(--line); border-radius: 5px; padding: 0; background: var(--paper-raised); overflow: hidden; }
-  .project-thumb { width: 100%; height: 140px; object-fit: cover; display: block; border-bottom: 1px solid var(--line); background: #F1F0E8; }
+  .project-thumb { width: 100%; height: 200px; object-fit: contain; display: block; border-bottom: 1px solid var(--line);
+    background: #FAFAF7; padding: 0.6rem; box-sizing: border-box; }
   .project-body { padding: 1.1rem 1.2rem; }
   .project-card h3 { font-size: 14.5px; font-weight: 600; margin-bottom: 0.45rem; line-height: 1.3; }
   .project-card .metric { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--green); margin-bottom: 0.6rem; }
@@ -649,6 +650,149 @@
     
     </svg>
   </div>
+
+  <div style="background:#F2E8D0; border-radius:10px; padding:1.4rem; margin-top:1.4rem; border: 3px double #C9B98A; overflow-x:auto;">
+    <svg viewBox="0 0 900 460" style="width:100%; height:auto; min-width:640px;" role="img" aria-label="Illustrated tour map of 10 countries visited">
+      <rect x="0" y="0" width="900" height="460" fill="#F2E8D0" rx="8"/>
+      <rect x="10" y="10" width="880" height="440" fill="none" stroke="#C9B98A" stroke-width="1.5" rx="6"/>
+
+      <!-- Compass rose -->
+      <g transform="translate(60,60)">
+        <circle r="34" fill="none" stroke="#B8863A" stroke-width="1.2"/>
+        <path d="M0,-30 L6,0 L0,30 L-6,0 Z" fill="#B8863A" opacity="0.8"/>
+        <path d="M-30,0 L0,6 L30,0 L0,-6 Z" fill="#B8863A" opacity="0.5"/>
+        <text x="0" y="-38" text-anchor="middle" font-size="11" font-weight="700" fill="#B8863A" font-family="Space Grotesk, sans-serif">N</text>
+        <text x="0" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#B8863A" font-family="Space Grotesk, sans-serif">S</text>
+        <text x="40" y="4" text-anchor="middle" font-size="11" font-weight="700" fill="#B8863A" font-family="Space Grotesk, sans-serif">E</text>
+        <text x="-40" y="4" text-anchor="middle" font-size="11" font-weight="700" fill="#B8863A" font-family="Space Grotesk, sans-serif">W</text>
+      </g>
+
+      <!-- Title -->
+      <text x="450" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#3A2E1E" font-family="Space Grotesk, sans-serif">GLOBAL TOUR &middot; 10 NATIONS</text>
+      <text x="450" y="58" text-anchor="middle" font-size="11.5" fill="#6b5c3e" font-family="IBM Plex Mono, monospace">RESEARCH TRAVEL &middot; CONFERENCES &middot; ERASMUS MUNDUS</text>
+
+      <!-- Region highlight blobs -->
+      <ellipse cx="264.6" cy="354.6" rx="34" ry="26" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="139.7" cy="98.5" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="111.5" cy="117.9" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="190.7" cy="109.8" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="57.1" cy="110.7" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="479.6" cy="137.3" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="853.0" cy="239.9" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="69.9" cy="169.6" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="681.0" cy="371.5" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="192.1" cy="49.3" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="329.1" cy="105.8" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      <ellipse cx="341.2" cy="20.2" rx="22" ry="18" fill="#D4A94A" opacity="0.55"/>
+      
+
+      <!-- Flight paths -->
+      <path d="M 264.6,354.6 L 139.7,98.5 L 57.1,110.7 L 479.6,137.3 L 853.0,239.9 L 69.9,169.6 L 681.0,371.5 L 192.1,49.3 L 329.1,105.8 L 341.2,20.2" fill="none" stroke="#B8863A" stroke-width="2.2" stroke-dasharray="1,7" stroke-linecap="round" opacity="0.9"/>
+      <path d="M 139.7,98.5 L 111.5,117.9 L 190.7,109.8" fill="none" stroke="#B23A2E" stroke-width="1.8" stroke-dasharray="1,6" stroke-linecap="round" opacity="0.8"/>
+
+      <!-- Pins -->
+      <g>
+        <circle cx="264.6" cy="354.6" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="264.6" cy="354.6" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="139.7" cy="98.5" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="139.7" cy="98.5" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="111.5" cy="117.9" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="111.5" cy="117.9" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="190.7" cy="109.8" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="190.7" cy="109.8" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="57.1" cy="110.7" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="57.1" cy="110.7" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="479.6" cy="137.3" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="479.6" cy="137.3" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="853.0" cy="239.9" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="853.0" cy="239.9" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="69.9" cy="169.6" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="69.9" cy="169.6" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="681.0" cy="371.5" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="681.0" cy="371.5" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="192.1" cy="49.3" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="192.1" cy="49.3" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="329.1" cy="105.8" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="329.1" cy="105.8" r="2" fill="white"/>
+      </g>
+      <g>
+        <circle cx="341.2" cy="20.2" r="6" fill="#B23A2E" stroke="white" stroke-width="1.8"/>
+        <circle cx="341.2" cy="20.2" r="2" fill="white"/>
+      </g>
+      
+
+      <!-- Labels -->
+      <text x="264.6" y="342.6" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Zaria</text>
+      <text x="139.7" y="86.5" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Pamplona</text>
+      <text x="111.5" y="105.9" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Madrid</text>
+      <text x="190.7" y="97.8" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Barcelona</text>
+      <text x="57.1" y="98.7" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Vila Real</text>
+      <text x="479.6" y="125.30000000000001" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Athens</text>
+      <text x="853.0" y="227.9" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Doha</text>
+      <text x="69.9" y="157.6" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Rabat</text>
+      <text x="681.0" y="359.5" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Addis Ababa</text>
+      <text x="192.1" y="37.3" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Paris</text>
+      <text x="329.1" y="93.8" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Rome</text>
+      <text x="341.2" y="8.2" text-anchor="middle" font-size="10.5" font-family="Space Grotesk, sans-serif" font-weight="700" fill="#3A2E1E">Berlin</text>
+      
+
+      <!-- Legend box -->
+      <g transform="translate(660,90)">
+        <rect x="0" y="0" width="210" height="160" fill="white" stroke="#C9B98A" stroke-width="1.2" rx="5"/>
+        <text x="105" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#3A2E1E" font-family="Space Grotesk, sans-serif">TOUR SUMMARY</text>
+        <text x="14" y="40" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇳🇬 Nigeria</text>
+        <text x="14" y="56" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇪🇸 Spain</text>
+        <text x="14" y="72" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇵🇹 Portugal</text>
+        <text x="14" y="88" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇬🇷 Greece</text>
+        <text x="14" y="104" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇶🇦 Qatar</text>
+        <text x="115" y="40" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇲🇦 Morocco</text>
+        <text x="115" y="56" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇪🇹 Ethiopia</text>
+        <text x="115" y="72" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇫🇷 France</text>
+        <text x="115" y="88" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇮🇹 Italy</text>
+        <text x="115" y="104" font-size="10.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">🇩🇪 Germany</text>
+        <line x1="14" y1="120" x2="196" y2="120" stroke="#C9B98A" stroke-width="1"/>
+        <circle cx="20" cy="136" r="4" fill="#B23A2E"/>
+        <text x="30" y="140" font-size="9.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">City visited</text>
+        <line x1="14" y1="150" x2="34" y2="150" stroke="#B8863A" stroke-width="2" stroke-dasharray="1,4"/>
+        <text x="40" y="153" font-size="9.5" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">Route</text>
+      </g>
+
+      <!-- Iberian inset -->
+      <g transform="translate(30,320)">
+        <rect x="0" y="0" width="250" height="120" fill="white" stroke="#C9B98A" stroke-width="1.2" rx="5"/>
+        <text x="125" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#3A2E1E" font-family="Space Grotesk, sans-serif">IBERIAN PENINSULA CLOSE-UP</text>
+        <ellipse cx="125" cy="70" rx="95" ry="38" fill="#D4A94A" opacity="0.4"/>
+        <path d="M 70,55 L 110,50 L 175,68" fill="none" stroke="#B23A2E" stroke-width="1.6" stroke-dasharray="1,5"/>
+        <circle cx="70" cy="55" r="4.5" fill="#B23A2E" stroke="white" stroke-width="1"/>
+        <circle cx="110" cy="50" r="4.5" fill="#B23A2E" stroke="white" stroke-width="1"/>
+        <circle cx="175" cy="68" r="4.5" fill="#B23A2E" stroke="white" stroke-width="1"/>
+        <text x="70" y="42" text-anchor="middle" font-size="9.5" font-weight="600" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">Pamplona</text>
+        <text x="110" y="94" text-anchor="middle" font-size="9.5" font-weight="600" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">Madrid</text>
+        <text x="175" y="82" text-anchor="middle" font-size="9.5" font-weight="600" font-family="IBM Plex Mono, monospace" fill="#3A2E1E">Barcelona</text>
+      </g>
+    </svg>
+  </div>
+
   <div class="tag-list" style="margin-top:1rem;">
     <span class="tag" style="background:white;">🇳🇬 Nigeria</span>
     <span class="tag" style="background:white;">🇪🇸 Spain</span>
@@ -744,7 +888,7 @@ const domains = [
     desc: "Correcting, extracting, and teaching how to work with satellite and drone imagery.",
     projects: [
       { name: "STADOS: Radiometric Harmonization", metric: "39% & 31% less temporal variance", desc: "Extends dark-object subtraction into a self-consistent, multi-object framework for Sentinel-2 NDVI.", doi: "10.5281/zenodo.21997000", repo: "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction", thumb: "thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.jpg" },
-      { name: "Real-Time RGB Vegetation Indexing", metric: "Published, IJRSI 2026", desc: "Open-source vegetation indexing pipeline for UAV and handheld crop imagery.", doi: "10.51244/IJRSI.2026.1307000218", repo: "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery", thumb: "thumbs/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery.jpg" },
+      { name: "Real-Time RGB Vegetation Indexing", metric: "Published, IJRSI 2026", desc: "Open-source vegetation indexing pipeline for UAV and handheld crop imagery.", doi: "10.51244/IJRSI.2026.1307000218", repo: "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery", thumb: "thumbs2/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery.jpg" },
       { name: "Geospatial Data Analysis", metric: "6-module course package", desc: "Vector/raster GIS, Sentinel-1/2 remote sensing, and classification, Python + Google Earth Engine.", doi: "10.5281/zenodo.21760031", repo: "Geospatial-data-analysis", thumb: "thumbs/Geospatial-data-analysis.jpg" }
     ]
   },
@@ -752,8 +896,8 @@ const domains = [
     key: "hydrology", label: "Hydrology & Erosion", color: "var(--green)",
     desc: "Modelling how water moves and erodes land, gully formation and sediment transport.",
     projects: [
-      { name: "Digital Twin for Gully Biocontrol", metric: "47.8% less soil loss", desc: "Bayesian-assimilated digital twin evaluating Morning Glory biocontrol of gully erosion. Under review, Environmental Monitoring and Assessment.", doi: "10.5281/zenodo.21760023", repo: "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp", thumb: "thumbs/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.jpg" },
-      { name: "Hybrid CNN-BiLSTM-Attention Sediment", metric: "Published, IJRSI 2026", desc: "Physics-grounded hybrid deep learning for gully sediment transport prediction.", doi: "10.51244/IJRSI.2026.1307000217", repo: "Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System", thumb: "thumbs/Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System.jpg" }
+      { name: "Digital Twin for Gully Biocontrol", metric: "47.8% less soil loss", desc: "Bayesian-assimilated digital twin evaluating Morning Glory biocontrol of gully erosion. Under review, Environmental Monitoring and Assessment.", doi: "10.5281/zenodo.21760023", repo: "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp", thumb: "thumbs2/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.jpg" },
+      { name: "Hybrid CNN-BiLSTM-Attention Sediment", metric: "Published, IJRSI 2026", desc: "Physics-grounded hybrid deep learning for gully sediment transport prediction.", doi: "10.51244/IJRSI.2026.1307000217", repo: "Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System", thumb: "thumbs2/Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System.jpg" }
     ]
   },
   {
@@ -768,9 +912,9 @@ const domains = [
     key: "precision-ag", label: "Precision Ag & Geostatistics", color: "var(--brown)",
     desc: "Turning sparse field samples into reliable, spatially continuous maps.",
     projects: [
-      { name: "Multitask Singularity Regression Kriging", metric: "Moran's I up to 0.98", desc: "Multiscale singularity index engineering combined with multitask kriging for soil/crop prediction.", doi: "10.5281/zenodo.21798402", repo: "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction", thumb: "thumbs/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.jpg" },
+      { name: "Multitask Singularity Regression Kriging", metric: "Moran's I up to 0.98", desc: "Multiscale singularity index engineering combined with multitask kriging for soil/crop prediction.", doi: "10.5281/zenodo.21798402", repo: "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction", thumb: "thumbs2/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.jpg" },
       { name: "GIS-Based Livestock Slurry Suitability", metric: "R\u00b2 = 0.77", desc: "GIS-MCDA overlay extended with regression kriging and deep-learning suitability surfaces.", doi: "10.5281/zenodo.21760027", repo: "GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application", thumb: "thumbs/GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application.jpg" },
-      { name: "Operationalizing GIS & ML", metric: "2.69t lime saved", desc: "Three field campaigns, maize, vineyard pest, and grape ripening, compared under one lens. Under review, European Journal of Agronomy.", doi: null, ssrn: "10.2139/ssrn.7194382", repo: "Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems", thumb: "thumbs/Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems.jpg" },
+      { name: "Operationalizing GIS & ML", metric: "2.69t lime saved", desc: "Three field campaigns, maize, vineyard pest, and grape ripening, compared under one lens. Under review, European Journal of Agronomy.", doi: null, ssrn: "10.2139/ssrn.7194382", repo: "Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems", thumb: "thumbs2/Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems.jpg" },
       { name: "GIS Monitoring of Grape Moth", metric: "25 delta traps, 3 flight periods", desc: "Terrain analysis, mating-disruption costing, and spatial pest monitoring in the Douro region.", doi: "10.5281/zenodo.22741092", repo: "GIS-Monitoring-of-Grape-Moth-Vineyard-Pest", thumb: "thumbs/GIS-Monitoring-of-Grape-Moth-Vineyard-Pest.jpg" },
       { name: "GIS Monitoring of Vineyard Ripening (Brix)", metric: "R\u00b2 = 0.9784", desc: "NDVI and logarithmic regression harvest-date forecasting for a 6-hectare UTAD vineyard.", doi: "10.5281/zenodo.22741094", repo: "GIS-Monitoring-of-Vineyard-Ripening-Brix", thumb: "thumbs/GIS-Monitoring-of-Vineyard-Ripening-Brix.jpg" }
     ]
@@ -779,14 +923,14 @@ const domains = [
     key: "vision-dl", label: "Computer Vision & DL", color: "var(--purple)",
     desc: "Foundational architectures that generalize across agronomic imaging tasks.",
     projects: [
-      { name: "Geometry-Agnostic Contrastive Learning", metric: "64.4% vs 5.3% chance", desc: "Unified geometry-invariant deep-learning framework spanning four architecture types. Under review, Biosystems Engineering.", doi: "10.5281/zenodo.21760025", repo: "Geometry-Agnostic-Contrastive-Learning-GACL", thumb: "thumbs/Geometry-Agnostic-Contrastive-Learning-GACL.jpg" }
+      { name: "Geometry-Agnostic Contrastive Learning", metric: "64.4% vs 5.3% chance", desc: "Unified geometry-invariant deep-learning framework spanning four architecture types. Under review, Biosystems Engineering.", doi: "10.5281/zenodo.21760025", repo: "Geometry-Agnostic-Contrastive-Learning-GACL", thumb: "thumbs2/Geometry-Agnostic-Contrastive-Learning-GACL.jpg" }
     ]
   },
   {
     key: "agribusiness", label: "Agribusiness Decision Science", color: "var(--orange)",
     desc: "Operations research for real production and market decisions.",
     projects: [
-      { name: "Dairy Processing Decision-Support Model", metric: "R\u00b2 = 0.859", desc: "Model comparison, linear programming, and Monte Carlo risk simulation for dairy product mix.", doi: "10.5281/zenodo.21760085", repo: "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability", thumb: "thumbs/Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability.jpg" }
+      { name: "Dairy Processing Decision-Support Model", metric: "R\u00b2 = 0.859", desc: "Model comparison, linear programming, and Monte Carlo risk simulation for dairy product mix.", doi: "10.5281/zenodo.21760085", repo: "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability", thumb: "thumbs2/Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability.jpg" }
     ]
   }
 ];
