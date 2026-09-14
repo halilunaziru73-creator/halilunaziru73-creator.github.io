@@ -170,6 +170,25 @@
   .referee-card { border: 1px solid var(--line); border-radius: 5px; padding: 1rem 1.2rem; background: var(--paper-raised); }
   .referee-card h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 0.2rem; }
   .referee-card p { font-size: 12.5px; color: var(--ink-soft); }
+  .course-group { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 0.7rem; background: white; overflow: hidden; }
+  .course-group summary { cursor: pointer; padding: 0.9rem 1.1rem; font-weight: 600; font-size: 13.5px;
+    list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .course-group summary::-webkit-details-marker { display: none; }
+  .course-group summary::before { content: '+'; margin-right: 0.6rem; color: var(--orange); font-weight: 700; }
+  .course-group[open] summary::before { content: '\u2212'; }
+  .course-count { font-weight: 400; color: var(--ink-soft); font-size: 11px; }
+  .course-table { border-top: 1px solid var(--line); }
+  .course-row { display: grid; grid-template-columns: 90px 1fr 70px 90px 70px; gap: 0.6rem; padding: 0.5rem 1.1rem;
+    font-size: 12px; border-bottom: 1px solid #F1F0E8; align-items: center; }
+  .course-row:last-child { border-bottom: none; }
+  .course-row-head { background: #FAFAF6; font-weight: 700; font-size: 10.5px; color: var(--ink-soft); }
+  .course-code { color: var(--blue); }
+  .course-grade { color: var(--green); font-weight: 600; }
+  .course-prog { color: var(--ink-soft); }
+  @media (max-width: 700px) {
+    .course-row { grid-template-columns: 70px 1fr 55px; }
+    .course-grade, .course-prog { display: none; }
+  }
 
   .contact-panel { background: var(--navy); color: #F0F1EC; border-radius: 8px; padding: 3rem 2.5rem;
     display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; }
@@ -233,6 +252,7 @@
         <li><a href="#travels">Travels</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#courses">Courses</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -257,6 +277,7 @@
     </svg>
   </div>
   <div class="hero-content hero-fade-in">
+    <p class="hero-eyebrow">FIELD-VALIDATED RESEARCH &middot; 15 OPEN REPOSITORIES</p>
     <p class="hero-coord mono">&#128205; PAMPLONA, SPAIN &middot; ORIGINALLY ZARIA, NIGERIA</p>
     <h1 class="hero-name-gradient">Naziru Halilu</h1>
     <p class="hero-title"><strong>Digital Agriculture</strong> &middot; <strong>Computer Vision</strong> &middot; <strong>Geospatial Machine Learning</strong></p>
@@ -268,7 +289,10 @@
       <a href="mailto:naziru.175366@aua.gr" class="email-chip chip-purple">&#9993;&#65039; naziru.175366@aua.gr</a>
       <a href="mailto:naziruhalilu73@gmail.com" class="email-chip chip-orange">&#9993;&#65039; naziruhalilu73@gmail.com</a>
       <span class="email-chip chip-navy">&#128222; +34 6 5296 7216</span>
+      <span class="email-chip chip-navy">&#128222; +234 9067 299 2824</span>
     </div>
+
+    <a href="#projects" class="hero-cta-btn">Explore My Research &rarr;</a>
 
     <div class="hero-links-row">
       <a href="https://github.com/halilunaziru73-creator" target="_blank" class="hero-link-btn">GitHub &rarr;</a>
@@ -333,7 +357,17 @@
   .chip-purple { background: linear-gradient(135deg, #6E5A8C, #8E74B0); }
   .chip-orange { background: linear-gradient(135deg, #B8763F, #D6975E); }
   .chip-navy { background: linear-gradient(135deg, #2E3A52, #4A5A78); }
+  .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--orange); text-transform: uppercase; margin-bottom: 0.5rem; }
+  .hero-cta-btn { display: inline-block; background: linear-gradient(90deg, #3B6EA5, #4C8C6B); color: white;
+    font-weight: 700; font-size: 14.5px; text-decoration: none; padding: 13px 26px; border-radius: 8px;
+    margin-bottom: 1.5rem; box-shadow: 0 4px 14px rgba(59,110,165,0.35); transition: transform .18s, box-shadow .18s; }
+  .hero-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,110,165,0.45); }
   .hero-links-row { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.8rem; }
+  .impact-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; line-height: 1; margin-bottom: 0.6rem; }
+  .impact-label { color: #C9CDD8; font-size: 13px; font-weight: 600; line-height: 1.4; }
+  .impact-label span { font-weight: 400; color: #8A93A8; font-size: 11.5px; }
   .hero-link-btn { font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
     border-bottom: 2px solid var(--blue); padding-bottom: 1px; transition: color .15s, border-color .15s; }
   .hero-link-btn:hover { color: var(--blue); border-color: var(--green); }
@@ -362,6 +396,33 @@
     .scroll-cue { display: none; }
   }
 </style>
+
+<section id="impact" style="background: linear-gradient(120deg, #2E3A52, #1A2318); border-radius: 12px; padding: 3.2rem 2.4rem;">
+  <p class="mono" style="color:#85B7EB; font-size:11px; font-weight:700; letter-spacing:0.08em; margin-bottom:0.6rem;">MOMENTUM ACROSS 3 CONTINENTS</p>
+  <h2 style="color:white; font-size:1.9rem; margin-bottom:2rem; max-width:36ch;">Research built on real field validation, not just published claims.</h2>
+  <div class="impact-grid">
+    <div class="impact-stat">
+      <div class="impact-num" style="color:#85B7EB;">15</div>
+      <div class="impact-label">Open Repositories<br><span>Fully documented, reproducible</span></div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-num" style="color:#9ED8B5;">11</div>
+      <div class="impact-label">Zenodo DOIs<br><span>Permanently archived</span></div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-num" style="color:#F0C589;">4</div>
+      <div class="impact-label">Peer-Reviewed Papers<br><span>Published, 2026</span></div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-num" style="color:#C7AEE8;">10</div>
+      <div class="impact-label">Countries<br><span>Fieldwork &amp; study</span></div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-num" style="color:#85B7EB;">4.77</div>
+      <div class="impact-label">B.Eng CGPA / 5.00<br><span>Top 1%, First Class</span></div>
+    </div>
+  </div>
+</section>
 
 <section id="travels" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
   <div class="section-head">
@@ -421,9 +482,9 @@
   <div class="timeline">
     <div class="tl-item">
       <p class="tl-date mono">2025 &ndash; 2027</p>
-      <h3><a href="https://drive.google.com/open?id=17zXnkT0g7UOKER2jj9igMC1tPhR4HeX2&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">Erasmus Mundus Joint Master's Degree (EMJMD)</a></h3>
+      <h3><a href="https://drive.google.com/open?id=1mog9_ORRJNoNT1a4K2XxffY0NJMCeBXr&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">Erasmus Mundus Joint Master's Degree (EMJMD)</a></h3>
       <p class="tl-org">Cutting-Edge Technologies for Sustainable Agriculture &mdash; <a href="https://www.unavarra.es/home" target="_blank" style="color:inherit">Public University of Navarre, Spain</a> &middot; <a href="https://www.utad.pt/en/" target="_blank" style="color:inherit">UTAD, Portugal</a> &middot; <a href="https://www2.aua.gr/en" target="_blank" style="color:inherit">Agricultural University of Athens, Greece</a></p>
-      <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=17zXnkT0g7UOKER2jj9igMC1tPhR4HeX2&usp=drive_fs" target="_blank" style="color:var(--blue)">View certificate/enrolment record &rarr;</a></p>
+      <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=1mog9_ORRJNoNT1a4K2XxffY0NJMCeBXr&usp=drive_fs" target="_blank" style="color:var(--blue)">View certificate/enrolment record &rarr;</a></p>
     </div>
     <div class="tl-item">
       <p class="tl-date mono">2019 &ndash; 2024</p>
@@ -441,6 +502,238 @@
     </div>
   </div>
 </section>
+
+<section id="emjmd-courses" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
+  <div class="section-head">
+    <h2>EMJMD Programme Overview</h2>
+    <span class="section-note mono">120 ECTS across 4 terms</span>
+  </div>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">SUSTAGRI is a 2-year, 4-term Erasmus Mundus Joint Master's Degree. Each term is hosted at a different partner university, with the final term dedicated to the Master Thesis.</p>
+  <div class="skills-grid">
+    <div class="skill-card" style="border-left:3px solid #3B6EA5;">
+      <h4>Term 1 &middot; UPNA, Spain &middot; 30 ECTS</h4>
+      <p><b>Technological bases for agricultural sustainability</b></p>
+      <p style="margin-top:0.5rem;">Data science and analytics in agriculture (6) &middot; Geospatial data analysis (3) &middot; Geoinformation and remote sensing (6) &middot; Sensors and the Internet of Things (6) &middot; Agricultural systems modelling (6) &middot; Practical exercise integrating disciplines I (3)</p>
+    </div>
+    <div class="skill-card" style="border-left:3px solid #4C8C6B;">
+      <h4>Term 2 &middot; UTAD, Portugal &middot; 30 ECTS</h4>
+      <p><b>Precision agriculture for sustainable crop production</b></p>
+      <p style="margin-top:0.5rem;">Precision agriculture (6) &middot; Identifying soil and crop variability (6) &middot; Precision agriculture machinery (6) &middot; Preventive management strategy (6) &middot; Reactive management strategy (3) &middot; Practical exercise integrating disciplines II (3)</p>
+    </div>
+    <div class="skill-card" style="border-left:3px solid #B8763F;">
+      <h4>Term 3 &middot; AUA, Greece &middot; 30 ECTS</h4>
+      <p><b>Efficient water use, smart irrigation</b></p>
+      <p style="margin-top:0.5rem;">Modelling crop water requirements (6) &middot; Smart design and management of irrigation systems (9) &middot; Modelling for sustainable irrigation, enhancing system efficiency and resilience (6) &middot; Agri-environmental legislation and policies (3) &middot; Technology sharing and transfer for entrepreneurship (3) &middot; Practical exercise integrating disciplines III (3)</p>
+    </div>
+    <div class="skill-card" style="border-left:3px solid #6E5A8C;">
+      <h4>Term 4 &middot; UPNA / UTAD / AUA &middot; 30 ECTS</h4>
+      <p><b>Master Thesis</b></p>
+      <p style="margin-top:0.5rem;">Completed at one of the three consortium universities, or an associated partner institution.</p>
+    </div>
+  </div>
+</section>
+
+<section id="courses" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
+  <div class="section-head">
+    <h2>Full Academic Record</h2>
+    <span class="section-note mono">ND &middot; B.Eng &middot; EMJMD, by discipline</span>
+  </div>
+  <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">Every course completed across the National Diploma, B.Eng, and EMJMD programmes, consolidated by technical discipline. Click a category to expand.</p>
+  <details class="course-group">
+    <summary>Agricultural Machinery, Mechanization &amp; Power <span class="mono course-count">10 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">ABE 112</span><span class="course-name">Tractor Operation and Maintenance</span><span class="course-credit mono">4 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 122</span><span class="course-name">Farm Machinery &amp; Mechanization I</span><span class="course-credit mono">5 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 125</span><span class="course-name">Introduction to Livestock Mechanization</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 215</span><span class="course-name">Farm Power</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 222</span><span class="course-name">Farm Machinery &amp; Mechanization</span><span class="course-credit mono">5 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 230</span><span class="course-name">Farm Machinery Management</span><span class="course-credit mono">4 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABEN312</span><span class="course-name">Agricultural Power and Machinery</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN513</span><span class="course-name">Agricultural Machinery Management</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN515</span><span class="course-name">Agricultural Power</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">751009</span><span class="course-name">Precision Agriculture Machinery</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">Outstanding (9.2)</span><span class="course-prog mono">EMJMD</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Soil, Water, Irrigation &amp; Environmental Engineering <span class="mono course-count">18 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">ABE 213</span><span class="course-name">Irrigation and Drainage</span><span class="course-credit mono">4 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 223</span><span class="course-name">Soil and Water Conservation</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">CEC 212/210</span><span class="course-name">Soil Mechanics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABEN303</span><span class="course-name">Agricultural Climatology for Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN305</span><span class="course-name">Soil Mechanics for Agric. &amp; Bioresource Engineers</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN401</span><span class="course-name">Irrigation II</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN403</span><span class="course-name">Agricultural Hydrology</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN405</span><span class="course-name">Hydraulics for Agric. Bioresource Engineers</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN413</span><span class="course-name">Land Clearing and Development</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN501</span><span class="course-name">Irrigation System Design, Management and Evaluation</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN502</span><span class="course-name">Agricultural Drainage</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN503</span><span class="course-name">Soil and Water Conservation</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN508</span><span class="course-name">Farm Water Supply and Management</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">CVEN201</span><span class="course-name">Theory of Structures</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">CVEN321</span><span class="course-name">Soil Mechanics</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">WREN201</span><span class="course-name">Fluid Mechanics I</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">WREN506</span><span class="course-name">Element of Public Health Engineering</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">751008</span><span class="course-name">Identifying Soil and Crop Variability</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">Remarkable (8.0)</span><span class="course-prog mono">EMJMD</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Data Science, Precision Agriculture &amp; Remote Sensing <span class="mono course-count">12 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">COM 001</span><span class="course-name">Computer Application I</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">COM 002</span><span class="course-name">Computer Application II</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 221</span><span class="course-name">Computer Aided Design &amp; Drafting</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABEN594</span><span class="course-name">Computer Application in Agric. &amp; Bioresource Engineering</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">751001</span><span class="course-name">Data Science and Analytics in Agriculture</span><span class="course-credit mono">6 ECTS</span><span class="course-grade mono">Remarkable (8.0)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751002</span><span class="course-name">Geospatial Data Analysis</span><span class="course-credit mono">6 ECTS</span><span class="course-grade mono">Remarkable (7.0)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751003</span><span class="course-name">Geoinformation and Remote Sensing</span><span class="course-credit mono">6 ECTS</span><span class="course-grade mono">Remarkable (7.3)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751004</span><span class="course-name">Sensors and Internet of Things (IoT)</span><span class="course-credit mono">6 ECTS</span><span class="course-grade mono">Remarkable (8.4)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751005</span><span class="course-name">Agricultural Systems Modelling</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">Outstanding (9.0)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751007</span><span class="course-name">Precision Agriculture</span><span class="course-credit mono">6 ECTS</span><span class="course-grade mono">Remarkable (8.6)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751010</span><span class="course-name">Preventive Management Strategy</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">Outstanding (9.1)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751011</span><span class="course-name">Reactive Management Strategy</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">Remarkable (7.8)</span><span class="course-prog mono">EMJMD</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Processing, Post-Harvest &amp; Biological Systems <span class="mono course-count">8 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">ABE 121</span><span class="course-name">Const. &amp; Maintenance of Crop Processing</span><span class="course-credit mono">6 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 214</span><span class="course-name">Agricultural Materials Handling Technology</span><span class="course-credit mono">5 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 225</span><span class="course-name">Post Harvest Technology and Storage</span><span class="course-credit mono">5 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABEN342</span><span class="course-name">Engineering Properties of Biological Materials</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN443</span><span class="course-name">Biomass Conversion &amp; Bio-Energy Feedstock Production</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN521</span><span class="course-name">Processing and Storage of Agricultural Products I</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN544</span><span class="course-name">Food Engineering</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN546</span><span class="course-name">Sustainable Bio-Energy System and Design Techniques</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Mechanical &amp; Materials Engineering <span class="mono course-count">21 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">ABE 113</span><span class="course-name">Basic Workshop Practice</span><span class="course-credit mono">4 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 103</span><span class="course-name">Engineering Machines</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 104/108</span><span class="course-name">Thermodynamics</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 112</span><span class="course-name">Technical Drawing</span><span class="course-credit mono">4 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 205</span><span class="course-name">Strength of Materials</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 206</span><span class="course-name">Properties of Materials</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 214</span><span class="course-name">Applied Fluid Mechanics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEEN201</span><span class="course-name">Engineering Graphics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN202</span><span class="course-name">Engineering Drawing</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">C</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN204</span><span class="course-name">Strength of Materials I</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN206</span><span class="course-name">Fundamentals of Dynamics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN208</span><span class="course-name">Basic Thermodynamics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN301</span><span class="course-name">Machine Design I</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN302</span><span class="course-name">Machine Design II</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN305</span><span class="course-name">Strength of Materials II</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN306</span><span class="course-name">Dynamics of Machinery II</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN307</span><span class="course-name">Dynamics of Machine I</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN309</span><span class="course-name">Applied Thermodynamics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MEEN523</span><span class="course-name">Welding and Brazing</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MMEN201</span><span class="course-name">Fundamental of Material Science</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MMEN316</span><span class="course-name">Metallurgy for Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Electrical, Instrumentation &amp; Structures <span class="mono course-count">10 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">ABE 211</span><span class="course-name">Farm Electrification</span><span class="course-credit mono">5 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 224</span><span class="course-name">Constr. &amp; Maint. of Farm Structures</span><span class="course-credit mono">5 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">EEC 115</span><span class="course-name">Electr. Engineering Science</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">EEEN102</span><span class="course-name">Introduction to Engineering Profession</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">EEEN201</span><span class="course-name">Electrical Circuit and Field Theory</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">EEEN202</span><span class="course-name">Electronic, Measurements and Transducers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">EEEN203</span><span class="course-name">Electric Machine, Power and Installation</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN431</span><span class="course-name">Instrumentation</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN523</span><span class="course-name">Farm Structures</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN530</span><span class="course-name">Farm Electrification and Environmental Control</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Mathematics, Statistics &amp; Surveying <span class="mono course-count">11 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">STA 111</span><span class="course-name">Introduction to Statistics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MTH 211</span><span class="course-name">Calculus</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MATH241</span><span class="course-name">Calculus I</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MATH242</span><span class="course-name">Calculus II</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MATH243</span><span class="course-name">Methods of Linear Algebra I</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MATH244</span><span class="course-name">Method of Linear Algebra II</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MATH341</span><span class="course-name">Differential Equations and Transforms</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">MATH342</span><span class="course-name">Functions of Several Variables</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">C</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">STAT343</span><span class="course-name">Statistics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">STAT443</span><span class="course-name">Design of Experiments and Quality Control</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN302</span><span class="course-name">Agricultural Surveying</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Agronomy, Soil Science &amp; Animal Sciences <span class="mono course-count">4 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">AGT 111</span><span class="course-name">Principles of Crop Production</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">AGT 113</span><span class="course-name">Introduction to Soil Science</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">AGRN499</span><span class="course-name">Element of Crop Production</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ANSC304</span><span class="course-name">Animal Production for Agricultural Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Management, Economics &amp; General Studies <span class="mono course-count">28 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">ABE 101</span><span class="course-name">Introduction to Agricultural Engineering</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 102</span><span class="course-name">Repairs &amp; Maintenance of Farm Implements</span><span class="course-credit mono">6 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABE 227</span><span class="course-name">Technical Report Writing</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">BAM 116</span><span class="course-name">Introduction to Entrepreneurship</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">GNS 101</span><span class="course-name">Use of English</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">GNS 102</span><span class="course-name">Communication in English I</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">GNS 111</span><span class="course-name">Citizenship Education</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">GNS 121</span><span class="course-name">Citizenship Education II</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">GNS 201</span><span class="course-name">Use of English II</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">BC</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">IAE 112</span><span class="course-name">Rural Sociology and Agricultural Ext.</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">AB</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">MEC 125</span><span class="course-name">Safety</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">SDV 210</span><span class="course-name">Entrepreneurship Development</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABEN202</span><span class="course-name">Elements of Agricultural Engineering</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN497</span><span class="course-name">Technical Report Writing</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN531</span><span class="course-name">Entrepreneurship for Agricultural Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">AERS201</span><span class="course-name">Principle of Economics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">AERS503</span><span class="course-name">Farm Management and Agricultural Extension</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">CHEN202</span><span class="course-name">Introduction to Management</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">CHEN409</span><span class="course-name">Financial Management</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">GENS101</span><span class="course-name">Nationalism</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">C</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">GENS102</span><span class="course-name">Environmental Health</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">GENS103</span><span class="course-name">English and Communication</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">GENS104</span><span class="course-name">History and Philosophy of Science</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">GENS201</span><span class="course-name">Moral Philosophy</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">GENS202</span><span class="course-name">Entrepreneurship and Innovation</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">GENS301</span><span class="course-name">Business Creation and Growth</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">QTYS309</span><span class="course-name">Development Economics</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">QTYS421</span><span class="course-name">Law for Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+    </div>
+  </details>
+  <details class="course-group">
+    <summary>Projects, Practical Exercises &amp; Industrial Training <span class="mono course-count">9 courses</span></summary>
+    <div class="course-table">
+      <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
+      <div class="course-row"><span class="course-code mono">ABE 228</span><span class="course-name">Project</span><span class="course-credit mono">6 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">SIWES (ND)</span><span class="course-name">SIWES</span><span class="course-credit mono">4 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">ND</span></div>
+<div class="course-row"><span class="course-code mono">ABEN298</span><span class="course-name">SWEP 1</span><span class="course-credit mono">1 CU</span><span class="course-grade mono">B</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN314</span><span class="course-name">Agricultural Engineering Workshop Practice</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN400</span><span class="course-name">Students Industrial Work Experience (SIWES)</span><span class="course-credit mono">6 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN597</span><span class="course-name">Final Year Project</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">ABEN598</span><span class="course-name">Final Year Project</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">A</span><span class="course-prog mono">B.Eng</span></div>
+<div class="course-row"><span class="course-code mono">751006</span><span class="course-name">Practical Exercise Integrating Disciplines I</span><span class="course-credit mono">7.5 ECTS</span><span class="course-grade mono">Remarkable (8.5)</span><span class="course-prog mono">EMJMD</span></div>
+<div class="course-row"><span class="course-code mono">751012</span><span class="course-name">Practical Exercise Integrating Disciplines II</span><span class="course-credit mono">13.5 ECTS</span><span class="course-grade mono">Approved (6.7)</span><span class="course-prog mono">EMJMD</span></div>
+    </div>
+  </details>
+  
+</section>
+
+
 
 <section id="experience" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
   <div class="section-head">
@@ -461,7 +754,7 @@
       <p>Extended the Geometry-Agnostic Contrastive Learning (GACL) self-supervised framework by developing geometry-invariant representation-learning methods for agronomic imagery.</p>
     </div>
     <div class="tl-item">
-      <p class="tl-date mono">01 FEB &ndash; JUN 2026</p>
+      <p class="tl-date mono">FEB &ndash; JUN 2026</p>
       <h3>EMJMD Research Scholar (Mobility Track)</h3>
       <p class="tl-org"><a href="https://www.utad.pt/en/" target="_blank" style="color:inherit">University of Tr&aacute;s-os-Montes and Alto Douro (UTAD), Portugal</a></p>
       <p>Completed graduate-level research training in precision-agriculture methods for sustainable crop production.</p>
@@ -677,6 +970,71 @@
   </div>
 </section>
 
+<section id="certifications" style="background:#BFE0C4; border-top: 5px solid #4C8C6B; border-radius:8px;">
+  <div class="section-head">
+    <h2>Certifications &amp; Documented Recognitions</h2>
+    <span class="section-note mono">source documents on file</span>
+  </div>
+  <div class="skills-grid">
+    <div class="referee-card">
+      <h4>Certificate of Continuing Professional Development</h4>
+      <p>International Career Coaching Program (ICCP) &middot; Envirofly Consulting (UK) Limited &middot; 60 CPD hours &middot; 27 Sep 2024</p>
+    </div>
+    <div class="referee-card">
+      <h4>ASABE Member Certificate</h4>
+      <p>American Society of Agricultural and Biological Engineers &middot; Member No. 1061249 &middot; Joined 5 Feb 2022</p>
+    </div>
+    <div class="referee-card">
+      <h4>NIAE Student Member Certificate</h4>
+      <p>Nigerian Institution of Agricultural Engineers &middot; Membership No. S2644 &middot; 4 Oct 2024</p>
+    </div>
+    <div class="referee-card">
+      <h4>Award of Merit, Senator (SRC/SUG)</h4>
+      <p>Samaru College of Agriculture Student Union Government &middot; 2017/2018 session</p>
+    </div>
+    <div class="referee-card">
+      <h4>Certificate of Merit, Best 200 Level Student</h4>
+      <p>Dept. of Agricultural &amp; Bio-Resources Engineering, ABU &middot; 2018/2019 session &middot; Awarded 22 Feb 2021</p>
+    </div>
+    <div class="referee-card">
+      <h4>Best Overall Graduating Student, National Diploma</h4>
+      <p>Samaru College of Agriculture, Division of Agricultural Colleges, ABU &middot; 2017/2018 session &middot; 29 Mar 2019</p>
+    </div>
+    <div class="referee-card">
+      <h4>Best Graduating Student, ND Agric. Engineering Technology</h4>
+      <p>Samaru College of Agriculture, ABU &middot; 2017/2018 session</p>
+    </div>
+    <div class="referee-card">
+      <h4>Tony Elumelu Foundation Certificate</h4>
+      <p>Business Management Training Completion</p>
+    </div>
+    <div class="referee-card">
+      <h4>SIWES Industrial Attachment Attestation</h4>
+      <p>National Agricultural Extension and Research Liaison Services (NAERLS), ABU &middot; 5 Jun &ndash; 18 Nov 2023</p>
+    </div>
+    <div class="referee-card">
+      <h4>SIWES Industrial Attachment Attestation</h4>
+      <p>Institute for Agricultural Research (IAR), Samaru, ABU &middot; Oct 2017 &ndash; Feb 2018</p>
+    </div>
+    <div class="referee-card">
+      <h4>Conference Paper Acceptance Letter</h4>
+      <p>6th African Regional Conference on Irrigation and Drainage (ARCID 2025), Abuja &middot; "Development of an Empirical Model for Prediction of Sediment Transport Rates in Agricultural Watercourse" &middot; Accepted 3 Mar 2025</p>
+    </div>
+    <div class="referee-card">
+      <h4>IJRSI Publication Certificate</h4>
+      <p>"A Hybrid CNN&ndash;BiLSTM&ndash;Attention Deep Learning Framework for Sediment Transport in an Agricultural Gully System" &middot; Vol. 13, Issue 7, Jul 2026</p>
+    </div>
+    <div class="referee-card">
+      <h4>IJRSI Publication Certificate</h4>
+      <p>"Real-Time RGB Proxy Vegetation Indexing and Texture Analysis for UAV and Handheld Crop Imagery" &middot; Vol. 13, Issue 7, Jul 2026</p>
+    </div>
+    <div class="referee-card">
+      <h4>IJRSI Publication Certificate</h4>
+      <p>"Sensing the Invisible: A Critical Review of NIR and Hyperspectral Analysis for Crop and Food-Quality Assessment" &middot; Vol. 13, Issue 7, Jul 2026</p>
+    </div>
+  </div>
+</section>
+
 <section id="conferences" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
   <div class="section-head">
     <h2>Conferences, seminars &amp; workshops</h2>
@@ -808,6 +1166,8 @@
     <img class="gallery-thumb" src="gallery/gallery_52.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_52.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_53.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_53.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_54.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_54.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_55.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_55.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_56.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_56.jpg')">
   </div>
 </section>
 
@@ -1020,14 +1380,15 @@ function closeLightbox() {
 
 const tourWaypoints = [
   { name: "Nigeria",  city: "Zaria",       color: "#4C8C6B", x: 37.6, y: 69.8, mode: "\u2708\uFE0F" },
-  { name: "Morocco",  city: "Casablanca",  color: "#B8763F", x: 29.3, y: 41.1, mode: "\uD83D\uDE8C" },
+  { name: "Spain",    city: "Madrid",      color: "#B8763F", x: 32.5, y: 27.5, mode: "\u2708\uFE0F" },
   { name: "Portugal", city: "Lisbon",      color: "#3B6EA5", x: 34.2, y: 31.3, mode: "\uD83D\uDE86" },
-  { name: "France",   city: "Paris",       color: "#6E5A8C", x: 39.1, y: 19.7, mode: "\u2708\uFE0F" },
-  { name: "Germany",  city: "Berlin",      color: "#2E3A52", x: 47.9, y: 13.4, mode: "\uD83D\uDE8C" },
-  { name: "Italy",    city: "Rome",        color: "#B23A2E", x: 44.9, y: 30.4, mode: "\uD83D\uDE86" },
-  { name: "Greece",   city: "Athens",      color: "#3B6EA5", x: 50.3, y: 35.8, mode: "\u2708\uFE0F" },
-  { name: "Qatar",    city: "Doha",        color: "#8C6B4F", x: 65.9, y: 48.3, mode: "\uD83D\uDE8C" },
-  { name: "Ethiopia", city: "Addis Ababa", color: "#4C8C6B", x: 60.1, y: 64.4, mode: "\uD83D\uDE86" },
+  { name: "France",   city: "Paris",       color: "#6E5A8C", x: 39.1, y: 19.7, mode: "\uD83D\uDE8C" },
+  { name: "Germany",  city: "Berlin",      color: "#2E3A52", x: 47.9, y: 13.4, mode: "\uD83D\uDE86" },
+  { name: "Italy",    city: "Rome",        color: "#B23A2E", x: 44.9, y: 30.4, mode: "\uD83D\uDE8C" },
+  { name: "Greece",   city: "Athens",      color: "#3B6EA5", x: 50.3, y: 35.8, mode: "\uD83D\uDE86" },
+  { name: "Qatar",    city: "Doha",        color: "#8C6B4F", x: 65.9, y: 48.3, mode: "\u2708\uFE0F" },
+  { name: "Morocco",  city: "Casablanca",  color: "#4C8C6B", x: 29.3, y: 41.1, mode: "\u2708\uFE0F" },
+  { name: "Ethiopia", city: "Addis Ababa", color: "#B8763F", x: 60.1, y: 64.4, mode: "\u2708\uFE0F" },
 ];
 let tourIdx = 0;
 
