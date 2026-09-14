@@ -44,7 +44,7 @@
   .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center;
     justify-content: space-between; height: 64px; }
   .nav-mark { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 14px; letter-spacing: 0.02em; }
-  .nav-mark span { color: var(--blue); }
+  .nav-mark span { color: #1F4D2E; }
   nav ul { list-style: none; display: flex; gap: 1.7rem; }
   nav a { font-size: 13.5px; text-decoration: none; color: var(--ink-soft); transition: color .15s; }
   nav a:hover { color: var(--ink); }
@@ -53,7 +53,7 @@
     display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;
     overflow: hidden; border-radius: 12px; }
   .hero-content { position: relative; z-index: 1; }
-  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--blue);
+  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #1F4D2E;
     letter-spacing: 0.03em; margin-bottom: 1.1rem; }
   h1, h2, h3, .nav-mark, .contact-panel h2 { font-family: 'Space Grotesk', sans-serif; }
   .hero h1 { font-size: 2.85rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: var(--navy); }
@@ -84,7 +84,7 @@
     display: inline-block; }
   .accordion-head { cursor: pointer; user-select: none; }
   .section-head h2::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 46px; height: 4px;
-    border-radius: 3px; background: linear-gradient(90deg, #3B6EA5, #4C8C6B, #B8763F); }
+    border-radius: 3px; background: #1F4D2E; }
   .accordion-chevron { font-size: 13px; color: var(--ink-soft); transition: transform .3s ease; margin-left: 0.6rem; }
   .accordion-chevron.open { transform: rotate(180deg); }
   .section-body { max-height: 0; overflow: hidden; transition: max-height .5s ease, opacity .4s ease; opacity: 0; }
@@ -101,8 +101,7 @@
     transition: transform .2s ease, box-shadow .2s ease; }
   .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.13); }
   .skill-card:hover, .referee-card:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
-  .stat .num { background: linear-gradient(90deg, #3B6EA5, #4C8C6B); -webkit-background-clip: text;
-    background-clip: text; color: transparent; }
+  .stat .num { color: #1F4D2E; }
   .tag:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
   @media (prefers-reduced-motion: reduce) {
     section { opacity: 1 !important; transform: none !important; transition: none !important; }
@@ -185,7 +184,7 @@
   .course-group summary { cursor: pointer; padding: 0.9rem 1.1rem; font-weight: 600; font-size: 13.5px;
     list-style: none; display: flex; justify-content: space-between; align-items: center; }
   .course-group summary::-webkit-details-marker { display: none; }
-  .course-group summary::before { content: '+'; margin-right: 0.6rem; color: var(--orange); font-weight: 700; }
+  .course-group summary::before { content: '+'; margin-right: 0.6rem; color: #1F4D2E; font-weight: 700; }
   .course-group[open] summary::before { content: '\u2212'; }
   .course-count { font-weight: 400; color: var(--ink-soft); font-size: 11px; }
   .course-table { border-top: 1px solid var(--line); }
@@ -324,15 +323,8 @@
 <style>
   .hero-gradient-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(120deg, #C9DFF5, #BFE0C4, #F5D9AE, #DACCEB, #C9DFF5);
-    background-size: 400% 400%;
-    animation: heroGradientShift 14s ease infinite;
-    opacity: 0.55;
-  }
-  @keyframes heroGradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    background: linear-gradient(160deg, #EEF3EC 0%, #F7F7F2 55%);
+    opacity: 1;
   }
   .hero-fade-in { animation: heroFadeIn 1s ease both; }
   .hero-photo-wrap.hero-fade-in { animation-delay: 0.15s; }
@@ -342,50 +334,37 @@
   }
   .hero-name-gradient {
     font-size: 3.1rem; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C, #3B6EA5);
-    background-size: 300% auto;
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: heroNameShimmer 6s linear infinite;
+    color: #1F4D2E;
   }
-  @keyframes heroNameShimmer { to { background-position: 300% center; } }
   .email-chips { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 1.3rem; }
   .email-chip { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; text-decoration: none;
-    padding: 8px 13px; border-radius: 999px; color: white; display: inline-flex; align-items: center; gap: 5px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12); transition: transform .18s, box-shadow .18s; cursor: pointer; }
-  .email-chip:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 5px 14px rgba(0,0,0,0.22); }
-  .chip-blue { background: linear-gradient(135deg, #3B6EA5, #5A8FC7); }
-  .chip-green { background: linear-gradient(135deg, #4C8C6B, #6BAE8B); }
-  .chip-purple { background: linear-gradient(135deg, #6E5A8C, #8E74B0); }
-  .chip-orange { background: linear-gradient(135deg, #B8763F, #D6975E); }
-  .chip-navy { background: linear-gradient(135deg, #2E3A52, #4A5A78); }
+    padding: 8px 13px; border-radius: 4px; color: white; display: inline-flex; align-items: center; gap: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: transform .18s, box-shadow .18s; cursor: pointer; }
+  .email-chip:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.18); }
+  .chip-blue, .chip-green, .chip-purple, .chip-orange, .chip-navy { background: #1F4D2E; }
   .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-    color: var(--orange); text-transform: uppercase; margin-bottom: 0.5rem; }
-  .hero-cta-btn { display: inline-block; background: linear-gradient(90deg, #3B6EA5, #4C8C6B); color: white;
-    font-weight: 700; font-size: 14.5px; text-decoration: none; padding: 13px 26px; border-radius: 8px;
-    margin-bottom: 1.5rem; box-shadow: 0 4px 14px rgba(59,110,165,0.35); transition: transform .18s, box-shadow .18s; }
-  .hero-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,110,165,0.45); }
+    color: #1F4D2E; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .hero-cta-btn { display: inline-block; background: #1F4D2E; color: white;
+    font-weight: 700; font-size: 14.5px; text-decoration: none; padding: 13px 26px; border-radius: 4px;
+    margin-bottom: 1.5rem; box-shadow: 0 2px 6px rgba(31,77,46,0.25); transition: transform .18s, box-shadow .18s; }
+  .hero-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(31,77,46,0.35); }
   .hero-links-row { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
   .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.8rem; }
   .impact-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; line-height: 1; margin-bottom: 0.6rem; }
   .impact-label { color: #C9CDD8; font-size: 13px; font-weight: 600; line-height: 1.4; }
   .impact-label span { font-weight: 400; color: #8A93A8; font-size: 11.5px; }
-  .hero-link-btn { font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
-    border-bottom: 2px solid var(--blue); padding-bottom: 1px; transition: color .15s, border-color .15s; }
-  .hero-link-btn:hover { color: var(--blue); border-color: var(--green); }
+  .hero-link-btn { font-size: 13px; font-weight: 600; color: #1F4D2E; text-decoration: none;
+    border-bottom: 2px solid #1F4D2E; padding-bottom: 1px; transition: color .15s, border-color .15s; }
+  .hero-link-btn:hover { color: #163A22; border-color: #163A22; }
   .hero-photo-glow { position: relative; display: inline-block; border-radius: 8px; }
   .hero-photo-glow::before {
-    content: ''; position: absolute; inset: -6px; border-radius: 10px; z-index: -1;
-    background: linear-gradient(135deg, #3B6EA5, #4C8C6B, #B8763F, #6E5A8C);
-    background-size: 300% 300%;
-    animation: heroGlowShift 5s ease infinite;
-    filter: blur(10px); opacity: 0.75;
-  }
-  @keyframes heroGlowShift {
-    0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+    content: ''; position: absolute; inset: -4px; border-radius: 6px; z-index: -1;
+    background: #1F4D2E;
+    opacity: 0.5;
   }
   .scroll-cue { position: absolute; bottom: -0.5rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;
-    color: var(--blue); z-index: 2; }
+    color: #1F4D2E; z-index: 2; }
   .scroll-cue span { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; }
   .scroll-chevron { font-size: 18px; animation: scrollBounce 1.6s ease-in-out infinite; }
   @keyframes scrollBounce {
@@ -451,7 +430,7 @@
   </div>
 </section>
 
-<section id="research" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
+<section id="research" style="background:#FFFFFF; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('research')">
     <h2>Research focus</h2>
     <span class="section-note mono">6 active layers</span>
@@ -466,7 +445,7 @@
   </div>
 </div></section>
 
-<section id="education" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
+<section id="education" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('education')">
     <h2>Education</h2>
     <span class="section-note mono">ABU &middot; UPNA &middot; UTAD &middot; AUA</span>
@@ -495,7 +474,7 @@
   </div>
 </div></section>
 
-<section id="emjmd-courses" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
+<section id="emjmd-courses" style="background:#FFFFFF; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('emjmd-courses')">
     <h2>EMJMD Programme Overview</h2>
     <span class="section-note mono">120 ECTS across 4 terms</span>
@@ -525,7 +504,7 @@
   </div>
 </div></section>
 
-<section id="beng-overview" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
+<section id="beng-overview" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('beng-overview')">
     <h2>B.Eng Agricultural &amp; Bioresources Engineering Overview</h2>
     <span class="section-note mono">Ahmadu Bello University, Zaria &middot; 2019 &ndash; 2024</span>
@@ -554,7 +533,7 @@
     </div>
   </div>
 </div></section>
-<section id="nd-overview" style="background:#EAF1FB; border-top: 5px solid #3B6EA5; border-radius:8px;">
+<section id="nd-overview" style="background:#FFFFFF; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('nd-overview')">
     <h2>National Diploma Programme Overview</h2>
     <span class="section-note mono">Samaru College of Agriculture, ABU &middot; 2016 &ndash; 2018</span>
@@ -572,7 +551,7 @@
   </div>
 </div></section>
 
-<section id="courses" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
+<section id="courses" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('courses')">
     <h2>Full Academic Record</h2>
     <span class="section-note mono">ND &middot; B.Eng &middot; EMJMD, by discipline</span>
@@ -774,7 +753,7 @@
 
 
 
-<section id="experience" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
+<section id="experience" style="background:#FFFFFF; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('experience')">
     <h2>Research &amp; professional experience</h2>
     <span class="section-note mono">2017 &ndash; present</span>
@@ -843,7 +822,7 @@
   </div>
 </div></section>
 
-<section id="teaching" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
+<section id="teaching" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('teaching')">
     <h2>Teaching, leadership &amp; community</h2>
     <span class="section-note mono">2020 &ndash; 2025</span>
@@ -886,7 +865,7 @@
   </div>
 </div></section>
 
-<section id="publications" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
+<section id="publications" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('publications')">
     <h2>Publications</h2>
     <span class="section-note mono">4 published &middot; 6 under review &middot; 3 preprints</span>
@@ -973,7 +952,7 @@
   </div>
 </div></section>
 
-<section id="skills" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
+<section id="skills" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('skills')">
     <h2>Technical skills</h2>
     <span class="section-note mono">tools &amp; methods</span>
@@ -989,7 +968,7 @@
   </div>
 </div></section>
 
-<section id="awards" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
+<section id="awards" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('awards')">
     <h2>Awards &amp; honors</h2>
     <span class="section-note mono">10 recognitions</span>
@@ -1009,7 +988,7 @@
   </div>
 </div></section>
 
-<section id="certifications" style="background:#BFE0C4; border-top: 5px solid #4C8C6B; border-radius:8px;">
+<section id="certifications" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('certifications')">
     <h2>Certifications &amp; Documented Recognitions</h2>
     <span class="section-note mono">14 certificates, click to enlarge</span>
@@ -1116,7 +1095,7 @@
   </div>
 </div></section>
 
-<section id="conferences" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
+<section id="conferences" style="background:#FFFFFF; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('conferences')">
     <h2>Conferences, seminars &amp; workshops</h2>
     <span class="section-note mono">2023 &ndash; 2026</span>
@@ -1132,7 +1111,7 @@
   </div>
 </div></section>
 
-<section id="memberships" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
+<section id="memberships" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('memberships')">
     <h2>Professional memberships</h2>
     <span class="section-note mono">4 bodies</span>
@@ -1145,7 +1124,7 @@
   </div>
 </div></section>
 
-<section id="referees" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
+<section id="referees" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('referees')">
     <h2>Referees</h2>
     <span class="section-note mono">5 referees</span>
@@ -1190,7 +1169,7 @@
   </div>
 </div></section>
 
-<section id="travels" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
+<section id="travels" style="background:#FFFFFF; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head">
     <h2>Places I've Worked &amp; Studied</h2>
     <span class="section-note mono">10 countries</span>
@@ -1225,7 +1204,7 @@
 </section>
 
 
-<section id="gallery" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
+<section id="gallery" style="background:#EEF3EC; border-top: 4px solid #1F4D2E; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('gallery')">
     <h2>Gallery</h2>
     <span class="section-note mono">field &amp; campus photos</span>
