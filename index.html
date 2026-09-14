@@ -74,7 +74,8 @@
   .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
     margin-top: 0.9rem; text-align: center; }
 
-  section { max-width: 1180px; margin: 0 auto; padding: 3.6rem 2rem; }
+  section { max-width: 1180px; margin: 0 auto 1.4rem; padding: 2.6rem 2.2rem; }
+  section[style*="background"] { padding: 2.6rem 2.4rem; }
   .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
     margin-bottom: 2.1rem; border-bottom: 1px solid var(--line); padding-bottom: 1rem; }
   .section-head h2 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; }
@@ -188,6 +189,15 @@
     nav ul { display: none; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.6rem; }
+  .gallery-thumb { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 5px; border: 1px solid var(--line);
+    cursor: pointer; transition: transform .15s, box-shadow .15s; }
+  .gallery-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,20,18,0.92); z-index: 100;
+    align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 6px; }
 </style>
 </head>
 <body>
@@ -202,6 +212,7 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -224,7 +235,7 @@
     <p class="hero-coord mono">PAMPLONA, SPAIN &middot; ORIGINALLY ZARIA, NIGERIA</p>
     <h1>Naziru Halilu</h1>
     <p class="hero-title">Digital Agriculture &middot; Computer Vision &middot; Geospatial Machine Learning</p>
-    <p class="hero-summary">Agricultural engineer with a long-term research focus on computer vision and geospatial machine learning for digital agriculture. Interests span self-supervised deep learning for crop-stress detection and vegetation-index estimation from UAV and multispectral imagery, hybrid deep-learning architectures for environmental process modelling, and reproducible, uncertainty-aware ML pipelines complemented by GIS and satellite remote sensing.</p>
+    <p class="hero-summary">Agricultural engineer with a long-term research focus on computer vision and geospatial machine learning for digital agriculture. Interests span self-supervised deep learning for crop-stress detection and vegetation-index estimation from UAV and multispectral imagery, hybrid deep-learning architectures for environmental process modelling, agricultural control systems, and reproducible, uncertainty-aware ML pipelines complemented by GIS and satellite remote sensing.</p>
     <div class="hero-contact">
       <a href="mailto:halilu.175366@e.unavarra.es">halilu.175366@e.unavarra.es</a>
       <span>+34 6 5296 7216</span>
@@ -252,7 +263,7 @@
   </div>
 </div>
 
-<section id="research">
+<section id="research" style="background:#EAF1FB; border-radius:8px;">
   <div class="section-head">
     <h2>Research focus</h2>
     <span class="section-note mono">6 active layers</span>
@@ -267,7 +278,7 @@
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" style="background:#FFFFFF; border-radius:8px;">
   <div class="section-head">
     <h2>Project index</h2>
     <span class="section-note mono">click a layer to filter</span>
@@ -283,7 +294,7 @@
   </div>
 </section>
 
-<section id="publications">
+<section id="publications" style="background:#FBF3EA; border-radius:8px;">
   <div class="section-head">
     <h2>Publications</h2>
     <span class="section-note mono">4 published &middot; 6 under review &middot; 3 preprints</span>
@@ -354,7 +365,7 @@
   </div>
 </section>
 
-<section id="experience">
+<section id="experience" style="background:#EAF1FB; border-radius:8px;">
   <div class="section-head">
     <h2>Research &amp; professional experience</h2>
     <span class="section-note mono">2017 &ndash; present</span>
@@ -363,25 +374,25 @@
     <div class="tl-item">
       <p class="tl-date mono">JUN &ndash; AUG 2026</p>
       <h3>Summer Intern, Computer Vision Group</h3>
-      <p class="tl-org">Dept. of Computer Engineering, Ahmadu Bello University, Zaria</p>
+      <p class="tl-org">Dept. of Computer Engineering, <a href="https://abu.edu.ng/" target="_blank" style="color:inherit">Ahmadu Bello University</a>, Zaria</p>
       <p>Extended the Geometry-Agnostic Contrastive Learning (GACL) self-supervised framework by developing geometry-invariant representation-learning methods for agronomic imagery.</p>
     </div>
     <div class="tl-item">
       <p class="tl-date mono">SEP 2025 &ndash; JUN 2026</p>
       <h3>EMJMD Research Scholar (Mobility Track)</h3>
-      <p class="tl-org">Public University of Navarre, Spain &amp; UTAD, Portugal</p>
+      <p class="tl-org"><a href="https://www.unavarra.es/home" target="_blank" style="color:inherit">Public University of Navarre, Spain</a> &amp; <a href="https://www.utad.pt/en/" target="_blank" style="color:inherit">UTAD, Portugal</a></p>
       <p>Completed graduate-level research training in the technological foundations of agricultural sustainability and precision-agriculture methods for sustainable crop production, across two partner institutions.</p>
     </div>
     <div class="tl-item">
       <p class="tl-date mono">2024 &ndash; 2025</p>
       <h3>Project Assistant (Remote Data Lead), Smart Greenhouse Automation</h3>
-      <p class="tl-org">IAR-ABU, Nigeria</p>
+      <p class="tl-org"><a href="https://iar.gov.ng/" target="_blank" style="color:inherit">IAR-ABU</a>, Nigeria</p>
       <p>Engineered adaptive irrigation-scheduling algorithms in Python, fusing real-time soil-moisture and microclimate telemetry to automate greenhouse environmental control.</p>
     </div>
     <div class="tl-item">
       <p class="tl-date mono">2022 &ndash; 2024</p>
       <h3>Student Research Assistant, Precision Crop Systems</h3>
-      <p class="tl-org">NAERLS, Nigeria</p>
+      <p class="tl-org"><a href="https://naerls.gov.ng/2024/12/national-agricultural-extension-and-research-liaison-services-naerls-a-b-u-announces-new-departments-and-leadership-appointments/" target="_blank" style="color:inherit">NAERLS</a>, Nigeria</p>
       <p>Trained and validated CNN-based crop-stress detection models in TensorFlow, achieving 78% classification accuracy on multispectral UAV imagery; automated UAV flight-path planning for high-throughput field phenotyping.</p>
     </div>
     <div class="tl-item">
@@ -411,7 +422,7 @@
   </div>
 </section>
 
-<section id="teaching">
+<section id="teaching" style="background:#F0EDF6; border-radius:8px;">
   <div class="section-head">
     <h2>Teaching, leadership &amp; community</h2>
     <span class="section-note mono">2020 &ndash; 2025</span>
@@ -454,7 +465,7 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" style="background:#EEF3EC; border-radius:8px;">
   <div class="section-head">
     <h2>Technical skills</h2>
     <span class="section-note mono">tools &amp; methods</span>
@@ -470,7 +481,7 @@
   </div>
 </section>
 
-<section id="education">
+<section id="education" style="background:#EEF3EC; border-radius:8px;">
   <div class="section-head">
     <h2>Education</h2>
     <span class="section-note mono">ABU &middot; UPNA &middot; UTAD &middot; AUA</span>
@@ -478,25 +489,29 @@
   <div class="timeline">
     <div class="tl-item">
       <p class="tl-date mono">2025 &ndash; 2027</p>
-      <h3>Erasmus Mundus Joint Master's Degree (EMJMD)</h3>
-      <p class="tl-org">Cutting-Edge Technologies for Sustainable Agriculture &mdash; Public University of Navarre, Spain &middot; UTAD, Portugal &middot; Agricultural University of Athens, Greece</p>
+      <h3><a href="https://drive.google.com/open?id=17zXnkT0g7UOKER2jj9igMC1tPhR4HeX2&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">Erasmus Mundus Joint Master's Degree (EMJMD)</a></h3>
+      <p class="tl-org">Cutting-Edge Technologies for Sustainable Agriculture &mdash; <a href="https://www.unavarra.es/home" target="_blank" style="color:inherit">Public University of Navarre, Spain</a> &middot; <a href="https://www.utad.pt/en/" target="_blank" style="color:inherit">UTAD, Portugal</a> &middot; <a href="https://www2.aua.gr/en" target="_blank" style="color:inherit">Agricultural University of Athens, Greece</a></p>
+      <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=17zXnkT0g7UOKER2jj9igMC1tPhR4HeX2&usp=drive_fs" target="_blank" style="color:var(--blue)">View certificate/enrolment record &rarr;</a></p>
     </div>
     <div class="tl-item">
       <p class="tl-date mono">2019 &ndash; 2024</p>
-      <h3>Bachelor of Engineering (B.Eng.), Agricultural &amp; Bioresources Engineering</h3>
-      <p class="tl-org">Ahmadu Bello University, Zaria, Nigeria</p>
+      <h3><a href="https://drive.google.com/open?id=1R61i8LeJhxKYhYj7H0xhDNQ3iYspOt_D&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">Bachelor of Engineering (B.Eng.), Agricultural &amp; Bioresources Engineering</a></h3>
+      <p class="tl-org"><a href="https://abu.edu.ng/" target="_blank" style="color:inherit">Ahmadu Bello University, Zaria, Nigeria</a></p>
       <p>CGPA: 4.77/5.00 &middot; Top 1% of graduating cohort &middot; First Class Honours</p>
+      <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=1R61i8LeJhxKYhYj7H0xhDNQ3iYspOt_D&usp=drive_fs" target="_blank" style="color:var(--blue)">View transcript/certificate &rarr;</a></p>
     </div>
     <div class="tl-item">
       <p class="tl-date mono">2016 &ndash; 2018</p>
-      <h3>National Diploma, Agricultural Engineering Technology</h3>
-      <p class="tl-org">Division of Agricultural Colleges, Ahmadu Bello University, Zaria</p>
+      <h3><a href="https://drive.google.com/open?id=1h0e5gWEy34vzVDKAq3xSdRH28XFJi5Rq&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">National Diploma, Agricultural Engineering Technology</a></h3>
+      <p class="tl-org">Division of Agricultural Colleges, <a href="https://abu.edu.ng/" target="_blank" style="color:inherit">Ahmadu Bello University</a>, Zaria</p>
       <p>CGPA: 3.78/4.00 &middot; Top 1% &middot; Distinction</p>
+      <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=1h0e5gWEy34vzVDKAq3xSdRH28XFJi5Rq&usp=drive_fs" target="_blank" style="color:var(--blue)">View transcript/certificate &rarr;</a></p>
     </div>
   </div>
+  <p style="font-size:11.5px; color:var(--ink-soft); margin-top:1.2rem;">Certificates and transcripts are hosted on Google Drive. If a link doesn't open, the file's sharing permission may need to be updated to "anyone with the link."</p>
 </section>
 
-<section id="awards">
+<section id="awards" style="background:#FBF3EA; border-radius:8px;">
   <div class="section-head">
     <h2>Awards &amp; honors</h2>
     <span class="section-note mono">10 recognitions</span>
@@ -516,7 +531,7 @@
   </div>
 </section>
 
-<section id="conferences">
+<section id="conferences" style="background:#EAF1FB; border-radius:8px;">
   <div class="section-head">
     <h2>Conferences, seminars &amp; workshops</h2>
     <span class="section-note mono">2023 &ndash; 2026</span>
@@ -532,30 +547,110 @@
   </div>
 </section>
 
-<section id="memberships">
+<section id="memberships" style="background:#EEF3EC; border-radius:8px;">
   <div class="section-head">
     <h2>Professional memberships</h2>
     <span class="section-note mono">4 bodies</span>
   </div>
   <div class="tag-list">
-    <span class="tag">American Society of Agricultural and Biological Engineers (ASABE)</span>
-    <span class="tag">Nigerian Institution of Agricultural Engineers (NIAE)</span>
-    <span class="tag">Nigerian Society of Engineers (NSE)</span>
-    <span class="tag">Pupil Engineer, COREN</span>
+    <a class="tag" href="https://www.asabe.org" target="_blank" style="text-decoration:none">American Society of Agricultural and Biological Engineers (ASABE)</a>
+    <a class="tag" href="https://niae.net/1/members/" target="_blank" style="text-decoration:none">Nigerian Institution of Agricultural Engineers (NIAE)</a>
+    <a class="tag" href="https://nse.org.ng" target="_blank" style="text-decoration:none">Nigerian Society of Engineers (NSE)</a>
+    <a class="tag" href="https://coren.gov.ng" target="_blank" style="text-decoration:none">Pupil Engineer, COREN</a>
   </div>
 </section>
 
-<section id="referees">
+<section id="referees" style="background:#F3EEF7; border-radius:8px;">
   <div class="section-head">
     <h2>Referees</h2>
-    <span class="section-note mono">contact details on request</span>
+    <span class="section-note mono">5 referees</span>
   </div>
   <div class="skills-grid">
-    <div class="referee-card"><h4>Prof. Miguel &Aacute;ngel Campo Besc&oacute;s</h4><p>Public University of Navarre, Spain</p></div>
-    <div class="referee-card"><h4>Prof. Jos&eacute; Tadeu Marques Aranha</h4><p>UTAD, Portugal</p></div>
-    <div class="referee-card"><h4>Dr. Ibrahim Babangida Dalha</h4><p>Ahmadu Bello University, Nigeria</p></div>
+    <div class="referee-card">
+      <h4>Prof. Javier Casal&iacute; Sarasibar</h4>
+      <p>Catedr&aacute;tico/a de Universidad &middot; Dept. Ingenier&iacute;a, &Aacute;rea de Ingenier&iacute;a Agroforestal</p>
+      <p>Public University of Navarre, Spain</p>
+      <p style="margin-top:0.4rem;"><a class="mono" href="mailto:jcsunavarra.es" style="color:var(--blue)">jcsunavarra.es</a></p>
+      <p class="mono" style="font-size:11.5px;">(+34) 948 16 9173 (ext. 9173)</p>
+      <p style="font-size:11.5px;">Edificio Los Olivos, Despacho 2058, P.Segunda</p>
+    </div>
+    <div class="referee-card">
+      <h4>Dr. Konstantinos Soulis</h4>
+      <p>Assistant Professor</p>
+      <p>Agricultural University of Athens, Greece</p>
+      <p style="margin-top:0.4rem;"><a class="mono" href="mailto:soco@aua.gr" style="color:var(--blue)">soco@aua.gr</a></p>
+      <p class="mono" style="font-size:11.5px;">+30 210 529 4070</p>
+      <p style="font-size:11.5px; display:flex; gap:0.8rem; margin-top:0.3rem;">
+        <a href="https://w1.aua.gr/afp/wp-content/uploads/sites/3/2023/12/1-ENGL_Soulis_CV-1.pdf" target="_blank" style="color:var(--blue)">CV</a>
+        <a href="https://w1.aua.gr/afp/en/faculty/k-soulis_en/" target="_blank" style="color:var(--blue)">Google Scholar</a>
+        <a href="https://w1.aua.gr/afp/en/faculty/k-soulis_en/" target="_blank" style="color:var(--blue)">Web of Science</a>
+      </p>
+    </div>
+    <div class="referee-card">
+      <h4>Prof. Miguel &Aacute;ngel Campo Besc&oacute;s</h4>
+      <p>Public University of Navarre, Spain</p>
+      <p style="font-size:11.5px; color:var(--ink-soft); margin-top:0.4rem;">Contact details on request</p>
+    </div>
+    <div class="referee-card">
+      <h4>Prof. Jos&eacute; Tadeu Marques Aranha</h4>
+      <p>UTAD, Portugal</p>
+      <p style="font-size:11.5px; color:var(--ink-soft); margin-top:0.4rem;">Contact details on request</p>
+    </div>
+    <div class="referee-card">
+      <h4>Dr. Ibrahim Babangida Dalha</h4>
+      <p>Ahmadu Bello University, Nigeria</p>
+      <p style="font-size:11.5px; color:var(--ink-soft); margin-top:0.4rem;">Contact details on request</p>
+    </div>
   </div>
 </section>
+
+<section id="gallery" style="background:#FBF3EA; border-radius:8px;">
+  <div class="section-head">
+    <h2>Gallery</h2>
+    <span class="section-note mono">field &amp; campus photos</span>
+  </div>
+  <div class="gallery-grid">
+    <img class="gallery-thumb" src="gallery/gallery_01.jpg" alt="Field photo 1" loading="lazy" onclick="openLightbox('gallery/gallery_01.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_02.jpg" alt="Field photo 2" loading="lazy" onclick="openLightbox('gallery/gallery_02.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_03.jpg" alt="Field photo 3" loading="lazy" onclick="openLightbox('gallery/gallery_03.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_04.jpg" alt="Field photo 4" loading="lazy" onclick="openLightbox('gallery/gallery_04.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_05.jpg" alt="Field photo 5" loading="lazy" onclick="openLightbox('gallery/gallery_05.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_06.jpg" alt="Field photo 6" loading="lazy" onclick="openLightbox('gallery/gallery_06.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_07.jpg" alt="Field photo 7" loading="lazy" onclick="openLightbox('gallery/gallery_07.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_08.jpg" alt="Field photo 8" loading="lazy" onclick="openLightbox('gallery/gallery_08.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_09.jpg" alt="Field photo 9" loading="lazy" onclick="openLightbox('gallery/gallery_09.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_10.jpg" alt="Field photo 10" loading="lazy" onclick="openLightbox('gallery/gallery_10.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_11.jpg" alt="Field photo 11" loading="lazy" onclick="openLightbox('gallery/gallery_11.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_12.jpg" alt="Field photo 12" loading="lazy" onclick="openLightbox('gallery/gallery_12.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_13.jpg" alt="Field photo 13" loading="lazy" onclick="openLightbox('gallery/gallery_13.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_14.jpg" alt="Field photo 14" loading="lazy" onclick="openLightbox('gallery/gallery_14.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_15.jpg" alt="Field photo 15" loading="lazy" onclick="openLightbox('gallery/gallery_15.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_16.jpg" alt="Field photo 16" loading="lazy" onclick="openLightbox('gallery/gallery_16.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_17.jpg" alt="Field photo 17" loading="lazy" onclick="openLightbox('gallery/gallery_17.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_18.jpg" alt="Field photo 18" loading="lazy" onclick="openLightbox('gallery/gallery_18.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_19.jpg" alt="Field photo 19" loading="lazy" onclick="openLightbox('gallery/gallery_19.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_20.jpg" alt="Field photo 20" loading="lazy" onclick="openLightbox('gallery/gallery_20.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_21.jpg" alt="Field photo 21" loading="lazy" onclick="openLightbox('gallery/gallery_21.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_22.jpg" alt="Field photo 22" loading="lazy" onclick="openLightbox('gallery/gallery_22.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_23.jpg" alt="Field photo 23" loading="lazy" onclick="openLightbox('gallery/gallery_23.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_24.jpg" alt="Field photo 24" loading="lazy" onclick="openLightbox('gallery/gallery_24.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_25.jpg" alt="Field photo 25" loading="lazy" onclick="openLightbox('gallery/gallery_25.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_26.jpg" alt="Field photo 26" loading="lazy" onclick="openLightbox('gallery/gallery_26.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_27.jpg" alt="Field photo 27" loading="lazy" onclick="openLightbox('gallery/gallery_27.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_28.jpg" alt="Field photo 28" loading="lazy" onclick="openLightbox('gallery/gallery_28.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_29.jpg" alt="Field photo 29" loading="lazy" onclick="openLightbox('gallery/gallery_29.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_30.jpg" alt="Field photo 30" loading="lazy" onclick="openLightbox('gallery/gallery_30.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_31.jpg" alt="Field photo 31" loading="lazy" onclick="openLightbox('gallery/gallery_31.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_32.jpg" alt="Field photo 32" loading="lazy" onclick="openLightbox('gallery/gallery_32.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_33.jpg" alt="Field photo 33" loading="lazy" onclick="openLightbox('gallery/gallery_33.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_34.jpg" alt="Field photo 34" loading="lazy" onclick="openLightbox('gallery/gallery_34.jpg')">
+    <img class="gallery-thumb" src="gallery/gallery_35.jpg" alt="Field photo 35" loading="lazy" onclick="openLightbox('gallery/gallery_35.jpg')">
+  </div>
+</section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Enlarged photo">
+</div>
 
 <section id="contact">
   <div class="contact-panel">
@@ -588,50 +683,50 @@ const domains = [
     key: "remote-sensing", label: "Remote Sensing & EO", color: "var(--blue)",
     desc: "Correcting, extracting, and teaching how to work with satellite and drone imagery.",
     projects: [
-      { name: "STADOS: Radiometric Harmonization", metric: "39% & 31% less temporal variance", desc: "Extends dark-object subtraction into a self-consistent, multi-object framework for Sentinel-2 NDVI.", doi: "10.5281/zenodo.21997000", repo: "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction", thumb: "thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.png" },
-      { name: "Real-Time RGB Vegetation Indexing", metric: "Published, IJRSI 2026", desc: "Open-source vegetation indexing pipeline for UAV and handheld crop imagery.", doi: "10.51244/IJRSI.2026.1307000218", repo: "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery", thumb: "thumbs/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery.png" },
-      { name: "Geospatial Data Analysis", metric: "6-module course package", desc: "Vector/raster GIS, Sentinel-1/2 remote sensing, and classification, Python + Google Earth Engine.", doi: "10.5281/zenodo.21760031", repo: "Geospatial-data-analysis", thumb: "thumbs/Geospatial-data-analysis.png" }
+      { name: "STADOS: Radiometric Harmonization", metric: "39% & 31% less temporal variance", desc: "Extends dark-object subtraction into a self-consistent, multi-object framework for Sentinel-2 NDVI.", doi: "10.5281/zenodo.21997000", repo: "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction", thumb: "thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.jpg" },
+      { name: "Real-Time RGB Vegetation Indexing", metric: "Published, IJRSI 2026", desc: "Open-source vegetation indexing pipeline for UAV and handheld crop imagery.", doi: "10.51244/IJRSI.2026.1307000218", repo: "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery", thumb: "thumbs/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery.jpg" },
+      { name: "Geospatial Data Analysis", metric: "6-module course package", desc: "Vector/raster GIS, Sentinel-1/2 remote sensing, and classification, Python + Google Earth Engine.", doi: "10.5281/zenodo.21760031", repo: "Geospatial-data-analysis", thumb: "thumbs/Geospatial-data-analysis.jpg" }
     ]
   },
   {
     key: "hydrology", label: "Hydrology & Erosion", color: "var(--green)",
     desc: "Modelling how water moves and erodes land, gully formation and sediment transport.",
     projects: [
-      { name: "Digital Twin for Gully Biocontrol", metric: "47.8% less soil loss", desc: "Bayesian-assimilated digital twin evaluating Morning Glory biocontrol of gully erosion. Under review, Environmental Monitoring and Assessment.", doi: "10.5281/zenodo.21760023", repo: "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp", thumb: "thumbs/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.png" },
-      { name: "Hybrid CNN-BiLSTM-Attention Sediment", metric: "Published, IJRSI 2026", desc: "Physics-grounded hybrid deep learning for gully sediment transport prediction.", doi: "10.51244/IJRSI.2026.1307000217", repo: "Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System", thumb: "thumbs/Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System.png" }
+      { name: "Digital Twin for Gully Biocontrol", metric: "47.8% less soil loss", desc: "Bayesian-assimilated digital twin evaluating Morning Glory biocontrol of gully erosion. Under review, Environmental Monitoring and Assessment.", doi: "10.5281/zenodo.21760023", repo: "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp", thumb: "thumbs/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.jpg" },
+      { name: "Hybrid CNN-BiLSTM-Attention Sediment", metric: "Published, IJRSI 2026", desc: "Physics-grounded hybrid deep learning for gully sediment transport prediction.", doi: "10.51244/IJRSI.2026.1307000217", repo: "Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System", thumb: "thumbs/Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System.jpg" }
     ]
   },
   {
     key: "irrigation", label: "Irrigation & Water Mgmt", color: "var(--navy)",
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
-      { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.png" },
-      { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.png" }
+      { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
+      { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" }
     ]
   },
   {
     key: "precision-ag", label: "Precision Ag & Geostatistics", color: "var(--brown)",
     desc: "Turning sparse field samples into reliable, spatially continuous maps.",
     projects: [
-      { name: "Multitask Singularity Regression Kriging", metric: "Moran's I up to 0.98", desc: "Multiscale singularity index engineering combined with multitask kriging for soil/crop prediction.", doi: "10.5281/zenodo.21798402", repo: "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction", thumb: "thumbs/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.png" },
-      { name: "GIS-Based Livestock Slurry Suitability", metric: "R\u00b2 = 0.77", desc: "GIS-MCDA overlay extended with regression kriging and deep-learning suitability surfaces.", doi: "10.5281/zenodo.21760027", repo: "GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application", thumb: "thumbs/GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application.png" },
-      { name: "Operationalizing GIS & ML", metric: "2.69t lime saved", desc: "Three field campaigns, maize, vineyard pest, and grape ripening, compared under one lens. Under review, European Journal of Agronomy.", doi: null, ssrn: "10.2139/ssrn.7194382", repo: "Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems", thumb: "thumbs/Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems.png" },
-      { name: "GIS Monitoring of Grape Moth", metric: "25 delta traps, 3 flight periods", desc: "Terrain analysis, mating-disruption costing, and spatial pest monitoring in the Douro region.", doi: "10.5281/zenodo.22741092", repo: "GIS-Monitoring-of-Grape-Moth-Vineyard-Pest", thumb: "thumbs/GIS-Monitoring-of-Grape-Moth-Vineyard-Pest.png" },
-      { name: "GIS Monitoring of Vineyard Ripening (Brix)", metric: "R\u00b2 = 0.9784", desc: "NDVI and logarithmic regression harvest-date forecasting for a 6-hectare UTAD vineyard.", doi: "10.5281/zenodo.22741094", repo: "GIS-Monitoring-of-Vineyard-Ripening-Brix", thumb: "thumbs/GIS-Monitoring-of-Vineyard-Ripening-Brix.png" }
+      { name: "Multitask Singularity Regression Kriging", metric: "Moran's I up to 0.98", desc: "Multiscale singularity index engineering combined with multitask kriging for soil/crop prediction.", doi: "10.5281/zenodo.21798402", repo: "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction", thumb: "thumbs/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.jpg" },
+      { name: "GIS-Based Livestock Slurry Suitability", metric: "R\u00b2 = 0.77", desc: "GIS-MCDA overlay extended with regression kriging and deep-learning suitability surfaces.", doi: "10.5281/zenodo.21760027", repo: "GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application", thumb: "thumbs/GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application.jpg" },
+      { name: "Operationalizing GIS & ML", metric: "2.69t lime saved", desc: "Three field campaigns, maize, vineyard pest, and grape ripening, compared under one lens. Under review, European Journal of Agronomy.", doi: null, ssrn: "10.2139/ssrn.7194382", repo: "Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems", thumb: "thumbs/Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems.jpg" },
+      { name: "GIS Monitoring of Grape Moth", metric: "25 delta traps, 3 flight periods", desc: "Terrain analysis, mating-disruption costing, and spatial pest monitoring in the Douro region.", doi: "10.5281/zenodo.22741092", repo: "GIS-Monitoring-of-Grape-Moth-Vineyard-Pest", thumb: "thumbs/GIS-Monitoring-of-Grape-Moth-Vineyard-Pest.jpg" },
+      { name: "GIS Monitoring of Vineyard Ripening (Brix)", metric: "R\u00b2 = 0.9784", desc: "NDVI and logarithmic regression harvest-date forecasting for a 6-hectare UTAD vineyard.", doi: "10.5281/zenodo.22741094", repo: "GIS-Monitoring-of-Vineyard-Ripening-Brix", thumb: "thumbs/GIS-Monitoring-of-Vineyard-Ripening-Brix.jpg" }
     ]
   },
   {
     key: "vision-dl", label: "Computer Vision & DL", color: "var(--purple)",
     desc: "Foundational architectures that generalize across agronomic imaging tasks.",
     projects: [
-      { name: "Geometry-Agnostic Contrastive Learning", metric: "64.4% vs 5.3% chance", desc: "Unified geometry-invariant deep-learning framework spanning four architecture types. Under review, Biosystems Engineering.", doi: "10.5281/zenodo.21760025", repo: "Geometry-Agnostic-Contrastive-Learning-GACL", thumb: "thumbs/Geometry-Agnostic-Contrastive-Learning-GACL.png" }
+      { name: "Geometry-Agnostic Contrastive Learning", metric: "64.4% vs 5.3% chance", desc: "Unified geometry-invariant deep-learning framework spanning four architecture types. Under review, Biosystems Engineering.", doi: "10.5281/zenodo.21760025", repo: "Geometry-Agnostic-Contrastive-Learning-GACL", thumb: "thumbs/Geometry-Agnostic-Contrastive-Learning-GACL.jpg" }
     ]
   },
   {
     key: "agribusiness", label: "Agribusiness Decision Science", color: "var(--orange)",
     desc: "Operations research for real production and market decisions.",
     projects: [
-      { name: "Dairy Processing Decision-Support Model", metric: "R\u00b2 = 0.859", desc: "Model comparison, linear programming, and Monte Carlo risk simulation for dairy product mix.", doi: "10.5281/zenodo.21760085", repo: "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability", thumb: "thumbs/Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability.png" }
+      { name: "Dairy Processing Decision-Support Model", metric: "R\u00b2 = 0.859", desc: "Model comparison, linear programming, and Monte Carlo risk simulation for dairy product mix.", doi: "10.5281/zenodo.21760085", repo: "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability", thumb: "thumbs/Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability.jpg" }
     ]
   }
 ];
@@ -745,6 +840,15 @@ async function sendMessage() {
   }
   btn.disabled = false;
   btn.textContent = 'Send message';
+}
+
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = src;
+  lb.classList.add('open');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
 }
 </script>
 
