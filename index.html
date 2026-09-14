@@ -100,7 +100,7 @@
   .layer-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 1.4rem; max-width: 62ch; }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
   .project-card { border: 1px solid var(--line); border-radius: 5px; padding: 0; background: var(--paper-raised); overflow: hidden; }
-  .project-thumb { width: 100%; height: 200px; object-fit: contain; display: block; border-bottom: 1px solid var(--line);
+  .project-thumb { width: 100%; height: 200px; object-fit: contain; display: block; border-top: 1px solid var(--line);
     background: #FAFAF7; padding: 0.6rem; box-sizing: border-box; }
   .project-body { padding: 1.1rem 1.2rem; }
   .project-card h3 { font-size: 14.5px; font-weight: 600; margin-bottom: 0.45rem; line-height: 1.3; }
@@ -825,9 +825,7 @@ function renderProjects() {
     card.style.borderLeft = 'none';
     card.style.borderTop = '3px solid ' + p.color;
     card.innerHTML =
-      '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy">' +
       '<div class="project-body">' +
-      doiTag +
       '<h3>' + p.name + '</h3>' +
       '<p class="metric mono">' + p.metric + '</p>' +
       '<p>' + p.desc + '</p>' +
@@ -836,7 +834,9 @@ function renderProjects() {
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank">Repository &rarr;</a>' +
         '<a href="https://halilunaziru73-creator.github.io/' + p.repo + '/" target="_blank">Walkthrough &rarr;</a>' +
       '</div>' +
-      '</div>';
+      '</div>' +
+      '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy">' +
+      (doiTag ? '<div style="padding:0.8rem 1.2rem;">' + doiTag + '</div>' : '');
     grid.appendChild(card);
   });
 }
