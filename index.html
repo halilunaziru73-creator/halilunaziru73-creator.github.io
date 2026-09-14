@@ -82,8 +82,19 @@
     margin-bottom: 2.1rem; border-bottom: 1px solid var(--line); padding-bottom: 1rem; }
   .section-head h2 { font-size: 1.85rem; font-weight: 700; letter-spacing: -0.015em; position: relative;
     display: inline-block; }
+  .accordion-head { cursor: pointer; user-select: none; }
   .section-head h2::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 46px; height: 4px;
     border-radius: 3px; background: linear-gradient(90deg, #3B6EA5, #4C8C6B, #B8763F); }
+  .accordion-chevron { font-size: 13px; color: var(--ink-soft); transition: transform .3s ease; margin-left: 0.6rem; }
+  .accordion-chevron.open { transform: rotate(180deg); }
+  .section-body { max-height: 0; overflow: hidden; transition: max-height .5s ease, opacity .4s ease; opacity: 0; }
+  .section-body.expanded { max-height: 20000px; opacity: 1; }
+  .quicknav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
+  .quicknav-tile { border-radius: 8px; padding: 1.1rem 1rem; cursor: pointer; text-align: center;
+    transition: transform .18s, box-shadow .18s; border: 1px solid var(--line); background: white; }
+  .quicknav-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+  .quicknav-icon { font-size: 1.7rem; margin-bottom: 0.5rem; display: block; }
+  .quicknav-label { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
   section { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   section.reveal { opacity: 1; transform: translateY(0); }
   .project-card, .skill-card, .referee-card, .tl-item, .pub-item {
@@ -249,16 +260,16 @@
     <div class="nav-mark">NAZIRU<span>.</span>HALILU</div>
     <nav>
       <ul>
-        <li><a href="#travels">Travels</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#beng-overview">B.Eng</a></li>
-        <li><a href="#nd-overview">ND</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('travels')">Travels</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('research')">Research</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('education')">Education</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('beng-overview')">B.Eng</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('nd-overview')">ND</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('courses')">Courses</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('experience')">Experience</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('publications')">Publications</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('projects')">Projects</a></li>
+        <li><a href="javascript:void(0)" onclick="jumpTo('gallery')">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -308,7 +319,7 @@
     </div>
     <p class="hero-photo-tag mono">EMJMD RESEARCH SCHOLAR</p>
   </div>
-  <a href="#travels" class="scroll-cue" aria-label="Scroll down">
+  <a href="#quicknav" class="scroll-cue" aria-label="Scroll down">
     <span>Explore my research</span>
     <div class="scroll-chevron">&#8595;</div>
   </a>
@@ -417,11 +428,38 @@
   </div>
 </section>
 
-<section id="travels" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
+<section id="quicknav" style="background:#FFFFFF; border-radius:8px;">
   <div class="section-head">
+    <h2>Explore This Page</h2>
+    <span class="section-note mono">click a tile to jump &amp; expand</span>
+  </div>
+  <div class="quicknav-grid">
+    <div class="quicknav-tile" onclick="jumpTo('travels')"><span class="quicknav-icon">🌍</span><span class="quicknav-label">Travels</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('research')"><span class="quicknav-icon">🔬</span><span class="quicknav-label">Research Focus</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('education')"><span class="quicknav-icon">🎓</span><span class="quicknav-label">Education</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('emjmd-courses')"><span class="quicknav-icon">🇪🇺</span><span class="quicknav-label">EMJMD Overview</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('beng-overview')"><span class="quicknav-icon">⚙️</span><span class="quicknav-label">B.Eng Overview</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('nd-overview')"><span class="quicknav-icon">📐</span><span class="quicknav-label">ND Overview</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('courses')"><span class="quicknav-icon">📚</span><span class="quicknav-label">Academic Record</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('experience')"><span class="quicknav-icon">💼</span><span class="quicknav-label">Experience</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('teaching')"><span class="quicknav-icon">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('publications')"><span class="quicknav-icon">📄</span><span class="quicknav-label">Publications</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('projects')"><span class="quicknav-icon">🗂️</span><span class="quicknav-label">Projects</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('skills')"><span class="quicknav-icon">🛠️</span><span class="quicknav-label">Skills</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('awards')"><span class="quicknav-icon">🏆</span><span class="quicknav-label">Awards</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('certifications')"><span class="quicknav-icon">📜</span><span class="quicknav-label">Certifications</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('conferences')"><span class="quicknav-icon">🗣️</span><span class="quicknav-label">Conferences</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('memberships')"><span class="quicknav-icon">🤝</span><span class="quicknav-label">Memberships</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('referees')"><span class="quicknav-icon">📝</span><span class="quicknav-label">Referees</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('gallery')"><span class="quicknav-icon">📸</span><span class="quicknav-label">Gallery</span></div>
+  </div>
+</section>
+
+<section id="travels" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('travels')">
     <h2>Places I've Worked &amp; Studied</h2>
     <span class="section-note mono">10 countries</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-travels">&#9660;</span></div><div class="section-body" id="body-travels">
   <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.4rem; max-width:70ch;">From Zaria, Nigeria, through Spain (Pamplona, Madrid, Barcelona), Portugal, Greece, Qatar, Morocco, Ethiopia, France, Italy, and Germany, over the course of research travel, conferences, and the Erasmus Mundus programme.</p>
 
   <div id="tour-map-wrap" style="position:relative; width:100%; border-radius:10px; overflow:hidden; border: 3px double #C9B98A; background:#F2E8D0;">
@@ -449,14 +487,14 @@
     <span class="tag" style="background:white;">&#127470;&#127481; Italy</span>
     <span class="tag" style="background:white;">&#127465;&#127466; Germany</span>
   </div>
-</section>
+</div></section>
 
 
 <section id="research" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('research')">
     <h2>Research focus</h2>
     <span class="section-note mono">6 active layers</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-research">&#9660;</span></div><div class="section-body" id="body-research">
   <div class="project-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
     <div class="project-card"><h3 style="color:var(--blue)">Remote Sensing &amp; Earth Observation</h3><p>Correcting and extracting information from satellite and drone imagery, the data layer beneath everything else.</p></div>
     <div class="project-card"><h3 style="color:var(--green)">Hydrology &amp; Erosion Engineering</h3><p>Modelling how water moves and erodes land, gully formation and sediment transport.</p></div>
@@ -465,13 +503,13 @@
     <div class="project-card"><h3 style="color:var(--purple)">Computer Vision &amp; Deep Learning</h3><p>Foundational architectures that generalize across agronomic imaging tasks.</p></div>
     <div class="project-card"><h3 style="color:var(--orange)">Agribusiness Decision Science</h3><p>Operations research for real production and market decisions.</p></div>
   </div>
-</section>
+</div></section>
 
 <section id="education" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('education')">
     <h2>Education</h2>
     <span class="section-note mono">ABU &middot; UPNA &middot; UTAD &middot; AUA</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-education">&#9660;</span></div><div class="section-body" id="body-education">
   <div class="timeline">
     <div class="tl-item">
       <p class="tl-date mono">2025 &ndash; 2027</p>
@@ -494,13 +532,13 @@
       <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=1h0e5gWEy34vzVDKAq3xSdRH28XFJi5Rq&usp=drive_fs" target="_blank" style="color:var(--blue)">View transcript/certificate &rarr;</a></p>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="emjmd-courses" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('emjmd-courses')">
     <h2>EMJMD Programme Overview</h2>
     <span class="section-note mono">120 ECTS across 4 terms</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-emjmd-courses">&#9660;</span></div><div class="section-body" id="body-emjmd-courses">
   <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">SUSTAGRI is a 2-year, 4-term Erasmus Mundus Joint Master's Degree. Each term is hosted at a different partner university, with the final term dedicated to the Master Thesis.</p>
   <div class="skills-grid">
     <div class="skill-card" style="border-left:3px solid #3B6EA5;">
@@ -524,13 +562,13 @@
       <p style="margin-top:0.5rem;">Completed at one of the three consortium universities, or an associated partner institution.</p>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="beng-overview" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('beng-overview')">
     <h2>B.Eng Agricultural &amp; Bioresources Engineering Overview</h2>
     <span class="section-note mono">Ahmadu Bello University, Zaria &middot; 2019 &ndash; 2024</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-beng-overview">&#9660;</span></div><div class="section-body" id="body-beng-overview">
   <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">Bachelor of Engineering, a 5-year programme, completed with First Class Honours, CGPA 4.77/5.00, Top 1% of graduating cohort.</p>
   <div class="skills-grid">
     <div class="skill-card" style="border-left:3px solid #3B6EA5;">
@@ -554,12 +592,12 @@
       <p style="margin-top:0.5rem;">Agricultural Machinery Management (3 CU) &middot; Agricultural Power (3 CU) &middot; Irrigation System Design, Management and Evaluation (3 CU) &middot; Agricultural Drainage (3 CU) &middot; Soil and Water Conservation (3 CU) &middot; Farm Water Supply and Management (2 CU) &middot; Element of Public Health Engineering (2 CU) &middot; Computer Application in Agric. &amp; Bioresource Engineering (3 CU) &middot; Processing and Storage of Agricultural Products I (3 CU) &middot; Food Engineering (3 CU) &middot; Sustainable Bio-Energy System and Design Techniques (3 CU) &middot; Welding and Brazing (2 CU) &middot; Farm Structures (3 CU) &middot; Farm Electrification and Environmental Control (3 CU) &middot; Entrepreneurship for Agricultural Engineers (2 CU) &middot; Farm Management and Agricultural Extension (2 CU) &middot; Final Year Project (3 CU) &middot; Final Year Project (3 CU)</p>
     </div>
   </div>
-</section>
+</div></section>
 <section id="nd-overview" style="background:#EAF1FB; border-top: 5px solid #3B6EA5; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('nd-overview')">
     <h2>National Diploma Programme Overview</h2>
     <span class="section-note mono">Samaru College of Agriculture, ABU &middot; 2016 &ndash; 2018</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-nd-overview">&#9660;</span></div><div class="section-body" id="body-nd-overview">
   <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">Agricultural Engineering Technology, a 2-year National Diploma programme, completed with Distinction, CGPA 3.78/4.00, Top 1%.</p>
   <div class="skills-grid">
     <div class="skill-card" style="border-left:3px solid #3B6EA5;">
@@ -571,13 +609,13 @@
       <p style="margin-top:0.5rem;">Farm Power (2 CU) &middot; Farm Machinery &amp; Mechanization (5 CU) &middot; Farm Machinery Management (4 CU) &middot; Irrigation and Drainage (4 CU) &middot; Soil and Water Conservation (2 CU) &middot; Soil Mechanics (2 CU) &middot; Computer Aided Design &amp; Drafting (3 CU) &middot; Agricultural Materials Handling Technology (5 CU) &middot; Post Harvest Technology and Storage (5 CU) &middot; Strength of Materials (3 CU) &middot; Properties of Materials (2 CU) &middot; Applied Fluid Mechanics (2 CU) &middot; Farm Electrification (5 CU) &middot; Constr. &amp; Maint. of Farm Structures (5 CU) &middot; Calculus (2 CU) &middot; Technical Report Writing (2 CU) &middot; Use of English II (3 CU) &middot; Entrepreneurship Development (2 CU) &middot; Project (6 CU)</p>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="courses" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('courses')">
     <h2>Full Academic Record</h2>
     <span class="section-note mono">ND &middot; B.Eng &middot; EMJMD, by discipline</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-courses">&#9660;</span></div><div class="section-body" id="body-courses">
   <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.6rem; max-width:70ch;">Every course completed across the National Diploma, B.Eng, and EMJMD programmes, consolidated by technical discipline. Click a category to expand.</p>
   <details class="course-group">
     <summary>Agricultural Machinery, Mechanization &amp; Power <span class="mono course-count">10 courses</span></summary>
@@ -771,15 +809,15 @@
     </div>
   </details>
   
-</section>
+</div></section>
 
 
 
 <section id="experience" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('experience')">
     <h2>Research &amp; professional experience</h2>
     <span class="section-note mono">2017 &ndash; present</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-experience">&#9660;</span></div><div class="section-body" id="body-experience">
   <div class="timeline">
     <div class="tl-item">
       <p class="tl-date mono">SEP 2026 &ndash; JAN 2027</p>
@@ -842,13 +880,13 @@
       <p>Data collection, analysis, and literature review across water &amp; irrigation systems, soil &amp; erosion assessment, and postharvest/animal systems.</p>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="teaching" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('teaching')">
     <h2>Teaching, leadership &amp; community</h2>
     <span class="section-note mono">2020 &ndash; 2025</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-teaching">&#9660;</span></div><div class="section-body" id="body-teaching">
   <div class="two-col">
     <div class="timeline">
       <div class="tl-item">
@@ -885,13 +923,13 @@
       </div>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="publications" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('publications')">
     <h2>Publications</h2>
     <span class="section-note mono">4 published &middot; 6 under review &middot; 3 preprints</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-publications">&#9660;</span></div><div class="section-body" id="body-publications">
 
   <div class="pub-group">
     <h3>PEER-REVIEWED</h3>
@@ -956,13 +994,13 @@
       <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21997000" target="_blank">doi.org/10.5281/zenodo.21997000</a>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="projects" style="background:#FFFFFF; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('projects')">
     <h2>Project index</h2>
     <span class="section-note mono">click a layer to filter</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-projects">&#9660;</span></div><div class="section-body" id="body-projects">
   <div class="layers-shell">
     <div class="layers-list" id="layers-list">
       <div class="layers-list-head">LAYERS</div>
@@ -972,13 +1010,13 @@
       <div class="project-grid" id="project-grid"></div>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="skills" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('skills')">
     <h2>Technical skills</h2>
     <span class="section-note mono">tools &amp; methods</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-skills">&#9660;</span></div><div class="section-body" id="body-skills">
   <div class="skills-grid">
     <div class="skill-card"><h4>Machine Learning &amp; AI</h4><p>PyTorch, TensorFlow, Keras, scikit-learn, CNNs</p></div>
     <div class="skill-card"><h4>Geospatial AI / Remote Sensing / GIS</h4><p>ENVI, QGIS, ArcGIS, Google Earth Engine, Sentinel imagery</p></div>
@@ -988,13 +1026,13 @@
     <div class="skill-card"><h4>Sensor Analytics &amp; Data Fusion</h4><p>Time-series from soil-moisture, microclimate, and environmental telemetry</p></div>
     <div class="skill-card"><h4>Programming &amp; Data Science</h4><p>Python, MATLAB, R, Pandas, NumPy, SciPy, Jupyter, Git/GitHub, Zenodo</p></div>
   </div>
-</section>
+</div></section>
 
 <section id="awards" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('awards')">
     <h2>Awards &amp; honors</h2>
     <span class="section-note mono">10 recognitions</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-awards">&#9660;</span></div><div class="section-body" id="body-awards">
   <div class="tag-list">
     <span class="tag"><b>Erasmus Mundus Joint Master Scholarship</b>, European Union (2025)</span>
     <span class="tag"><b>Best Project Award</b>, ABU Senate (2024)</span>
@@ -1008,13 +1046,13 @@
     <span class="tag"><b>PTDF Undergraduate Fellow</b> (2023)</span>
     <span class="tag"><b>Needs-Based University Fellowship</b> (2022)</span>
   </div>
-</section>
+</div></section>
 
 <section id="certifications" style="background:#BFE0C4; border-top: 5px solid #4C8C6B; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('certifications')">
     <h2>Certifications &amp; Documented Recognitions</h2>
     <span class="section-note mono">14 certificates, click to enlarge</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-certifications">&#9660;</span></div><div class="section-body" id="body-certifications">
   <div class="skills-grid">
     <div class="referee-card" style="padding:0;">
       <img src="certs/cert_cpd_iccp.jpg" alt="Certificate of Continuing Professional Development" style="width:100%; height:220px; object-fit:contain; background:#FAFAF7; border-bottom:1px solid var(--line); border-radius:5px 5px 0 0; cursor:pointer;" loading="lazy" onclick="openLightbox('certs/cert_cpd_iccp.jpg')">
@@ -1115,13 +1153,13 @@
       </div>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="conferences" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('conferences')">
     <h2>Conferences, seminars &amp; workshops</h2>
     <span class="section-note mono">2023 &ndash; 2026</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-conferences">&#9660;</span></div><div class="section-body" id="body-conferences">
   <div class="tag-list">
     <span class="tag">Data Management Workshop: From Phenotyping Experiment to FAIR Data, Norway (2026)</span>
     <span class="tag">Digital Agroecology Cluster Conference (EU-funded), Brussels (2025)</span>
@@ -1131,26 +1169,26 @@
     <span class="tag">IEEE Intl. Conf. on Smart Agriculture Technologies (AgriTech), Valencia, Spain (2024)</span>
     <span class="tag">NAERLS Technical Seminar Series: AI in the Food Value Chain (2023)</span>
   </div>
-</section>
+</div></section>
 
 <section id="memberships" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('memberships')">
     <h2>Professional memberships</h2>
     <span class="section-note mono">4 bodies</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-memberships">&#9660;</span></div><div class="section-body" id="body-memberships">
   <div class="tag-list">
     <a class="tag" href="https://www.asabe.org" target="_blank" style="text-decoration:none">American Society of Agricultural and Biological Engineers (ASABE)</a>
     <a class="tag" href="https://niae.net/1/members/" target="_blank" style="text-decoration:none">Nigerian Institution of Agricultural Engineers (NIAE)</a>
     <a class="tag" href="https://nse.org.ng" target="_blank" style="text-decoration:none">Nigerian Society of Engineers (NSE)</a>
     <a class="tag" href="https://coren.gov.ng" target="_blank" style="text-decoration:none">Pupil Engineer, COREN</a>
   </div>
-</section>
+</div></section>
 
 <section id="referees" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('referees')">
     <h2>Referees</h2>
     <span class="section-note mono">5 referees</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-referees">&#9660;</span></div><div class="section-body" id="body-referees">
   <div class="skills-grid">
     <div class="referee-card">
       <h4>Prof. Javier Casal&iacute; Sarasibar</h4>
@@ -1189,13 +1227,13 @@
       <p class="mono" style="font-size:11.5px;">+234 806 687 3858</p>
     </div>
   </div>
-</section>
+</div></section>
 
 <section id="gallery" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
-  <div class="section-head">
+  <div class="section-head accordion-head" onclick="toggleSection('gallery')">
     <h2>Gallery</h2>
     <span class="section-note mono">field &amp; campus photos</span>
-  </div>
+  <span class="accordion-chevron" id="chevron-gallery">&#9660;</span></div><div class="section-body" id="body-gallery">
   <div class="gallery-grid">
     <img class="gallery-thumb" src="gallery/gallery_02.jpg" alt="Field photo 2" loading="lazy" onclick="openLightbox('gallery/gallery_02.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_03.jpg" alt="Field photo 3" loading="lazy" onclick="openLightbox('gallery/gallery_03.jpg')">
@@ -1251,7 +1289,7 @@
     <img class="gallery-thumb" src="gallery/gallery_55.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_55.jpg')">
     <img class="gallery-thumb" src="gallery/gallery_56.jpg" alt="Field photo" loading="lazy" onclick="openLightbox('gallery/gallery_56.jpg')">
   </div>
-</section>
+</div></section>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()" aria-label="Close">&times;</button>
@@ -1551,6 +1589,27 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('section').forEach(sec => revealObserver.observe(sec));
+
+function toggleSection(id) {
+  const body = document.getElementById('body-' + id);
+  const chevron = document.getElementById('chevron-' + id);
+  if (!body) return;
+  body.classList.toggle('expanded');
+  if (chevron) chevron.classList.toggle('open');
+}
+
+function jumpTo(id) {
+  const body = document.getElementById('body-' + id);
+  const chevron = document.getElementById('chevron-' + id);
+  const section = document.getElementById(id);
+  if (body && !body.classList.contains('expanded')) {
+    body.classList.add('expanded');
+    if (chevron) chevron.classList.add('open');
+  }
+  if (section) {
+    setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  }
+}
 </script>
 
 
