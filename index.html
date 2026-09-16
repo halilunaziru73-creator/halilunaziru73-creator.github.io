@@ -1645,7 +1645,18 @@ function toggleSection(id) {
   if (chevron) chevron.classList.toggle('open');
 }
 
+let currentlyOpenSection = null;
+
 function jumpTo(id) {
+  if (currentlyOpenSection && currentlyOpenSection !== id) {
+    const prevSection = document.getElementById(currentlyOpenSection);
+    const prevBody = document.getElementById('body-' + currentlyOpenSection);
+    const prevChevron = document.getElementById('chevron-' + currentlyOpenSection);
+    if (prevSection) prevSection.classList.remove('section-visible');
+    if (prevBody) prevBody.classList.remove('expanded');
+    if (prevChevron) prevChevron.classList.remove('open');
+  }
+
   const body = document.getElementById('body-' + id);
   const chevron = document.getElementById('chevron-' + id);
   const section = document.getElementById(id);
@@ -1656,6 +1667,7 @@ function jumpTo(id) {
     body.classList.add('expanded');
     if (chevron) chevron.classList.add('open');
   }
+  currentlyOpenSection = id;
   if (section) {
     setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
   }
