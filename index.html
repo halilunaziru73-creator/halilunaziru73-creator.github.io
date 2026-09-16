@@ -453,7 +453,6 @@
   </div>
   <div class="quicknav-grid">
     <div class="quicknav-tile" onclick="jumpTo('research')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#5AA5FF);">🔬</span><span class="quicknav-label">Research Focus</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('statement')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#9B7FD4);">📝</span><span class="quicknav-label">Research Statement</span></div>
     <div class="quicknav-tile" onclick="jumpTo('education')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
     <div class="quicknav-tile" onclick="jumpTo('courses')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" onclick="jumpTo('experience')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
@@ -487,105 +486,6 @@
     <div class="project-card"><h3 style="color:var(--orange)">Agribusiness Decision Science</h3><p>Operations research for real production and market decisions.</p></div>
   </div>
 </div></section>
-
-<section id="statement" class="hidden-section" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('statement')">
-    <h2>Research Statement</h2>
-    <span class="section-note mono">the problem I am working to solve</span>
-  <span class="accordion-chevron" id="chevron-statement">&#9660;</span></div><div class="section-body" id="body-statement">
-  <p style="font-size:14px; line-height:1.8; margin-bottom:1.1rem; text-align:justify;">My interest sits at the point where agricultural engineering meets computer science. I trained first as a generalist. My coursework and early fieldwork covered farm machinery and power systems, irrigation and drainage design, soil and water conservation, farm structures, and postharvest processing, the full breadth of what an agricultural engineer is expected to know. That grounding still shapes how I approach problems today. A model only earns its place if it respects how a tractor actually moves through a field, how a pump behaves under real pressure, or how a farmer makes a decision with limited time and limited money.</p>
-  <p style="font-size:14px; line-height:1.8; margin-bottom:1.6rem; text-align:justify;">Over the last few years my work has moved toward computer vision, geospatial machine learning, high throughput phenotyping, and digital agriculture more broadly, but the questions I ask are still rooted in that wider engineering training. I want to build systems that sense a field honestly, through UAV and satellite imagery, through low cost sensors, through simple cameras a farmer already owns, that model the physical process underneath the data rather than treating it as a black box, and that hand back a decision someone can actually act on, on the farm and in the industry that supports it.</p>
-
-  <div style="background:linear-gradient(160deg,#1A2318,#2E3A52); border-radius:10px; padding:1.6rem; margin-bottom:1.6rem; overflow-x:auto;">
-    <p class="mono" style="font-size:11px; color:#85B7EB; margin-bottom:1rem; letter-spacing:0.03em;">MODERN TECHNOLOGY MEETING A REAL FIELD PROBLEM</p>
-    <svg viewBox="0 0 900 300" style="width:100%; height:auto; min-width:600px;" role="img" aria-label="Diagram showing satellites, drones, and sensors feeding data through AI into farm decisions">
-      <circle cx="120" cy="55" r="16" fill="#5AA5FF"/>
-      <rect x="106" y="45" width="28" height="6" fill="#5AA5FF"/>
-      <text x="120" y="85" text-anchor="middle" font-size="11" fill="#C9CDD8" font-family="Space Grotesk, sans-serif">Satellite</text>
-
-      <path d="M 220,50 L 260,60 L 220,70 L 200,60 Z" fill="#2FC2C0"/>
-      <text x="230" y="95" text-anchor="middle" font-size="11" fill="#C9CDD8" font-family="Space Grotesk, sans-serif">UAV</text>
-
-      <rect x="330" y="45" width="26" height="26" rx="4" fill="#F5D06B"/>
-      <text x="343" y="90" text-anchor="middle" font-size="11" fill="#C9CDD8" font-family="Space Grotesk, sans-serif">Field sensor</text>
-
-      <path d="M 120,71 L 300,140" stroke="#5AA5FF" stroke-width="1.4" stroke-dasharray="3,4" opacity="0.7"/>
-      <path d="M 230,80 L 320,140" stroke="#2FC2C0" stroke-width="1.4" stroke-dasharray="3,4" opacity="0.7"/>
-      <path d="M 343,71 L 350,140" stroke="#F5D06B" stroke-width="1.4" stroke-dasharray="3,4" opacity="0.7"/>
-
-      <circle cx="360" cy="165" r="42" fill="#6E5A8C"/>
-      <text x="360" y="160" text-anchor="middle" font-size="20" fill="white">&#129504;</text>
-      <text x="360" y="182" text-anchor="middle" font-size="9.5" fill="white" font-family="Space Grotesk, sans-serif">AI &amp; CV</text>
-      <text x="360" y="225" text-anchor="middle" font-size="11" fill="#C9CDD8" font-family="Space Grotesk, sans-serif">AI, computer vision, and physics grounded machine learning</text>
-
-      <path d="M 402,165 L 560,165" stroke="#4C8C6B" stroke-width="1.6" stroke-dasharray="3,4"/>
-
-      <circle cx="600" cy="120" r="26" fill="#4C8C6B"/>
-      <text x="600" y="128" text-anchor="middle" font-size="18" fill="white">&#128167;</text>
-      <text x="600" y="160" text-anchor="middle" font-size="10.5" fill="#C9CDD8" font-family="Space Grotesk, sans-serif">Irrigation</text>
-
-      <circle cx="600" cy="210" r="26" fill="#B8763F"/>
-      <text x="600" y="218" text-anchor="middle" font-size="18" fill="white">&#128667;</text>
-      <text x="600" y="250" text-anchor="middle" font-size="10.5" fill="#C9CDD8" font-family="Space Grotesk, sans-serif">Machinery</text>
-
-      <path d="M 600,146 L 600,184" stroke="#4C8C6B" stroke-width="1.2" opacity="0.6"/>
-
-      <path d="M 626,150 L 740,165" stroke="#D4A94A" stroke-width="1.6" stroke-dasharray="3,4"/>
-      <path d="M 626,195 L 740,170" stroke="#D4A94A" stroke-width="1.6" stroke-dasharray="3,4"/>
-
-      <circle cx="780" cy="167" r="34" fill="#B23A2E"/>
-      <text x="780" y="176" text-anchor="middle" font-size="22" fill="white">&#128104;&#127997;&#8205;&#127793;</text>
-      <text x="780" y="220" text-anchor="middle" font-size="11" fill="#C9CDD8" font-family="Space Grotesk, sans-serif">The farmer decides</text>
-    </svg>
-  </div>
-
-  <div style="background:white; border-radius:10px; padding:1.4rem; margin-bottom:1.6rem; overflow-x:auto;">
-    <p class="mono" style="font-size:11px; color:var(--ink-soft); margin-bottom:1rem; letter-spacing:0.03em;">THE PROBLEM CHAIN I WORK ACROSS</p>
-    <div style="display:flex; align-items:center; gap:0; min-width:640px;">
-      <div style="flex:1; text-align:center; padding:0 0.6rem;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#3B6EA5,#5AA5FF); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 0.6rem; box-shadow:0 4px 12px rgba(0,0,0,0.18);">&#128248;</div>
-        <p style="font-size:12.5px; font-weight:700; margin-bottom:0.2rem;">Sensing</p>
-        <p style="font-size:11px; color:var(--ink-soft);">UAV, satellite, low cost field sensors</p>
-      </div>
-      <div style="font-size:1.3rem; color:var(--line);">&#8594;</div>
-      <div style="flex:1; text-align:center; padding:0 0.6rem;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#0E7C7B,#2FC2C0); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 0.6rem; box-shadow:0 4px 12px rgba(0,0,0,0.18);">&#128202;</div>
-        <p style="font-size:12.5px; font-weight:700; margin-bottom:0.2rem;">Modelling</p>
-        <p style="font-size:11px; color:var(--ink-soft);">AI, computer vision, and physics grounded machine learning</p>
-      </div>
-      <div style="font-size:1.3rem; color:var(--line);">&#8594;</div>
-      <div style="flex:1; text-align:center; padding:0 0.6rem;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#B8763F,#E0A159); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 0.6rem; box-shadow:0 4px 12px rgba(0,0,0,0.18);">&#9878;&#65039;</div>
-        <p style="font-size:12.5px; font-weight:700; margin-bottom:0.2rem;">Decision</p>
-        <p style="font-size:11px; color:var(--ink-soft);">Turning a map or reading into a choice</p>
-      </div>
-      <div style="font-size:1.3rem; color:var(--line);">&#8594;</div>
-      <div style="flex:1; text-align:center; padding:0 0.6rem;">
-        <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#1F4D2E,#4C8C6B); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 0.6rem; box-shadow:0 4px 12px rgba(0,0,0,0.18);">&#9881;&#65039;</div>
-        <p style="font-size:12.5px; font-weight:700; margin-bottom:0.2rem;">Action</p>
-        <p style="font-size:11px; color:var(--ink-soft);">Irrigation, machinery, or a real intervention</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="project-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-bottom:1.6rem;">
-    <div style="border-radius:8px; overflow:hidden; border:1px solid var(--line); background:white;">
-      <img src="thumbs2/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.jpg" alt="Live sensing to decision dashboard" style="width:100%; height:160px; object-fit:contain; background:#FAFAF7; padding:0.5rem; box-sizing:border-box;">
-      <p style="font-size:11.5px; color:var(--ink-soft); padding:0.6rem 0.8rem;">Accomplished a 47.8 percent reduction in annual soil loss, as measured against a vegetative erosion control strategy, by building this Bayesian grounded digital twin for gully biocontrol, fusing live field sensors with hybrid CNN-BiLSTM-attention forecasting.</p>
-    </div>
-    <div style="border-radius:8px; overflow:hidden; border:1px solid var(--line); background:white;">
-      <img src="thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.jpg" alt="Correcting satellite data for reliable modelling" style="width:100%; height:160px; object-fit:contain; background:#FAFAF7; padding:0.5rem; box-sizing:border-box;">
-      <p style="font-size:11.5px; color:var(--ink-soft); padding:0.6rem 0.8rem;">Accomplished a 39 and 31 percent reduction in temporal NDVI variance, as measured against raw Sentinel-2 signal, by designing STADOS, a five stage adaptive dark object subtraction framework that corrects satellite data before any computer vision model ever sees it.</p>
-    </div>
-    <div style="border-radius:8px; overflow:hidden; border:1px solid var(--line); background:white;">
-      <img src="thumbs2/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.jpg" alt="Turning sparse samples into a usable map" style="width:100%; height:160px; object-fit:contain; background:#FAFAF7; padding:0.5rem; box-sizing:border-box;">
-      <p style="font-size:11.5px; color:var(--ink-soft); padding:0.6rem 0.8rem;">Accomplished a roughly 20 percent reduction in residual kriging uncertainty across 17,864 samples, as measured against standard residual kriging, by developing Multitask Singularity Regression Kriging to turn sparse soil samples into a continuous, farm ready map.</p>
-    </div>
-  </div>
-
-  <p style="font-size:14px; line-height:1.8; text-align:justify;">I want to keep working across that whole chain, from raw sensing and geospatial data, through machine learning and hybrid physics informed models, through closed loop control for irrigation and farm machinery, to decision support that respects real conditions on the ground, whether that means water availability, mechanization limits, or field variability. Precision agriculture, remote sensing, and agricultural automation are not separate fields to me. They are different points along the same problem, and I want to keep building tools that farmers, agronomists, and the wider agricultural industry can genuinely put to use, not just research prototypes that stay in a lab.</p>
-  </div>
-</section>
 
 <section id="education" class="hidden-section" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('education')">
