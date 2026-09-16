@@ -104,12 +104,14 @@
   .hidden-section.section-visible { display: block; }
   .section-body.expanded { max-height: 20000px; opacity: 1; }
   .quicknav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
-  .quicknav-tile { border-radius: 8px; padding: 1.1rem 1rem; cursor: pointer; text-align: center;
-    transition: transform .18s, box-shadow .18s; border: 1px solid var(--line); background: white; }
-  .quicknav-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
-  .quicknav-icon { font-size: 1.4rem; margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: center;
-    width: 44px; height: 44px; border-radius: 50%; margin-left: auto; margin-right: auto; }
-  .quicknav-label { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .quicknav-tile { border-radius: 10px; padding: 1.2rem 1rem; cursor: pointer; text-align: center;
+    transition: transform .22s ease, box-shadow .22s ease; border: 1px solid var(--line); background: white; }
+  .quicknav-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 12px 24px rgba(0,0,0,0.18); }
+  .quicknav-icon { font-size: 1.55rem; margin-bottom: 0.7rem; display: flex; align-items: center; justify-content: center;
+    width: 50px; height: 50px; border-radius: 50%; margin-left: auto; margin-right: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.22); transition: transform .22s ease; }
+  .quicknav-tile:hover .quicknav-icon { transform: scale(1.12) rotate(-4deg); }
+  .quicknav-label { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.3; }
   section { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   section.reveal { opacity: 1; transform: translateY(0); }
   .project-card, .skill-card, .referee-card, .tl-item, .pub-item {
@@ -450,24 +452,24 @@
     <span class="section-note mono">click a tile to jump &amp; expand</span>
   </div>
   <div class="quicknav-grid">
-    <div class="quicknav-tile" onclick="jumpTo('research')"><span class="quicknav-icon" style="background:#D6E4F5;">🔬</span><span class="quicknav-label">Research Focus</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('statement')"><span class="quicknav-icon" style="background:#E5DCF0;">📝</span><span class="quicknav-label">Research Statement</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('education')"><span class="quicknav-icon" style="background:#D9EFDF;">🎓</span><span class="quicknav-label">Education</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('courses')"><span class="quicknav-icon" style="background:#F5E3CC;">📚</span><span class="quicknav-label">Academic Record</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('experience')"><span class="quicknav-icon" style="background:#E5DCF0;">💼</span><span class="quicknav-label">Experience</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('publications')"><span class="quicknav-icon" style="background:#F5D9D4;">📄</span><span class="quicknav-label">Publications</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('projects')"><span class="quicknav-icon" style="background:#DCE2EA;">🗂️</span><span class="quicknav-label">Projects</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('skills')"><span class="quicknav-icon" style="background:#CDE8F0;">🛠️</span><span class="quicknav-label">Skills</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('teaching')"><span class="quicknav-icon" style="background:#EDE0D0;">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('awards')"><span class="quicknav-icon" style="background:#FBEEC6;">🏆</span><span class="quicknav-label">Awards</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('certifications')"><span class="quicknav-icon" style="background:#D9EFDF;">📜</span><span class="quicknav-label">Certifications</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('conferences')"><span class="quicknav-icon" style="background:#E5DCF0;">🗣️</span><span class="quicknav-label">Conferences</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('memberships')"><span class="quicknav-icon" style="background:#F5E3CC;">🤝</span><span class="quicknav-label">Memberships</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('referees')"><span class="quicknav-icon" style="background:#D6E4F5;">📝</span><span class="quicknav-label">Referees</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('news')"><span class="quicknav-icon" style="background:#F5E3CC;">📰</span><span class="quicknav-label">Updates</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('travels')"><span class="quicknav-icon" style="background:#D9EFDF;">🌍</span><span class="quicknav-label">Travels</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('gallery')"><span class="quicknav-icon" style="background:#F5D9D4;">📸</span><span class="quicknav-label">Gallery</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('contact')"><span class="quicknav-icon" style="background:#D6E4F5;">✉️</span><span class="quicknav-label">Contact</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('research')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#5AA5FF);">🔬</span><span class="quicknav-label">Research Focus</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('statement')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#9B7FD4);">📝</span><span class="quicknav-label">Research Statement</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('education')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('courses')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('experience')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('publications')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#2E3A52,#4A6FA5);">📄</span><span class="quicknav-label">Publications</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('projects')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#3B8CFF);">🗂️</span><span class="quicknav-label">Projects</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('skills')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">🛠️</span><span class="quicknav-label">Skills</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('teaching')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#8C6B4F,#C79860);">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('awards')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🏆</span><span class="quicknav-label">Awards</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('certifications')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#6BBF8C);">📜</span><span class="quicknav-label">Certifications</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('conferences')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#B48EE0);">🗣️</span><span class="quicknav-label">Conferences</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('memberships')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#F0B36B);">🤝</span><span class="quicknav-label">Memberships</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('referees')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#7EC2FF);">📝</span><span class="quicknav-label">Referees</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('news')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#E35C4C,#FF8A70);">📰</span><span class="quicknav-label">Updates</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('travels')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#3FA867);">🌍</span><span class="quicknav-label">Travels</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('gallery')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#FF7A5C);">📸</span><span class="quicknav-label">Gallery</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('contact')"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#00C2A8);">✉️</span><span class="quicknav-label">Contact</span></div>
   </div>
 </section>
 
