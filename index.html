@@ -83,8 +83,8 @@
   .stat .label { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
 
   .hero-photo-wrap { position: relative; z-index: 1; justify-self: end; align-self: center; }
-  .hero-photo { width: 240px; height: 240px; border-radius: 6px; object-fit: cover;
-    border: 1px solid var(--line); box-shadow: 6px 6px 0 var(--grid); }
+  .hero-photo { width: 100%; max-width: 380px; aspect-ratio: 1; height: auto; border-radius: 8px; object-fit: cover;
+    border: 1px solid var(--line); box-shadow: 8px 8px 0 var(--grid); }
   .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
     margin-top: 0.9rem; text-align: center; }
 
@@ -247,7 +247,7 @@
     .gallery-grid { column-count: 2; }
     .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
     .hero-photo-wrap { order: -1; justify-self: start; }
-    .hero-photo { width: 130px; height: 130px; }
+    .hero-photo { width: 100%; max-width: 180px; height: auto; }
     .hero h1 { font-size: 2rem; }
     .stat-strip { flex-wrap: wrap; row-gap: 1rem; }
     .stat { flex: 1 1 45%; }
