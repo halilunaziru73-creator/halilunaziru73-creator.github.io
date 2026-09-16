@@ -166,9 +166,12 @@
   .pub-item .pub-authors { color: var(--ink); }
   .pub-item .pub-authors b { font-weight: 600; }
   .pub-item .pub-venue { color: var(--ink-soft); font-style: italic; }
-  .pub-item a.pub-doi { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--blue); text-decoration: none;
-    display: inline-block; margin-top: 0.3rem; }
-  .pub-item a.pub-doi:hover { text-decoration: underline; }
+  .pub-item a.pub-doi { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: white; background: var(--blue); text-decoration: none;
+    display: inline-block; margin-top: 0.4rem; margin-right: 0.5rem; padding: 4px 10px; border-radius: 5px; font-weight: 700; }
+  .pub-item a.pub-doi:hover { opacity: 0.85; }
+  .pub-item a.pub-code { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: white; background: var(--green); text-decoration: none;
+    display: inline-block; margin-top: 0.4rem; padding: 4px 10px; border-radius: 5px; font-weight: 700; }
+  .pub-item a.pub-code:hover { opacity: 0.85; }
 
   /* timeline (education + experience) */
   .timeline { border-left: 2px solid var(--line); margin-left: 6px; }
@@ -297,23 +300,23 @@
   </div>
   <div class="hero-content hero-fade-in">
     <p class="hero-coord mono">&#128205; PAMPLONA, SPAIN</p>
-    <h1 class="hero-name-gradient">Naziru Halilu</h1>
-    <p class="hero-title"><strong>Digital Agriculture</strong> &middot; <strong>Computer Vision</strong> &middot; <strong>Geospatial Machine Learning</strong></p>
+    <h1 class="hero-name-gradient">Naziru HALILU</h1>
+    <p class="hero-title"><strong>Digital Agriculture</strong></p>
     <p class="hero-summary">Agricultural engineer with a long-term research focus on the <strong>digitalization of agriculture</strong>, spanning computer vision, geospatial machine learning, agricultural control systems, and high-throughput phenotyping, grounded in a strong foundation in agricultural machinery, mechanization, and farm power systems. Current interests include self-supervised deep learning for crop-stress detection and vegetation-index estimation from UAV and multispectral imagery, and closed-loop sensing and control for irrigation, greenhouse automation, and precision farm machinery. This is complemented by field-based phenotyping pipelines, hybrid deep-learning architectures for environmental process modelling, and reproducible, uncertainty-aware ML pipelines built on GIS and satellite remote sensing.</p>
+
+    <div style="background:linear-gradient(135deg,#1F4D2E,#2E6B44); border-radius:10px; padding:1rem 1.3rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.9rem; flex-wrap:wrap;">
+      <span style="font-size:1.3rem;">&#128205;</span>
+      <div>
+        <p style="color:white; font-size:13px; font-weight:700; margin-bottom:2px;">Currently based in Pamplona, Spain</p>
+        <p style="color:#CFE8D9; font-size:12px;">Looking for PhD, postdoctoral, or research engineer roles in computer vision, geospatial machine learning, or digital agriculture</p>
+      </div>
+    </div>
 
     <div class="hero-links-row" style="margin-top:0.5rem;">
       <a href="https://github.com/halilunaziru73-creator" target="_blank" class="hero-link-btn">GitHub &rarr;</a>
       <a href="https://orcid.org/0009-0006-2324-9599" target="_blank" class="hero-link-btn">ORCID &rarr;</a>
       <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" class="hero-link-btn">Zenodo records &rarr;</a>
     </div>
-
-    <a href="Naziru_Halilu_CV.pdf" download class="cv-download-btn">
-      <span class="cv-icon">&#8681;</span>
-      <span>
-        <span class="cv-download-label">Download CV</span>
-        <span class="cv-download-sub">PDF &middot; 2 pages &middot; updated Sep 2026</span>
-      </span>
-    </a>
 
     <div class="stat-strip">
       <div class="stat"><div class="num mono">15</div><div class="label">Repositories</div></div>
@@ -488,6 +491,7 @@
     <div class="quicknav-tile" onclick="jumpTo('fieldnews')" style="background:linear-gradient(160deg,#EFEAF5,#E5DCF0);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#B48EE0);">🌐</span><span class="quicknav-label">Field News</span></div>
     <div class="quicknav-tile" onclick="jumpTo('travels')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#3FA867);">🌍</span><span class="quicknav-label">Travels</span></div>
     <div class="quicknav-tile" onclick="jumpTo('gallery')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#FF7A5C);">📸</span><span class="quicknav-label">Gallery</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('cvformats')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Download CV</span></div>
     <div class="quicknav-tile" onclick="jumpTo('contact')" style="background:linear-gradient(160deg,#E4EFFB,#CDE3F9);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#00C2A8);">✉️</span><span class="quicknav-label">Contact</span></div>
   </div>
 </section>
@@ -514,7 +518,7 @@
   <span class="accordion-chevron" id="chevron-education">&#9660;</span></div><div class="section-body" id="body-education">
   <div class="timeline">
     <div class="tl-item">
-      <p class="tl-date mono">2025 &ndash; 2027</p>
+      <p class="tl-date mono">2025 &ndash; expected Jun to Aug 2027</p>
       <h3><a href="https://drive.google.com/open?id=1mog9_ORRJNoNT1a4K2XxffY0NJMCeBXr&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">Erasmus Mundus Joint Master's Degree (EMJMD)</a></h3>
       <p class="tl-org">Cutting-Edge Technologies for Sustainable Agriculture &mdash; <a href="https://www.unavarra.es/home" target="_blank" style="color:inherit">Public University of Navarre, Spain</a> &middot; <a href="https://www.utad.pt/en/" target="_blank" style="color:inherit">UTAD, Portugal</a> &middot; <a href="https://www2.aua.gr/en" target="_blank" style="color:inherit">Agricultural University of Athens, Greece</a></p>
       <p style="font-size:11.5px; margin-top:0.3rem;"><a class="mono" href="https://drive.google.com/open?id=1mog9_ORRJNoNT1a4K2XxffY0NJMCeBXr&usp=drive_fs" target="_blank" style="color:var(--blue)">View certificate/enrolment record &rarr;</a></p>
@@ -862,17 +866,19 @@
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b> (2026). A Hybrid CNN&ndash;BiLSTM&ndash;Attention Deep Learning Framework for Sediment Transport in an Agricultural Gully System. <span class="mono" style="font-size:11.5px">Sole author</span></p>
       <p class="pub-venue">International Journal of Research and Scientific Innovation (IJRSI), 13(7), 2920&ndash;2950.</p>
-      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000217" target="_blank">doi.org/10.51244/IJRSI.2026.1307000217</a>
+      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000217" target="_blank">Read Paper &rarr;</a>
+      <a class="pub-code" href="https://github.com/halilunaziru73-creator/Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System" target="_blank">GitHub Repo &rarr;</a>
     </div>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. (2026). Real-Time RGB Proxy Vegetation Indexing and Texture Analysis for UAV and Handheld Crop Imagery. <span class="mono" style="font-size:11.5px">First author</span></p>
       <p class="pub-venue">International Journal of Research and Scientific Innovation (IJRSI), 13(7), 2951&ndash;2989.</p>
-      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000218" target="_blank">doi.org/10.51244/IJRSI.2026.1307000218</a>
+      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000218" target="_blank">Read Paper &rarr;</a>
+      <a class="pub-code" href="https://github.com/halilunaziru73-creator/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery" target="_blank">GitHub Repo &rarr;</a>
     </div>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. (2026). Sensing the Invisible: A Critical Review of NIR and Hyperspectral Analysis for Crop and Food-Quality Assessment. <span class="mono" style="font-size:11.5px">First author</span></p>
       <p class="pub-venue">International Journal of Research and Scientific Innovation (IJRSI), 13(7), 2990&ndash;3020.</p>
-      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000219" target="_blank">doi.org/10.51244/IJRSI.2026.1307000219</a>
+      <a class="pub-doi" href="https://doi.org/10.51244/IJRSI.2026.1307000219" target="_blank">Read Paper &rarr;</a>
     </div>
   </div>
 
@@ -881,17 +887,20 @@
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. Geometry-Agnostic Contrastive Learning (GACL): A Theoretical Framework and Baseline Evaluation Protocol for Agronomic Imaging. <span class="mono" style="font-size:11.5px">First author</span></p>
       <p class="pub-venue">Biosystems Engineering (Elsevier), Under Review.</p>
-      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21760025" target="_blank">doi.org/10.5281/zenodo.21760025</a>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21760025" target="_blank">Read Paper &rarr;</a>
+      <a class="pub-code" href="https://github.com/halilunaziru73-creator/Geometry-Agnostic-Contrastive-Learning-GACL" target="_blank">GitHub Repo &rarr;</a>
     </div>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b> (2026). Digital Twin for the Evaluation of Experimental Gully Biocontrol Using Morning Glory (Ipomoea spp.). <span class="mono" style="font-size:11.5px">Sole author</span></p>
       <p class="pub-venue">Environmental Monitoring and Assessment (Springer Nature), Under Review.</p>
-      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21760023" target="_blank">doi.org/10.5281/zenodo.21760023</a>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21760023" target="_blank">Read Paper &rarr;</a>
+      <a class="pub-code" href="https://github.com/halilunaziru73-creator/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp" target="_blank">GitHub Repo &rarr;</a>
     </div>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. Operationalizing GIS and Machine Learning across Contrasting Cropping Systems. <span class="mono" style="font-size:11.5px">First author</span></p>
       <p class="pub-venue">European Journal of Agronomy (Elsevier), Under Review.</p>
-      <a class="pub-doi" href="https://doi.org/10.2139/ssrn.7194382" target="_blank">doi.org/10.2139/ssrn.7194382</a>
+      <a class="pub-doi" href="https://doi.org/10.2139/ssrn.7194382" target="_blank">Read Paper &rarr;</a>
+      <a class="pub-code" href="https://github.com/halilunaziru73-creator/Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems" target="_blank">GitHub Repo &rarr;</a>
     </div>
   </div>
 
@@ -900,16 +909,18 @@
     <div class="pub-item">
       <p class="pub-authors">Halilu, N. (2025). A Systematic Review of IoT, Edge Computing, Time-Series Modelling and Control Systems in Precision Irrigation.</p>
       <p class="pub-venue">Zenodo.</p>
-      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21843899" target="_blank">doi.org/10.5281/zenodo.21843899</a>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21843899" target="_blank">Read Paper &rarr;</a>
     </div>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b> (2026). Multitask Singularity Regression Kriging for Spatio-Temporal Soil NPK Crop Stress Yield-Prediction. <span class="mono" style="font-size:11.5px">Sole author</span></p>
       <p class="pub-venue">Zenodo Preprint (v1.0.1).</p>
-      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21798402" target="_blank">doi.org/10.5281/zenodo.21798402</a>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21798402" target="_blank">Read Paper &rarr;</a>
+      <a class="pub-code" href="https://github.com/halilunaziru73-creator/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction" target="_blank">GitHub Repo &rarr;</a>
     </div>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b> (2026). STADOS: Spectral-Temporal Adaptive Dark Object Subtraction for Radiometrically Harmonized Multi-Temporal Agricultural Vegetation Monitoring.</p>
-      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21997000" target="_blank">doi.org/10.5281/zenodo.21997000</a>
+      <a class="pub-doi" href="https://doi.org/10.5281/zenodo.21997000" target="_blank">Read Paper &rarr;</a>
+      <a class="pub-code" href="https://github.com/halilunaziru73-creator/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction" target="_blank">GitHub Repo &rarr;</a>
     </div>
   </div>
 </div></section>
@@ -933,14 +944,22 @@
     <h2>Technical skills</h2>
     <span class="section-note mono">tools &amp; methods</span>
   <span class="accordion-chevron" id="chevron-skills">&#9660;</span></div><div class="section-body" id="body-skills">
-  <div class="skills-grid">
+  <h3 style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:0.8rem;">Machine Learning</h3>
+  <div class="skills-grid" style="margin-bottom:1.6rem;">
     <div class="skill-card"><h4>Machine Learning &amp; AI</h4><p>PyTorch, TensorFlow, Keras, scikit-learn, CNNs</p></div>
+    <div class="skill-card"><h4>3D Computer Vision</h4><p>COLMAP, Open3D, Multi-View Stereo, Pix4D, Agisoft Metashape</p></div>
+    <div class="skill-card"><h4>Climate &amp; Environmental AI</h4><p>CMIP6, ERA5, ACCESS-S2, Climate Downscaling, Forecasting</p></div>
+    <div class="skill-card"><h4>Programming &amp; Data Science</h4><p>Python, MATLAB, R, Pandas, NumPy, SciPy, Jupyter, Git/GitHub, Zenodo</p></div>
+  </div>
+  <h3 style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:0.8rem;">Remote Sensing and GIS</h3>
+  <div class="skills-grid" style="margin-bottom:1.6rem;">
     <div class="skill-card"><h4>Geospatial AI / Remote Sensing / GIS</h4><p>ENVI, QGIS, ArcGIS, Google Earth Engine, Sentinel imagery</p></div>
     <div class="skill-card"><h4>Crop &amp; Environmental Modelling</h4><p>APSIM Next Generation, Crop Simulation, Crop Growth Modelling</p></div>
-    <div class="skill-card"><h4>Climate &amp; Environmental AI</h4><p>CMIP6, ERA5, ACCESS-S2, Climate Downscaling, Forecasting</p></div>
-    <div class="skill-card"><h4>3D Computer Vision</h4><p>COLMAP, Open3D, Multi-View Stereo, Pix4D, Agisoft Metashape</p></div>
-    <div class="skill-card"><h4>Sensor Analytics &amp; Data Fusion</h4><p>Time-series from soil-moisture, microclimate, and environmental telemetry</p></div>
-    <div class="skill-card"><h4>Programming &amp; Data Science</h4><p>Python, MATLAB, R, Pandas, NumPy, SciPy, Jupyter, Git/GitHub, Zenodo</p></div>
+  </div>
+  <h3 style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:0.8rem;">Robotics and Control Systems</h3>
+  <div class="skills-grid">
+    <div class="skill-card"><h4>Sensor Analytics &amp; Data Fusion</h4><p>Time series from soil moisture, microclimate, and environmental telemetry</p></div>
+    <div class="skill-card"><h4>Closed Loop Control</h4><p>Irrigation scheduling logic, greenhouse automation, IoT sensor networks</p></div>
   </div>
 </div></section>
 <section id="teaching" class="hidden-section" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
@@ -1065,7 +1084,7 @@
       <img src="certs/cert_tony_elumelu.jpg" alt="Tony Elumelu Foundation Certificate" style="width:100%; height:220px; object-fit:contain; background:#FAFAF7; border-bottom:1px solid var(--line); border-radius:5px 5px 0 0; cursor:pointer;" loading="lazy" onclick="openLightbox('certs/cert_tony_elumelu.jpg')">
       <div style="padding:0.9rem 1rem;">
         <h4>Tony Elumelu Foundation Certificate</h4>
-        <p>Business Management Training Completion</p>
+        <p>Business Management Training Completion, 2020</p>
       </div>
     </div>
     <div class="referee-card" style="padding:0;">
@@ -1156,7 +1175,7 @@
       <p class="mono" style="font-size:11.5px;">(+34) 948 16 9173 (ext. 9173)</p>
     </div>
     <div class="referee-card">
-      <h4>Dr. Konstantinos Soulis</h4>
+      <h4>Prof. Konstantinos Soulis</h4>
       <p>Assistant Professor</p>
       <p>Agricultural University of Athens, Greece</p>
       <p style="margin-top:0.4rem;"><a class="mono" href="mailto:soco@aua.gr" style="color:var(--blue)">soco@aua.gr</a></p>
@@ -1361,6 +1380,24 @@
   <img id="lightbox-img" src="" alt="Enlarged photo" onclick="event.stopPropagation()">
 </div>
 
+<section id="cvformats" class="hidden-section" style="background:#FBEEC6; border-top: 5px solid #D4A94A; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('cvformats')">
+    <h2>Download CV</h2>
+    <span class="section-note mono">choose a format</span>
+  <span class="accordion-chevron" id="chevron-cvformats">&#9660;</span></div><div class="section-body" id="body-cvformats">
+  <p style="font-size:13px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:75ch;">CV conventions vary a lot by region. The Nordic format is ready now. The others are on the way, built properly one at a time rather than rushed out together.</p>
+  <div class="skills-grid">
+    <div class="skill-card" style="background:#F4F8F5;"><h4>Nordic CV</h4><p>Norway, Sweden, Denmark, Finland</p><a href="Naziru_Halilu_CV.pdf" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
+    <div class="skill-card" style="opacity:0.55;"><h4>North American Resume</h4><p>US and Canada, coming soon</p></div>
+    <div class="skill-card" style="opacity:0.55;"><h4>UK, Ireland and Australia CV</h4><p>Coming soon</p></div>
+    <div class="skill-card" style="opacity:0.55;"><h4>Continental European CV / Europass</h4><p>Coming soon</p></div>
+    <div class="skill-card" style="opacity:0.55;"><h4>German speaking Lebenslauf</h4><p>Coming soon</p></div>
+    <div class="skill-card" style="opacity:0.55;"><h4>Middle East and Gulf Region CV</h4><p>Coming soon</p></div>
+    <div class="skill-card" style="opacity:0.55;"><h4>East Asian Standard Template (Rirekisho)</h4><p>Coming soon</p></div>
+  </div>
+  </div>
+</section>
+
 <section id="contact" class="hidden-section">
   <div class="contact-panel">
     <div>
@@ -1373,6 +1410,7 @@
         <a href="mailto:naziruhalilu73@gmail.com" class="email-chip chip-orange">&#9993;&#65039; naziruhalilu73@gmail.com</a>
         <span class="email-chip chip-navy">&#128222; +34 6 5296 7216</span>
         <span class="email-chip chip-navy">&#128222; +234 906 729 9824</span>
+        <a href="https://www.linkedin.com/in/naziru-halilu-a9a815313" target="_blank" class="email-chip chip-blue">&#128100; LinkedIn</a>
       </div>
     </div>
     <div>
