@@ -100,6 +100,8 @@
   .accordion-chevron { font-size: 13px; color: var(--ink-soft); transition: transform .3s ease; margin-left: 0.6rem; }
   .accordion-chevron.open { transform: rotate(180deg); }
   .section-body { max-height: 0; overflow: hidden; transition: max-height .5s ease, opacity .4s ease; opacity: 0; }
+  .hidden-section { display: none; }
+  .hidden-section.section-visible { display: block; }
   .section-body.expanded { max-height: 20000px; opacity: 1; }
   .quicknav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
   .quicknav-tile { border-radius: 8px; padding: 1.1rem 1rem; cursor: pointer; text-align: center;
@@ -469,7 +471,7 @@
   </div>
 </section>
 
-<section id="research" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
+<section id="research" class="hidden-section" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('research')">
     <h2>Research focus</h2>
     <span class="section-note mono">6 active layers</span>
@@ -484,7 +486,7 @@
   </div>
 </div></section>
 
-<section id="statement" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
+<section id="statement" class="hidden-section" style="background:#F3EEF7; border-top: 5px solid #6E5A8C; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('statement')">
     <h2>Research Statement</h2>
     <span class="section-note mono">where I want to take this next</span>
@@ -495,7 +497,7 @@
   </div>
 </section>
 
-<section id="education" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
+<section id="education" class="hidden-section" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('education')">
     <h2>Education</h2>
     <span class="section-note mono">ABU &middot; UPNA &middot; UTAD &middot; AUA</span>
@@ -524,7 +526,7 @@
   </div>
 </div></section>
 
-<section id="courses" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
+<section id="courses" class="hidden-section" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('courses')">
     <h2>Full Academic Record</h2>
     <span class="section-note mono">ND &middot; B.Eng &middot; EMJMD, by discipline</span>
@@ -726,7 +728,7 @@
 
 
 
-<section id="experience" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
+<section id="experience" class="hidden-section" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('experience')">
     <h2>Research &amp; professional experience</h2>
     <span class="section-note mono">2017 &ndash; present</span>
@@ -831,7 +833,7 @@
 
 
 
-<section id="publications" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
+<section id="publications" class="hidden-section" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('publications')">
     <h2>Publications</h2>
     <span class="section-note mono">4 published &middot; 6 under review &middot; 3 preprints</span>
@@ -901,7 +903,7 @@
     </div>
   </div>
 </div></section>
-<section id="projects" style="background:#FFFFFF; border-radius:8px;">
+<section id="projects" class="hidden-section" style="background:#FFFFFF; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('projects')">
     <h2>Project index</h2>
     <span class="section-note mono">click a layer to filter</span>
@@ -916,7 +918,7 @@
     </div>
   </div>
 </div></section>
-<section id="skills" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
+<section id="skills" class="hidden-section" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('skills')">
     <h2>Technical skills</h2>
     <span class="section-note mono">tools &amp; methods</span>
@@ -931,7 +933,7 @@
     <div class="skill-card"><h4>Programming &amp; Data Science</h4><p>Python, MATLAB, R, Pandas, NumPy, SciPy, Jupyter, Git/GitHub, Zenodo</p></div>
   </div>
 </div></section>
-<section id="teaching" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
+<section id="teaching" class="hidden-section" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('teaching')">
     <h2>Teaching, leadership &amp; community</h2>
     <span class="section-note mono">2020 &ndash; 2025</span>
@@ -974,7 +976,7 @@
   </div>
 </div></section>
 
-<section id="awards" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
+<section id="awards" class="hidden-section" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('awards')">
     <h2>Awards &amp; honors</h2>
     <span class="section-note mono">10 recognitions</span>
@@ -994,7 +996,7 @@
   </div>
 </div></section>
 
-<section id="certifications" style="background:#BFE0C4; border-top: 5px solid #4C8C6B; border-radius:8px;">
+<section id="certifications" class="hidden-section" style="background:#BFE0C4; border-top: 5px solid #4C8C6B; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('certifications')">
     <h2>Certifications &amp; Documented Recognitions</h2>
     <span class="section-note mono">14 certificates, click to enlarge</span>
@@ -1101,7 +1103,7 @@
   </div>
 </div></section>
 
-<section id="conferences" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
+<section id="conferences" class="hidden-section" style="background:#C9DFF5; border-top: 5px solid #3B6EA5;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('conferences')">
     <h2>Conferences, seminars &amp; workshops</h2>
     <span class="section-note mono">2023 &ndash; 2026</span>
@@ -1117,7 +1119,7 @@
   </div>
 </div></section>
 
-<section id="memberships" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
+<section id="memberships" class="hidden-section" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('memberships')">
     <h2>Professional memberships</h2>
     <span class="section-note mono">4 bodies</span>
@@ -1130,7 +1132,7 @@
   </div>
 </div></section>
 
-<section id="referees" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
+<section id="referees" class="hidden-section" style="background:#DACCEB; border-top: 5px solid #6E5A8C;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('referees')">
     <h2>Referees</h2>
     <span class="section-note mono">5 referees</span>
@@ -1177,7 +1179,7 @@
   </div>
 </div></section>
 
-<section id="news" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
+<section id="news" class="hidden-section" style="background:#F5D9AE; border-top: 5px solid #B8763F; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('news')">
     <h2>Updates</h2>
     <span class="section-note mono">recent milestones</span>
@@ -1207,7 +1209,7 @@
   </div>
 </section>
 
-<section id="travels" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
+<section id="travels" class="hidden-section" style="background:#C9DFF5; border-top: 5px solid #3B6EA5; border-radius:8px;">
   <div class="section-head">
     <h2>Places I've Worked &amp; Studied</h2>
     <span class="section-note mono">10 countries</span>
@@ -1242,7 +1244,7 @@
 </section>
 
 
-<section id="gallery" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
+<section id="gallery" class="hidden-section" style="background:#F5D9AE; border-top: 5px solid #B8763F;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('gallery')">
     <h2>Gallery</h2>
     <span class="section-note mono">field &amp; campus photos</span>
@@ -1309,7 +1311,7 @@
   <img id="lightbox-img" src="" alt="Enlarged photo" onclick="event.stopPropagation()">
 </div>
 
-<section id="contact">
+<section id="contact" class="hidden-section">
   <div class="contact-panel">
     <div>
       <h2>Get in touch about a collaboration, dataset, or project.</h2>
@@ -1647,6 +1649,9 @@ function jumpTo(id) {
   const body = document.getElementById('body-' + id);
   const chevron = document.getElementById('chevron-' + id);
   const section = document.getElementById(id);
+  if (section) {
+    section.classList.add('section-visible');
+  }
   if (body && !body.classList.contains('expanded')) {
     body.classList.add('expanded');
     if (chevron) chevron.classList.add('open');
