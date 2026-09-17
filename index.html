@@ -111,6 +111,12 @@
     width: 50px; height: 50px; border-radius: 50%; margin-left: auto; margin-right: auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.22); transition: transform .22s ease; }
   .quicknav-tile:hover .quicknav-icon { transform: scale(1.12) rotate(-4deg); }
+  .quicknav-tile { position: relative; overflow: hidden; }
+  .quicknav-tile:active { transform: scale(0.96); }
+  .qn-ripple { position: absolute; border-radius: 50%; transform: scale(0); pointer-events: none;
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
+    animation: qnRippleAnim 0.6s ease-out; }
+  @keyframes qnRippleAnim { to { transform: scale(3.5); opacity: 0; } }
   .quicknav-label { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.3; }
   section { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   section.reveal { opacity: 1; transform: translateY(0); }
@@ -1857,6 +1863,50 @@ function toggleSection(id) {
   body.classList.toggle('expanded');
   if (chevron) chevron.classList.toggle('open');
 }
+
+// Colorful click ripple on quicknav tiles
+document.querySelectorAll('.quicknav-tile').forEach(tile => {
+  tile.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    const size = Math.max(rect.width, rect.height);
+    ripple.className = 'qn-ripple';
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 650);
+  });
+});
+
+// Returning visitor tracker, persists locally for 365 days, private to this browser
+(function() {
+  try {
+    const KEY = 'nh_visit_data';
+    const now = Date.now();
+    const YEAR = 365 * 24 * 60 * 60 * 1000;
+    let data = null;
+    try { data = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    if (!data || (now - data.first) > YEAR) {
+      data = { first: now, count: 1, lastDay: new Date().toDateString() };
+    } else {
+      const today = new Date().toDateString();
+      if (today !== data.lastDay) {
+        data.count += 1;
+        data.lastDay = today;
+      }
+    }
+    localStorage.setItem(KEY, JSON.stringify(data));
+    if (data.count > 1) {
+      const badge = document.createElement('div');
+      badge.style.cssText = 'position:fixed; bottom:18px; right:18px; background:linear-gradient(135deg,#1F4D2E,#4C8C6B); color:white; font-family:"IBM Plex Mono",monospace; font-size:11.5px; padding:8px 14px; border-radius:20px; box-shadow:0 4px 14px rgba(0,0,0,0.25); z-index:999; opacity:0; transition:opacity .5s ease;';
+      badge.textContent = 'Welcome back! Visit #' + data.count;
+      document.body.appendChild(badge);
+      setTimeout(() => { badge.style.opacity = '1'; }, 400);
+      setTimeout(() => { badge.style.opacity = '0'; setTimeout(() => badge.remove(), 600); }, 5000);
+    }
+  } catch (e) {}
+})();
 
 function baUpdate(val) {
   const clip = document.getElementById('ba-before-clip');
