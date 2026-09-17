@@ -148,13 +148,16 @@
 
   .layer-canvas { padding: 1.6rem 1.8rem; }
   .layer-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 1.4rem; max-width: 62ch; }
-  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-  .project-card { border: 1px solid var(--line); border-radius: 5px; padding: 0; background: var(--paper-raised); overflow: hidden; }
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .project-card { border: 1px solid var(--line); border-radius: 8px; padding: 0; background: var(--paper-raised); overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05); transition: transform .2s ease, box-shadow .2s ease; }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
   .project-thumb { width: 100%; height: 200px; object-fit: contain; display: block; border-top: 1px solid var(--line);
     background: #FAFAF7; padding: 0.6rem; box-sizing: border-box; }
   .project-body { padding: 1.1rem 1.2rem; }
   .project-card h3 { font-size: 14.5px; font-weight: 600; margin-bottom: 0.45rem; line-height: 1.3; }
-  .project-card .metric { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--green); margin-bottom: 0.6rem; }
+  .project-card .metric { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 700; color: white;
+    background: var(--green); display: inline-block; padding: 2px 9px; border-radius: 4px; margin-bottom: 0.7rem; }
   .project-card p { font-size: 12.8px; color: var(--ink-soft); margin-bottom: 0.85rem; }
   .project-links { display: flex; gap: 1rem; flex-wrap: wrap; }
   .project-links a { font-size: 12px; text-decoration: none; color: var(--blue); border-bottom: 1px solid transparent; }
@@ -543,6 +546,7 @@
   </div>
   <div class="quicknav-grid" style="position:relative; z-index:1;">
     <div class="quicknav-tile" onclick="jumpTo('research')" style="background:linear-gradient(160deg,#EAF1FB,#D6E4F5);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#5AA5FF);">🔬</span><span class="quicknav-label">Research Focus</span></div>
+    <div class="quicknav-tile" onclick="jumpTo('timeline')" style="background:linear-gradient(160deg,#EAF1FB,#D6E4F5);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#5AA5FF);">📅</span><span class="quicknav-label">Timeline</span></div>
     <div class="quicknav-tile" onclick="jumpTo('education')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
     <div class="quicknav-tile" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4);"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
@@ -578,6 +582,48 @@
     <div class="project-card"><h3 style="color:var(--orange)">Agribusiness Decision Science</h3><p>Operations research for real production and market decisions.</p></div>
   </div>
 </div></section>
+
+<section id="timeline" class="hidden-section" style="background:#EAF1FB; border-top: 5px solid #3B6EA5; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('timeline')">
+    <h2>Research Timeline</h2>
+    <span class="section-note mono">2017 &ndash; 2027, at a glance</span>
+  <span class="accordion-chevron" id="chevron-timeline">&#9660;</span></div><div class="section-body" id="body-timeline">
+  <div style="display:flex; overflow-x:auto; gap:0; padding-bottom:0.6rem;">
+    <div style="min-width:150px; flex-shrink:0; padding-right:1.2rem; border-right:2px solid var(--line); margin-right:1.2rem;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:var(--blue); margin-bottom:0.3rem;">2017&ndash;2020</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">Research internships, NCAM &amp; IAR</p>
+    </div>
+    <div style="min-width:150px; flex-shrink:0; padding-right:1.2rem; border-right:2px solid var(--line); margin-right:1.2rem;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:var(--green); margin-bottom:0.3rem;">2016&ndash;2018</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">National Diploma, Distinction</p>
+    </div>
+    <div style="min-width:150px; flex-shrink:0; padding-right:1.2rem; border-right:2px solid var(--line); margin-right:1.2rem;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:var(--green); margin-bottom:0.3rem;">2019&ndash;2024</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">B.Eng., First Class Honours</p>
+    </div>
+    <div style="min-width:150px; flex-shrink:0; padding-right:1.2rem; border-right:2px solid var(--line); margin-right:1.2rem;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:#B8763F; margin-bottom:0.3rem;">2025</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">Erasmus Mundus Scholarship awarded</p>
+    </div>
+    <div style="min-width:150px; flex-shrink:0; padding-right:1.2rem; border-right:2px solid var(--line); margin-right:1.2rem;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:var(--blue); margin-bottom:0.3rem;">Sep 2025&ndash;Jan 2026</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">UPNA, Spain: STADOS, Digital Twin, GIS-Slurry</p>
+    </div>
+    <div style="min-width:150px; flex-shrink:0; padding-right:1.2rem; border-right:2px solid var(--line); margin-right:1.2rem;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:var(--blue); margin-bottom:0.3rem;">Feb&ndash;Jun 2026</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">UTAD, Portugal: MSRK, Brix, Grape Moth</p>
+    </div>
+    <div style="min-width:150px; flex-shrink:0; padding-right:1.2rem; border-right:2px solid var(--line); margin-right:1.2rem;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:#6E5A8C; margin-bottom:0.3rem;">Jun&ndash;Aug 2026</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">GACL paper submitted, Biosystems Engineering</p>
+    </div>
+    <div style="min-width:150px; flex-shrink:0;">
+      <p class="mono" style="font-size:12px; font-weight:700; color:var(--blue); margin-bottom:0.3rem;">2027 (expected)</p>
+      <p style="font-size:12.5px; color:var(--ink-soft);">EMJMD completion, Athens, Greece</p>
+    </div>
+  </div>
+  </div>
+</section>
 
 <section id="education" class="hidden-section" style="background:#BFE0C4; border-top: 5px solid #4C8C6B;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('education')">
