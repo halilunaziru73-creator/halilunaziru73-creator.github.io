@@ -140,9 +140,9 @@
   .layer-item { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 1.1rem; cursor: pointer;
     border-bottom: 1px solid var(--line); transition: background .15s; }
   .layer-item:last-child { border-bottom: none; }
-  .layer-item:hover { background: #F1F0E8; }
-  .layer-item.active { background: #EDF2F7; }
-  .layer-swatch { width: 11px; height: 11px; border-radius: 2px; flex-shrink: 0; }
+  .layer-item:hover { background: #F1F0E8; transform: translateX(2px); }
+  .layer-item.active { transition: all .2s ease; }
+  .layer-swatch { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; transition: all .2s ease; }
   .layer-item span { font-size: 13px; }
   .layer-item .layer-count { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft); }
 
@@ -1673,7 +1673,7 @@
 <script>
 const domains = [
   {
-    key: "remote-sensing", label: "Remote Sensing & EO", color: "var(--blue)",
+    key: "remote-sensing", label: "Remote Sensing & EO", color: "#2E7DE8",
     desc: "Correcting, extracting, and teaching how to work with satellite and drone imagery.",
     projects: [
       { name: "STADOS: Radiometric Harmonization", metric: "39% & 31% less temporal variance", desc: "Extends dark-object subtraction into a self-consistent, multi-object framework for Sentinel-2 NDVI.", doi: "10.5281/zenodo.21997000", repo: "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction", thumb: "thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.jpg" },
@@ -1682,7 +1682,7 @@ const domains = [
     ]
   },
   {
-    key: "hydrology", label: "Hydrology & Erosion", color: "var(--green)",
+    key: "hydrology", label: "Hydrology & Erosion", color: "#2FA85A",
     desc: "Modelling how water moves and erodes land, gully formation and sediment transport.",
     projects: [
       { name: "Digital Twin for Gully Biocontrol", metric: "47.8% less soil loss", desc: "Bayesian-assimilated digital twin evaluating Morning Glory biocontrol of gully erosion. Under review, Environmental Monitoring and Assessment.", doi: "10.5281/zenodo.21760023", repo: "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp", thumb: "thumbs2/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.jpg" },
@@ -1690,7 +1690,7 @@ const domains = [
     ]
   },
   {
-    key: "irrigation", label: "Irrigation & Water Mgmt", color: "var(--navy)",
+    key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8",
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
       { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
@@ -1698,7 +1698,7 @@ const domains = [
     ]
   },
   {
-    key: "precision-ag", label: "Precision Ag & Geostatistics", color: "var(--brown)",
+    key: "precision-ag", label: "Precision Ag & Geostatistics", color: "#E0A159",
     desc: "Turning sparse field samples into reliable, spatially continuous maps.",
     projects: [
       { name: "Multitask Singularity Regression Kriging", metric: "Moran's I up to 0.98", desc: "Multiscale singularity index engineering combined with multitask kriging for soil/crop prediction.", doi: "10.5281/zenodo.21798402", repo: "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction", thumb: "thumbs2/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.jpg" },
@@ -1709,14 +1709,14 @@ const domains = [
     ]
   },
   {
-    key: "vision-dl", label: "Computer Vision & DL", color: "var(--purple)",
+    key: "vision-dl", label: "Computer Vision & DL", color: "#9B5DE5",
     desc: "Foundational architectures that generalize across agronomic imaging tasks.",
     projects: [
       { name: "Geometry-Agnostic Contrastive Learning", metric: "64.4% vs 5.3% chance", desc: "Unified geometry-invariant deep-learning framework spanning four architecture types. Under review, Biosystems Engineering.", doi: "10.5281/zenodo.21760025", repo: "Geometry-Agnostic-Contrastive-Learning-GACL", thumb: "thumbs2/Geometry-Agnostic-Contrastive-Learning-GACL.jpg" }
     ]
   },
   {
-    key: "agribusiness", label: "Agribusiness Decision Science", color: "var(--orange)",
+    key: "agribusiness", label: "Agribusiness Decision Science", color: "#FF6B6B",
     desc: "Operations research for real production and market decisions.",
     projects: [
       { name: "Dairy Processing Decision-Support Model", metric: "R\u00b2 = 0.859", desc: "Model comparison, linear programming, and Monte Carlo risk simulation for dairy product mix.", doi: "10.5281/zenodo.21760085", repo: "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability", thumb: "thumbs2/Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability.jpg" }
@@ -1734,14 +1734,17 @@ function renderLayers() {
   const list = document.getElementById('layers-list');
   const allItem = document.createElement('div');
   allItem.className = 'layer-item' + (activeKey === 'all' ? ' active' : '');
-  allItem.innerHTML = '<span class="layer-swatch" style="background:var(--ink-soft)"></span><span>All projects</span><span class="layer-count mono">' + allProjects().length + '</span>';
+  if (activeKey === 'all') { allItem.style.background = 'var(--ink-soft)'; allItem.style.color = 'white'; }
+  allItem.innerHTML = '<span class="layer-swatch" style="background:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + '"></span><span>All projects</span><span class="layer-count mono" style="color:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + '">' + allProjects().length + '</span>';
   allItem.onclick = () => { activeKey = 'all'; render(); };
   list.appendChild(allItem);
 
   domains.forEach(d => {
     const item = document.createElement('div');
-    item.className = 'layer-item' + (activeKey === d.key ? ' active' : '');
-    item.innerHTML = '<span class="layer-swatch" style="background:' + d.color + '"></span><span>' + d.label + '</span><span class="layer-count mono">' + d.projects.length + '</span>';
+    const isActive = activeKey === d.key;
+    item.className = 'layer-item' + (isActive ? ' active' : '');
+    if (isActive) { item.style.background = d.color; item.style.color = 'white'; item.style.fontWeight = '700'; item.style.boxShadow = '0 2px 8px ' + d.color + '66'; }
+    item.innerHTML = '<span class="layer-swatch" style="background:' + (isActive ? 'white' : d.color) + '"></span><span>' + d.label + '</span><span class="layer-count mono" style="color:' + (isActive ? 'white' : 'var(--ink-soft)') + '">' + d.projects.length + '</span>';
     item.onclick = () => { activeKey = d.key; render(); };
     list.appendChild(item);
   });
