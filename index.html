@@ -83,8 +83,8 @@
   .stat .label { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
 
   .hero-photo-wrap { position: relative; z-index: 1; justify-self: end; align-self: center; }
-  .hero-photo { width: 100%; max-width: 380px; aspect-ratio: 1; height: auto; border-radius: 8px; object-fit: cover;
-    border: 1px solid var(--line); box-shadow: 8px 8px 0 var(--grid); }
+  .hero-photo { width: 100%; max-width: 380px; aspect-ratio: 1; height: auto; border-radius: 10px; object-fit: cover;
+    border: 1px solid var(--line); box-shadow: 0 14px 32px rgba(31,77,46,0.16), 6px 6px 0 var(--grid); }
   .hero-photo-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
     margin-top: 0.9rem; text-align: center; }
 
@@ -103,7 +103,7 @@
   .hidden-section { display: none; }
   .hidden-section.section-visible { display: block; }
   .section-body.expanded { max-height: 20000px; opacity: 1; }
-  .quicknav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
+  .quicknav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.1rem; }
   .quicknav-tile { border-radius: 10px; padding: 1.2rem 1rem; cursor: pointer; text-align: center;
     transition: transform .22s ease, box-shadow .22s ease; border: 1px solid var(--line); background: white; }
   .quicknav-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 12px 24px rgba(0,0,0,0.18); }
@@ -117,7 +117,7 @@
     background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
     animation: qnRippleAnim 0.6s ease-out; }
   @keyframes qnRippleAnim { to { transform: scale(3.5); opacity: 0; } }
-  .quicknav-label { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+  .quicknav-label { font-size: 12.5px; font-weight: 700; color: var(--ink); line-height: 1.35; letter-spacing: 0.01em; }
   section { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   section.reveal { opacity: 1; transform: translateY(0); }
   .project-card, .skill-card, .referee-card, .tl-item, .pub-item {
@@ -164,6 +164,9 @@
 
   /* publications */
   .pub-group { margin-bottom: 2rem; }
+  .pub-filter-btn { background: white; border: 1.5px solid var(--line); border-radius: 16px; padding: 6px 14px;
+    font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: inherit; color: var(--ink-soft); transition: all .15s; }
+  .pub-filter-btn.active, .pub-filter-btn:hover { background: var(--navy); border-color: var(--navy); color: white; }
   .pub-group:last-child { margin-bottom: 0; }
   .pub-group h3 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.03em; color: var(--blue);
     margin-bottom: 1rem; }
@@ -270,7 +273,7 @@
     .gallery-grid { column-count: 2; }
     .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
     .hero-photo-wrap { order: -1; justify-self: start; }
-    .hero-photo { width: 100%; max-width: 180px; height: auto; }
+    .hero-photo { width: 100%; max-width: 200px; height: auto; margin: 0 auto; display: block; }
     .hero h1 { font-size: 2rem; }
     .stat-strip { flex-wrap: wrap; row-gap: 1rem; }
     .stat { flex: 1 1 45%; }
@@ -298,6 +301,29 @@
 </style>
 </head>
 <body>
+
+<nav id="mobile-nav" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:998; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-top:1px solid var(--line); padding:0.6rem 0.4rem; box-shadow:0 -4px 16px rgba(0,0,0,0.08);">
+  <div style="display:flex; justify-content:space-around; align-items:center; max-width:480px; margin:0 auto;">
+    <a href="#hero" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">HOME</a>
+    <a href="javascript:void(0)" onclick="jumpTo('research')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">RESEARCH</a>
+    <a href="javascript:void(0)" onclick="jumpTo('projects')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">PROJECTS</a>
+    <a href="javascript:void(0)" onclick="jumpTo('publications')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">PUBS</a>
+    <a href="javascript:void(0)" onclick="jumpTo('cvformats')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">CV</a>
+    <a href="javascript:void(0)" onclick="jumpTo('contact')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">CONTACT</a>
+  </div>
+</nav>
+<script>
+  if (window.innerWidth <= 700) {
+    document.getElementById('mobile-nav').style.display = 'block';
+    document.body.style.paddingBottom = '54px';
+  }
+  window.addEventListener('resize', function() {
+    const nav = document.getElementById('mobile-nav');
+    if (window.innerWidth <= 700) { nav.style.display = 'block'; document.body.style.paddingBottom = '54px'; }
+    else { nav.style.display = 'none'; document.body.style.paddingBottom = '0'; }
+  });
+</script>
+
 
 <header>
   <div class="nav-wrap">
@@ -449,9 +475,10 @@
   .impact-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; line-height: 1; margin-bottom: 0.6rem; }
   .impact-label { color: #C9CDD8; font-size: 13px; font-weight: 600; line-height: 1.4; }
   .impact-label span { font-weight: 400; color: #8A93A8; font-size: 11.5px; }
-  .hero-link-btn { font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none;
-    border-bottom: 2px solid var(--blue); padding-bottom: 1px; transition: color .15s, border-color .15s; }
-  .hero-link-btn:hover { color: var(--blue); border-color: var(--green); }
+  .hero-link-btn { font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: none;
+    background: rgba(59,110,165,0.08); border: 1.5px solid var(--blue); border-radius: 20px;
+    padding: 6px 14px; transition: all .18s ease; display: inline-block; }
+  .hero-link-btn:hover { color: white; background: var(--blue); border-color: var(--blue); transform: translateY(-1px); }
   .hero-photo-glow { position: relative; display: inline-block; border-radius: 8px; }
   .hero-photo-glow::before {
     content: ''; position: absolute; inset: -6px; border-radius: 10px; z-index: -1;
@@ -911,7 +938,14 @@
     <span class="section-note mono">4 published &middot; 6 under review &middot; 3 preprints</span>
   <span class="accordion-chevron" id="chevron-publications">&#9660;</span></div><div class="section-body" id="body-publications">
 
-  <div class="pub-group">
+  <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1.4rem;">
+    <button onclick="filterPubs('all', this)" class="pub-filter-btn active">All</button>
+    <button onclick="filterPubs('peer', this)" class="pub-filter-btn">Peer Reviewed</button>
+    <button onclick="filterPubs('review', this)" class="pub-filter-btn">Under Review</button>
+    <button onclick="filterPubs('preprint', this)" class="pub-filter-btn">Preprints</button>
+  </div>
+
+  <div class="pub-group" data-pubcat="peer">
     <h3>PEER-REVIEWED</h3>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b>, Auwal, M., &amp; Yusuf, A. (2020). Physio-chemical and bacteriological quality of water for irrigation purpose (A case study of Shika Dam).</p>
@@ -940,7 +974,7 @@
     </div>
   </div>
 
-  <div class="pub-group">
+  <div class="pub-group" data-pubcat="review">
     <h3>SUBMITTED / UNDER REVIEW</h3>
     <div class="pub-item">
       <p class="pub-authors"><b>Halilu, N.</b>, &amp; Sulaiman, J. Geometry-Agnostic Contrastive Learning (GACL): A Theoretical Framework and Baseline Evaluation Protocol for Agronomic Imaging. <span class="mono" style="font-size:11.5px">First author</span></p>
@@ -962,7 +996,7 @@
     </div>
   </div>
 
-  <div class="pub-group">
+  <div class="pub-group" data-pubcat="preprint">
     <h3>PREPRINTS</h3>
     <div class="pub-item">
       <p class="pub-authors">Halilu, N. (2025). A Systematic Review of IoT, Edge Computing, Time-Series Modelling and Control Systems in Precision Irrigation.</p>
@@ -1936,6 +1970,14 @@ document.querySelectorAll('.quicknav-tile').forEach(tile => {
     }
   } catch (e) {}
 })();
+
+function filterPubs(cat, btn) {
+  document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#publications .pub-group').forEach(g => {
+    g.style.display = (cat === 'all' || g.getAttribute('data-pubcat') === cat) ? '' : 'none';
+  });
+}
 
 function baUpdate(val) {
   const clip = document.getElementById('ba-before-clip');
