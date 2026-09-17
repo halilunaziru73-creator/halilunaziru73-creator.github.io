@@ -509,8 +509,45 @@
 </style>
 
 <section id="impact" style="background: linear-gradient(120deg, #1F4D2E, #2E3A52, #1A2318); border-radius: 12px; padding: 3.2rem 2.4rem;">
-  <p class="mono momentum-flashy" style="font-size:15px; font-weight:800; letter-spacing:0.1em; margin-bottom:0.6rem;">MOMENTUM ACROSS 3 CONTINENTS</p>
-  <p style="color:#C9CDD8; font-size:13.5px; margin-bottom:1.6rem;">Erasmus Mundus Joint Master's Scholar &middot; EMJMD SUSTAGRI (Cutting-Edge Technologies for Sustainable Agriculture)</p>
+  <p class="mono momentum-flashy" style="font-size:15px; font-weight:800; letter-spacing:0.1em; margin-bottom:0.6rem;">MOMENTUM ACROSS 4 CONTINENTS</p>
+  <p style="color:#D9CBA3; font-size:13.5px; margin-bottom:1.4rem;">Erasmus Mundus Joint Master's Scholar &middot; EMJMD SUSTAGRI (Cutting-Edge Technologies for Sustainable Agriculture)</p>
+
+  <div id="flag-widget" style="display:flex; gap:0.8rem; flex-wrap:wrap; margin-bottom:1.6rem;">
+    <div class="flag-chip" data-country="Nigeria" data-detail="Home base, Zaria">
+      <span class="flag-emoji">🇳🇬</span><span class="flag-name">Nigeria</span>
+    </div>
+    <div class="flag-chip" data-country="Spain" data-detail="EMJMD Term 1, Pamplona (UPNA)">
+      <span class="flag-emoji">🇪🇸</span><span class="flag-name">Spain</span>
+    </div>
+    <div class="flag-chip" data-country="Portugal" data-detail="EMJMD Term 2, Vila Real (UTAD)">
+      <span class="flag-emoji">🇵🇹</span><span class="flag-name">Portugal</span>
+    </div>
+    <div class="flag-chip" data-country="Greece" data-detail="EMJMD Term 3, Athens (AUA)">
+      <span class="flag-emoji">🇬🇷</span><span class="flag-name">Greece</span>
+    </div>
+  </div>
+  <p id="flag-detail" style="color:#D4A94A; font-size:12.5px; font-weight:600; min-height:16px; margin-bottom:1rem; font-family:'IBM Plex Mono',monospace;">&nbsp;</p>
+
+  <style>
+    .flag-chip { display:flex; align-items:center; gap:0.5rem; background:rgba(212,169,74,0.1);
+      border:1.5px solid rgba(212,169,74,0.4); border-radius:24px; padding:8px 16px; cursor:pointer;
+      transition:all .25s ease; }
+    .flag-chip:hover, .flag-chip.flag-active { background:linear-gradient(135deg,#D4A94A,#F5D06B);
+      border-color:#F5D06B; transform:translateY(-3px) scale(1.05); box-shadow:0 8px 18px rgba(212,169,74,0.4); }
+    .flag-emoji { font-size:1.3rem; transition:transform .25s ease; }
+    .flag-chip:hover .flag-emoji, .flag-chip.flag-active .flag-emoji { transform:scale(1.25) rotate(-6deg); }
+    .flag-name { color:#F0E4C0; font-size:13px; font-weight:700; font-family:'IBM Plex Mono',monospace; transition:color .25s ease; }
+    .flag-chip:hover .flag-name, .flag-chip.flag-active .flag-name { color:#1A2318; }
+  </style>
+  <script>
+    document.querySelectorAll('.flag-chip').forEach(chip => {
+      chip.addEventListener('click', function() {
+        document.querySelectorAll('.flag-chip').forEach(c => c.classList.remove('flag-active'));
+        this.classList.add('flag-active');
+        document.getElementById('flag-detail').textContent = this.dataset.country + ': ' + this.dataset.detail;
+      });
+    });
+  </script>
   <div class="impact-grid" style="margin-top:1.6rem;">
     <div class="impact-stat">
       <div class="impact-num" style="color:#85B7EB;">15</div>
