@@ -336,6 +336,7 @@
 </header>
 
 <div class="hero" id="hero-flashy">
+  <div class="hero-water-bg" aria-hidden="true"></div>
   <div class="hero-gradient-bg" aria-hidden="true"></div>
   <div class="topo-bg" aria-hidden="true">
     <svg viewBox="0 0 800 600" preserveAspectRatio="none">
@@ -348,6 +349,25 @@
       </g>
     </svg>
   </div>
+  <div id="hero-bubbles" aria-hidden="true" style="position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;"></div>
+  <script>
+    (function() {
+      const container = document.getElementById('hero-bubbles');
+      const count = 14;
+      for (let i = 0; i < count; i++) {
+        const b = document.createElement('div');
+        const size = 6 + Math.random() * 16;
+        b.className = 'hero-bubble';
+        b.style.width = size + 'px';
+        b.style.height = size + 'px';
+        b.style.left = (Math.random() * 100) + '%';
+        b.style.bottom = '-40px';
+        b.style.animationDuration = (8 + Math.random() * 10) + 's';
+        b.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(b);
+      }
+    })();
+  </script>
   <div class="hero-content hero-fade-in">
     <p class="hero-coord mono">&#128205; PAMPLONA, SPAIN</p>
     <h1 class="hero-name-gradient">Naziru HALILU</h1>
@@ -383,12 +403,26 @@
 </div>
 
 <style>
+  .hero-water-bg {
+    position: absolute; inset: 0; z-index: -1;
+    background-image: url('hero_bg.jpg');
+    background-size: cover; background-position: center 20%;
+    opacity: 0.28;
+  }
   .hero-gradient-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(120deg, #C9DFF5, #BFE0C4, #F5D9AE, #DACCEB, #C9DFF5);
+    background: linear-gradient(120deg, rgba(201,223,245,0.92), rgba(191,224,196,0.92), rgba(245,217,158,0.92), rgba(218,204,235,0.92), rgba(201,223,245,0.92));
     background-size: 400% 400%;
     animation: heroGradientShift 14s ease infinite;
-    opacity: 0.55;
+    opacity: 0.72;
+  }
+  .hero-bubble { position: absolute; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.1) 70%);
+    z-index: 0; pointer-events: none; animation: bubbleFloat linear infinite; }
+  @keyframes bubbleFloat {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-420px) translateX(20px); opacity: 0; }
   }
   @keyframes heroGradientShift {
     0% { background-position: 0% 50%; }
