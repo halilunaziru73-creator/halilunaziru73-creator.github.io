@@ -1844,6 +1844,25 @@ const domains = [
 
 let activeKey = "all";
 
+const projectColorPalette = [
+  "#2E7DE8", "#2FA85A", "#00B4D8", "#E0A159", "#9B5DE5", "#FF6B6B",
+  "#E35C4C", "#0B4FA8", "#4C8C6B", "#B8763F", "#6E5A8C", "#3B6EA5",
+  "#D4A94A", "#2E3A52", "#B23A2E", "#00A896",
+];
+function projectUniqueColor(repo) {
+  let hash = 0;
+  for (let i = 0; i < repo.length; i++) { hash = (hash * 31 + repo.charCodeAt(i)) >>> 0; }
+  return projectColorPalette[hash % projectColorPalette.length];
+}
+
+function hexToRgba(hex, alpha) {
+  hex = hex.replace('#', '');
+  const r = parseInt(hex.substring(0,2), 16);
+  const g = parseInt(hex.substring(2,4), 16);
+  const b = parseInt(hex.substring(4,6), 16);
+  return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
+}
+
 function allProjects() {
   return domains.flatMap(d => d.projects.map(p => ({...p, color: d.color})));
 }
@@ -1889,8 +1908,10 @@ function renderProjects() {
     const doiTag = p.doi ? ('<span class="doi-tag mono">DOI: ' + p.doi + '</span>') :
                    (p.ssrn ? ('<span class="doi-tag mono">SSRN: ' + p.ssrn + '</span>') : '');
     const zenodoTag = p.zenodo ? ('<span class="doi-tag mono" style="margin-left:6px;">Zenodo: ' + p.zenodo + '</span>') : '';
+    const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
-    card.style.borderTop = '3px solid ' + p.color;
+    card.style.borderTop = '3px solid ' + cardColor;
+    card.style.background = hexToRgba(cardColor, 0.09);
     card.innerHTML =
       '<div class="project-body">' +
       '<h3>' + p.name + '</h3>' +
