@@ -2352,7 +2352,47 @@ function renderSuggestions() {
   });
 }
 
-function answerChat(q) {
+const repoSlugs = {
+  "gacl": "Geometry-Agnostic-Contrastive-Learning-GACL",
+  "stados": "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction",
+  "msrk": "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction",
+  "digital twin": "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp",
+  "sediment": "Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System",
+  "vegetation": "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery",
+  "nacrop": "NaCROP",
+  "dairy": "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability",
+  "slurry": "GIS-based_delineation_of_areas_suitable_for_livestock_slurry_application",
+  "geospatial data": "Geospatial-data-analysis",
+  "operationaliz": "Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems",
+  "brix": "GIS-Monitoring-of-Vineyard-Ripening-Brix",
+  "grape moth": "GIS-Monitoring-of-Grape-Moth-Vineyard-Pest",
+};
+
+async function fetchRepoLive(slug) {
+  try {
+    const res = await fetch('https://api.github.com/repos/halilunaziru73-creator/' + slug);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return {
+      desc: data.description || '',
+      stars: data.stargazers_count,
+      language: data.language,
+      updated: data.updated_at ? data.updated_at.split('T')[0] : '',
+      topics: (data.topics || []).join(', '),
+    };
+  } catch (e) {
+    return null;
+  }
+}
+
+function findRepoMention(lower) {
+  for (const key in repoSlugs) {
+    if (lower.includes(key)) return repoSlugs[key];
+  }
+  return null;
+}
+
+async function answerChat(q) {
   const lower = q.toLowerCase().replace(/[?.,!]/g, '');
   let best = null, bestScore = 0;
   for (const item of chatKB) {
@@ -2363,16 +2403,35 @@ function answerChat(q) {
     if (score > bestScore) { bestScore = score; best = item; }
   }
   if (best) return best.a;
+
+  const slug = findRepoMention(lower);
+  if (slug) {
+    const live = await fetchRepoLive(slug);
+    if (live) {
+      let msg = 'Live from GitHub: ' + (live.desc || 'no description set') + '.';
+      if (live.language) msg += ' Primary language: ' + live.language + '.';
+      if (live.topics) msg += ' Topics: ' + live.topics + '.';
+      msg += ' Last updated ' + live.updated + '. (' + live.stars + ' stars)';
+      msg += ' Full repo: github.com/halilunaziru73-creator/' + slug;
+      return msg;
+    }
+  }
   return "I don't have a specific answer for that yet. Try asking about his education, research focus, a specific project (GACL, STADOS, MSRK, Digital Twin, NaCROP), publications, awards, or contact details.";
 }
 
-function sendChat() {
+async function sendChat() {
   const input = document.getElementById('chat-input');
   const q = input.value.trim();
   if (!q) return;
   addChatBubble(q, 'user');
   input.value = '';
-  setTimeout(() => { addChatBubble(answerChat(q), 'bot'); }, 400);
+  const typingBubble = document.createElement('div');
+  typingBubble.className = 'chat-bubble bot';
+  typingBubble.textContent = '...';
+  document.getElementById('chat-messages').appendChild(typingBubble);
+  const answer = await answerChat(q);
+  typingBubble.remove();
+  addChatBubble(answer, 'bot');
 }
 </script>
 
