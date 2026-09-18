@@ -2278,25 +2278,25 @@ function jumpTo(id) {
 
 <script>
 const chatKB = [
-  { keys: ["education","degree","study","studied","university","school"],
+  { keys: ["education","degree","study","studied","studying","university","school","where did he study","college","academic background","qualification"],
     a: "I hold a National Diploma in Agricultural Engineering Technology (Distinction, 2016-2018) and a B.Eng. in Agricultural and Bioresources Engineering, First Class Honours, CGPA 4.77/5.00 (2019-2024), both from Ahmadu Bello University, Zaria, Nigeria. I'm currently an Erasmus Mundus Joint Master's Scholar (EMJMD SUSTAGRI, 2025-2027) across UPNA Spain, UTAD Portugal, and AUA Greece." },
-  { keys: ["research","focus","interest","work on","specializ"],
+  { keys: ["research","focus","interest","work on","specializ","what does he do","what is he working on","field","expertise","domain"],
     a: "My research focuses on computer vision, geospatial machine learning, and digital agriculture, specifically UAV and satellite based crop phenotyping, remote sensing correction (STADOS), precision agriculture geostatistics (MSRK), and gully erosion digital twins." },
-  { keys: ["publication","paper","journal","article"],
+  { keys: ["publication","paper","journal","article","published","papers","research papers","written"],
     a: "I have 4 peer-reviewed papers, 6 under review, and 3 preprints. Topics include vegetation indexing for UAV imagery, sediment transport modelling, NIR/hyperspectral crop quality assessment, and contrastive learning for agronomic imaging. Full list is in the Publications section above." },
-  { keys: ["award","honor","honour","scholarship","prize"],
+  { keys: ["award","honor","honour","scholarship","prize","won","achievement","recognition","achievements"],
     a: "I've received 16 awards and honors, including the Erasmus Mundus Joint Master Scholarship (2025), Best Graduating Student in Agricultural and Bioresources Engineering (2024), and the Nigerian Federal Government Award for Academic Excellence (2024). Full list is in the Awards section." },
-  { keys: ["project","repositor","github","code"],
+  { keys: ["project","repositor","github","code","projects","built","developed","software","tools he made"],
     a: "I maintain 15 open source research repositories on GitHub covering remote sensing, hydrology, irrigation, precision agriculture, computer vision, and agribusiness decision science. Check the Projects section or github.com/halilunaziru73-creator." },
   { keys: ["cgpa","gpa","grade","score"],
     a: "My B.Eng. CGPA is 4.77 out of 5.00, First Class Honours, ranked top 1% of my graduating cohort at Ahmadu Bello University." },
   { keys: ["emjmd","erasmus","sustagri"],
     a: "EMJMD SUSTAGRI is my current Erasmus Mundus Joint Master's programme in Cutting Edge Technologies for Sustainable Agriculture, spanning three terms: UPNA Spain (Term 1), UTAD Portugal (Term 2), and AUA Greece (Term 3), 2025 to 2027." },
-  { keys: ["contact","email","reach","hire","linkedin"],
+  { keys: ["contact","email","reach","hire","linkedin","get in touch","connect","message him","how to reach"],
     a: "You can reach me via the Contact section on this page, or connect on LinkedIn at linkedin.com/in/naziru-halilu-a9a815313, or GitHub at github.com/halilunaziru73-creator." },
   { keys: ["cv","resume","download"],
     a: "You can download my CV in 7 regional formats (Nordic, North American, UK, Europass, German, Gulf, Rirekisho) from the Download CV tile in Explore This Page." },
-  { keys: ["experience","job","work","career"],
+  { keys: ["experience","job","work","career","worked","roles","positions","employment","history"],
     a: "My experience spans research scholar roles across three EMJMD partner universities, a computer vision internship at ABU, and prior roles in smart irrigation, greenhouse automation, and precision crop systems research in Nigeria. Full details are in the Experience section." },
   { keys: ["hello","hi","hey"],
     a: "Hello! I'm a simple assistant trained only on Naziru's academic history and site content, not a general AI. Ask me about his education, research, publications, awards, or projects." },
@@ -2327,7 +2327,7 @@ function toggleChat() {
   const panel = document.getElementById('chat-panel');
   panel.classList.toggle('open');
   if (panel.classList.contains('open') && document.getElementById('chat-messages').children.length === 0) {
-    addChatBubble("Hi, I'm a simple FAQ assistant covering Naziru's academic history and technical project details, not a general AI. Ask me about his education, research, publications, awards, or dive into specific projects like GACL, STADOS, MSRK, or the Digital Twin.", 'bot');
+    addChatBubble("Hi! Ask me anything about Naziru's education, research, or projects.", 'bot');
     renderSuggestions();
   }
 }
@@ -2353,11 +2353,17 @@ function renderSuggestions() {
 }
 
 function answerChat(q) {
-  const lower = q.toLowerCase();
+  const lower = q.toLowerCase().replace(/[?.,!]/g, '');
+  let best = null, bestScore = 0;
   for (const item of chatKB) {
-    if (item.keys.some(k => lower.includes(k))) return item.a;
+    let score = 0;
+    for (const k of item.keys) {
+      if (lower.includes(k)) score += k.length;
+    }
+    if (score > bestScore) { bestScore = score; best = item; }
   }
-  return "I don't have a specific answer for that. Try asking about education, research, publications, awards, projects, or contact details, or explore the sections above.";
+  if (best) return best.a;
+  return "I don't have a specific answer for that yet. Try asking about his education, research focus, a specific project (GACL, STADOS, MSRK, Digital Twin, NaCROP), publications, awards, or contact details.";
 }
 
 function sendChat() {
