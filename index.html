@@ -720,10 +720,7 @@
   <div class="timeline">
     <div class="tl-item">
       <p class="tl-date mono">2025 &ndash; expected Jun to Aug 2027</p>
-      <h3 style="display:flex; align-items:center; gap:0.5rem;"><img src="logo_sustagri.png" alt="SUSTAGRI" style="height:20px; width:auto; object-fit:contain; flex-shrink:0;"><a href="https://drive.google.com/open?id=1mog9_ORRJNoNT1a4K2XxffY0NJMCeBXr&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">Erasmus Mundus Joint Master's Degree (EMJMD)</a></h3>
-      <div style="display:flex; align-items:center; gap:1rem; margin:0.5rem 0;">
-        <img src="logo_eu.png" alt="Co-funded by the European Union" style="height:30px; width:auto; object-fit:contain;">
-      </div>
+      <h3><a href="https://drive.google.com/open?id=1mog9_ORRJNoNT1a4K2XxffY0NJMCeBXr&usp=drive_fs" target="_blank" style="color:inherit; border-bottom:1px dotted var(--line)">Erasmus Mundus Joint Master's Degree (EMJMD)</a></h3>
       <p class="tl-org">Cutting-Edge Technologies for Sustainable Agriculture</p>
       <div style="display:flex; align-items:center; gap:0.9rem; margin:0.5rem 0;">
         <a href="https://www.unavarra.es/home" target="_blank"><img src="logo_upna.png" alt="UPNA logo" style="height:22px; width:auto; max-width:60px; object-fit:contain; flex-shrink:0;"></a>
@@ -765,7 +762,7 @@
   </div>
 </div></section>
 
-<section id="courses" class="hidden-section" style="background: linear-gradient(rgba(245,217,174,0.6), rgba(245,217,174,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #B8763F; border-radius:8px;">
+<section id="courses" class="hidden-section" style="background: linear-gradient(rgba(212,169,74,0.55), rgba(245,208,107,0.55)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #D4A94A; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('courses')">
     <h2>Full Academic Record</h2>
     <span class="section-note mono">ND &middot; B.Eng &middot; EMJMD, by discipline</span>
@@ -1885,6 +1882,33 @@ document.addEventListener('DOMContentLoaded', function() {
       layer.appendChild(d);
     }
     sec.insertBefore(layer, sec.firstChild);
+  });
+});
+
+// Add university logo to each course row based on programme
+document.addEventListener('DOMContentLoaded', function() {
+  const upnaCourses = ["Data Science and Analytics in Agriculture", "Geospatial Data Analysis", "Geoinformation and Remote Sensing", "Sensors and Internet of Things (IoT)", "Agricultural Systems Modelling", "Practical Exercise Integrating Disciplines I"];
+  const utadCourses = ["Precision Agriculture", "Identifying Soil and Crop Variability", "Precision Agriculture Machinery", "Preventive Management Strategy", "Reactive Management Strategy", "Practical Exercise Integrating Disciplines II"];
+  document.querySelectorAll('.course-row:not(.course-row-head)').forEach(row => {
+    const nameEl = row.querySelector('.course-name');
+    const progEl = row.querySelector('.course-prog');
+    if (!nameEl || !progEl) return;
+    const name = nameEl.textContent.trim();
+    const prog = progEl.textContent.trim();
+    let logoSrc = null;
+    if (prog === 'ND' || prog === 'B.Eng') logoSrc = 'logo_abu.png';
+    else if (prog === 'EMJMD') {
+      if (upnaCourses.includes(name)) logoSrc = 'logo_upna.png';
+      else if (utadCourses.includes(name)) logoSrc = 'logo_utad.png';
+      else logoSrc = 'logo_aua.png';
+    }
+    if (logoSrc) {
+      const img = document.createElement('img');
+      img.src = logoSrc;
+      img.alt = prog;
+      img.style.cssText = 'height:16px; width:auto; max-width:22px; object-fit:contain; margin-right:6px; vertical-align:middle; flex-shrink:0;';
+      nameEl.insertBefore(img, nameEl.firstChild);
+    }
   });
 });
 
