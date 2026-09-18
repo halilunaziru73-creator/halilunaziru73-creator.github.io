@@ -314,6 +314,40 @@
     cursor: pointer; z-index: 101; display: flex; align-items: center; justify-content: center; }
   .lightbox-close:hover { background: #fff; }
 </style>
+<style media="print">
+  .hero-water-bg, .hero-gradient-bg, .topo-bg, #hero-bubbles, .water-droplet, header,
+  #mobile-nav, .quicknav-flashy-bg, .hero-photo-wrap { display: none !important; }
+  body { background: white !important; }
+  section, .hero { background: white !important; box-shadow: none !important; }
+  .hidden-section { display: block !important; }
+  a { color: #000 !important; text-decoration: underline; }
+  .hero-name-gradient { -webkit-text-fill-color: #000 !important; color: #000 !important; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Naziru Halilu",
+  "url": "https://halilunaziru73-creator.github.io",
+  "image": "https://halilunaziru73-creator.github.io/avatar-v3.jpg",
+  "jobTitle": "EMJMD SUSTAGRI Research Scholar / Agricultural Engineer",
+  "affiliation": [
+    { "@type": "CollegeOrUniversity", "name": "Public University of Navarre" },
+    { "@type": "CollegeOrUniversity", "name": "UTAD" },
+    { "@type": "CollegeOrUniversity", "name": "Agricultural University of Athens" },
+    { "@type": "CollegeOrUniversity", "name": "Ahmadu Bello University" }
+  ],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Ahmadu Bello University" },
+  "nationality": "Nigerian",
+  "sameAs": [
+    "https://github.com/halilunaziru73-creator",
+    "https://orcid.org/0009-0006-2324-9599",
+    "https://www.linkedin.com/in/naziru-halilu-a9a815313",
+    "https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22"
+  ],
+  "knowsAbout": ["Computer Vision", "Geospatial Machine Learning", "Digital Agriculture", "Remote Sensing", "Precision Agriculture"]
+}
+</script>
 </head>
 <body>
 
@@ -341,6 +375,7 @@
 
 
 <header style="height:6px;"></header>
+<div onclick="qkOpen()" style="position:fixed; top:14px; right:18px; z-index:996; background:rgba(255,255,255,0.92); border:1px solid var(--line); border-radius:20px; padding:5px 12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.1); backdrop-filter:blur(4px);">&#128269; Search &middot; Ctrl K</div>
 
 <div class="hero" id="hero-flashy">
   <div class="hero-water-bg" aria-hidden="true"></div>
@@ -1785,6 +1820,10 @@
         <span class="email-chip chip-navy">&#128222; +234 906 729 9824</span>
         <a href="https://www.linkedin.com/in/naziru-halilu-a9a815313" target="_blank" class="email-chip chip-blue">&#128100; LinkedIn</a>
       </div>
+      <div style="margin-top:1.6rem; display:flex; align-items:center; gap:1rem;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://halilunaziru73-creator.github.io" alt="QR code linking to this portfolio" style="border-radius:8px; border:1px solid var(--line); background:white; padding:4px;">
+        <p style="font-size:11.5px; color:var(--ink-soft); max-width:20ch;">Scan to open this portfolio, useful for posters and business cards</p>
+      </div>
     </div>
     <div>
       <input class="contact-field" id="c-name" type="text" placeholder="Your name">
@@ -1798,6 +1837,7 @@
 
 <footer>
   <p>&copy; 2026 Naziru Halilu &middot; Pamplona, Spain</p>
+  <p class="mono" style="font-size:10.5px; color:var(--ink-soft); margin-top:0.3rem;">Last updated 19 September 2026</p>
   <div class="foot-links">
     <a href="https://github.com/halilunaziru73-creator" target="_blank">GitHub</a>
     <a href="https://orcid.org/0009-0006-2324-9599" target="_blank">ORCID</a>
@@ -2290,6 +2330,68 @@ function jumpTo(id) {
 }
 </script>
 
+
+<!-- Quick-jump search (Ctrl+K) -->
+<div id="qk-overlay" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.55); align-items:flex-start; justify-content:center; padding-top:12vh;">
+  <div style="background:white; border-radius:12px; width:92%; max-width:480px; max-height:60vh; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4); display:flex; flex-direction:column;">
+    <input id="qk-input" type="text" placeholder="Jump to a section... (education, publications, awards...)" style="border:none; padding:16px 18px; font-size:15px; outline:none; border-bottom:1px solid var(--line); font-family:inherit;">
+    <div id="qk-results" style="overflow-y:auto;"></div>
+  </div>
+</div>
+<script>
+  const qkItems = [
+    { label: "Home / Hero", key: null, scrollTop: true },
+    { label: "Research Focus", key: "research" },
+    { label: "Research Timeline", key: "timeline" },
+    { label: "Education", key: "education" },
+    { label: "Full Academic Record", key: "courses" },
+    { label: "Experience", key: "experience" },
+    { label: "Publications", key: "publications" },
+    { label: "Project Index", key: "projects" },
+    { label: "Skills", key: "skills" },
+    { label: "Teaching & Leadership", key: "teaching" },
+    { label: "Awards & Honors", key: "awards" },
+    { label: "Certifications", key: "certifications" },
+    { label: "Conferences", key: "conferences" },
+    { label: "Memberships", key: "memberships" },
+    { label: "Referees", key: "referees" },
+    { label: "Updates", key: "news" },
+    { label: "Field News", key: "fieldnews" },
+    { label: "Travels", key: "travels" },
+    { label: "Gallery", key: "gallery" },
+    { label: "Download CV", key: "cvformats" },
+    { label: "Contact", key: "contact" },
+  ];
+  const qkOverlay = document.getElementById('qk-overlay');
+  const qkInput = document.getElementById('qk-input');
+  const qkResults = document.getElementById('qk-results');
+
+  function qkOpen() {
+    qkOverlay.style.display = 'flex';
+    qkInput.value = '';
+    qkRender('');
+    setTimeout(() => qkInput.focus(), 50);
+  }
+  function qkClose() { qkOverlay.style.display = 'none'; }
+  function qkRender(query) {
+    const q = query.toLowerCase();
+    const matches = qkItems.filter(i => i.label.toLowerCase().includes(q));
+    qkResults.innerHTML = matches.map(i =>
+      '<div class="qk-result" style="padding:12px 18px; cursor:pointer; font-size:14px; border-bottom:1px solid #F1F0E8;" onmouseover="this.style.background=\'#F4F8F5\'" onmouseout="this.style.background=\'white\'" onclick="qkGo(\'' + (i.key || '') + '\', ' + !!i.scrollTop + ')">' + i.label + '</div>'
+    ).join('') || '<div style="padding:18px; color:var(--ink-soft); font-size:13px;">No matches</div>';
+  }
+  function qkGo(key, scrollTop) {
+    qkClose();
+    if (scrollTop) { window.scrollTo({top:0, behavior:'smooth'}); return; }
+    if (key) jumpTo(key);
+  }
+  qkInput.addEventListener('input', () => qkRender(qkInput.value));
+  qkOverlay.addEventListener('click', (e) => { if (e.target === qkOverlay) qkClose(); });
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); qkOpen(); }
+    if (e.key === 'Escape') qkClose();
+  });
+</script>
 
 </body>
 </html>
