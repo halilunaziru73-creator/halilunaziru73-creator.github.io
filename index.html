@@ -330,12 +330,6 @@
 </script>
 
 
-<header>
-  <div class="nav-wrap">
-    <div class="nav-mark">NAZIRU<span>.</span>HALILU</div>
-  </div>
-</header>
-
 <div class="hero" id="hero-flashy">
   <div class="hero-water-bg" aria-hidden="true"></div>
   <div class="hero-gradient-bg" aria-hidden="true"></div>
@@ -424,6 +418,15 @@
     10% { opacity: 0.7; }
     90% { opacity: 0.5; }
     100% { transform: translateY(-420px) translateX(20px); opacity: 0; }
+  }
+  .water-droplet { position: absolute; top: -20px; width: 3px; border-radius: 0 0 50% 50% / 0 0 65% 65%;
+    background: linear-gradient(rgba(255,255,255,0.85), rgba(190,220,255,0.35));
+    z-index: 0; pointer-events: none; animation: dropletFall linear infinite; }
+  @keyframes dropletFall {
+    0% { transform: translateY(0); opacity: 0; }
+    8% { opacity: 0.75; }
+    92% { opacity: 0.4; }
+    100% { transform: translateY(340px); opacity: 0; }
   }
   @keyframes heroGradientShift {
     0% { background-position: 0% 50%; }
@@ -1858,6 +1861,28 @@ function projectUniqueColor(repo) {
   for (let i = 0; i < repo.length; i++) { hash = (hash * 31 + repo.charCodeAt(i)) >>> 0; }
   return projectColorPalette[hash % projectColorPalette.length];
 }
+
+// Add falling water droplets to every section using the water background image
+document.addEventListener('DOMContentLoaded', function() {
+  const waterSections = document.querySelectorAll('section[style*="hero_bg.jpg"]');
+  waterSections.forEach(sec => {
+    if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+    const layer = document.createElement('div');
+    layer.style.cssText = 'position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0;';
+    const count = 8;
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('div');
+      d.className = 'water-droplet';
+      const h = 10 + Math.random() * 14;
+      d.style.height = h + 'px';
+      d.style.left = (Math.random() * 100) + '%';
+      d.style.animationDuration = (3 + Math.random() * 4) + 's';
+      d.style.animationDelay = (Math.random() * 6) + 's';
+      layer.appendChild(d);
+    }
+    sec.insertBefore(layer, sec.firstChild);
+  });
+});
 
 function hexToRgba(hex, alpha) {
   hex = hex.replace('#', '');
