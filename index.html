@@ -156,8 +156,9 @@
   .layer-item span { font-size: 13px; color: #EAF1FB; }
   .layer-item .layer-count { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #B8C9E0; }
 
-  .layer-canvas { padding: 1.6rem 1.8rem; }
-  .layer-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 1.4rem; max-width: 62ch; }
+  .layer-canvas { padding: 1.6rem 1.8rem;
+    background: linear-gradient(rgba(31,77,46,0.68), rgba(46,58,82,0.68)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; }
+  .layer-desc { font-size: 14px; color: #EAF1FB; font-weight: 500; margin-bottom: 1.4rem; max-width: 62ch; }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
   .project-card { border: 1px solid var(--line); border-radius: 8px; padding: 0; background: var(--paper-raised); overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05); transition: transform .2s ease, box-shadow .2s ease; }
