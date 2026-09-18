@@ -105,8 +105,9 @@
   .section-body.expanded { max-height: 20000px; opacity: 1; }
   .quicknav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.1rem; }
   .quicknav-tile { border-radius: 10px; padding: 1.2rem 1rem; cursor: pointer; text-align: center;
-    transition: transform .22s ease, box-shadow .22s ease; border: 1px solid var(--line); background: white; }
-  .quicknav-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 12px 24px rgba(0,0,0,0.18); }
+    transition: transform .22s ease, box-shadow .22s ease, background .35s ease; border: 1px solid var(--line); background: white; }
+  .quicknav-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 14px 28px rgba(0,0,0,0.25); }
+  .quicknav-tile:hover .quicknav-label { color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.3); transition: color .3s ease; }
   .quicknav-icon { font-size: 1.55rem; margin-bottom: 0.7rem; display: flex; align-items: center; justify-content: center;
     width: 50px; height: 50px; border-radius: 50%; margin-left: auto; margin-right: auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.22); transition: transform .22s ease; }
@@ -2118,6 +2119,17 @@ function toggleSection(id) {
 
 // Colorful click ripple on quicknav tiles
 document.querySelectorAll('.quicknav-tile').forEach(tile => {
+  const icon = tile.querySelector('.quicknav-icon');
+  const originalBg = tile.style.background;
+  if (icon) {
+    const iconGradient = icon.style.background;
+    tile.addEventListener('mouseenter', function() {
+      this.style.background = iconGradient;
+    });
+    tile.addEventListener('mouseleave', function() {
+      this.style.background = originalBg;
+    });
+  }
   tile.addEventListener('click', function(e) {
     const rect = this.getBoundingClientRect();
     const ripple = document.createElement('span');
