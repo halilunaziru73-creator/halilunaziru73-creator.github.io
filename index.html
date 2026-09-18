@@ -108,10 +108,18 @@
     transition: transform .22s ease, box-shadow .22s ease, background .35s ease; border: 1px solid var(--line); background: white; }
   .quicknav-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 14px 28px rgba(212,169,74,0.45); }
   .quicknav-tile:hover .quicknav-label { color: #1A2318; text-shadow: none; font-weight: 800; transition: color .3s ease; }
-  .quicknav-icon { font-size: 1.55rem; margin-bottom: 0.7rem; display: flex; align-items: center; justify-content: center;
-    width: 50px; height: 50px; border-radius: 50%; margin-left: auto; margin-right: auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.22); transition: transform .22s ease; }
-  .quicknav-tile:hover .quicknav-icon { transform: scale(1.12) rotate(-4deg); }
+  .quicknav-icon { font-size: 1.85rem; margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center;
+    width: 62px; height: 62px; border-radius: 50%; margin-left: auto; margin-right: auto;
+    position: relative; box-shadow: 0 6px 16px rgba(0,0,0,0.28), 0 2px 5px rgba(0,0,0,0.18), inset 0 2px 4px rgba(255,255,255,0.5), inset 0 -3px 6px rgba(0,0,0,0.18);
+    border: 2px solid rgba(255,255,255,0.55);
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+    animation: iconFloat 3.5s ease-in-out infinite; }
+  .quicknav-icon::after { content: ''; position: absolute; top: 5px; left: 10px; width: 20px; height: 12px;
+    background: rgba(255,255,255,0.55); border-radius: 50%; filter: blur(3px); pointer-events: none; }
+  @keyframes iconFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+  .quicknav-tile:hover .quicknav-icon { transform: scale(1.22) rotate(-6deg) translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35), 0 3px 8px rgba(0,0,0,0.2), inset 0 2px 4px rgba(255,255,255,0.6), inset 0 -3px 6px rgba(0,0,0,0.2);
+    animation-play-state: paused; }
   .quicknav-tile { position: relative; overflow: hidden; }
   .quicknav-tile:active { transform: scale(0.96); }
   .qn-ripple { position: absolute; border-radius: 50%; transform: scale(0); pointer-events: none;
@@ -2179,10 +2187,11 @@ function toggleSection(id) {
 }
 
 // Colorful click ripple on quicknav tiles
-document.querySelectorAll('.quicknav-tile').forEach(tile => {
+document.querySelectorAll('.quicknav-tile').forEach((tile, idx) => {
   const icon = tile.querySelector('.quicknav-icon');
   const originalBg = tile.style.background;
   if (icon) {
+    icon.style.animationDelay = (idx * 0.18) + 's';
     const iconGradient = 'linear-gradient(135deg, #D4A94A, #F5D06B)';
     tile.addEventListener('mouseenter', function() {
       this.style.background = iconGradient;
