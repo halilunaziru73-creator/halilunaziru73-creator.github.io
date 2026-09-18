@@ -1653,8 +1653,7 @@
 
   <div style="margin-top:1.2rem; background:white; border-radius:10px; padding:1.2rem; overflow-x:auto;">
     <p class="mono" style="font-size:11px; color:var(--ink-soft); margin-bottom:0.8rem; letter-spacing:0.03em;">CURRENTLY AT</p>
-    <p id="tour-reason" style="font-size:12.5px; color:var(--navy); font-weight:600; margin-bottom:0.8rem; min-height:16px;"></p>
-    <div id="tour-strip" style="position:relative; display:flex; gap:0.7rem; min-width:max-content; padding-top:38px;">
+    <div id="tour-strip" style="position:relative; display:flex; gap:0.7rem; min-width:max-content; padding-top:56px;">
       <!-- waypoint pills injected by JS -->
     </div>
   </div>
@@ -2069,7 +2068,8 @@ let tourIdx = 0;
 function buildTourStrip() {
   const strip = document.getElementById('tour-strip');
   if (!strip) return;
-  strip.innerHTML = '<img id="tour-photo" src="avatar-v3.jpg" alt="Naziru Halilu" style="position:absolute; top:0; left:0; width:30px; height:30px; border-radius:50%; border:2px solid white; box-shadow:0 2px 5px rgba(0,0,0,0.3); object-fit:cover; transition: left 1.6s cubic-bezier(.4,0,.2,1); z-index:5;">';
+  strip.innerHTML = '<div id="tour-reason-bubble" style="position:absolute; top:0; left:0; transform:translateX(-50%); white-space:nowrap; background:#1F4D2E; color:white; font-size:10.5px; font-weight:600; padding:3px 8px; border-radius:6px; transition: left 1.6s cubic-bezier(.4,0,.2,1); z-index:6; box-shadow:0 2px 6px rgba(0,0,0,0.25);"></div>' +
+    '<img id="tour-photo" src="avatar-v3.jpg" alt="Naziru Halilu" style="position:absolute; top:26px; left:0; width:30px; height:30px; border-radius:50%; border:2px solid white; box-shadow:0 2px 5px rgba(0,0,0,0.3); object-fit:cover; transition: left 1.6s cubic-bezier(.4,0,.2,1); z-index:5;">';
   tourWaypoints.forEach((wp, i) => {
     const pill = document.createElement('div');
     pill.className = 'tour-pill';
@@ -2116,11 +2116,15 @@ function stepTourMarker() {
   });
   const activePill = document.getElementById('tour-pill-' + tourIdx);
   if (activePill) {
-    photo.style.left = activePill.offsetLeft + (activePill.offsetWidth / 2 - 15) + 'px';
+    const photoLeft = activePill.offsetLeft + (activePill.offsetWidth / 2 - 15);
+    photo.style.left = photoLeft + 'px';
     activePill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    const bubble = document.getElementById('tour-reason-bubble');
+    if (bubble) {
+      bubble.style.left = (photoLeft + 15) + 'px';
+      bubble.textContent = wp.reason || '';
+    }
   }
-  const reasonEl = document.getElementById('tour-reason');
-  if (reasonEl) { reasonEl.textContent = wp.reason || ''; }
   tourIdx = (tourIdx + 1) % tourWaypoints.length;
 }
 if (document.getElementById('tour-strip')) {
