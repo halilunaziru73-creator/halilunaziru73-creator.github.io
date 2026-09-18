@@ -2188,10 +2188,10 @@ function toggleSection(id) {
 // Colorful click ripple on quicknav tiles
 document.querySelectorAll('.quicknav-tile').forEach((tile, idx) => {
   const icon = tile.querySelector('.quicknav-icon');
-  tile.style.backgroundImage = 'linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), url(hero_bg.jpg)';
-  tile.style.backgroundSize = 'cover';
-  tile.style.backgroundPosition = 'center 20%';
-  const originalBg = tile.style.backgroundImage;
+  tile.style.background = 'rgba(225,228,226,0.55)';
+  tile.style.backdropFilter = 'blur(6px)';
+  tile.style.border = '1px solid rgba(255,255,255,0.4)';
+  const originalBg = tile.style.background;
   if (icon) {
     icon.style.animationDelay = (idx * 0.18) + 's';
     const iconGradient = 'linear-gradient(135deg, #D4A94A, #F5D06B)';
