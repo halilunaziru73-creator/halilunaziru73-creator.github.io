@@ -1911,7 +1911,9 @@ function renderProjects() {
     const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
     card.style.borderTop = '3px solid ' + cardColor;
-    card.style.background = hexToRgba(cardColor, 0.09);
+    card.style.background = 'linear-gradient(' + hexToRgba(cardColor, 0.22) + ', ' + hexToRgba(cardColor, 0.22) + '), url(\'hero_bg.jpg\')';
+    card.style.backgroundSize = 'cover';
+    card.style.backgroundPosition = 'center 25%';
     card.innerHTML =
       '<div class="project-body">' +
       '<h3>' + p.name + '</h3>' +
