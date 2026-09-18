@@ -2192,6 +2192,11 @@ document.querySelectorAll('.quicknav-tile').forEach((tile, idx) => {
   const originalBg = tile.style.background;
   if (icon) {
     icon.style.animationDelay = (idx * 0.18) + 's';
+    const flowerNum = (idx % 5) + 1;
+    const baseGradient = icon.style.background;
+    icon.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url(flower' + flowerNum + '.jpg)';
+    icon.style.backgroundSize = 'cover';
+    icon.style.backgroundPosition = 'center';
     const iconGradient = 'linear-gradient(135deg, #D4A94A, #F5D06B)';
     tile.addEventListener('mouseenter', function() {
       this.style.background = iconGradient;
