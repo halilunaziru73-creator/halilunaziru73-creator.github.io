@@ -2300,13 +2300,34 @@ const chatKB = [
     a: "My experience spans research scholar roles across three EMJMD partner universities, a computer vision internship at ABU, and prior roles in smart irrigation, greenhouse automation, and precision crop systems research in Nigeria. Full details are in the Experience section." },
   { keys: ["hello","hi","hey"],
     a: "Hello! I'm a simple assistant trained only on Naziru's academic history and site content, not a general AI. Ask me about his education, research, publications, awards, or projects." },
+
+  { keys: ["gacl","geometry agnostic","contrastive learning","hypergraph"],
+    a: "GACL (Geometry-Agnostic Contrastive Learning) is a hypergraph-transformer architecture for cross-pathology, cross-condition contrastive transfer learning in agronomic imaging. It reached 64.4% classification accuracy (macro AUC 0.882 against a 5.3% chance baseline) across 19 disease classes on 1,543 field images, by extending the base framework with four new geometry invariant neural components. It's under review at Biosystems Engineering, Elsevier." },
+  { keys: ["stados","dark object subtraction","radiometric","atmospheric correction"],
+    a: "STADOS (Spectral-Temporal Adaptive Dark Object Subtraction) is a five-stage radiometric harmonization framework that generalizes classical dark-object subtraction into a multi-object, reliability-weighted, iteratively self-consistent correction for multi-temporal Sentinel-2 NDVI monitoring. It cut temporal NDVI variance by 39% and 31% for water and rooftop reference targets, applied to corn parcels near Coimbra, Portugal." },
+  { keys: ["msrk","singularity","kriging","regression kriging"],
+    a: "MSRK (Multitask Singularity Regression Kriging) combines a multiscale local singularity index, multitask Random Forest trend modelling, and residual kriging for precision-agriculture mapping of soil NPK, crop stress, and yield. It reduced residual kriging uncertainty by roughly 20% across 17,864 samples on a 16.85 hectare maize field." },
+  { keys: ["digital twin","bayesian","gully","erosion","morning glory","cnn-bilstm"],
+    a: "The Digital Twin for Gully Biocontrol is a Bayesian-grounded digital twin evaluating Morning Glory (Ipomoea spp.) as a gully-erosion biocontrol measure, combining hydrological and hydraulic models with a hybrid CNN-BiLSTM-Attention deep learning framework, built from scratch in NumPy, for sediment transport prediction. It achieved a hold-out R squared of 0.90 and predicted a 47.8% reduction in annual soil loss, validated against real field-sensor data." },
+  { keys: ["vegetation index","rgb proxy","ndvi pipeline","glcm","texture analysis"],
+    a: "The Real-Time RGB Vegetation Indexing project is a 14-module open source pipeline for RGB and multispectral vegetation indexing, GLCM texture analysis, and CNN/Faster R-CNN inference for UAV and handheld crop imagery, with an integrated GIS workbench. It reached 33.8% balanced accuracy against a 4.55% chance baseline. Published in IJRSI, 2026." },
+  { keys: ["nacrop","irrigation dss","evapotranspiration","crop growth simulation"],
+    a: "NaCROP is a modular Python pipeline with a Tkinter desktop GUI for reference and crop evapotranspiration, soil-water balance, irrigation scheduling, and a four-step crop-growth simulation (canopy, transpiration, biomass, yield) for five crops grown around Zaria, Nigeria." },
+  { keys: ["dairy","linear programming","monte carlo","decision support"],
+    a: "The Integrated Dairy Processing Decision-Support Model compares several prediction models (R squared = 0.859 via LOOCV), then uses linear programming and repeated random-scenario Monte Carlo simulation to recommend which dairy product to make each day under uncertain milk quality and market prices." },
+  { keys: ["slurry","livestock","suitability mapping","multi-criteria"],
+    a: "The GIS-Based Livestock Slurry Suitability project is a multi-criteria GIS overlay combined with regression kriging and deep-learning suitability surfaces for livestock slurry application siting, a case study in Tudela, Navarre, Spain. It achieved RMSE = 7.78 and R squared = 0.77 on a held-out set of 127 sites." },
+  { keys: ["geospatial data analysis","earth engine","sentinel-1","sentinel-2","classification course"],
+    a: "The Geospatial Data Analysis repository is a six-notebook course package covering vector and raster GIS, optical and Sentinel-1/2 remote sensing, unsupervised and supervised classification, built in Python and Google Earth Engine." },
+  { keys: ["architecture","model","algorithm","method","technical","methodology"],
+    a: "My technical stack spans self-supervised and contrastive deep learning (PyTorch, hypergraph-transformers), geostatistics (regression kriging, singularity indices), hybrid physics-informed architectures (CNN-BiLSTM-Attention), and classical GIS/remote sensing (radiometric correction, vegetation indexing, Google Earth Engine). Ask me about a specific project like GACL, STADOS, MSRK, or the Digital Twin for full technical detail." },
 ];
 
 function toggleChat() {
   const panel = document.getElementById('chat-panel');
   panel.classList.toggle('open');
   if (panel.classList.contains('open') && document.getElementById('chat-messages').children.length === 0) {
-    addChatBubble("Hi, I'm a simple FAQ assistant covering Naziru's academic history, not a general AI. Ask me about his education, research, publications, or awards.", 'bot');
+    addChatBubble("Hi, I'm a simple FAQ assistant covering Naziru's academic history and technical project details, not a general AI. Ask me about his education, research, publications, awards, or dive into specific projects like GACL, STADOS, MSRK, or the Digital Twin.", 'bot');
     renderSuggestions();
   }
 }
@@ -2323,7 +2344,7 @@ function addChatBubble(text, who) {
 function renderSuggestions() {
   const box = document.getElementById('chat-suggest');
   box.innerHTML = '';
-  ['Education?', 'Publications?', 'Awards?', 'Contact?'].forEach(q => {
+  ['Education?', 'Explain GACL', 'Explain STADOS', 'Awards?'].forEach(q => {
     const btn = document.createElement('button');
     btn.textContent = q;
     btn.onclick = () => { document.getElementById('chat-input').value = q.replace('?',''); sendChat(); };
