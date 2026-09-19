@@ -445,6 +445,11 @@
       <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" class="hero-link-btn">Zenodo records &rarr;</a>
     </div>
 
+    <div style="background:linear-gradient(135deg,rgba(31,77,46,0.08),rgba(76,140,107,0.08)); border-left:3px solid #4C8C6B; border-radius:6px; padding:0.8rem 1.1rem; margin-top:0.3rem; max-width:70ch;">
+      <p style="font-size:13px; color:var(--ink); font-weight:600;">For recruiters and collaborators:</p>
+      <p style="font-size:13px; color:var(--ink-soft);">Open to PhD, postdoctoral, and research engineer opportunities in computer vision, geospatial machine learning, or digital agriculture. Reach out via the Contact section below.</p>
+    </div>
+
   </div>
   <div class="hero-photo-wrap hero-fade-in">
     <div class="hero-photo-glow">
@@ -726,6 +731,9 @@
     <h2>Research focus</h2>
     <span class="section-note mono">6 active layers</span>
   <span class="accordion-chevron" id="chevron-research">&#9660;</span></div><div class="section-body" id="body-research">
+  <div style="background:rgba(255,255,255,0.6); border-radius:8px; padding:1.2rem 1.4rem; margin-bottom:1.6rem;">
+    <p style="font-size:14px; line-height:1.7; color:var(--ink); font-style:italic;">Agriculture runs on decisions made with incomplete information, when to irrigate, what a stressed crop needs, how much fertilizer is actually justified. My work treats that uncertainty as the problem to solve, not something to average away. A model is only useful if it survives contact with a real field, real weather, and a farmer who cannot afford to be wrong.</p>
+  </div>
   <div class="project-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
     <div class="project-card"><h3 style="color:var(--blue)">Remote Sensing &amp; Earth Observation</h3><p>Correcting and extracting information from satellite and drone imagery, the data layer beneath everything else.</p></div>
     <div class="project-card"><h3 style="color:var(--green)">Hydrology &amp; Erosion Engineering</h3><p>Modelling how water moves and erodes land, gully formation and sediment transport.</p></div>
@@ -734,6 +742,54 @@
     <div class="project-card"><h3 style="color:var(--purple)">Computer Vision &amp; Deep Learning</h3><p>Foundational architectures that generalize across agronomic imaging tasks.</p></div>
     <div class="project-card"><h3 style="color:var(--orange)">Agribusiness Decision Science</h3><p>Operations research for real production and market decisions.</p></div>
   </div>
+
+  <div style="background:white; border-radius:10px; padding:1.4rem; margin-top:1.8rem; border:1px solid var(--line);">
+    <p style="font-size:13px; font-weight:700; color:var(--navy); margin-bottom:0.3rem;">Try It: NDVI Calculator</p>
+    <p style="font-size:12px; color:var(--ink-soft); margin-bottom:1rem;">A genuine, working calculation of the Normalized Difference Vegetation Index, the core formula behind most of my vegetation indexing work. This is an educational tool demonstrating the underlying math, not a live run of a trained model on real imagery.</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.2rem; margin-bottom:1rem;">
+      <div>
+        <label style="font-size:12px; font-weight:600;">Red reflectance: <span id="ndvi-red-val">0.30</span></label>
+        <input type="range" id="ndvi-red" min="0" max="1" step="0.01" value="0.30" style="width:100%;">
+      </div>
+      <div>
+        <label style="font-size:12px; font-weight:600;">NIR reflectance: <span id="ndvi-nir-val">0.60</span></label>
+        <input type="range" id="ndvi-nir" min="0" max="1" step="0.01" value="0.60" style="width:100%;">
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div id="ndvi-swatch" style="width:60px; height:60px; border-radius:8px; flex-shrink:0; border:1px solid var(--line);"></div>
+      <div>
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:13px;">NDVI = (NIR &minus; Red) / (NIR + Red)</p>
+        <p style="font-family:'IBM Plex Mono',monospace; font-size:18px; font-weight:700;" id="ndvi-result">NDVI = 0.333</p>
+        <p style="font-size:11.5px; color:var(--ink-soft);" id="ndvi-label">Moderate vegetation</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      const redEl = document.getElementById('ndvi-red');
+      const nirEl = document.getElementById('ndvi-nir');
+      if (!redEl || !nirEl) return;
+      function update() {
+        const red = parseFloat(redEl.value);
+        const nir = parseFloat(nirEl.value);
+        document.getElementById('ndvi-red-val').textContent = red.toFixed(2);
+        document.getElementById('ndvi-nir-val').textContent = nir.toFixed(2);
+        const ndvi = (nir + red) === 0 ? 0 : (nir - red) / (nir + red);
+        document.getElementById('ndvi-result').textContent = 'NDVI = ' + ndvi.toFixed(3);
+        let label, color;
+        if (ndvi < 0.1) { label = 'Bare soil / water'; color = '#B08968'; }
+        else if (ndvi < 0.3) { label = 'Sparse or stressed vegetation'; color = '#D4A94A'; }
+        else if (ndvi < 0.6) { label = 'Moderate vegetation'; color = '#8FBF6B'; }
+        else { label = 'Dense, healthy vegetation'; color = '#1F4D2E'; }
+        document.getElementById('ndvi-label').textContent = label;
+        document.getElementById('ndvi-swatch').style.background = color;
+      }
+      redEl.addEventListener('input', update);
+      nirEl.addEventListener('input', update);
+      update();
+    })();
+  </script>
 </div></section>
 
 <section id="timeline" class="hidden-section" style="background: linear-gradient(rgba(234,241,251,0.6), rgba(234,241,251,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #3B6EA5; border-radius:8px;">
