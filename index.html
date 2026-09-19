@@ -152,22 +152,30 @@
   }
   .section-head .section-note { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
 
-  .layers-shell { display: grid; grid-template-columns: 260px 1fr; gap: 0; border: 1px solid var(--line);
+  .layers-shell { display: grid; grid-template-columns: 260px 1fr; grid-template-rows: auto 1fr; gap: 0; border: 1px solid var(--line);
     border-radius: 6px; overflow: hidden; background: var(--paper-raised); }
-  .layers-list { border-right: 1px solid var(--line);
-    background: linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; }
-  .layers-list-head { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft);
-    padding: 0.9rem 1.1rem; border-bottom: 1px solid var(--line); letter-spacing: 0.03em; }
-  .layer-item { display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 1.1rem; cursor: pointer;
+  .qgis-toolbar { grid-column: 1 / -1; display: flex; align-items: center; gap: 0.7rem; background: linear-gradient(180deg,#3A3F35,#2B2F27);
+    padding: 0.5rem 0.9rem; border-bottom: 2px solid #D4A94A; }
+  .qgis-tool { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 4px;
+    background: rgba(255,255,255,0.08); color: #EAF1FB; font-size: 13px; cursor: default; transition: background .15s; }
+  .qgis-tool:hover { background: rgba(255,255,255,0.2); }
+  .qgis-toolbar-title { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #B8C9E0; letter-spacing: 0.03em; }
+  .layers-list { border-right: 1px solid var(--line); max-height: 560px; overflow-y: auto;
+    background: linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; }
+  .layers-list-head { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft); font-weight: 700;
+    padding: 0.7rem 1.1rem; border-bottom: 1px solid var(--line); letter-spacing: 0.03em; position: sticky; top: 0;
+    background: rgba(245,245,240,0.95); z-index: 2; }
+  .layer-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.1rem; cursor: pointer;
     border-bottom: 1px solid var(--line); transition: background .15s; }
   .layer-item:last-child { border-bottom: none; }
   .layer-item:hover { background: rgba(255,255,255,0.6); transform: translateX(2px); }
   .layer-item.active { transition: all .2s ease; }
-  .layer-swatch { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; transition: all .2s ease; }
-  .layer-item span { font-size: 13px; color: var(--ink); }
+  .layer-icon { width: 22px; height: 22px; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center;
+    justify-content: center; font-size: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+  .layer-item span { font-size: 12.5px; color: var(--ink); }
   .layer-item .layer-count { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--ink-soft); }
 
-  .layer-canvas { padding: 1.6rem 1.8rem;
+  .layer-canvas { padding: 1.6rem 1.8rem; max-height: 560px; overflow-y: auto;
     background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; }
   .layer-desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 1.4rem; max-width: 62ch; }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
@@ -305,7 +313,7 @@
     .hero h1 { font-size: 2rem; }
     .stat-strip { flex-wrap: wrap; row-gap: 1rem; }
     .stat { flex: 1 1 45%; }
-    .layers-shell { grid-template-columns: 1fr; }
+    .layers-shell { grid-template-columns: 1fr; grid-template-rows: auto auto 1fr; }
     .layers-list { border-right: none; border-bottom: 1px solid var(--line); display: flex; overflow-x: auto; }
     .layer-item { border-bottom: none; border-right: 1px solid var(--line); white-space: nowrap; }
     .contact-panel { grid-template-columns: 1fr; }
@@ -1224,8 +1232,15 @@
     <span class="section-note mono" style="color:#4A3B18; font-weight:700;">click a layer to filter</span>
   <span class="accordion-chevron" id="chevron-projects">&#9660;</span></div><div class="section-body" id="body-projects">
   <div class="layers-shell">
+    <div class="qgis-toolbar">
+      <span class="qgis-tool" title="Zoom In">&#128269;</span>
+      <span class="qgis-tool" title="Pan">&#9995;</span>
+      <span class="qgis-tool" title="Identify">&#8505;</span>
+      <span class="qgis-tool" title="Measure">&#128207;</span>
+      <span class="qgis-toolbar-title">Project Index &middot; Layer Panel</span>
+    </div>
     <div class="layers-list" id="layers-list">
-      <div class="layers-list-head">LAYERS</div>
+      <div class="layers-list-head">&#128193; LAYERS</div>
     </div>
     <div class="layer-canvas">
       <p class="layer-desc" id="layer-desc"></p>
@@ -1872,7 +1887,7 @@
 <script>
 const domains = [
   {
-    key: "remote-sensing", label: "Remote Sensing & EO", color: "#2E7DE8",
+    key: "remote-sensing", label: "Remote Sensing & EO", color: "#2E7DE8", icon: "🛰️",
     desc: "Correcting, extracting, and teaching how to work with satellite and drone imagery.",
     projects: [
       { name: "STADOS: Radiometric Harmonization", metric: "39% & 31% less temporal variance", desc: "Extends dark-object subtraction into a self-consistent, multi-object framework for Sentinel-2 NDVI.", doi: "10.5281/zenodo.21997000", repo: "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction", thumb: "thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.jpg" },
@@ -1881,7 +1896,7 @@ const domains = [
     ]
   },
   {
-    key: "hydrology", label: "Hydrology & Erosion", color: "#2FA85A",
+    key: "hydrology", label: "Hydrology & Erosion", color: "#2FA85A", icon: "💧",
     desc: "Modelling how water moves and erodes land, gully formation and sediment transport.",
     projects: [
       { name: "Digital Twin for Gully Biocontrol", metric: "47.8% less soil loss", desc: "Bayesian-assimilated digital twin evaluating Morning Glory biocontrol of gully erosion. Under review, Environmental Monitoring and Assessment.", doi: "10.5281/zenodo.21760023", repo: "Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp", thumb: "thumbs2/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.jpg" },
@@ -1889,7 +1904,7 @@ const domains = [
     ]
   },
   {
-    key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8",
+    key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8", icon: "🚿",
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
       { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
@@ -1897,7 +1912,7 @@ const domains = [
     ]
   },
   {
-    key: "precision-ag", label: "Precision Ag & Geostatistics", color: "#E0A159",
+    key: "precision-ag", label: "Precision Ag & Geostatistics", color: "#E0A159", icon: "🌾",
     desc: "Turning sparse field samples into reliable, spatially continuous maps.",
     projects: [
       { name: "Multitask Singularity Regression Kriging", metric: "Moran's I up to 0.98", desc: "Multiscale singularity index engineering combined with multitask kriging for soil/crop prediction.", doi: "10.5281/zenodo.21798402", repo: "Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction", thumb: "thumbs2/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.jpg" },
@@ -1908,14 +1923,14 @@ const domains = [
     ]
   },
   {
-    key: "vision-dl", label: "Computer Vision & DL", color: "#9B5DE5",
+    key: "vision-dl", label: "Computer Vision & DL", color: "#9B5DE5", icon: "👁️",
     desc: "Foundational architectures that generalize across agronomic imaging tasks.",
     projects: [
       { name: "Geometry-Agnostic Contrastive Learning", metric: "64.4% vs 5.3% chance", desc: "Unified geometry-invariant deep-learning framework spanning four architecture types. Under review, Biosystems Engineering.", doi: "10.5281/zenodo.21760025", repo: "Geometry-Agnostic-Contrastive-Learning-GACL", thumb: "thumbs2/Geometry-Agnostic-Contrastive-Learning-GACL.jpg" }
     ]
   },
   {
-    key: "agribusiness", label: "Agribusiness Decision Science", color: "#FF6B6B",
+    key: "agribusiness", label: "Agribusiness Decision Science", color: "#FF6B6B", icon: "💰",
     desc: "Operations research for real production and market decisions.",
     projects: [
       { name: "Dairy Processing Decision-Support Model", metric: "R\u00b2 = 0.859", desc: "Model comparison, linear programming, and Monte Carlo risk simulation for dairy product mix.", doi: "10.5281/zenodo.21760085", repo: "Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability", thumb: "thumbs2/Integrated-Decision-Support-Model-for-Dairy-Processing-under-Milk-and-Market-Variability.jpg" }
@@ -2002,7 +2017,7 @@ function renderLayers() {
   const allItem = document.createElement('div');
   allItem.className = 'layer-item' + (activeKey === 'all' ? ' active' : '');
   if (activeKey === 'all') { allItem.style.background = 'var(--ink-soft)'; allItem.style.color = 'white'; }
-  allItem.innerHTML = '<span class="layer-swatch" style="background:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + '"></span><span>All projects</span><span class="layer-count mono" style="color:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + '">' + allProjects().length + '</span>';
+  allItem.innerHTML = '<span class="layer-icon" style="background:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + ';">&#128193;</span><span>All projects</span><span class="layer-count mono" style="color:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + '">' + allProjects().length + '</span>';
   allItem.onclick = () => { activeKey = 'all'; render(); };
   list.appendChild(allItem);
 
@@ -2011,7 +2026,7 @@ function renderLayers() {
     const isActive = activeKey === d.key;
     item.className = 'layer-item' + (isActive ? ' active' : '');
     if (isActive) { item.style.background = d.color; item.style.color = 'white'; item.style.fontWeight = '700'; item.style.boxShadow = '0 2px 8px ' + d.color + '66'; }
-    item.innerHTML = '<span class="layer-swatch" style="background:' + (isActive ? 'white' : d.color) + '"></span><span>' + d.label + '</span><span class="layer-count mono" style="color:' + (isActive ? 'white' : 'var(--ink-soft)') + '">' + d.projects.length + '</span>';
+    item.innerHTML = '<span class="layer-icon" style="background:' + d.color + ';">' + d.icon + '</span><span>' + d.label + '</span><span class="layer-count mono" style="color:' + (isActive ? 'white' : 'var(--ink-soft)') + '">' + d.projects.length + '</span>';
     item.onclick = () => { activeKey = d.key; render(); };
     list.appendChild(item);
   });
