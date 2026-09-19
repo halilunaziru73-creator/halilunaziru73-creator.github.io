@@ -2294,7 +2294,8 @@ document.querySelectorAll('.quicknav-tile').forEach((tile, idx) => {
     localStorage.setItem(KEY, JSON.stringify(data));
     if (data.count > 1) {
       const badge = document.createElement('div');
-      badge.style.cssText = 'position:fixed; bottom:18px; right:18px; background:linear-gradient(135deg,#1F4D2E,#4C8C6B); color:white; font-family:"IBM Plex Mono",monospace; font-size:11.5px; padding:8px 14px; border-radius:20px; box-shadow:0 4px 14px rgba(0,0,0,0.25); z-index:999; opacity:0; transition:opacity .5s ease;';
+      const bottomOffset = window.innerWidth <= 700 ? '72px' : '18px';
+      badge.style.cssText = 'position:fixed; bottom:' + bottomOffset + '; right:18px; background:linear-gradient(135deg,#1F4D2E,#4C8C6B); color:white; font-family:"IBM Plex Mono",monospace; font-size:11.5px; padding:8px 14px; border-radius:20px; box-shadow:0 4px 14px rgba(0,0,0,0.25); z-index:999; opacity:0; transition:opacity .5s ease;';
       badge.textContent = 'Welcome back! Visit #' + data.count;
       document.body.appendChild(badge);
       setTimeout(() => { badge.style.opacity = '1'; }, 400);
