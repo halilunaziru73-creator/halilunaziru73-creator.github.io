@@ -2336,33 +2336,33 @@ function jumpTo(id) {
 <!-- Quick-jump search (Ctrl+K) -->
 <div id="qk-overlay" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.55); align-items:flex-start; justify-content:center; padding-top:12vh;">
   <div style="background:white; border-radius:12px; width:92%; max-width:480px; max-height:60vh; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4); display:flex; flex-direction:column;">
-    <input id="qk-input" type="text" placeholder="Jump to a section... (education, publications, awards...)" style="border:none; padding:16px 18px; font-size:15px; outline:none; border-bottom:1px solid var(--line); font-family:inherit;">
+    <input id="qk-input" type="text" placeholder="🔍 Jump to a section... (education, publications, awards...)" style="border:none; padding:16px 18px; font-size:15px; outline:none; border-bottom:3px solid transparent; border-image: linear-gradient(90deg, #3B6EA5, #4C8C6B, #D4A94A, #B23A2E) 1; font-family:inherit;">
     <div id="qk-results" style="overflow-y:auto;"></div>
   </div>
 </div>
 <script>
   const qkItems = [
-    { label: "Home / Hero", key: null, scrollTop: true },
-    { label: "Research Focus", key: "research" },
-    { label: "Research Timeline", key: "timeline" },
-    { label: "Education", key: "education" },
-    { label: "Full Academic Record", key: "courses" },
-    { label: "Experience", key: "experience" },
-    { label: "Publications", key: "publications" },
-    { label: "Project Index", key: "projects" },
-    { label: "Skills", key: "skills" },
-    { label: "Teaching & Leadership", key: "teaching" },
-    { label: "Awards & Honors", key: "awards" },
-    { label: "Certifications", key: "certifications" },
-    { label: "Conferences", key: "conferences" },
-    { label: "Memberships", key: "memberships" },
-    { label: "Referees", key: "referees" },
-    { label: "Updates", key: "news" },
-    { label: "Field News", key: "fieldnews" },
-    { label: "Travels", key: "travels" },
-    { label: "Gallery", key: "gallery" },
-    { label: "Download CV", key: "cvformats" },
-    { label: "Contact", key: "contact" },
+    { label: "Home / Hero", key: null, scrollTop: true, icon: "🏠", color: "#3B6EA5" },
+    { label: "Research Focus", key: "research", icon: "🔬", color: "#3B6EA5" },
+    { label: "Research Timeline", key: "timeline", icon: "📅", color: "#3B6EA5" },
+    { label: "Education", key: "education", icon: "🎓", color: "#1F4D2E" },
+    { label: "Full Academic Record", key: "courses", icon: "📚", color: "#B8763F" },
+    { label: "Experience", key: "experience", icon: "💼", color: "#B23A2E" },
+    { label: "Publications", key: "publications", icon: "📄", color: "#2E3A52" },
+    { label: "Project Index", key: "projects", icon: "📁", color: "#0B4FA8" },
+    { label: "Skills", key: "skills", icon: "🛠️", color: "#0E7C7B" },
+    { label: "Teaching & Leadership", key: "teaching", icon: "🧑‍🏫", color: "#D4A94A" },
+    { label: "Awards & Honors", key: "awards", icon: "🏆", color: "#D4A94A" },
+    { label: "Certifications", key: "certifications", icon: "📜", color: "#1F4D2E" },
+    { label: "Conferences", key: "conferences", icon: "🎤", color: "#6E5A8C" },
+    { label: "Memberships", key: "memberships", icon: "🤝", color: "#D4A94A" },
+    { label: "Referees", key: "referees", icon: "✍️", color: "#3B6EA5" },
+    { label: "Updates", key: "news", icon: "📰", color: "#E35C4C" },
+    { label: "Field News", key: "fieldnews", icon: "🌐", color: "#6E5A8C" },
+    { label: "Travels", key: "travels", icon: "🌍", color: "#3B6EA5" },
+    { label: "Gallery", key: "gallery", icon: "📸", color: "#E35C4C" },
+    { label: "Download CV", key: "cvformats", icon: "📥", color: "#D4A94A" },
+    { label: "Contact", key: "contact", icon: "✉️", color: "#0B4FA8" },
   ];
   const qkOverlay = document.getElementById('qk-overlay');
   const qkInput = document.getElementById('qk-input');
@@ -2379,7 +2379,10 @@ function jumpTo(id) {
     const q = query.toLowerCase();
     const matches = qkItems.filter(i => i.label.toLowerCase().includes(q));
     qkResults.innerHTML = matches.map(i =>
-      '<div class="qk-result" style="padding:12px 18px; cursor:pointer; font-size:14px; border-bottom:1px solid #F1F0E8;" onmouseover="this.style.background=\'#F4F8F5\'" onmouseout="this.style.background=\'white\'" onclick="qkGo(\'' + (i.key || '') + '\', ' + !!i.scrollTop + ')">' + i.label + '</div>'
+      '<div class="qk-result" style="display:flex; align-items:center; gap:12px; padding:11px 18px; cursor:pointer; font-size:14px; font-weight:600; color:#1A2318; border-bottom:1px solid #F1F0E8; transition:background .15s;" onmouseover="this.style.background=\'' + i.color + '18\'" onmouseout="this.style.background=\'white\'" onclick="qkGo(\'' + (i.key || '') + '\', ' + !!i.scrollTop + ')">' +
+      '<span style="width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,' + i.color + ',' + i.color + 'cc); display:flex; align-items:center; justify-content:center; font-size:16px; box-shadow:0 2px 6px rgba(0,0,0,0.2); flex-shrink:0;">' + i.icon + '</span>' +
+      '<span>' + i.label + '</span>' +
+      '</div>'
     ).join('') || '<div style="padding:18px; color:var(--ink-soft); font-size:13px;">No matches</div>';
   }
   function qkGo(key, scrollTop) {
