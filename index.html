@@ -186,7 +186,8 @@
   .pub-group:last-child { margin-bottom: 0; }
   .pub-group h3 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.03em; color: var(--blue);
     margin-bottom: 1rem; }
-  .pub-item { padding: 0.9rem 0; border-bottom: 1px solid var(--line); font-size: 13.8px; }
+  .pub-item { padding: 0.9rem 1rem; margin-bottom: 0.3rem; border-bottom: 1px solid var(--line); font-size: 13.8px;
+    background: rgba(255,255,255,0.5); backdrop-filter: blur(4px); border-radius: 8px; font-weight: 500; }
   .pub-item:last-child { border-bottom: none; }
   .pub-item .pub-authors { color: var(--ink); }
   .pub-item .pub-authors b { font-weight: 600; }
@@ -200,7 +201,8 @@
 
   /* timeline (education + experience) */
   .timeline { border-left: 2px solid var(--line); margin-left: 6px; }
-  .tl-item { position: relative; padding: 0 0 1.9rem 1.8rem; }
+  .tl-item { position: relative; padding: 0.9rem 1rem 1.9rem 1.8rem; margin-bottom: 0.3rem;
+    background: rgba(255,255,255,0.55); backdrop-filter: blur(4px); border-radius: 8px; }
   .tl-item:last-child { padding-bottom: 0; }
   .tl-item::before { content: ''; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px;
     border-radius: 50%; background: var(--paper); border: 2px solid var(--blue); }
@@ -213,9 +215,9 @@
   #experience .tl-item ul li { font-size: 14.5px; line-height: 1.65; }
   #experience .tl-item ul li a { color: #0B4FA8; font-weight: 700; }
   .tl-item .tl-org { font-size: 13px; color: var(--ink-soft); margin-bottom: 0.35rem; font-style: italic; }
-  .tl-item p { font-size: 13.2px; color: var(--ink-soft); }
+  .tl-item p { font-size: 13.2px; color: var(--ink-soft); font-weight: 500; }
   .tl-item ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
-  .tl-item ul li { font-size: 13.2px; color: var(--ink-soft); margin-bottom: 0.5rem; line-height: 1.5; }
+  .tl-item ul li { font-size: 13.2px; color: var(--ink-soft); margin-bottom: 0.5rem; line-height: 1.5; font-weight: 500; }
   .tl-item ul li a { color: var(--blue); text-decoration: none; font-weight: 600; }
   .tl-item ul li a:hover { text-decoration: underline; }
 
