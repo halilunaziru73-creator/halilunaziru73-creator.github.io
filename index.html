@@ -331,8 +331,11 @@
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
   .gallery-grid { column-count: 4; column-gap: 0.6rem; }
-  .gallery-thumb { width: 100%; height: auto; object-fit: contain; border-radius: 5px; border: 1px solid var(--line);
-    cursor: pointer; transition: transform .15s, box-shadow .15s; display: block; margin-bottom: 0.6rem; break-inside: avoid; }
+  .gallery-item { break-inside: avoid; margin-bottom: 0.8rem; display: block; }
+  .gallery-thumb { width: 100%; height: auto; object-fit: contain; border-radius: 5px 5px 0 0; border: 1px solid var(--line);
+    border-bottom: none; cursor: pointer; transition: transform .15s, box-shadow .15s; display: block; }
+  .gallery-caption { font-size: 11px; font-weight: 700; color: var(--ink); background: var(--paper-raised);
+    border: 1px solid var(--line); border-top: none; border-radius: 0 0 5px 5px; padding: 5px 8px; line-height: 1.3; }
   .gallery-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,20,18,0.92); z-index: 100;
     align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
@@ -619,22 +622,6 @@
     .scroll-cue { display: none; }
   }
 </style>
-
-<div id="at-a-glance" style="max-width:1400px; margin:0 auto 1.4rem; background:var(--paper-raised); border:1px solid var(--line);
-  border-radius:14px; padding:1.6rem 2rem; display:flex; flex-wrap:wrap; align-items:center; gap:2rem;
-  box-shadow:0 4px 16px rgba(0,0,0,0.06);">
-  <div style="display:flex; gap:1.8rem; flex-wrap:wrap; flex:1;">
-    <div><span style="font-family:'IBM Plex Mono',monospace; font-size:1.6rem; font-weight:800; color:var(--green);">4</span>
-      <p style="font-size:11.5px; color:var(--ink-soft); font-weight:600;">Publications</p></div>
-    <div><span style="font-family:'IBM Plex Mono',monospace; font-size:1.6rem; font-weight:800; color:var(--blue);">15</span>
-      <p style="font-size:11.5px; color:var(--ink-soft); font-weight:600;">GitHub Repos</p></div>
-    <div><span style="font-family:'IBM Plex Mono',monospace; font-size:1.6rem; font-weight:800; color:var(--orange);">4.77</span>
-      <p style="font-size:11.5px; color:var(--ink-soft); font-weight:600;">B.Eng CGPA</p></div>
-    <div style="max-width:320px;"><span style="font-size:12px; font-weight:700; color:var(--ink);">Key skills</span>
-      <p style="font-size:11.5px; color:var(--ink-soft);">Computer Vision &middot; Geospatial ML &middot; GIS &middot; Python &middot; Precision Agriculture</p></div>
-  </div>
-  <a href="#cvformats" onclick="event.preventDefault(); jumpTo('cvformats');" class="hero-link-btn" style="white-space:nowrap;">Full CV &rarr;</a>
-</div>
 
 <section id="quicknav" class="quicknav-flashy-bg" style="border-radius:16px; padding: 2.6rem 2.4rem; position:relative; overflow:hidden;">
   <div class="section-head" style="border-bottom-color:rgba(255,255,255,0.25); position:relative; z-index:1;">
@@ -1639,59 +1626,53 @@
     <img class="gallery-thumb" src="gallery/gallery_09.jpg" alt="Field photo 9" loading="lazy" onclick="openLightbox(this)">
     <img class="gallery-thumb" src="gallery/gallery_10.jpg" alt="Field photo 10" loading="lazy" onclick="openLightbox(this)">
     <img class="gallery-thumb" src="gallery/gallery_11.jpg" alt="Field photo 11" loading="lazy" onclick="openLightbox(this)">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_12.jpg" alt="Field photo 12" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_13.jpg" alt="Field photo 13" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_14.jpg" alt="Field photo 14" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_15.jpg" alt="Field photo 15" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_16.jpg" alt="Field photo 16" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_17.jpg" alt="Field photo 17" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_18.jpg" alt="Field photo 18" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_19.jpg" alt="Field photo 19" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_20.jpg" alt="Field photo 20" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_21.jpg" alt="Field photo 21" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_22.jpg" alt="Field photo 22" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_23.jpg" alt="Field photo 23" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_24.jpg" alt="Field photo 24" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_25.jpg" alt="Field photo 25" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_26.jpg" alt="Field photo 26" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_27.jpg" alt="Field photo 27" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_28.jpg" alt="Field photo 28" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_29.jpg" alt="Field photo 29" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_30.jpg" alt="Field photo 30" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_31.jpg" alt="Field photo 31" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_32.jpg" alt="Field photo 32" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_33.jpg" alt="Field photo 33" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_35.jpg" alt="Field photo 35" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_36.jpg" alt="Field photo 36" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_37.jpg" alt="Field photo 37" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_38.jpg" alt="Field photo 38" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_40.jpg" alt="Field photo 40" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_41.jpg" alt="Field photo 41" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_42.jpg" alt="Graduation photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_43.jpg" alt="Graduation photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_44.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_45.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_46.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_47.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_48.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_49.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_50.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_51.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_52.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_53.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_54.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_55.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_56.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_57.jpg" alt="Group photo, Cape Sounion, Greece" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_58.jpg" alt="Temple of Poseidon, Cape Sounion, Greece" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_59.jpg" alt="Cafe, Greece" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-    <img class="gallery-thumb gallery-extra" src="gallery/gallery_60.jpg" alt="Temple of Poseidon columns, Cape Sounion, Greece" loading="lazy" onclick="openLightbox(this)" style="display:none;">
-  </div>
-  <div style="text-align:center; margin-top:1.4rem;">
-    <button id="gallery-viewall-btn" onclick="toggleShowAll(this, 'gallery-extra')" class="mono"
-      style="background:var(--green); color:white; border:none; border-radius:24px; padding:10px 28px; font-size:13px; font-weight:700; cursor:pointer; box-shadow:0 3px 10px rgba(0,0,0,0.15);">
-      View all 57 photos &darr;
-    </button>
+    <img class="gallery-thumb" src="gallery/gallery_12.jpg" alt="Field photo 12" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_13.jpg" alt="Field photo 13" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_14.jpg" alt="Field photo 14" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_15.jpg" alt="Field photo 15" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_16.jpg" alt="Field photo 16" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_17.jpg" alt="Field photo 17" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_18.jpg" alt="Field photo 18" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_19.jpg" alt="Field photo 19" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_20.jpg" alt="Field photo 20" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_21.jpg" alt="Field photo 21" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_22.jpg" alt="Field photo 22" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_23.jpg" alt="Field photo 23" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_24.jpg" alt="Field photo 24" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_25.jpg" alt="Field photo 25" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_26.jpg" alt="Field photo 26" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_27.jpg" alt="Field photo 27" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_28.jpg" alt="Field photo 28" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_29.jpg" alt="Field photo 29" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_30.jpg" alt="Field photo 30" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_31.jpg" alt="Field photo 31" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_32.jpg" alt="Field photo 32" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_33.jpg" alt="Field photo 33" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_35.jpg" alt="Field photo 35" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_36.jpg" alt="Field photo 36" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_37.jpg" alt="Field photo 37" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_38.jpg" alt="Field photo 38" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_40.jpg" alt="Field photo 40" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_41.jpg" alt="Field photo 41" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_42.jpg" alt="Graduation photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_43.jpg" alt="Graduation photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_44.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_45.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_46.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_47.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_48.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_49.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_50.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_51.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_52.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_53.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_54.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_55.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_56.jpg" alt="Field photo" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_57.jpg" alt="Group photo, Cape Sounion, Greece" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_58.jpg" alt="Temple of Poseidon, Cape Sounion, Greece" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_59.jpg" alt="Cafe, Greece" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_60.jpg" alt="Temple of Poseidon columns, Cape Sounion, Greece" loading="lazy" onclick="openLightbox(this)">
   </div>
 </div></section>
 
@@ -2427,6 +2408,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.gallery-grid .gallery-thumb').forEach(img => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'gallery-item';
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+    const caption = document.createElement('p');
+    caption.className = 'gallery-caption';
+    caption.textContent = img.alt || 'Photo';
+    wrapper.appendChild(caption);
+  });
+});
 function toggleShowAll(btn, className) {
   const items = document.querySelectorAll('.' + className);
   if (items.length === 0) return;
