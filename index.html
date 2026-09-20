@@ -254,8 +254,11 @@
   .referee-card h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 0.2rem; }
   .referee-card p { font-size: 12.5px; color: var(--ink-soft); }
   .course-group { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 0.7rem; background: white; overflow: hidden; position: relative; }
-  .course-sig-watermark { position: absolute; top: 45%; left: 50%; width: 340px; max-width: 70%; opacity: 0.14;
-    transform: translate(-50%,-50%) rotate(-18deg); pointer-events: none; z-index: 0; }
+  .course-sig-watermark { position: absolute; width: 200px; max-width: 40%; opacity: 0.13; pointer-events: none; z-index: 0; }
+  .course-sig-watermark.wm-1 { top: 8%; left: 4%; transform: rotate(-14deg); }
+  .course-sig-watermark.wm-2 { top: 8%; right: 4%; left: auto; transform: rotate(12deg); }
+  .course-sig-watermark.wm-3 { bottom: 6%; left: 4%; transform: rotate(10deg); }
+  .course-sig-watermark.wm-4 { bottom: 6%; right: 4%; left: auto; transform: rotate(-11deg); }
   .course-group > summary, .course-group > div { position: relative; z-index: 1; }
   .doc-slant-card { padding: 0.6rem 0.6rem 1rem; }
   .doc-slant-img { width: 100%; border-radius: 6px; border: 1px solid var(--line); cursor: pointer;
@@ -1363,7 +1366,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_hod.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Agricultural Machinery, Mechanization &amp; Power <span class="mono course-count">10 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1380,7 +1383,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_dean.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Soil, Water, Irrigation &amp; Environmental Engineering <span class="mono course-count">18 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1405,7 +1408,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_consulate.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Data Science, Precision Agriculture &amp; Remote Sensing <span class="mono course-count">12 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1424,7 +1427,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_salisu.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Processing, Post-Harvest &amp; Biological Systems <span class="mono course-count">8 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1439,7 +1442,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_hod.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Mechanical &amp; Materials Engineering <span class="mono course-count">21 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1467,7 +1470,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_dean.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Electrical, Instrumentation &amp; Structures <span class="mono course-count">10 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1484,7 +1487,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_consulate.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Mathematics, Statistics &amp; Surveying <span class="mono course-count">11 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1502,7 +1505,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_salisu.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Agronomy, Soil Science &amp; Animal Sciences <span class="mono course-count">4 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1513,7 +1516,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_hod.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Management, Economics &amp; General Studies <span class="mono course-count">28 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
@@ -1548,7 +1551,7 @@
     </div>
   </details>
   <details class="course-group">
-    <img src="certs/wm_dean.png" class="course-sig-watermark" alt="" aria-hidden="true">
+    <img src="certs/wm_hod.png" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/wm_dean.png" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/wm_consulate.png" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/wm_salisu.png" class="course-sig-watermark wm-4" alt="" aria-hidden="true">
     <summary>Projects, Practical Exercises &amp; Industrial Training <span class="mono course-count">9 courses</span></summary>
     <div class="course-table">
       <div class="course-row course-row-head"><span class="course-code mono">CODE</span><span class="course-name">COURSE</span><span class="course-credit mono">CREDIT</span><span class="course-grade mono">GRADE</span><span class="course-prog mono">PROGRAMME</span></div>
