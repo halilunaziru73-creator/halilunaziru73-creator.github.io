@@ -2357,12 +2357,17 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.course-group').forEach(group => {
     const rows = group.querySelectorAll('.course-row:not(.course-row-head)');
     let weightedSum = 0, totalCredits = 0, count = 0;
+    let hasNDorBEng = false, hasEMJMD = false;
     rows.forEach(row => {
       const creditEl = row.querySelector('.course-credit');
       const gradeEl = row.querySelector('.course-grade');
+      const progEl = row.querySelector('.course-prog');
       if (!creditEl || !gradeEl) return;
       const creditText = creditEl.textContent.trim();
       const gradeText = gradeEl.textContent.trim();
+      const progText = progEl ? progEl.textContent.trim() : '';
+      if (progText === 'ND' || progText === 'B.Eng') hasNDorBEng = true;
+      if (progText === 'EMJMD') hasEMJMD = true;
       const creditMatch = creditText.match(/^(\d+(?:\.\d+)?)\s*(CU|ECTS)/);
       if (!creditMatch) return;
       const credit = parseFloat(creditMatch[1]);
@@ -2379,10 +2384,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (count > 0 && totalCredits > 0) {
       const avg = (weightedSum / totalCredits).toFixed(1);
       const content = group.querySelector('div');
+      const summaryEl = group.querySelector('summary');
+      let categoryName = '';
+      if (summaryEl) { categoryName = summaryEl.childNodes[0].textContent.trim(); }
       if (content) {
+        let logosHtml = '';
+        if (hasNDorBEng) logosHtml += '<img src="logo_abu.png" alt="ABU" title="Ahmadu Bello University" style="height:18px; width:auto; margin-right:4px; vertical-align:middle;">';
+        if (hasEMJMD) {
+          logosHtml += '<img src="logo_upna.png" alt="UPNA" title="Public University of Navarre" style="height:16px; width:auto; margin-right:4px; vertical-align:middle;">';
+          logosHtml += '<img src="logo_utad.png" alt="UTAD" title="UTAD" style="height:16px; width:auto; margin-right:4px; vertical-align:middle;">';
+          logosHtml += '<img src="logo_aua.png" alt="AUA" title="Agricultural University of Athens" style="height:18px; width:auto; margin-right:4px; vertical-align:middle;">';
+        }
         const cumEl = document.createElement('p');
-        cumEl.style.cssText = 'font-size:12px; font-weight:700; color:#4A3B18; background:rgba(212,169,74,0.15); padding:8px 12px; border-radius:6px; margin-top:0.8rem;';
-        cumEl.textContent = 'Cumulative Average (credit-weighted): ' + avg + '% across ' + count + ' course' + (count > 1 ? 's' : '') + ' (' + totalCredits + ' total credits)';
+        cumEl.style.cssText = 'font-size:12px; font-weight:700; color:#4A3B18; background:rgba(212,169,74,0.15); padding:8px 12px; border-radius:6px; margin-top:0.8rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;';
+        cumEl.innerHTML = logosHtml + '<span>Cumulative Average (credit-weighted) of ' + categoryName + ': ' + avg + '% across ' + count + ' course' + (count > 1 ? 's' : '') + ' (' + totalCredits + ' total credits)</span>';
         content.appendChild(cumEl);
       }
     }
