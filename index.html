@@ -171,6 +171,10 @@
 
   .layer-canvas { padding: 1.8rem 2rem; max-height: 560px; overflow-y: auto;
     background: linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; }
+  .layer-canvas::-webkit-scrollbar { width: 10px; }
+  .layer-canvas::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+  .layer-canvas::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#D4A94A,#B8763F); border-radius: 5px; }
+  .layer-canvas { scrollbar-width: thin; scrollbar-color: #D4A94A rgba(0,0,0,0.05); }
   .layer-desc { font-size: 14px; color: #4A3B18; font-weight: 500; margin-bottom: 1.4rem; max-width: 62ch; }
   .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
   .project-card { border: 1px solid var(--line); border-radius: 8px; padding: 0; background: var(--paper-raised); overflow: hidden;
@@ -1231,6 +1235,12 @@
     </div>
     <div class="layer-canvas">
       <p class="layer-desc" id="layer-desc"></p>
+      <p style="font-size:11.5px; color:#6B5A32; font-weight:600; margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem;">
+        <span style="animation: scrollBounce 1.6s ease-in-out infinite;">&#8595;</span> Scroll down to see all projects
+      </p>
+      <style>
+        @keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+      </style>
       <div class="project-grid" id="project-grid"></div>
     </div>
   </div>
