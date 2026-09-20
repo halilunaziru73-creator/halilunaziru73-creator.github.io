@@ -2352,6 +2352,32 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('section').forEach(sec => revealObserver.observe(sec));
 
+// Compute cumulative average grade for each course category and insert below its table
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.course-group').forEach(group => {
+    const grades = group.querySelectorAll('.course-grade');
+    let total = 0, count = 0;
+    grades.forEach(g => {
+      const text = g.textContent.trim();
+      const pctMatch = text.match(/^(\d+(?:\.\d+)?)\/100/);
+      const ectsMatch = text.match(/^(\d+(?:\.\d+)?)\/10$/);
+      if (pctMatch) { total += parseFloat(pctMatch[1]); count++; }
+      else if (ectsMatch) { total += parseFloat(ectsMatch[1]) * 10; count++; }
+    });
+    if (count > 0) {
+      const avg = (total / count).toFixed(1);
+      const summary = group.querySelector('summary');
+      const content = group.querySelector('div');
+      if (content) {
+        const cumEl = document.createElement('p');
+        cumEl.style.cssText = 'font-size:12px; font-weight:700; color:#4A3B18; background:rgba(212,169,74,0.15); padding:8px 12px; border-radius:6px; margin-top:0.8rem;';
+        cumEl.textContent = 'Cumulative Average: ' + avg + '% across ' + count + ' course' + (count > 1 ? 's' : '');
+        content.appendChild(cumEl);
+      }
+    }
+  });
+});
+
 function toggleSection(id) {
   const body = document.getElementById('body-' + id);
   const chevron = document.getElementById('chevron-' + id);
