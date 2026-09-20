@@ -2686,8 +2686,7 @@ function jumpTo(id) {
           dot.dataset.tapState = '2';
         } else {
           hideTooltip();
-          dot.dataset.tapState = '0';
-          jumpTo(s.id);
+          dot.style.display = 'none';
         }
       };
       dot.addEventListener('touchstart', function(e) {
