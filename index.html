@@ -1337,22 +1337,22 @@
       <p style="font-size:12.5px; font-weight:700; color:#4A3B18; margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.03em;">Signatures &amp; Official Seals</p>
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap:1.4rem;">
         <div class="doc-slant-card">
-          <img src="certs/hod_stamp.jpg" alt="Head, Department of Agricultural and Bioresource Engineering, Ahmadu Bello University stamp" class="doc-slant-img" loading="lazy" onclick="openLightbox(this)">
+          <img src="certs/hod_stamp.jpg" alt="Head, Department of Agricultural and Bioresource Engineering, Ahmadu Bello University stamp" class="doc-slant-img" loading="lazy" onclick="openLightboxSolo(this)">
           <p style="font-size:12px; font-weight:700; color:var(--navy); margin-top:0.6rem;">Head of Department</p>
           <p style="font-size:11px; color:var(--ink-soft);">Dept. of Agric &amp; Bio-Resource Engineering, ABU</p>
         </div>
         <div class="doc-slant-card">
-          <img src="certs/dean_secretary_stamps.jpg" alt="Dean and Academic Secretary stamps, Ahmadu Bello University" class="doc-slant-img" loading="lazy" onclick="openLightbox(this)">
+          <img src="certs/dean_secretary_stamps.jpg" alt="Dean and Academic Secretary stamps, Ahmadu Bello University" class="doc-slant-img" loading="lazy" onclick="openLightboxSolo(this)">
           <p style="font-size:12px; font-weight:700; color:var(--navy); margin-top:0.6rem;">Dean, Faculty of Engineering &amp; Academic Secretary</p>
           <p style="font-size:11px; color:var(--ink-soft);">Ahmadu Bello University &middot; Dated 22/04/25</p>
         </div>
         <div class="doc-slant-card">
-          <img src="certs/consulate_ministry_stamp.jpg" alt="Federal Ministry of Education and Consulado General de Espana en Lagos legalization stamps" class="doc-slant-img" loading="lazy" onclick="openLightbox(this)">
+          <img src="certs/consulate_ministry_stamp.jpg" alt="Federal Ministry of Education and Consulado General de Espana en Lagos legalization stamps" class="doc-slant-img" loading="lazy" onclick="openLightboxSolo(this)">
           <p style="font-size:12px; font-weight:700; color:var(--navy); margin-top:0.6rem;">Federal Ministry of Education &amp; El Cónsul General, José María Ferré Trad</p>
           <p style="font-size:11px; color:var(--ink-soft);">Federal Government of Nigeria &middot; Consulado General de España en Lagos, dated 26 May 2025</p>
         </div>
         <div class="doc-slant-card">
-          <img src="certs/nd_provost_sig.jpg" alt="Dr. A. Salisu, National Diploma certificate signature and college seal" class="doc-slant-img" loading="lazy" onclick="openLightbox(this)">
+          <img src="certs/nd_provost_sig.jpg" alt="Dr. A. Salisu, National Diploma certificate signature and college seal" class="doc-slant-img" loading="lazy" onclick="openLightboxSolo(this)">
           <p style="font-size:12px; font-weight:700; color:var(--navy); margin-top:0.6rem;">Dr. A. Salisu</p>
           <p style="font-size:11px; color:var(--ink-soft);">Samaru College of Agriculture, ABU &middot; National Diploma certificate</p>
         </div>
@@ -2200,7 +2200,16 @@ let lightboxIndex = 0;
 document.addEventListener('DOMContentLoaded', function() {
   lightboxItems = Array.from(document.querySelectorAll('[onclick="openLightbox(this)"]'));
 });
+function openLightboxSolo(el) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = el.src;
+  document.getElementById('lightbox-prev').style.display = 'none';
+  document.getElementById('lightbox-next').style.display = 'none';
+  lb.classList.add('open');
+}
 function openLightbox(el) {
+  document.getElementById('lightbox-prev').style.display = 'block';
+  document.getElementById('lightbox-next').style.display = 'block';
   if (lightboxItems.length === 0) {
     lightboxItems = Array.from(document.querySelectorAll('[onclick="openLightbox(this)"]'));
   }
