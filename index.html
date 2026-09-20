@@ -2633,6 +2633,9 @@ function jumpTo(id) {
   background:rgba(255,255,255,0.92); backdrop-filter:blur(6px); border:1px solid var(--line); border-radius:12px;
   padding:0.7rem 0.5rem; box-shadow:0 6px 18px rgba(0,0,0,0.12); display:flex; flex-direction:column; gap:6px;">
 </nav>
+<div id="sidebar-tooltip" style="position:fixed; z-index:901; background:var(--ink); color:white; font-size:12px;
+  font-weight:600; padding:5px 10px; border-radius:6px; white-space:nowrap; pointer-events:none;
+  opacity:0; transform:translateY(-50%) translateX(-6px); transition:opacity .15s ease;"></div>
 <style>
   @media (max-width: 1050px) { #sticky-sidebar { display: none; } }
   .sidebar-dot { width:9px; height:9px; border-radius:50%; background:var(--line); cursor:pointer;
@@ -2655,12 +2658,35 @@ function jumpTo(id) {
       {id: 'contact', label: 'Contact'},
     ];
     const sidebar = document.getElementById('sticky-sidebar');
+    const tooltip = document.getElementById('sidebar-tooltip');
     sidebarSections.forEach(s => {
       const dot = document.createElement('span');
       dot.className = 'sidebar-dot';
-      dot.title = s.label;
       dot.dataset.sectionId = s.id;
+      dot.dataset.label = s.label;
       dot.onclick = () => jumpTo(s.id);
+      const showTooltip = () => {
+        const rect = dot.getBoundingClientRect();
+        tooltip.textContent = s.label;
+        tooltip.style.top = (rect.top + rect.height / 2) + 'px';
+        tooltip.style.right = (window.innerWidth - rect.left + 12) + 'px';
+        tooltip.style.left = 'auto';
+        tooltip.style.opacity = '1';
+      };
+      const hideTooltip = () => { tooltip.style.opacity = '0'; };
+      dot.addEventListener('mouseenter', showTooltip);
+      dot.addEventListener('mouseleave', hideTooltip);
+      dot.addEventListener('touchstart', function(e) {
+        if (tooltip.style.opacity === '1' && tooltip.textContent === s.label) {
+          hideTooltip();
+        } else {
+          e.preventDefault();
+          showTooltip();
+          document.addEventListener('touchstart', function dismissOnce(ev) {
+            if (ev.target !== dot) { hideTooltip(); document.removeEventListener('touchstart', dismissOnce); }
+          });
+        }
+      }, { passive: false });
       sidebar.appendChild(dot);
     });
     function updateActiveSidebarDot() {
