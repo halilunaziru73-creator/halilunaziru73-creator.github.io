@@ -2352,26 +2352,37 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('section').forEach(sec => revealObserver.observe(sec));
 
-// Compute cumulative average grade for each course category and insert below its table
+// Compute credit-weighted cumulative average grade for each course category and insert below its table
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.course-group').forEach(group => {
-    const grades = group.querySelectorAll('.course-grade');
-    let total = 0, count = 0;
-    grades.forEach(g => {
-      const text = g.textContent.trim();
-      const pctMatch = text.match(/^(\d+(?:\.\d+)?)\/100/);
-      const ectsMatch = text.match(/^(\d+(?:\.\d+)?)\/10$/);
-      if (pctMatch) { total += parseFloat(pctMatch[1]); count++; }
-      else if (ectsMatch) { total += parseFloat(ectsMatch[1]) * 10; count++; }
+    const rows = group.querySelectorAll('.course-row:not(.course-row-head)');
+    let weightedSum = 0, totalCredits = 0, count = 0;
+    rows.forEach(row => {
+      const creditEl = row.querySelector('.course-credit');
+      const gradeEl = row.querySelector('.course-grade');
+      if (!creditEl || !gradeEl) return;
+      const creditText = creditEl.textContent.trim();
+      const gradeText = gradeEl.textContent.trim();
+      const creditMatch = creditText.match(/^(\d+(?:\.\d+)?)\s*(CU|ECTS)/);
+      if (!creditMatch) return;
+      const credit = parseFloat(creditMatch[1]);
+      const pctMatch = gradeText.match(/^(\d+(?:\.\d+)?)\/100/);
+      const ectsMatch = gradeText.match(/^(\d+(?:\.\d+)?)\/10$/);
+      let pctGrade = null;
+      if (pctMatch) pctGrade = parseFloat(pctMatch[1]);
+      else if (ectsMatch) pctGrade = parseFloat(ectsMatch[1]) * 10;
+      if (pctGrade === null || credit === 0) return;
+      weightedSum += pctGrade * credit;
+      totalCredits += credit;
+      count++;
     });
-    if (count > 0) {
-      const avg = (total / count).toFixed(1);
-      const summary = group.querySelector('summary');
+    if (count > 0 && totalCredits > 0) {
+      const avg = (weightedSum / totalCredits).toFixed(1);
       const content = group.querySelector('div');
       if (content) {
         const cumEl = document.createElement('p');
         cumEl.style.cssText = 'font-size:12px; font-weight:700; color:#4A3B18; background:rgba(212,169,74,0.15); padding:8px 12px; border-radius:6px; margin-top:0.8rem;';
-        cumEl.textContent = 'Cumulative Average: ' + avg + '% across ' + count + ' course' + (count > 1 ? 's' : '');
+        cumEl.textContent = 'Cumulative Average (credit-weighted): ' + avg + '% across ' + count + ' course' + (count > 1 ? 's' : '') + ' (' + totalCredits + ' total credits)';
         content.appendChild(cumEl);
       }
     }
