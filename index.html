@@ -152,19 +152,29 @@
   }
   .section-head .section-note { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
 
-  .layers-shell { display: grid; grid-template-columns: 260px 1fr; grid-template-rows: auto 1fr; gap: 0; border: 1px solid var(--line);
+  .layers-shell { display: grid; grid-template-columns: 260px 1fr; grid-template-rows: auto auto 1fr auto; gap: 0; border: 1px solid var(--line);
     border-radius: 6px; overflow: hidden; background: var(--paper-raised); }
+  .qgis-menubar { grid-column: 1 / -1; display: flex; align-items: center; gap: 1.1rem; background: #EDEBE4;
+    padding: 0.35rem 0.9rem; border-bottom: 1px solid var(--line); }
+  .qgis-menu-item { font-size: 11.5px; font-weight: 600; color: #4A3B18; cursor: default; }
+  .qgis-menu-item:hover { color: #D4A94A; }
   .qgis-toolbar { grid-column: 1 / -1; display: flex; align-items: center; gap: 0.7rem; background: linear-gradient(180deg,#3A3F35,#2B2F27);
     padding: 0.5rem 0.9rem; border-bottom: 2px solid #D4A94A; }
   .qgis-tool { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 4px;
     background: rgba(255,255,255,0.08); color: #EAF1FB; font-size: 13px; cursor: default; transition: background .15s; }
   .qgis-tool:hover { background: rgba(255,255,255,0.2); }
   .qgis-toolbar-title { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #B8C9E0; letter-spacing: 0.03em; }
+  .qgis-statusbar { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between;
+    background: #2B2F27; color: #EAF1FB; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    padding: 0.4rem 0.9rem; border-top: 1px solid #D4A94A; }
+  .qgis-status-right { color: #B8C9E0; }
   .layers-list { border-right: 1px solid var(--line); max-height: 560px; overflow-y: auto;
     background: linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; }
   .layers-list-head { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4A3B18; font-weight: 700;
     padding: 0.7rem 1.1rem; border-bottom: 1px solid var(--line); letter-spacing: 0.03em; position: sticky; top: 0;
     background: rgba(245,245,240,0.95); z-index: 2; }
+  .qgis-check { font-size: 14px; color: #4A3B18; flex-shrink: 0; }
+  .layer-item.active .qgis-check { color: white; }
   .layer-item { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1.1rem; cursor: pointer;
     border-bottom: 1px solid var(--line); transition: background .15s; }
   .layer-item:last-child { border-bottom: none; }
@@ -1232,6 +1242,14 @@
     <span class="section-note mono" style="color:#4A3B18; font-weight:700;">click a layer to filter</span>
   <span class="accordion-chevron" id="chevron-projects">&#9660;</span></div><div class="section-body" id="body-projects">
   <div class="layers-shell">
+    <div class="qgis-menubar">
+      <span class="qgis-menu-item">File</span>
+      <span class="qgis-menu-item">Edit</span>
+      <span class="qgis-menu-item">View</span>
+      <span class="qgis-menu-item">Layer</span>
+      <span class="qgis-menu-item">Settings</span>
+      <span class="qgis-menu-item">Help</span>
+    </div>
     <div class="qgis-toolbar">
       <span class="qgis-tool" title="Zoom In">&#128269;</span>
       <span class="qgis-tool" title="Pan">&#9995;</span>
@@ -1245,6 +1263,10 @@
     <div class="layer-canvas">
       <p class="layer-desc" id="layer-desc"></p>
       <div class="project-grid" id="project-grid"></div>
+    </div>
+    <div class="qgis-statusbar">
+      <span id="qgis-status-text">Showing all layers</span>
+      <span class="qgis-status-right">CRS: EPSG:4326 &middot; Scale 1:1</span>
     </div>
   </div>
 </div></section>
@@ -2017,7 +2039,7 @@ function renderLayers() {
   const allItem = document.createElement('div');
   allItem.className = 'layer-item' + (activeKey === 'all' ? ' active' : '');
   if (activeKey === 'all') { allItem.style.background = 'var(--ink-soft)'; allItem.style.color = 'white'; }
-  allItem.innerHTML = '<span class="layer-icon" style="background:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + ';">&#128193;</span><span>All projects</span><span class="layer-count mono" style="color:' + (activeKey === 'all' ? 'white' : '#6B5A32') + '">' + allProjects().length + '</span>';
+  allItem.innerHTML = '<span class="qgis-check">' + (activeKey === 'all' ? '&#9745;' : '&#9744;') + '</span><span class="layer-icon" style="background:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + ';">&#128193;</span><span>All projects</span><span class="layer-count mono" style="color:' + (activeKey === 'all' ? 'white' : '#6B5A32') + '">' + allProjects().length + '</span>';
   allItem.onclick = () => { activeKey = 'all'; render(); };
   list.appendChild(allItem);
 
@@ -2026,10 +2048,12 @@ function renderLayers() {
     const isActive = activeKey === d.key;
     item.className = 'layer-item' + (isActive ? ' active' : '');
     if (isActive) { item.style.background = d.color; item.style.color = 'white'; item.style.fontWeight = '700'; item.style.boxShadow = '0 2px 8px ' + d.color + '66'; }
-    item.innerHTML = '<span class="layer-icon" style="background:' + d.color + ';">' + d.icon + '</span><span>' + d.label + '</span><span class="layer-count mono" style="color:' + (isActive ? 'white' : '#6B5A32') + '">' + d.projects.length + '</span>';
+    item.innerHTML = '<span class="qgis-check">' + (isActive ? '&#9745;' : '&#9744;') + '</span><span class="layer-icon" style="background:' + d.color + ';">' + d.icon + '</span><span>' + d.label + '</span><span class="layer-count mono" style="color:' + (isActive ? 'white' : '#6B5A32') + '">' + d.projects.length + '</span>';
     item.onclick = () => { activeKey = d.key; render(); };
     list.appendChild(item);
   });
+  const statusText = document.getElementById('qgis-status-text');
+  if (statusText) { statusText.textContent = activeKey === 'all' ? 'Showing all layers' : 'Filtered: ' + (domains.find(d => d.key === activeKey) || {}).label; }
 }
 
 function renderProjects() {
