@@ -254,6 +254,10 @@
   .referee-card h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 0.2rem; }
   .referee-card p { font-size: 12.5px; color: var(--ink-soft); }
   .course-group { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 0.7rem; background: white; overflow: hidden; }
+  .doc-slant-card { padding: 0.6rem 0.6rem 1rem; }
+  .doc-slant-img { width: 100%; border-radius: 6px; border: 1px solid var(--line); cursor: pointer;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.16); transition: transform .25s ease, box-shadow .25s ease; background: white; }
+  .doc-slant-img:hover { transform: rotate(0deg) scale(1.03) !important; box-shadow: 0 16px 32px rgba(0,0,0,0.24); }
   .course-group summary { cursor: pointer; padding: 0.9rem 1.1rem; font-weight: 600; font-size: 13.5px;
     list-style: none; display: flex; justify-content: space-between; align-items: center; }
   .course-group summary::-webkit-details-marker { display: none; }
@@ -1318,26 +1322,27 @@
 
   <details class="course-group" open style="margin-bottom:1.6rem;">
     <summary>Grading Systems &amp; Official Verification <span class="mono course-count">ND, B.Eng &amp; authentication</span></summary>
-    <div style="padding:1.2rem;">
-      <p style="font-size:13px; color:var(--ink-soft); margin-bottom:1rem;">Scores are reported as percentages on the original transcripts and converted to a letter grade and grade point per programme. This transcript has been authenticated by the ABU Registrar, Nigeria's Federal Ministry of Education, and legalized by the Consulado General de España en Lagos for use abroad.</p>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.2rem; margin-bottom:1.4rem;">
-        <div>
-          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.4rem;">ND Grading Scale</p>
-          <img src="certs/nd_grading_scale.jpg" alt="National Diploma grading scale" style="width:100%; border-radius:6px; border:1px solid var(--line); cursor:pointer;" loading="lazy" onclick="openLightbox(this)">
+    <div style="padding:2rem 1.2rem;">
+      <p style="font-size:13px; color:var(--ink-soft); margin-bottom:1.6rem;">Scores are reported as percentages on the original transcripts and converted to a letter grade and grade point per programme. This transcript has been authenticated by the ABU Registrar, Nigeria's Federal Ministry of Education, and legalized by the Consulado General de España en Lagos for use abroad.</p>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:2.2rem 2.5rem; margin-bottom:1.8rem;">
+        <div class="doc-slant-card">
+          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">ND Grading Scale</p>
+          <img src="certs/nd_grading_scale.jpg" alt="National Diploma grading scale" class="doc-slant-img" style="transform:rotate(-2.5deg);" loading="lazy" onclick="openLightbox(this)">
         </div>
-        <div>
-          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.4rem;">B.Eng Grading Scale</p>
-          <img src="certs/beng_grading_scale.jpg" alt="B.Eng grading scale" style="width:100%; border-radius:6px; border:1px solid var(--line); cursor:pointer;" loading="lazy" onclick="openLightbox(this)">
+        <div class="doc-slant-card">
+          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">B.Eng Grading Scale</p>
+          <img src="certs/beng_grading_scale.jpg" alt="B.Eng grading scale" class="doc-slant-img" style="transform:rotate(2.5deg);" loading="lazy" onclick="openLightbox(this)">
         </div>
       </div>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.2rem;">
-        <div>
-          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.4rem;">Dean &amp; Academic Secretary Signatures</p>
-          <img src="certs/dean_secretary_stamps.jpg" alt="Dean and Academic Secretary stamps, Ahmadu Bello University" style="width:100%; border-radius:6px; border:1px solid var(--line); cursor:pointer;" loading="lazy" onclick="openLightbox(this)">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:2.2rem 2.5rem;">
+        <div class="doc-slant-card">
+          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Dean &amp; Academic Secretary Signatures</p>
+          <img src="certs/dean_secretary_stamps.jpg" alt="Dean and Academic Secretary stamps, Ahmadu Bello University" class="doc-slant-img" style="transform:rotate(-2deg);" loading="lazy" onclick="openLightbox(this)">
         </div>
-        <div>
-          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.4rem;">Federal Ministry &amp; Spanish Consulate Legalization</p>
-          <img src="certs/consulate_ministry_stamp.jpg" alt="Federal Ministry of Education and Consulado General de Espana en Lagos legalization stamps" style="width:100%; border-radius:6px; border:1px solid var(--line); cursor:pointer;" loading="lazy" onclick="openLightbox(this)">
+        <div class="doc-slant-card">
+          <p style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Federal Ministry &amp; Spanish Consulate Legalization</p>
+          <img src="certs/consulate_ministry_stamp.jpg" alt="Federal Ministry of Education and Consulado General de Espana en Lagos legalization stamps" class="doc-slant-img" style="transform:rotate(3deg);" loading="lazy" onclick="openLightbox(this)">
+
         </div>
       </div>
     </div>
