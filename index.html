@@ -2664,7 +2664,7 @@ function jumpTo(id) {
       dot.className = 'sidebar-dot';
       dot.dataset.sectionId = s.id;
       dot.dataset.label = s.label;
-      dot.onclick = () => jumpTo(s.id);
+      dot.dataset.tapState = '0';
       const showTooltip = () => {
         const rect = dot.getBoundingClientRect();
         tooltip.textContent = s.label;
@@ -2676,16 +2676,23 @@ function jumpTo(id) {
       const hideTooltip = () => { tooltip.style.opacity = '0'; };
       dot.addEventListener('mouseenter', showTooltip);
       dot.addEventListener('mouseleave', hideTooltip);
-      dot.addEventListener('touchstart', function(e) {
-        if (tooltip.style.opacity === '1' && tooltip.textContent === s.label) {
-          hideTooltip();
-        } else {
-          e.preventDefault();
+      dot.onclick = () => {
+        const state = parseInt(dot.dataset.tapState || '0', 10);
+        if (state === 0) {
           showTooltip();
-          document.addEventListener('touchstart', function dismissOnce(ev) {
-            if (ev.target !== dot) { hideTooltip(); document.removeEventListener('touchstart', dismissOnce); }
-          });
+          dot.dataset.tapState = '1';
+        } else if (state === 1) {
+          hideTooltip();
+          dot.dataset.tapState = '2';
+        } else {
+          hideTooltip();
+          dot.dataset.tapState = '0';
+          jumpTo(s.id);
         }
+      };
+      dot.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        dot.onclick();
       }, { passive: false });
       sidebar.appendChild(dot);
     });
