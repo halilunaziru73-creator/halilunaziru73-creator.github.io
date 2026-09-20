@@ -77,16 +77,16 @@
     overflow: hidden; border-radius: 12px; }
   .hero-content { position: relative; z-index: 1; max-width: calc(100% - 150px); }
   .hero-photo-wrap { position: absolute; top: 3.2rem; right: 2.5rem; z-index: 2; }
-  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--blue);
+  .hero-coord { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #F0C589;
     letter-spacing: 0.03em; margin-bottom: 1.1rem; }
   h1, h2, h3, .nav-mark, .contact-panel h2 { font-family: 'Space Grotesk', sans-serif; }
-  .hero h1 { font-size: 2.85rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: var(--navy); }
-  .hero-title { font-size: 1rem; color: var(--ink-soft); margin-bottom: 1.3rem; }
-  .hero-summary { font-size: 15px; color: var(--ink-soft); margin-bottom: 1.7rem; text-align: justify; }
+  .hero h1 { font-size: 2.85rem; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: #FFFFFF; }
+  .hero-title { font-size: 1rem; color: #E8EEF0; margin-bottom: 1.3rem; }
+  .hero-summary { font-size: 15px; color: #E0E6E2; margin-bottom: 1.7rem; text-align: justify; }
   .hero-contact { display: flex; gap: 1.1rem; margin-bottom: 2.3rem; flex-wrap: wrap; font-size: 13px; }
-  .hero-contact a, .hero-contact span { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line);
+  .hero-contact a, .hero-contact span { text-decoration: none; color: #F0F4EE; border-bottom: 1px solid rgba(255,255,255,0.4);
     padding-bottom: 2px; transition: border-color .15s, color .15s; }
-  .hero-contact a:hover { border-color: var(--blue); color: var(--blue); }
+  .hero-contact a:hover { border-color: #F0C589; color: #F0C589; }
 
   .stat-strip { display: flex; gap: 0; border-top: 1px solid var(--line); padding-top: 1.4rem; flex-wrap: wrap; }
   .stat { flex: 1; min-width: 90px; padding-right: 1.2rem; margin-bottom: 0.5rem; }
@@ -464,7 +464,7 @@
       <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" class="hero-link-btn">Zenodo records &rarr;</a>
     </div>
 
-    <div style="background:linear-gradient(135deg,rgba(31,77,46,0.08),rgba(76,140,107,0.08)); border-left:3px solid #4C8C6B; border-radius:6px; padding:0.8rem 1.1rem; margin-top:0.3rem; max-width:70ch;">
+    <div style="background:rgba(255,255,255,0.92); border-left:3px solid #4C8C6B; border-radius:6px; padding:0.8rem 1.1rem; margin-top:0.3rem; max-width:70ch;">
       <p style="font-size:13px; color:var(--ink); font-weight:600;">For recruiters and collaborators:</p>
       <p style="font-size:13px; color:var(--ink-soft);">Open to PhD, research engineer, and farm manager roles, with a focus on computer vision, geospatial machine learning, digital agriculture, and management decisions. Reach out via the Contact section below.</p>
     </div>
@@ -485,15 +485,12 @@
   .hero-water-bg {
     position: absolute; inset: 0; z-index: -1;
     background-image: url('hero_bg.jpg');
-    background-size: cover; background-position: center 20%;
-    opacity: 0.28;
+    background-size: cover; background-position: center 30%;
+    opacity: 1;
   }
   .hero-gradient-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(120deg, rgba(201,223,245,0.92), rgba(191,224,196,0.92), rgba(245,217,158,0.92), rgba(218,204,235,0.92), rgba(201,223,245,0.92));
-    background-size: 400% 400%;
-    animation: heroGradientShift 14s ease infinite;
-    opacity: 0.72;
+    background: linear-gradient(120deg, rgba(31,77,46,0.62), rgba(46,58,82,0.62), rgba(26,35,24,0.68));
   }
   .hero-bubble { position: absolute; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.1) 70%);
     z-index: 0; pointer-events: none; animation: bubbleFloat linear infinite; }
@@ -594,7 +591,7 @@
   .impact-label { color: #C9CDD8; font-size: 13px; font-weight: 600; line-height: 1.4; }
   .impact-label span { font-weight: 400; color: #8A93A8; font-size: 11.5px; }
   .hero-link-btn { font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: none;
-    background: rgba(59,110,165,0.08); border: 1.5px solid var(--blue); border-radius: 20px;
+    background: rgba(255,255,255,0.92); border: 1.5px solid rgba(255,255,255,0.7); border-radius: 20px;
     padding: 6px 14px; transition: all .18s ease; display: inline-block; }
   .hero-link-btn:hover { color: white; background: var(--blue); border-color: var(--blue); transform: translateY(-1px); }
   .hero-photo-glow { position: relative; display: inline-block; border-radius: 8px; }
