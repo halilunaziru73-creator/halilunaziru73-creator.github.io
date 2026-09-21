@@ -356,6 +356,7 @@
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,20,18,0.92); z-index: 100;
     align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
   .lightbox.open { display: flex; }
+  .lightbox.open ~ #sticky-sidebar, .lightbox.open ~ #scroll-progress-track { display: none !important; }
   .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 6px; cursor: default; }
   .lightbox-close { position: fixed; top: 1.2rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%;
     background: rgba(255,255,255,0.95); color: #1A2318; border: none; font-size: 22px; line-height: 1;
