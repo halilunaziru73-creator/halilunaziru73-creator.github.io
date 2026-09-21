@@ -2291,12 +2291,25 @@ let lightboxIndex = 0;
 document.addEventListener('DOMContentLoaded', function() {
   lightboxItems = Array.from(document.querySelectorAll('[onclick="openLightbox(this)"]'));
 });
+function hideSidebarForLightbox() {
+  const sb = document.getElementById('sticky-sidebar');
+  const sp = document.getElementById('scroll-progress-track');
+  if (sb) sb.style.display = 'none';
+  if (sp) sp.style.display = 'none';
+}
+function restoreSidebarAfterLightbox() {
+  const sb = document.getElementById('sticky-sidebar');
+  const sp = document.getElementById('scroll-progress-track');
+  if (sb) sb.style.display = '';
+  if (sp) sp.style.display = '';
+}
 function openLightboxSolo(el) {
   const lb = document.getElementById('lightbox');
   document.getElementById('lightbox-img').src = el.src;
   document.getElementById('lightbox-prev').style.display = 'none';
   document.getElementById('lightbox-next').style.display = 'none';
   lb.classList.add('open');
+  hideSidebarForLightbox();
 }
 function openLightbox(el) {
   document.getElementById('lightbox-prev').style.display = 'block';
@@ -2308,6 +2321,7 @@ function openLightbox(el) {
   const lb = document.getElementById('lightbox');
   document.getElementById('lightbox-img').src = el.src;
   lb.classList.add('open');
+  hideSidebarForLightbox();
 }
 function lightboxStep(dir) {
   if (lightboxItems.length === 0) return;
@@ -2322,6 +2336,7 @@ document.addEventListener('keydown', (e) => {
 });
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
+  restoreSidebarAfterLightbox();
 }
 
 const tourWaypoints = [
