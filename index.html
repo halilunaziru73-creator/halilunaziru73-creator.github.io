@@ -233,14 +233,10 @@
   #memberships .tag { border: 5px solid #C2408C !important; }
   #referees .referee-card { border: 5px solid #2E7DE8 !important; }
   #certifications .referee-card { border-width: 5px !important; border-style: solid !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+1) { border-color: #D4A94A !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+2) { border-color: #3B6EA5 !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+3) { border-color: #E35C4C !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+4) { border-color: #2FA85A !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+5) { border-color: #8E5AC7 !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+6) { border-color: #16A0A0 !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+7) { border-color: #C2408C !important; }
-  #certifications .skills-grid .referee-card:nth-child(8n+8) { border-color: #E07A3F !important; }
+  .cert-group-honorary .referee-card { border-color: #D4A94A !important; }
+  .cert-group-training .referee-card { border-color: #3B6EA5 !important; }
+  .cert-group-recognition .referee-card { border-color: #6E5A8C !important; }
+  .cert-group-waec .referee-card { border-color: #B23A2E !important; }
   .tl-item:last-child { padding-bottom: 0; }
   .tl-item::before { content: ''; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px;
     border-radius: 50%; background: var(--paper); border: 2px solid var(--blue); }
@@ -1046,7 +1042,7 @@
     <h2>Certifications &amp; Documented Recognitions</h2>
     <span class="section-note mono">23 certificates, click to enlarge</span>
   <span class="accordion-chevron" id="chevron-certifications">&#9660;</span></div><div class="section-body" id="body-certifications">
-  <div style="border: 2px solid #D4A94A; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
+  <div class="cert-group-honorary" style="border: 2px solid #D4A94A; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
 <p style="font-size:12.5px; font-weight:700; color:white; background:linear-gradient(135deg,#D4A94A,#F5D06B); margin:1.4rem 0 0.8rem; padding:6px 14px; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em; display:inline-block;">🏆 Honorary Awards (4)</p>
   <div class="skills-grid">
     <div class="referee-card" style="padding:0;">
@@ -1080,7 +1076,7 @@
   </div>
 
   </div>
-<div style="border: 2px solid #3B6EA5; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
+<div class="cert-group-training" style="border: 2px solid #3B6EA5; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
 <p style="font-size:12.5px; font-weight:700; color:white; background:linear-gradient(135deg,#3B6EA5,#5AA5FF); margin:1.4rem 0 0.8rem; padding:6px 14px; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em; display:inline-block;">📚 Training (10)</p>
   <p style="font-size:13px; color:var(--ink-soft); margin-bottom:1rem; text-align:justify;">Five of these are from Genomac Institute Inc. (USA), covering genomics and bioinformatics: NCBI data workflows, PCR primer design, comparative genomics, and whole genome alignment. These sit directly upstream of image based phenotyping. Modern crop stress and yield trait detection increasingly links visual and spectral signals back to the genes and gene families driving them, so being fluent in genomic data handling is what lets a phenotyping pipeline connect to breeding decisions, not just produce a heatmap.</p>
   <div class="skills-grid">
@@ -1157,7 +1153,7 @@
   </div>
 
   </div>
-<div style="border: 2px solid #6E5A8C; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
+<div class="cert-group-recognition" style="border: 2px solid #6E5A8C; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
 <p style="font-size:12.5px; font-weight:700; color:white; background:linear-gradient(135deg,#6E5A8C,#B48EE0); margin:1.4rem 0 0.8rem; padding:6px 14px; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em; display:inline-block;">✅ Recognition (8)</p>
   <div class="skills-grid">
     <div class="referee-card" style="padding:0;">
@@ -1220,7 +1216,7 @@
 
   
   </div>
-<div style="border: 2px solid #B23A2E; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
+<div class="cert-group-waec" style="border: 2px solid #B23A2E; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
 <p style="font-size:12.5px; font-weight:700; color:white; background:linear-gradient(135deg,#B23A2E,#E35C4C); margin:1.6rem 0 0.8rem; padding:6px 14px; border-radius:6px; text-transform:uppercase; letter-spacing:0.03em; display:inline-block;">🎓 West African Examinations Council (1)</p>
   <p style="font-size:12px; color:var(--ink-soft); margin-bottom:0.8rem;">A regional secondary certificate recognised across five West African nations:</p>
   <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1rem;">
