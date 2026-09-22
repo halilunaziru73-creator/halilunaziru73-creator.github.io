@@ -1619,7 +1619,7 @@
     @keyframes tourMapBorderShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
   </style>
 
-  <div style="margin-top:1.2rem; background:white; border-radius:10px; padding:1.2rem; overflow-x:auto;">
+  <div id="tour-strip-wrap" style="margin-top:1.2rem; background:white; border-radius:10px; padding:1.2rem; overflow-x:auto;">
     <p class="mono" style="font-size:11px; color:var(--ink-soft); margin-bottom:0.8rem; letter-spacing:0.03em;">CURRENTLY AT</p>
     <div id="tour-strip" style="position:relative; display:flex; gap:0.7rem; min-width:max-content; padding-top:56px;">
       <!-- waypoint pills injected by JS -->
@@ -2421,7 +2421,11 @@ function stepTourMarker() {
   if (activePill) {
     const photoLeft = activePill.offsetLeft + (activePill.offsetWidth / 2 - 15);
     photo.style.left = photoLeft + 'px';
-    activePill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    const stripWrap = document.getElementById('tour-strip-wrap');
+    if (stripWrap) {
+      const targetLeft = activePill.offsetLeft - (stripWrap.clientWidth / 2) + (activePill.offsetWidth / 2);
+      stripWrap.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+    }
     const bubble = document.getElementById('tour-reason-bubble');
     if (bubble) {
       bubble.style.left = (photoLeft + 15) + 'px';
