@@ -2147,7 +2147,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const img = document.createElement('img');
       img.src = logoSrc;
       img.alt = prog;
-      img.style.cssText = 'height:16px; width:auto; max-width:22px; object-fit:contain; margin-right:6px; vertical-align:middle; flex-shrink:0;';
+      img.style.cssText = 'height:28px; width:auto; max-width:38px; object-fit:contain; margin-right:8px; vertical-align:middle; flex-shrink:0; border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,0.25); background:white; padding:2px;';
       nameEl.insertBefore(img, nameEl.firstChild);
     }
   });
@@ -2493,11 +2493,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (summaryEl) { categoryName = summaryEl.childNodes[0].textContent.trim(); }
       if (content) {
         let logosHtml = '';
-        if (hasNDorBEng) logosHtml += '<img src="logo_abu.png" alt="ABU" title="Ahmadu Bello University" style="height:18px; width:auto; margin-right:4px; vertical-align:middle;">';
+        if (hasNDorBEng) logosHtml += '<img src="logo_abu.png" alt="ABU" title="Ahmadu Bello University" style="height:30px; width:auto; margin-right:6px; vertical-align:middle; border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,0.25); background:white; padding:2px;">';
         if (hasEMJMD) {
-          logosHtml += '<img src="logo_upna.png" alt="UPNA" title="Public University of Navarre" style="height:16px; width:auto; margin-right:4px; vertical-align:middle;">';
-          logosHtml += '<img src="logo_utad.png" alt="UTAD" title="UTAD" style="height:16px; width:auto; margin-right:4px; vertical-align:middle;">';
-          logosHtml += '<img src="logo_aua.png" alt="AUA" title="Agricultural University of Athens" style="height:18px; width:auto; margin-right:4px; vertical-align:middle;">';
+          logosHtml += '<img src="logo_upna.png" alt="UPNA" title="Public University of Navarre" style="height:30px; width:auto; margin-right:6px; vertical-align:middle; border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,0.25); background:white; padding:2px;">';
+          logosHtml += '<img src="logo_utad.png" alt="UTAD" title="UTAD" style="height:30px; width:auto; margin-right:6px; vertical-align:middle; border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,0.25); background:white; padding:2px;">';
+          logosHtml += '<img src="logo_aua.png" alt="AUA" title="Agricultural University of Athens" style="height:30px; width:auto; margin-right:6px; vertical-align:middle; border-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,0.25); background:white; padding:2px;">';
         }
         const cumEl = document.createElement('p');
         cumEl.style.cssText = 'font-size:12px; font-weight:700; color:#4A3B18; background:rgba(212,169,74,0.15); padding:8px 12px; border-radius:6px; margin-top:0.8rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;';
