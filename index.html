@@ -301,6 +301,9 @@
   .course-row-head .course-grade, .course-row-head .course-prog { color: #FFFFFF !important; }
   .course-row:not(.course-row-head) { background: rgba(255,255,255,0.35); }
   .course-row:not(.course-row-head):nth-of-type(even) { background: rgba(247,247,242,0.4); }
+  .course-row.emjmd-row { background: rgba(31,77,46,0.16) !important; }
+  .course-row.emjmd-row .course-code { color: #1F4D2E; }
+  .course-row.emjmd-row .course-prog { color: #1F4D2E; font-weight: 700; }
   .course-code { color: var(--blue); font-weight: 700; }
   .course-grade { color: var(--green); font-weight: 700; }
   .course-prog { color: var(--ink-soft); font-weight: 600; }
@@ -2132,6 +2135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!nameEl || !progEl) return;
     const name = nameEl.textContent.trim();
     const prog = progEl.textContent.trim();
+    if (prog === 'EMJMD') row.classList.add('emjmd-row');
     let logoSrc = null;
     if (prog === 'ND' || prog === 'B.Eng') logoSrc = 'logo_abu.png';
     else if (prog === 'EMJMD') {
