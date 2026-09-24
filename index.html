@@ -780,6 +780,13 @@
         @keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
       </style>
       <div class="project-grid" id="project-grid"></div>
+
+      <div style="margin-top:2.5rem; padding-top:1.8rem; border-top:2px dashed #C9AA6B;">
+        <h3 style="color:#2B2110; font-size:1.15rem; margin-bottom:0.3rem;">Major Results Dashboard</h3>
+        <p style="font-size:12px; color:#6B5A32; margin-bottom:1rem;">Click a domain to filter &middot; click a card to see the finding in full</p>
+        <div id="results-domain-filters" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.2rem;"></div>
+        <div id="results-dashboard-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:1rem;"></div>
+      </div>
     </div>
   </div>
 </div></section>
@@ -2091,6 +2098,65 @@ const domains = [
 ];
 
 let activeKey = "all";
+
+// ===== Major Results Dashboard =====
+(function() {
+  let resultsActiveDomain = "all";
+
+  function renderResultsFilters() {
+    const wrap = document.getElementById('results-domain-filters');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    const allBtn = document.createElement('button');
+    allBtn.textContent = 'All domains';
+    allBtn.className = 'results-filter-btn' + (resultsActiveDomain === 'all' ? ' active' : '');
+    allBtn.style.cssText = 'font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:700; padding:6px 14px; border-radius:20px; cursor:pointer; border:2px solid #2B2110; background:' + (resultsActiveDomain === 'all' ? '#2B2110' : 'white') + '; color:' + (resultsActiveDomain === 'all' ? 'white' : '#2B2110') + '; transition:all .15s ease;';
+    allBtn.onclick = () => { resultsActiveDomain = 'all'; renderResultsFilters(); renderResultsGrid(); };
+    wrap.appendChild(allBtn);
+    domains.forEach(d => {
+      const btn = document.createElement('button');
+      btn.textContent = d.icon + ' ' + d.label;
+      const isActive = resultsActiveDomain === d.key;
+      btn.style.cssText = 'font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:700; padding:6px 14px; border-radius:20px; cursor:pointer; border:2px solid ' + d.color + '; background:' + (isActive ? d.color : 'white') + '; color:' + (isActive ? 'white' : d.color) + '; transition:all .15s ease;';
+      btn.onclick = () => { resultsActiveDomain = d.key; renderResultsFilters(); renderResultsGrid(); };
+      wrap.appendChild(btn);
+    });
+  }
+
+  function renderResultsGrid() {
+    const grid = document.getElementById('results-dashboard-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    const domainsToShow = resultsActiveDomain === 'all' ? domains : domains.filter(d => d.key === resultsActiveDomain);
+    domainsToShow.forEach(d => {
+      d.projects.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'results-card';
+        card.style.cssText = 'background:white; border:2px solid ' + d.color + '; border-radius:10px; padding:1rem; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; position:relative; overflow:hidden;';
+        card.innerHTML =
+          '<div style="font-size:10px; font-weight:700; color:' + d.color + '; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.4rem;">' + d.icon + ' ' + d.label + '</div>' +
+          '<div style="font-size:13px; font-weight:700; color:#1A2318; margin-bottom:0.5rem; line-height:1.3;">' + p.name + '</div>' +
+          '<div class="results-metric" style="font-size:1.35rem; font-weight:800; color:' + d.color + '; font-family:\'IBM Plex Mono\',monospace; margin-bottom:0.3rem;">' + p.metric + '</div>' +
+          '<div class="results-desc" style="font-size:11.5px; color:var(--ink-soft); line-height:1.5; max-height:0; overflow:hidden; transition:max-height .25s ease;">' + p.desc + '<br><a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank" style="color:' + d.color + '; font-weight:700;" onclick="event.stopPropagation();">Repository &rarr;</a></div>';
+        card.onmouseenter = () => { card.style.transform = 'translateY(-3px)'; card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)'; };
+        card.onmouseleave = () => { card.style.transform = 'translateY(0)'; card.style.boxShadow = 'none'; };
+        card.onclick = () => {
+          const descEl = card.querySelector('.results-desc');
+          const isOpen = descEl.style.maxHeight !== '0px' && descEl.style.maxHeight !== '';
+          document.querySelectorAll('.results-desc').forEach(el => { el.style.maxHeight = '0px'; });
+          if (!isOpen) descEl.style.maxHeight = '160px';
+        };
+        grid.appendChild(card);
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderResultsFilters();
+    renderResultsGrid();
+  });
+})();
+
 
 const projectColorPalette = [
   "#2E7DE8", "#2FA85A", "#00B4D8", "#E0A159", "#9B5DE5", "#FF6B6B",
