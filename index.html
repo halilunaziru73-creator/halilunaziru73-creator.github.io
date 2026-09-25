@@ -142,8 +142,8 @@
   section { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   section.reveal { opacity: 1; transform: translateY(0); }
   .project-card, .skill-card, .referee-card, .tl-item, .pub-item {
-    transition: transform .2s ease, box-shadow .2s ease; }
-  .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.13); }
+    transition: transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s ease; }
+  .project-card:hover { transform: translateY(-7px) scale(1.012); box-shadow: 0 16px 34px rgba(0,0,0,0.18); }
   .skill-card:hover, .referee-card:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
   .stat .num { background: linear-gradient(90deg, #3B6EA5, #4C8C6B); -webkit-background-clip: text;
     background-clip: text; color: transparent; }
@@ -181,20 +181,23 @@
   .project-card { border: 1px solid var(--line); border-radius: 8px; padding: 0; background: var(--paper-raised); overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05); transition: transform .2s ease, box-shadow .2s ease; }
   .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
-  .project-thumb { width: 100%; height: 200px; object-fit: contain; display: block; border-top: 1px solid var(--line);
-    background: #FAFAF7; padding: 0.6rem; box-sizing: border-box; }
+  .project-thumb { width: 100%; height: 200px; object-fit: contain; display: block; border-top: 2px solid var(--line);
+    background: #FAFAF7; padding: 0.6rem; box-sizing: border-box; transition: filter .2s ease; }
+  .project-card:hover .project-thumb { filter: brightness(1.04); }
   .project-body { padding: 1.1rem 1.2rem; }
-  .project-card h3 { font-size: 14.5px; font-weight: 600; margin-bottom: 0.45rem; line-height: 1.3; }
-  .project-card .metric { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 700; color: white;
-    background: var(--green); display: inline-block; padding: 2px 9px; border-radius: 4px; margin-bottom: 0.7rem; }
-  .project-card p { font-size: 12.8px; color: var(--ink-soft); margin-bottom: 0.85rem; }
+  .project-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.3; color: #1A2318; }
+  .project-card .metric { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 800; color: white;
+    display: inline-block; padding: 4px 11px; border-radius: 5px; margin-bottom: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.18); letter-spacing: 0.01em; }
+  .project-card p { font-size: 12.8px; color: var(--ink-soft); margin-bottom: 0.85rem; line-height: 1.55; }
   .project-links { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 0.6rem; }
-  .project-links a { border-radius: 14px; padding: 4px 12px; display: inline-block; text-decoration: none; }
+  .project-links a { border-radius: 14px; padding: 4px 12px; display: inline-block; text-decoration: none; font-weight: 600; transition: all .15s ease; }
   .project-links a:nth-child(1) { border: 2px solid #2E7DE8; }
+  .project-links a:nth-child(1):hover { background: #2E7DE8; color: white !important; }
   .project-links a:nth-child(2) { border: 2px solid #8E5AC7; }
+  .project-links a:nth-child(2):hover { background: #8E5AC7; color: white !important; }
   .project-links a:nth-child(3) { border: 2px solid #2FA85A; }
+  .project-links a:nth-child(3):hover { background: #2FA85A; color: white !important; }
   .project-links a { font-size: 12px; text-decoration: none; color: var(--blue); border-bottom: 1px solid transparent; }
-  .project-links a:hover { border-color: var(--blue); }
   .doi-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft);
     background: #F1F0E8; border: 1px solid var(--line); border-radius: 3px; padding: 1px 6px; margin-bottom: 0.6rem; }
 
@@ -2210,12 +2213,12 @@ function renderProjects() {
     const zenodoTag = p.zenodo ? ('<span class="doi-tag mono" style="margin-left:6px;">Zenodo: ' + p.zenodo + '</span>') : '';
     const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
-    card.style.borderTop = '3px solid ' + cardColor;
+    card.style.borderTop = '4px solid ' + cardColor;
     card.style.background = hexToRgba(cardColor, 0.16);
     card.innerHTML =
       '<div class="project-body">' +
       '<h3>' + p.name + '</h3>' +
-      '<p class="metric mono">' + p.metric + '</p>' +
+      '<p class="metric mono" style="background:' + cardColor + ';">' + p.metric + '</p>' +
       '<p>' + p.desc + '</p>' +
       '<div class="gh-live-stats mono" id="gh-stats-' + p.repo + '" style="font-size:10.5px; color:var(--ink-soft); margin-bottom:0.6rem;">&#9679; fetching live GitHub data&hellip;</div>' +
       '<div class="project-links">' +
@@ -2224,7 +2227,7 @@ function renderProjects() {
         '<a href="https://halilunaziru73-creator.github.io/' + p.repo + '/" target="_blank">Walkthrough &rarr;</a>' +
       '</div>' +
       '</div>' +
-      '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy">' +
+      '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">' +
       ((doiTag || zenodoTag) ? '<div style="padding:0.8rem 1.2rem;">' + doiTag + zenodoTag + '</div>' : '');
     grid.appendChild(card);
   });
