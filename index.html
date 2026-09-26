@@ -117,8 +117,12 @@
   .quicknav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.1rem;
     background: rgba(0,0,0,0.06); padding: 2px; border-radius: 12px; }
   .quicknav-tile { border-radius: 10px; padding: 1.2rem 1rem; cursor: pointer; text-align: center;
-    transition: transform .22s ease, box-shadow .22s ease, background .35s ease; border: 1px solid var(--line); background: white; }
-  .quicknav-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 14px 28px rgba(212,169,74,0.45); }
+    transition: transform .22s ease, box-shadow .22s ease, background .35s ease; border: 1px solid var(--line); background: white;
+    opacity: 0; transform: translateY(18px); will-change: transform; }
+  .quicknav-tile.qn-visible { animation: qnEnter .55s cubic-bezier(.2,.8,.2,1) forwards; }
+  @keyframes qnEnter { to { opacity: 1; transform: translateY(0); } }
+  .quicknav-tile:focus-visible { outline: 3px solid #D4A94A; outline-offset: 3px; }
+  .quicknav-tile:hover { box-shadow: 0 14px 28px rgba(212,169,74,0.45); }
   .quicknav-tile:hover .quicknav-label { color: #1A2318; text-shadow: none; font-weight: 800; transition: color .3s ease; }
   .quicknav-icon { font-size: 1.85rem; margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center;
     width: 62px; height: 62px; border-radius: 50%; margin-left: auto; margin-right: auto;
@@ -659,22 +663,22 @@
     <span class="section-note mono" style="color:rgba(255,255,255,0.85);">click a tile to jump &amp; expand</span>
   </div>
   <div class="quicknav-grid" style="position:relative; z-index:1;">
-    <div class="quicknav-tile" onclick="jumpTo('education')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #1F4D2E"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('publications')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Publications</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🗂️</span><span class="quicknav-label">Projects</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('skills')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">🛠️</span><span class="quicknav-label">Skills</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('teaching')" style="background:linear-gradient(160deg,#F3EDE4,#EDE0D0); border: 5px solid #C79860"><span class="quicknav-icon" style="background:linear-gradient(135deg,#8C6B4F,#C79860);">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('awards')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🏆</span><span class="quicknav-label">Awards</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('certifications')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #6BBF8C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#6BBF8C);">📜</span><span class="quicknav-label">Certifications</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('conferences')" style="background:linear-gradient(160deg,#EFEAF5,#E5DCF0); border: 5px solid #8E5AC7"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#B48EE0);">🗣️</span><span class="quicknav-label">Conferences</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('memberships')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #F0B36B"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#F0B36B);">🤝</span><span class="quicknav-label">Memberships</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('referees')" style="background:linear-gradient(160deg,#EAF1FB,#D6E4F5); border: 5px solid #7EC2FF"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#7EC2FF);">📝</span><span class="quicknav-label">Referees</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('travels')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #3FA867"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#3FA867);">🌍</span><span class="quicknav-label">Travels</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('gallery')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #FF7A5C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#FF7A5C);">📸</span><span class="quicknav-label">Gallery</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('cvformats')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #F5D06B"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Download CV</span></div>
-    <div class="quicknav-tile" onclick="jumpTo('contact')" style="background:linear-gradient(160deg,#E4EFFB,#CDE3F9); border: 5px solid #00C2A8"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#00C2A8);">✉️</span><span class="quicknav-label">Contact</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('education');}" onclick="jumpTo('education')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #1F4D2E"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('courses');}" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('experience');}" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('publications');}" onclick="jumpTo('publications')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Publications</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🗂️</span><span class="quicknav-label">Projects</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('skills');}" onclick="jumpTo('skills')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">🛠️</span><span class="quicknav-label">Skills</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('teaching');}" onclick="jumpTo('teaching')" style="background:linear-gradient(160deg,#F3EDE4,#EDE0D0); border: 5px solid #C79860"><span class="quicknav-icon" style="background:linear-gradient(135deg,#8C6B4F,#C79860);">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('awards');}" onclick="jumpTo('awards')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🏆</span><span class="quicknav-label">Awards</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('certifications');}" onclick="jumpTo('certifications')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #6BBF8C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#6BBF8C);">📜</span><span class="quicknav-label">Certifications</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('conferences');}" onclick="jumpTo('conferences')" style="background:linear-gradient(160deg,#EFEAF5,#E5DCF0); border: 5px solid #8E5AC7"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#B48EE0);">🗣️</span><span class="quicknav-label">Conferences</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('memberships');}" onclick="jumpTo('memberships')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #F0B36B"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#F0B36B);">🤝</span><span class="quicknav-label">Memberships</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('referees');}" onclick="jumpTo('referees')" style="background:linear-gradient(160deg,#EAF1FB,#D6E4F5); border: 5px solid #7EC2FF"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#7EC2FF);">📝</span><span class="quicknav-label">Referees</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('travels');}" onclick="jumpTo('travels')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #3FA867"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#3FA867);">🌍</span><span class="quicknav-label">Travels</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('gallery');}" onclick="jumpTo('gallery')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #FF7A5C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#FF7A5C);">📸</span><span class="quicknav-label">Gallery</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('cvformats');}" onclick="jumpTo('cvformats')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #F5D06B"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Download CV</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('contact');}" onclick="jumpTo('contact')" style="background:linear-gradient(160deg,#E4EFFB,#CDE3F9); border: 5px solid #00C2A8"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#00C2A8);">✉️</span><span class="quicknav-label">Contact</span></div>
   </div>
 </section>
 
@@ -2513,6 +2517,42 @@ function toggleShowAll(btn, className) {
   items.forEach(el => { el.style.display = isHidden ? '' : 'none'; });
   btn.textContent = isHidden ? 'Show fewer \u2191' : btn.dataset.origLabel;
 }
+// Premium micro-interactions for Explore This Page tiles
+document.addEventListener('DOMContentLoaded', function() {
+  const tiles = document.querySelectorAll('.quicknav-tile');
+
+  // Staggered entrance animation, triggered once when the grid scrolls into view
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tiles.forEach((tile, i) => {
+          setTimeout(() => tile.classList.add('qn-visible'), i * 45);
+        });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.15 });
+  const grid = document.querySelector('.quicknav-grid');
+  if (grid) io.observe(grid);
+
+  // Subtle 3D tilt following the cursor, disabled on touch devices
+  const isTouch = window.matchMedia('(pointer: coarse)').matches;
+  if (!isTouch) {
+    tiles.forEach(tile => {
+      tile.addEventListener('mousemove', (e) => {
+        const rect = tile.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        tile.style.transform = `perspective(600px) rotateX(${py * -8}deg) rotateY(${px * 8}deg) translateY(-6px) scale(1.035)`;
+      });
+      tile.addEventListener('mouseleave', () => {
+        tile.style.transform = '';
+      });
+    });
+  }
+});
+
+
 function toggleSection(id) {
   const body = document.getElementById('body-' + id);
   const chevron = document.getElementById('chevron-' + id);
