@@ -298,6 +298,17 @@
   .course-group summary::-webkit-details-marker { display: none; }
   .course-group summary::before { content: '+'; margin-right: 0.6rem; color: var(--orange); font-weight: 700; }
   .course-group[open] summary::before { content: '\u2212'; }
+  #cat-machinery[open] { background: #F5E8C2 !important; }
+  #cat-soilwater[open] { background: #D4E9F7 !important; }
+  #cat-datasci[open] { background: #E5DFF5 !important; }
+  #cat-processing[open] { background: #D9F2E3 !important; }
+  #cat-mechanical[open] { background: #F5F0E6 !important; }
+  #cat-electrical[open] { background: #FBE3D5 !important; }
+  #cat-mathstat[open] { background: #D9E8F5 !important; }
+  #cat-agronomy[open] { background: #E3EDD9 !important; }
+  #cat-management[open] { background: #F5DFE6 !important; }
+  #cat-projects[open] { background: #F0E6D2 !important; }
+  .course-group[open] .course-sig-watermark { opacity: 0.95 !important; }
   .course-count { font-weight: 400; color: var(--ink-soft); font-size: 11px; }
   .course-table { border: 2px solid var(--navy); border-radius: 6px; overflow: hidden; }
   .course-row { display: grid; grid-template-columns: 90px 1fr 70px 90px 70px; gap: 0.6rem; padding: 0.55rem 1.1rem;
@@ -1402,7 +1413,7 @@
       </div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-machinery">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Agricultural Machinery, Mechanization &amp; Power <span class="mono course-count">10 courses</span></summary>
     <div class="course-table">
@@ -1419,7 +1430,7 @@
 <div class="course-row"><span class="course-code mono">751009</span><span class="course-name">Precision Agriculture Machinery</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">9.2/10</span><span class="course-prog mono">EMJMD</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-soilwater">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Soil, Water, Irrigation &amp; Environmental Engineering <span class="mono course-count">18 courses</span></summary>
     <div class="course-table">
@@ -1444,7 +1455,7 @@
 <div class="course-row"><span class="course-code mono">751008</span><span class="course-name">Identifying Soil and Crop Variability</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">8.0/10</span><span class="course-prog mono">EMJMD</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-datasci">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Data Science, Precision Agriculture &amp; Remote Sensing <span class="mono course-count">12 courses</span></summary>
     <div class="course-table">
@@ -1463,7 +1474,7 @@
 <div class="course-row"><span class="course-code mono">751011</span><span class="course-name">Reactive Management Strategy</span><span class="course-credit mono">3 ECTS</span><span class="course-grade mono">7.8/10</span><span class="course-prog mono">EMJMD</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-processing">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Processing, Post-Harvest &amp; Biological Systems <span class="mono course-count">8 courses</span></summary>
     <div class="course-table">
@@ -1478,7 +1489,7 @@
 <div class="course-row"><span class="course-code mono">ABEN546</span><span class="course-name">Sustainable Bio-Energy System and Design Techniques</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">81/100 (A)</span><span class="course-prog mono">B.Eng</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-mechanical">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Mechanical &amp; Materials Engineering <span class="mono course-count">21 courses</span></summary>
     <div class="course-table">
@@ -1506,7 +1517,7 @@
 <div class="course-row"><span class="course-code mono">MMEN316</span><span class="course-name">Metallurgy for Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">79/100 (A)</span><span class="course-prog mono">B.Eng</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-electrical">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Electrical, Instrumentation &amp; Structures <span class="mono course-count">10 courses</span></summary>
     <div class="course-table">
@@ -1523,7 +1534,7 @@
 <div class="course-row"><span class="course-code mono">ABEN530</span><span class="course-name">Farm Electrification and Environmental Control</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">80/100 (A)</span><span class="course-prog mono">B.Eng</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-mathstat">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Mathematics, Statistics &amp; Surveying <span class="mono course-count">11 courses</span></summary>
     <div class="course-table">
@@ -1541,7 +1552,7 @@
 <div class="course-row"><span class="course-code mono">ABEN302</span><span class="course-name">Agricultural Surveying</span><span class="course-credit mono">3 CU</span><span class="course-grade mono">82/100 (A)</span><span class="course-prog mono">B.Eng</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-agronomy">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Agronomy, Soil Science &amp; Animal Sciences <span class="mono course-count">4 courses</span></summary>
     <div class="course-table">
@@ -1552,7 +1563,7 @@
 <div class="course-row"><span class="course-code mono">ANSC304</span><span class="course-name">Animal Production for Agricultural Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">76/100 (A)</span><span class="course-prog mono">B.Eng</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-management">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Management, Economics &amp; General Studies <span class="mono course-count">28 courses</span></summary>
     <div class="course-table">
@@ -1587,7 +1598,7 @@
 <div class="course-row"><span class="course-code mono">QTYS421</span><span class="course-name">Law for Engineers</span><span class="course-credit mono">2 CU</span><span class="course-grade mono">60/100 (B)</span><span class="course-prog mono">B.Eng</span></div>
     </div>
   </details>
-  <details class="course-group">
+  <details class="course-group" id="cat-projects">
     <img src="certs/hod_stamp.jpg" class="course-sig-watermark wm-1" alt="" aria-hidden="true"><img src="certs/dean_secretary_stamps.jpg" class="course-sig-watermark wm-2" alt="" aria-hidden="true"><img src="certs/consulate_ministry_stamp.jpg" class="course-sig-watermark wm-3" alt="" aria-hidden="true"><img src="certs/nd_provost_sig.jpg" class="course-sig-watermark wm-4" alt="" aria-hidden="true"><img src="certs/ministry_seal_logo.jpg" class="course-sig-watermark wm-5" alt="" aria-hidden="true">
     <summary>Projects, Practical Exercises &amp; Industrial Training <span class="mono course-count">9 courses</span></summary>
     <div class="course-table">
