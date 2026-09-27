@@ -231,7 +231,7 @@
   .tl-item { position: relative; padding: 0.9rem 1rem 1.9rem 1.8rem; margin-bottom: 0.3rem;
     background: rgba(255,255,255,0.55); backdrop-filter: blur(4px); border-radius: 8px; }
   #experience .tl-item { border: 5px solid #D4A94A; padding: 1.1rem 1.2rem 1.5rem 2rem; margin-bottom: 1rem; }
-  #education .tl-item { border: 5px solid #1A1A1A; padding: 1.1rem 1.2rem 1.5rem 2rem; margin-bottom: 1rem; }
+  #education .tl-item { border: 5px solid #B0201A; padding: 1.1rem 1.2rem 1.5rem 2rem; margin-bottom: 1rem; }
   #teaching .tl-item { border: 5px solid #E07A3F; padding: 1.1rem 1.2rem 1.5rem 2rem; margin-bottom: 1rem; }
   #publications .pub-item { border: 5px solid #D4A94A; border-radius: 8px; padding: 0.9rem 1.1rem; margin-bottom: 0.8rem; }
   #projects .project-card { border: 5px solid #D4A94A !important; }
@@ -322,11 +322,11 @@
   .course-row.emjmd-row { background: rgba(31,77,46,0.16) !important; }
   .course-row.emjmd-row .course-code { color: #1F4D2E; }
   .course-row.emjmd-row .course-prog { color: #1F4D2E; font-weight: 700; }
-  .course-code { color: #1A4A7A; font-weight: 800; }
-  .course-name { color: #1A2318; font-weight: 700; display: inline-flex; align-items: center; flex-wrap: nowrap; gap: 4px; }
-  .course-credit { color: #1A2318; font-weight: 700; }
-  .course-grade { color: #1F5C3D; font-weight: 800; }
-  .course-prog { color: #6B4423; font-weight: 800; }
+  .course-code { color: #B0201A; font-weight: 800; }
+  .course-name { color: #B0201A; font-weight: 700; display: inline-flex; align-items: center; flex-wrap: nowrap; gap: 4px; }
+  .course-credit { color: #B0201A; font-weight: 700; }
+  .course-grade { color: #B0201A; font-weight: 800; }
+  .course-prog { color: #B0201A; font-weight: 800; }
   @media (max-width: 700px) {
     .course-row { grid-template-columns: 70px 1fr 55px; }
     .course-grade, .course-prog { display: none; }
@@ -2318,7 +2318,7 @@ async function sendMessage() {
 let lightboxItems = [];
 let lightboxIndex = 0;
 document.addEventListener('DOMContentLoaded', function() {
-  lightboxItems = Array.from(document.querySelectorAll('[onclick="openLightbox(this)"]'));
+  lightboxItems = Array.from(document.querySelectorAll('#gallery [onclick="openLightbox(this)"]'));
 });
 function hideSidebarForLightbox() {
   const sb = document.getElementById('sticky-sidebar');
@@ -2344,7 +2344,7 @@ function openLightbox(el) {
   document.getElementById('lightbox-prev').style.display = 'block';
   document.getElementById('lightbox-next').style.display = 'block';
   if (lightboxItems.length === 0) {
-    lightboxItems = Array.from(document.querySelectorAll('[onclick="openLightbox(this)"]'));
+    lightboxItems = Array.from(document.querySelectorAll('#gallery [onclick="openLightbox(this)"]'));
   }
   lightboxIndex = lightboxItems.indexOf(el);
   const lb = document.getElementById('lightbox');
