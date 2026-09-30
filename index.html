@@ -121,8 +121,8 @@
     opacity: 0; transform: translateY(18px); will-change: transform; }
   .quicknav-tile.qn-visible { animation: qnEnter .55s cubic-bezier(.2,.8,.2,1) forwards; }
   @keyframes qnEnter { to { opacity: 1; transform: translateY(0); } }
-  .quicknav-tile:focus-visible { outline: 3px solid #D4A94A; outline-offset: 3px; }
-  .quicknav-tile:hover { box-shadow: 0 14px 28px rgba(212,169,74,0.45); }
+  .quicknav-tile:focus-visible { outline: 3px solid var(--tile-accent, #D4A94A); outline-offset: 3px; }
+  .quicknav-tile:hover { box-shadow: 0 14px 28px var(--tile-shadow, rgba(212,169,74,0.45)); }
   .quicknav-tile:hover .quicknav-label { color: #1A2318; text-shadow: none; font-weight: 800; transition: color .3s ease; }
   .quicknav-icon { font-size: 1.85rem; margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center;
     width: 62px; height: 62px; border-radius: 50%; margin-left: auto; margin-right: auto;
@@ -2599,7 +2599,16 @@ document.querySelectorAll('.quicknav-tile').forEach((tile, idx) => {
   const originalBg = tile.style.background;
   if (icon) {
     icon.style.animationDelay = (idx * 0.18) + 's';
-    const iconGradient = 'linear-gradient(135deg, #D4A94A, #F5D06B)';
+    // Use this tile's own accent color (already set on its border) instead of a fixed gold for hover feedback.
+    const accent = getComputedStyle(tile).borderTopColor || '#D4A94A';
+    tile.style.setProperty('--tile-accent', accent);
+    const hexToRgbaLocal = (hex, a) => {
+      const m = hex.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (m) return 'rgba(' + m[1] + ',' + m[2] + ',' + m[3] + ',' + a + ')';
+      return 'rgba(212,169,74,' + a + ')';
+    };
+    tile.style.setProperty('--tile-shadow', hexToRgbaLocal(accent, 0.45));
+    const iconGradient = icon.style.background || ('linear-gradient(135deg, ' + accent + ', ' + accent + ')');
     tile.addEventListener('mouseenter', function() {
       this.style.background = iconGradient;
     });
