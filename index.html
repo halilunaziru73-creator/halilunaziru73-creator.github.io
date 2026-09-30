@@ -2040,6 +2040,15 @@
 <script>
 const domains = [
   {
+    key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8", icon: "🚿",
+    desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
+    projects: [
+      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Mapping non-linear soil-atmosphere feedback loops under joint precision irrigation and evaporation-control mulching: a soil-independent irrigation trigger law, the rainfall-conditioned fate of mulch-saved water, and a non-additive evaporation-drainage regime map.", zenodo: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/", widgets: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/index.html" },
+      { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
+      { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" }
+    ]
+  },
+  {
     key: "remote-sensing", label: "Remote Sensing & EO", color: "#2E7DE8", icon: "🛰️",
     desc: "Correcting, extracting, and teaching how to work with satellite and drone imagery.",
     projects: [
@@ -2056,16 +2065,7 @@ const domains = [
       { name: "Hybrid CNN-BiLSTM-Attention Sediment", metric: "Published, IJRSI 2026", desc: "Physics-grounded hybrid deep learning for gully sediment transport prediction.", doi: "10.51244/IJRSI.2026.1307000217", zenodo: "10.5281/zenodo.21760029", repo: "Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System", thumb: "thumbs2/Hybrid-CNN-BiLSTM-Attention-Sediment-Transport-Agricultural-Gully-System.jpg" }
     ]
   },
-  {
-    key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8", icon: "🚿",
-    desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
-    projects: [
-      { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
-      { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" },
-      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Mapping non-linear soil-atmosphere feedback loops under joint precision irrigation and evaporation-control mulching: a soil-independent irrigation trigger law, the rainfall-conditioned fate of mulch-saved water, and a non-additive evaporation-drainage regime map.", zenodo: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/", widgets: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/index.html" }
-    ]
-  },
-  {
+{
     key: "precision-ag", label: "Precision Ag & Geostatistics", color: "#E0A159", icon: "🌾",
     desc: "Turning sparse field samples into reliable, spatially continuous maps.",
     projects: [
@@ -2181,8 +2181,8 @@ function renderLayers() {
   const list = document.getElementById('layers-list');
   const allItem = document.createElement('div');
   allItem.className = 'layer-item' + (activeKey === 'all' ? ' active' : '');
-  if (activeKey === 'all') { allItem.style.background = 'var(--ink-soft)'; allItem.style.color = 'white'; }
-  allItem.innerHTML = '<span class="layer-icon" style="background:' + (activeKey === 'all' ? 'white' : 'var(--ink-soft)') + ';">&#128193;</span><span>All projects</span><span class="layer-count mono" style="color:' + (activeKey === 'all' ? 'white' : '#6B5A32') + '">' + allProjects().length + '</span>';
+  if (activeKey === 'all') { allItem.style.background = '#D4A94A'; allItem.style.color = 'white'; }
+  allItem.innerHTML = '<span class="layer-icon" style="background:' + (activeKey === 'all' ? 'white' : '#D4A94A') + '; color:' + (activeKey === 'all' ? '#D4A94A' : 'white') + ';">&#128193;</span><span>All projects</span><span class="layer-count mono" style="color:' + (activeKey === 'all' ? 'white' : '#6B5A32') + '">' + allProjects().length + '</span>';
   allItem.onclick = () => { activeKey = 'all'; render(); };
   list.appendChild(allItem);
 
