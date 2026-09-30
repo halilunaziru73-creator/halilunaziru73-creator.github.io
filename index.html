@@ -2222,12 +2222,12 @@ function renderProjects() {
     const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
     card.style.borderTop = '4px solid ' + cardColor;
-    card.style.background = hexToRgba(cardColor, 0.16);
+    card.style.background = '#FFFFFF';
     card.innerHTML =
       '<div class="project-body">' +
       '<h3>' + p.name + '</h3>' +
       '<p class="metric mono" style="background:' + cardColor + ';">' + p.metric + '</p>' +
-      '<p>' + p.desc + '</p>' +
+      '<p style="font-weight:600; color:#1A2318;">' + p.desc + '</p>' +
       '<div class="gh-live-stats mono" id="gh-stats-' + p.repo + '" style="font-size:10.5px; color:var(--ink-soft); margin-bottom:0.6rem;">&#9679; fetching live GitHub data&hellip;</div>' +
       '<div class="project-links">' +
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '/blob/main/README.md" target="_blank">README &rarr;</a>' +
