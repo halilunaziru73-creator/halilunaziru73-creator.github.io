@@ -2061,7 +2061,8 @@ const domains = [
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
       { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
-      { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" }
+      { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" },
+      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Mapping non-linear soil-atmosphere feedback loops under joint precision irrigation and evaporation-control mulching: a soil-independent irrigation trigger law, the rainfall-conditioned fate of mulch-saved water, and a non-additive evaporation-drainage regime map.", zenodo: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/", widgets: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/index.html" }
     ]
   },
   {
@@ -2203,7 +2204,7 @@ function renderProjects() {
   let projects, description;
   if (activeKey === 'all') {
     projects = allProjects();
-    description = 'All 15 repositories across every research domain.';
+    description = 'All 16 repositories across every research domain.';
   } else {
     const d = domains.find(x => x.key === activeKey);
     projects = d.projects.map(p => ({...p, color: d.color}));
@@ -2231,6 +2232,8 @@ function renderProjects() {
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '/blob/main/README.md" target="_blank">README &rarr;</a>' +
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank">Repository &rarr;</a>' +
         '<a href="https://halilunaziru73-creator.github.io/' + p.repo + '/" target="_blank">Walkthrough &rarr;</a>' +
+        (p.videos ? '<a href="' + p.videos + '" target="_blank">Videos &rarr;</a>' : '') +
+        (p.widgets ? '<a href="' + p.widgets + '" target="_blank">Widgets &rarr;</a>' : '') +
       '</div>' +
       '</div>' +
       '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">' +
