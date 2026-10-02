@@ -2044,7 +2044,7 @@ const domains = [
     key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8", icon: "🚿",
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
-      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", videoThumb: "https://raw.githubusercontent.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/main/Results/05_Videos/V6_SHP_drivers_and_mulch_dynamic_control.mp4", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/" },
+      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", iframeThumb: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/" },
       { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg", software: "https://github.com/halilunaziru73-creator/NaCROP/releases/download/v1.1.0/NaCROP.exe" },
       { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" }
     ]
@@ -2238,7 +2238,9 @@ function renderProjects() {
         (p.software ? '<a href="' + p.software + '" target="_blank" style="border: 2px solid #B8763F; border-radius: 14px; padding: 3px 10px; display: inline-block; font-weight: 700; color: #B8763F;">&#11015; Download software</a>' : '') +
       '</div>' +
       '</div>' +
-      (p.videoThumb ?
+      (p.iframeThumb ?
+        '<iframe class="project-thumb" src="' + p.iframeThumb + '" loading="lazy" style="border-top: 4px solid ' + cardColor + '; width:100%; height:460px; border-left:none; border-right:none; border-bottom:none; display:block; background:#0D1117;"></iframe>' :
+      p.videoThumb ?
         '<video class="project-thumb" src="' + p.videoThumb + '" controls preload="metadata" style="border-top: 4px solid ' + cardColor + '; width:100%; display:block; background:#000;"></video>' :
         '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">') +
       ((doiTag || zenodoTag) ? '<div style="padding:0.8rem 1.2rem;">' + doiTag + zenodoTag + '</div>' : '');
