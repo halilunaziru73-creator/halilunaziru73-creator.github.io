@@ -121,8 +121,8 @@
     opacity: 0; transform: translateY(18px); will-change: transform; }
   .quicknav-tile.qn-visible { animation: qnEnter .55s cubic-bezier(.2,.8,.2,1) forwards; }
   @keyframes qnEnter { to { opacity: 1; transform: translateY(0); } }
-  .quicknav-tile:focus-visible { outline: 3px solid #D4A94A; outline-offset: 3px; }
-  .quicknav-tile:hover { box-shadow: 0 14px 28px rgba(212,169,74,0.45); }
+  .quicknav-tile:focus-visible { outline: 3px solid var(--tile-accent, #D4A94A); outline-offset: 3px; }
+  .quicknav-tile:hover { box-shadow: 0 14px 28px var(--tile-shadow, rgba(212,169,74,0.45)); }
   .quicknav-tile:hover .quicknav-label { color: #1A2318; text-shadow: none; font-weight: 800; transition: color .3s ease; }
   .quicknav-icon { font-size: 1.85rem; margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center;
     width: 62px; height: 62px; border-radius: 50%; margin-left: auto; margin-right: auto;
@@ -677,7 +677,7 @@
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('courses');}" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('experience');}" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('publications');}" onclick="jumpTo('publications')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Publications</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🗂️</span><span class="quicknav-label">Projects</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">&#11088;&#128193;</span><span class="quicknav-label">Projects</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('skills');}" onclick="jumpTo('skills')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">🛠️</span><span class="quicknav-label">Skills</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('teaching');}" onclick="jumpTo('teaching')" style="background:linear-gradient(160deg,#F3EDE4,#EDE0D0); border: 5px solid #C79860"><span class="quicknav-icon" style="background:linear-gradient(135deg,#8C6B4F,#C79860);">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('awards');}" onclick="jumpTo('awards')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🏆</span><span class="quicknav-label">Awards</span></div>
@@ -811,7 +811,7 @@
       <ul>
         <li>Continued graduate-level research training in smart design and management of irrigation systems.</li>
         <li>Accomplished a complete farm-level irrigation and crop-growth decision-support tool, as measured by successful 4-step simulation (canopy, transpiration, biomass, yield) across five smallholder crops, by engineering NaCROP, a modular Python pipeline with a Tkinter desktop GUI for evapotranspiration, soil-water balance, and irrigation scheduling around Zaria, Nigeria. <a href="https://github.com/halilunaziru73-creator/NaCROP" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block;">Data &rarr;</a></li>
-        <li>Accomplished a soil-independent irrigation trigger law and a non-additive evaporation-drainage regime map, as measured by pooled R&sup2; rising from 0.48 to 0.75 (irrigation) and 0.23 to 0.70 (yield) once the trigger was re-expressed as root-zone depletion across ten soils, by running and analysing 10,190 Daisy simulations spanning 17 factorial experiments on precision irrigation and evaporation-control mulching. <a href="https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block;">Data &rarr;</a> <a href="https://doi.org/10.5281/zenodo.23043626" target="_blank" style="border: 2px solid #D4A94A; border-radius: 14px; padding: 3px 10px; display: inline-block;">DOI &rarr;</a></li>
+        <li>Accomplished a soil-independent irrigation trigger law, a soil-gated management controllability map, and a rainfall-conditioned mulch water-balance and evaporation-drainage regime map, as measured by pooled R&sup2; rising from 0.48 to 0.75 (irrigation) and 0.23 to 0.70 (yield) once the trigger was re-expressed as root-zone depletion, drainage controllability rising with soil available water for most levers (Spearman rho up to +0.95, soil structure alone rho -0.58), and mulch-saved water shifting from irrigation saving to drainage above rain &times;1.2 with climate-mulch interactions reaching 15% of irrigation, by running and analysing 10,190 Daisy simulations spanning 17 factorial experiments on precision irrigation and evaporation-control mulching across ten soils. <a href="https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block;">Data &rarr;</a> <a href="https://doi.org/10.5281/zenodo.23043626" target="_blank" style="border: 2px solid #D4A94A; border-radius: 14px; padding: 3px 10px; display: inline-block;">DOI &rarr;</a></li>
       </ul>
     </div>
     <div class="tl-item">
@@ -1732,7 +1732,7 @@
     <div class="gallery-grid">
     <img class="gallery-thumb" src="gallery/gallery_09.jpg" alt="Classroom presentation on risks and limitations of spectral sensor deployments, 2025" loading="lazy" onclick="openLightbox(this)">
     <img class="gallery-thumb" src="gallery/gallery_11.jpg" alt="Group selfie with conference lanyards, 2025" loading="lazy" onclick="openLightbox(this)">
-    <img class="gallery-thumb" src="gallery/gallery_53.jpg" alt="Presenting at a conference lectern, 2025" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_53.jpg" alt="Lectern at AUA, Greece, 2025" loading="lazy" onclick="openLightbox(this)">
     </div>
   </div>
   <div class="gallery-subgroup" style="border: 2px solid #00B4D8; border-radius: 12px; padding: 1rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
@@ -2009,7 +2009,7 @@
 </section>
 
 <footer>
-  <p>&copy; 2026 Naziru Halilu &middot; Athens, Greece &middot; <a href="#news" onclick="event.preventDefault(); jumpTo('news');" style="color:inherit; text-decoration:underline;">Updates</a> &middot; <a href="#fieldnews" onclick="event.preventDefault(); jumpTo('fieldnews');" style="color:inherit; text-decoration:underline;">Field News</a> &middot; <a href="Naziru_Halilu_Full_Portfolio.pdf" target="_blank" style="color:inherit; text-decoration:underline;">Full Portfolio (PDF, password-protected)</a></p>
+  <p>&copy; 2026 Naziru Halilu &middot; Athens, Greece &middot; <a href="#news" onclick="event.preventDefault(); jumpTo('news');" style="color:inherit; text-decoration:underline;">Updates</a> &middot; <a href="#fieldnews" onclick="event.preventDefault(); jumpTo('fieldnews');" style="color:inherit; text-decoration:underline;">Field News</a> &middot; <a href="Naziru_Halilu_Full_Portfolio.pdf" target="_blank" style="color:inherit; text-decoration:underline;">Full Portfolio</a></p>
   <div class="foot-links">
     <a href="https://github.com/halilunaziru73-creator" target="_blank">GitHub</a>
     <a href="https://orcid.org/0009-0006-2324-9599" target="_blank">ORCID</a>
@@ -2579,7 +2579,16 @@ document.querySelectorAll('.quicknav-tile').forEach((tile, idx) => {
   const originalBg = tile.style.background;
   if (icon) {
     icon.style.animationDelay = (idx * 0.18) + 's';
-    const iconGradient = 'linear-gradient(135deg, #D4A94A, #F5D06B)';
+    // Use this tile's own accent color (already set on its border) instead of a fixed gold for hover feedback.
+    const accent = getComputedStyle(tile).borderTopColor || '#D4A94A';
+    tile.style.setProperty('--tile-accent', accent);
+    const hexToRgbaLocal = (hex, a) => {
+      const m = hex.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (m) return 'rgba(' + m[1] + ',' + m[2] + ',' + m[3] + ',' + a + ')';
+      return 'rgba(212,169,74,' + a + ')';
+    };
+    tile.style.setProperty('--tile-shadow', hexToRgbaLocal(accent, 0.45));
+    const iconGradient = icon.style.background || ('linear-gradient(135deg, ' + accent + ', ' + accent + ')');
     tile.addEventListener('mouseenter', function() {
       this.style.background = iconGradient;
     });
