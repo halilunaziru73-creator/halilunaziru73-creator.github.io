@@ -121,8 +121,8 @@
     opacity: 0; transform: translateY(18px); will-change: transform; }
   .quicknav-tile.qn-visible { animation: qnEnter .55s cubic-bezier(.2,.8,.2,1) forwards; }
   @keyframes qnEnter { to { opacity: 1; transform: translateY(0); } }
-  .quicknav-tile:focus-visible { outline: 3px solid var(--tile-accent, #D4A94A); outline-offset: 3px; }
-  .quicknav-tile:hover { box-shadow: 0 14px 28px var(--tile-shadow, rgba(212,169,74,0.45)); }
+  .quicknav-tile:focus-visible { outline: 3px solid #D4A94A; outline-offset: 3px; }
+  .quicknav-tile:hover { box-shadow: 0 14px 28px rgba(212,169,74,0.45); }
   .quicknav-tile:hover .quicknav-label { color: #1A2318; text-shadow: none; font-weight: 800; transition: color .3s ease; }
   .quicknav-icon { font-size: 1.85rem; margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center;
     width: 62px; height: 62px; border-radius: 50%; margin-left: auto; margin-right: auto;
@@ -437,7 +437,6 @@
     <a href="javascript:void(0)" onclick="jumpTo('timeline')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">RESEARCH</a>
     <a href="javascript:void(0)" onclick="jumpTo('projects')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">PROJECTS</a>
     <a href="javascript:void(0)" onclick="jumpTo('publications')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">PUBS</a>
-    <a href="javascript:void(0)" onclick="jumpTo('cvformats')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">CV</a>
     <a href="javascript:void(0)" onclick="jumpTo('contact')" style="text-decoration:none; color:var(--navy); font-size:10.5px; font-weight:700; font-family:'IBM Plex Mono',monospace; text-align:center;">CONTACT</a>
   </div>
 </nav>
@@ -678,7 +677,7 @@
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('courses');}" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('experience');}" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('publications');}" onclick="jumpTo('publications')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Publications</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">&#11088;&#128193;</span><span class="quicknav-label">Projects</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🗂️</span><span class="quicknav-label">Projects</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('skills');}" onclick="jumpTo('skills')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">🛠️</span><span class="quicknav-label">Skills</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('teaching');}" onclick="jumpTo('teaching')" style="background:linear-gradient(160deg,#F3EDE4,#EDE0D0); border: 5px solid #C79860"><span class="quicknav-icon" style="background:linear-gradient(135deg,#8C6B4F,#C79860);">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('awards');}" onclick="jumpTo('awards')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🏆</span><span class="quicknav-label">Awards</span></div>
@@ -688,7 +687,6 @@
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('referees');}" onclick="jumpTo('referees')" style="background:linear-gradient(160deg,#EAF1FB,#D6E4F5); border: 5px solid #7EC2FF"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#7EC2FF);">📝</span><span class="quicknav-label">Referees</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('travels');}" onclick="jumpTo('travels')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #3FA867"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#3FA867);">🌍</span><span class="quicknav-label">Travels</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('gallery');}" onclick="jumpTo('gallery')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #FF7A5C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#FF7A5C);">📸</span><span class="quicknav-label">Gallery</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('cvformats');}" onclick="jumpTo('cvformats')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #F5D06B"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Download CV</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('contact');}" onclick="jumpTo('contact')" style="background:linear-gradient(160deg,#E4EFFB,#CDE3F9); border: 5px solid #00C2A8"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#00C2A8);">✉️</span><span class="quicknav-label">Contact</span></div>
   </div>
 </section>
@@ -777,7 +775,7 @@
     </div>
   </div>
 </div></section>
-<section id="projects" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.75), rgba(251,238,198,0.75)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #D4A94A; border-radius:8px;">
+<section id="projects" class="hidden-section" style="background: linear-gradient(rgba(212,169,74,0.55), rgba(245,208,107,0.55)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #D4A94A; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('projects')">
     <h2 style="color:#2B2110;">Project index</h2>
     <span class="section-note mono" style="color:#4A3B18; font-weight:700;">click a layer to filter</span>
@@ -813,7 +811,7 @@
       <ul>
         <li>Continued graduate-level research training in smart design and management of irrigation systems.</li>
         <li>Accomplished a complete farm-level irrigation and crop-growth decision-support tool, as measured by successful 4-step simulation (canopy, transpiration, biomass, yield) across five smallholder crops, by engineering NaCROP, a modular Python pipeline with a Tkinter desktop GUI for evapotranspiration, soil-water balance, and irrigation scheduling around Zaria, Nigeria. <a href="https://github.com/halilunaziru73-creator/NaCROP" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block;">Data &rarr;</a></li>
-        <li>Accomplished a soil-independent irrigation trigger law, a soil-gated management controllability map, and a rainfall-conditioned mulch water-balance and evaporation-drainage regime map, as measured by pooled R&sup2; rising from 0.48 to 0.75 (irrigation) and 0.23 to 0.70 (yield) once the trigger was re-expressed as root-zone depletion, drainage controllability rising with soil available water for most levers (Spearman rho up to +0.95, soil structure alone rho -0.58), and mulch-saved water shifting from irrigation saving to drainage above rain &times;1.2 with climate-mulch interactions reaching 15% of irrigation, by running and analysing 10,190 Daisy simulations spanning 17 factorial experiments on precision irrigation and evaporation-control mulching across ten soils. <a href="https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block;">Data &rarr;</a> <a href="https://doi.org/10.5281/zenodo.23043626" target="_blank" style="border: 2px solid #D4A94A; border-radius: 14px; padding: 3px 10px; display: inline-block;">DOI &rarr;</a></li>
+        <li>Accomplished a soil-independent irrigation trigger law and a non-additive evaporation-drainage regime map, as measured by pooled R&sup2; rising from 0.48 to 0.75 (irrigation) and 0.23 to 0.70 (yield) once the trigger was re-expressed as root-zone depletion across ten soils, by running and analysing 10,190 Daisy simulations spanning 17 factorial experiments on precision irrigation and evaporation-control mulching. <a href="https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block;">Data &rarr;</a> <a href="https://doi.org/10.5281/zenodo.23043626" target="_blank" style="border: 2px solid #D4A94A; border-radius: 14px; padding: 3px 10px; display: inline-block;">DOI &rarr;</a></li>
       </ul>
     </div>
     <div class="tl-item">
@@ -1734,7 +1732,7 @@
     <div class="gallery-grid">
     <img class="gallery-thumb" src="gallery/gallery_09.jpg" alt="Classroom presentation on risks and limitations of spectral sensor deployments, 2025" loading="lazy" onclick="openLightbox(this)">
     <img class="gallery-thumb" src="gallery/gallery_11.jpg" alt="Group selfie with conference lanyards, 2025" loading="lazy" onclick="openLightbox(this)">
-    <img class="gallery-thumb" src="gallery/gallery_53.jpg" alt="Lectern at AUA, Greece, 2025" loading="lazy" onclick="openLightbox(this)">
+    <img class="gallery-thumb" src="gallery/gallery_53.jpg" alt="Presenting at a conference lectern, 2025" loading="lazy" onclick="openLightbox(this)">
     </div>
   </div>
   <div class="gallery-subgroup" style="border: 2px solid #00B4D8; border-radius: 12px; padding: 1rem; margin-bottom: 1.4rem; background: rgba(255,255,255,0.4);">
@@ -1787,25 +1785,6 @@
     background:rgba(255,255,255,0.9); border:none; font-size:22px; cursor:pointer; z-index:1001;">&#8250;</button>
   <img id="lightbox-img" src="" alt="Enlarged photo" onclick="event.stopPropagation()">
 </div>
-
-<section id="cvformats" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.6), rgba(251,238,198,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #D4A94A; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('cvformats')">
-    <h2>Download CV</h2>
-    <span class="section-note mono">choose a format</span>
-  <span class="accordion-chevron" id="chevron-cvformats">&#9660;</span></div><div class="section-body" id="body-cvformats">
-  <p style="font-size:13px; color:var(--ink-soft); margin-bottom:1.2rem; max-width:75ch;">CV conventions vary a lot by region.</p>
-  <div class="skills-grid">
-    <div class="skill-card" style="background:#F4F8F5; border: 5px solid #3B6EA5"><h4>Nordic CV</h4><p>Norway, Sweden, Denmark, Finland</p><a href="Naziru_Halilu_CV.pdf?v=20260928c" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-    <div class="skill-card" style="background:#F4F8F5; border: 5px solid #E35C4C"><h4>North American Resume</h4><p>US and Canada</p><a href="Naziru_Halilu_CV_NorthAmerica.pdf?v=20260928c" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-    <div class="skill-card" style="background:#F4F8F5; border: 5px solid #2FA85A"><h4>UK, Ireland and Australia CV</h4><p>United Kingdom, Ireland, Australia</p><a href="Naziru_Halilu_CV_UK.pdf?v=20260928c" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-    <div class="skill-card" style="background:#F4F8F5; border: 5px solid #8E5AC7"><h4>Continental European CV / Europass</h4><p>EU standard format</p><a href="Naziru_Halilu_CV_Europass.pdf?v=20260928c" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-    <div class="skill-card" style="background:#F4F8F5; border: 5px solid #E07A3F"><h4>German speaking Lebenslauf</h4><p>Germany, Austria, Switzerland</p><a href="Naziru_Halilu_CV_German.pdf?v=20260928c" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-    <div class="skill-card" style="background:#F4F8F5; border: 5px solid #D4A94A"><h4>Middle East and Gulf Region CV</h4><p>UAE, Saudi Arabia, Qatar, and region</p><a href="Naziru_Halilu_CV_Gulf.pdf?v=20260928c" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-    <div class="skill-card" style="background:#F4F8F5; border: 5px solid #C2408C"><h4>East Asian Standard Template (Rirekisho)</h4><p>Japan and region</p><a href="Naziru_Halilu_CV_Rirekisho.pdf?v=20260928c" download style="color:var(--green); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-    <div class="skill-card" style="background:#EAF1FB; border: 5px solid #16A0A0"><h4>Research CV</h4><p>PhD, faculty, farm manager &amp; digital agriculture applications, worldwide</p><a href="Naziru_Halilu_CV_Academic.pdf?v=20260928c" download style="color:var(--blue); font-weight:700; font-size:12.5px;">Download PDF &rarr;</a></div>
-  </div>
-  </div>
-</section>
 
 <section id="impact" style="position:relative; background: linear-gradient(120deg, rgba(31,77,46,0.62), rgba(46,58,82,0.62), rgba(26,35,24,0.68)), url('hero_bg.jpg'); background-size: cover; background-position: center 30%; border-top: 5px solid #D4A94A; border-radius: 12px; padding: 3.2rem 2.4rem; overflow:hidden;">
   <p class="mono momentum-flashy" style="font-size:15px; font-weight:800; letter-spacing:0.1em; margin-bottom:0.6rem;">MOMENTUM ACROSS CONTINENTS</p>
@@ -2030,7 +2009,7 @@
 </section>
 
 <footer>
-  <p>&copy; 2026 Naziru Halilu &middot; Athens, Greece &middot; <a href="#news" onclick="event.preventDefault(); jumpTo('news');" style="color:inherit; text-decoration:underline;">Updates</a> &middot; <a href="#fieldnews" onclick="event.preventDefault(); jumpTo('fieldnews');" style="color:inherit; text-decoration:underline;">Field News</a> &middot; <a href="Naziru_Halilu_Full_Portfolio.pdf" target="_blank" style="color:inherit; text-decoration:underline;">Full Portfolio</a></p>
+  <p>&copy; 2026 Naziru Halilu &middot; Athens, Greece &middot; <a href="#news" onclick="event.preventDefault(); jumpTo('news');" style="color:inherit; text-decoration:underline;">Updates</a> &middot; <a href="#fieldnews" onclick="event.preventDefault(); jumpTo('fieldnews');" style="color:inherit; text-decoration:underline;">Field News</a> &middot; <a href="Naziru_Halilu_Full_Portfolio.pdf" target="_blank" style="color:inherit; text-decoration:underline;">Full Portfolio (PDF, password-protected)</a></p>
   <div class="foot-links">
     <a href="https://github.com/halilunaziru73-creator" target="_blank">GitHub</a>
     <a href="https://orcid.org/0009-0006-2324-9599" target="_blank">ORCID</a>
@@ -2044,8 +2023,8 @@ const domains = [
     key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8", icon: "🚿",
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
-      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", iframeThumb: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/" },
-      { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg", software: "https://github.com/halilunaziru73-creator/NaCROP/releases/download/v1.1.0/NaCROP.exe" },
+      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/", widgets: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/index.html" },
+      { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
       { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" }
     ]
   },
@@ -2054,7 +2033,7 @@ const domains = [
     desc: "Correcting, extracting, and teaching how to work with satellite and drone imagery.",
     projects: [
       { name: "STADOS: Radiometric Harmonization", metric: "39% & 31% less temporal variance", desc: "Extends dark-object subtraction into a self-consistent, multi-object framework for Sentinel-2 NDVI.", doi: "10.5281/zenodo.21997000", repo: "STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction", thumb: "thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.jpg" },
-      { name: "Real-Time RGB Vegetation Indexing", metric: "Published, IJRSI 2026", desc: "Open-source vegetation indexing pipeline for UAV and handheld crop imagery.", doi: "10.51244/IJRSI.2026.1307000218", zenodo: "10.5281/zenodo.21760033", repo: "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery", thumb: "thumbs2/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery.jpg", software: "https://github.com/halilunaziru73-creator/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery/releases/download/v1.1.0/main.exe" },
+      { name: "Real-Time RGB Vegetation Indexing", metric: "Published, IJRSI 2026", desc: "Open-source vegetation indexing pipeline for UAV and handheld crop imagery.", doi: "10.51244/IJRSI.2026.1307000218", zenodo: "10.5281/zenodo.21760033", repo: "Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery", thumb: "thumbs2/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery.jpg" },
       { name: "Geospatial Data Analysis", metric: "6-module course package", desc: "Vector/raster GIS, Sentinel-1/2 remote sensing, and classification, Python + Google Earth Engine.", doi: "10.5281/zenodo.21760031", repo: "Geospatial-data-analysis", thumb: "thumbs/Geospatial-data-analysis.jpg" }
     ]
   },
@@ -2222,30 +2201,23 @@ function renderProjects() {
     const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
     card.style.borderTop = '4px solid ' + cardColor;
-    card.style.background = '#FFFFFF';
+    card.style.background = hexToRgba(cardColor, 0.16);
     card.innerHTML =
       '<div class="project-body">' +
       '<h3>' + p.name + '</h3>' +
       '<p class="metric mono" style="background:' + cardColor + ';">' + p.metric + '</p>' +
-      '<p style="font-weight:600; color:#1A2318;">' + p.desc + '</p>' +
+      '<p>' + p.desc + '</p>' +
       '<div class="gh-live-stats mono" id="gh-stats-' + p.repo + '" style="font-size:10.5px; color:var(--ink-soft); margin-bottom:0.6rem;">&#9679; fetching live GitHub data&hellip;</div>' +
       '<div class="project-links">' +
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '/blob/main/README.md" target="_blank">README &rarr;</a>' +
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank">Repository &rarr;</a>' +
+        '<a href="https://halilunaziru73-creator.github.io/' + p.repo + '/" target="_blank">Walkthrough &rarr;</a>' +
         (p.videos ? '<a href="' + p.videos + '" target="_blank">Videos &rarr;</a>' : '') +
         (p.widgets ? '<a href="' + p.widgets + '" target="_blank">Widgets &rarr;</a>' : '') +
         (p.dataDoi ? '<a href="https://doi.org/' + p.dataDoi + '" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block; font-weight: 700; color: #2E7DE8;">Data &rarr;</a>' : '') +
-        (p.software ? '<a href="' + p.software + '" target="_blank" style="border: 2px solid #B8763F; border-radius: 14px; padding: 3px 10px; display: inline-block; font-weight: 700; color: #B8763F;">&#11015; Download software</a>' : '') +
       '</div>' +
       '</div>' +
-      (p.iframeThumb ?
-        '<div class="project-thumb-wrap" onclick="window.open(\'' + p.iframeThumb + '\', \'_blank\')" title="Click to open the full interactive widget" style="position:relative; cursor:pointer; border-top: 4px solid ' + cardColor + ';">' +
-          '<iframe class="project-thumb" src="' + p.iframeThumb + '" loading="lazy" style="width:100%; height:200px; border:none; display:block; background:#0D1117; pointer-events:none;"></iframe>' +
-          '<div style="position:absolute; bottom:10px; right:10px; background:rgba(13,17,23,0.85); color:#D4A94A; font-size:0.72rem; font-weight:700; padding:0.3rem 0.7rem; border-radius:12px; border:1px solid #D4A94A; pointer-events:none;">Click to open full widget &#8599;</div>' +
-        '</div>' :
-      p.videoThumb ?
-        '<video class="project-thumb" src="' + p.videoThumb + '" controls preload="metadata" style="border-top: 4px solid ' + cardColor + '; width:100%; display:block; background:#000;"></video>' :
-        '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">') +
+      '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">' +
       ((doiTag || zenodoTag) ? '<div style="padding:0.8rem 1.2rem;">' + doiTag + zenodoTag + '</div>' : '');
     grid.appendChild(card);
   });
@@ -2604,16 +2576,7 @@ document.querySelectorAll('.quicknav-tile').forEach((tile, idx) => {
   const originalBg = tile.style.background;
   if (icon) {
     icon.style.animationDelay = (idx * 0.18) + 's';
-    // Use this tile's own accent color (already set on its border) instead of a fixed gold for hover feedback.
-    const accent = getComputedStyle(tile).borderTopColor || '#D4A94A';
-    tile.style.setProperty('--tile-accent', accent);
-    const hexToRgbaLocal = (hex, a) => {
-      const m = hex.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-      if (m) return 'rgba(' + m[1] + ',' + m[2] + ',' + m[3] + ',' + a + ')';
-      return 'rgba(212,169,74,' + a + ')';
-    };
-    tile.style.setProperty('--tile-shadow', hexToRgbaLocal(accent, 0.45));
-    const iconGradient = icon.style.background || ('linear-gradient(135deg, ' + accent + ', ' + accent + ')');
+    const iconGradient = 'linear-gradient(135deg, #D4A94A, #F5D06B)';
     tile.addEventListener('mouseenter', function() {
       this.style.background = iconGradient;
     });
@@ -2736,7 +2699,6 @@ function jumpTo(id) {
     { label: "Field News", key: "fieldnews", icon: "🌐", color: "#6E5A8C" },
     { label: "Travels", key: "travels", icon: "🌍", color: "#3B6EA5" },
     { label: "Gallery", key: "gallery", icon: "📸", color: "#E35C4C" },
-    { label: "Download CV", key: "cvformats", icon: "📥", color: "#D4A94A" },
     { label: "Contact", key: "contact", icon: "✉️", color: "#0B4FA8" },
   ];
   const qkOverlay = document.getElementById('qk-overlay');
@@ -2823,7 +2785,6 @@ function jumpTo(id) {
       {id: 'skills', label: 'Skills'},
       {id: 'certifications', label: 'Certifications'},
       {id: 'gallery', label: 'Gallery'},
-      {id: 'cvformats', label: 'CV'},
       {id: 'contact', label: 'Contact'},
     ];
     const sidebar = document.getElementById('sticky-sidebar');
