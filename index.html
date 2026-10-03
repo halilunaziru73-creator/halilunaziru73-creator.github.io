@@ -2023,7 +2023,7 @@ const domains = [
     key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8", icon: "🚿",
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
-      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/", widgets: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/index.html" },
+      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", iframeThumb: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/", widgets: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/index.html" },
       { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg" },
       { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" }
     ]
@@ -2217,7 +2217,12 @@ function renderProjects() {
         (p.dataDoi ? '<a href="https://doi.org/' + p.dataDoi + '" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block; font-weight: 700; color: #2E7DE8;">Data &rarr;</a>' : '') +
       '</div>' +
       '</div>' +
-      '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">' +
+      (p.iframeThumb ?
+        '<div class="project-thumb-wrap" onclick="window.open(\'' + p.iframeThumb + '\', \'_blank\')" title="Click to open the full interactive widget" style="position:relative; cursor:pointer; border-top: 4px solid ' + cardColor + ';">' +
+          '<iframe class="project-thumb" src="' + p.iframeThumb + '" loading="lazy" style="width:100%; height:200px; border:none; display:block; background:#0D1117; pointer-events:none;"></iframe>' +
+          '<div style="position:absolute; bottom:10px; right:10px; background:rgba(13,17,23,0.85); color:#D4A94A; font-size:0.72rem; font-weight:700; padding:0.3rem 0.7rem; border-radius:12px; border:1px solid #D4A94A; pointer-events:none;">Click to open full widget &#8599;</div>' +
+        '</div>' :
+        '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">') +
       ((doiTag || zenodoTag) ? '<div style="padding:0.8rem 1.2rem;">' + doiTag + zenodoTag + '</div>' : '');
     grid.appendChild(card);
   });
