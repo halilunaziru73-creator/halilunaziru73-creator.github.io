@@ -775,7 +775,7 @@
     </div>
   </div>
 </div></section>
-<section id="projects" class="hidden-section" style="background: linear-gradient(rgba(212,169,74,0.55), rgba(245,208,107,0.55)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #D4A94A; border-radius:8px;">
+<section id="projects" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.75), rgba(251,238,198,0.75)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #D4A94A; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('projects')">
     <h2 style="color:#2B2110;">Project index</h2>
     <span class="section-note mono" style="color:#4A3B18; font-weight:700;">click a layer to filter</span>
@@ -2201,12 +2201,12 @@ function renderProjects() {
     const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
     card.style.borderTop = '4px solid ' + cardColor;
-    card.style.background = hexToRgba(cardColor, 0.16);
+    card.style.background = '#FFFFFF';
     card.innerHTML =
       '<div class="project-body">' +
       '<h3>' + p.name + '</h3>' +
       '<p class="metric mono" style="background:' + cardColor + ';">' + p.metric + '</p>' +
-      '<p>' + p.desc + '</p>' +
+      '<p style="font-weight:600; color:#1A2318;">' + p.desc + '</p>' +
       '<div class="gh-live-stats mono" id="gh-stats-' + p.repo + '" style="font-size:10.5px; color:var(--ink-soft); margin-bottom:0.6rem;">&#9679; fetching live GitHub data&hellip;</div>' +
       '<div class="project-links">' +
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank">Repository &rarr;</a>' +
