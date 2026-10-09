@@ -435,59 +435,6 @@
 .skip-link{position:absolute;left:-999px;top:8px;background:var(--gold);color:#111;padding:10px 16px;border-radius:8px;z-index:2000;font-weight:700;text-decoration:none}
 .skip-link:focus{left:8px}
 a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
-/* hero */
-#hero-flashy{isolation:isolate;background:radial-gradient(1200px 520px at 85% -10%,rgba(212,169,74,.16),transparent 60%),linear-gradient(135deg,var(--navy-d) 0%,#0C2B3A 45%,var(--deep) 100%);color:#EAF3EC;padding:5.2rem 2.5rem 4rem;min-height:520px;box-shadow:0 18px 50px rgba(11,26,46,.35)}
-#hero-flashy .hero-water-bg{opacity:.12;mix-blend-mode:luminosity}
-#hero-flashy .hero-gradient-bg{display:none}
-#hero-flashy .topo-bg svg{opacity:.22}
-#hero-flashy .topo-bg path{stroke:#6fa88a}
-#hero-flashy .hero-bubble{background:radial-gradient(circle at 30% 30%,rgba(158,216,181,.7),rgba(158,216,181,.04) 70%)}
-#hero-flashy .hero-content{max-width:calc(100% - 250px)}
-.hero-fx{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.hero-fx svg{position:absolute;inset:0;width:100%;height:100%}
-.fx-tile{animation:fxTile 7s ease-in-out infinite}
-@keyframes fxTile{0%,100%{opacity:.02}50%{opacity:.13}}
-.fx-scan{animation:fxScan 9s linear infinite}
-@keyframes fxScan{from{transform:translateX(-10%)}to{transform:translateX(110%)}}
-.fx-pipe{stroke-dasharray:6 10;animation:fxFlow 3.2s linear infinite}
-@keyframes fxFlow{to{stroke-dashoffset:-64}}
-.fx-node{transform-box:fill-box;transform-origin:center;animation:fxPulse 3s ease-in-out infinite}
-@keyframes fxPulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.9);opacity:.25}}
-.fx-field{animation:fxHealth 10s ease-in-out infinite}
-@keyframes fxHealth{0%,100%{fill:#d9534f}35%{fill:#E8C547}70%{fill:#3FA867}}
-.hero-eyebrow2{display:inline-flex;align-items:center;gap:.5rem;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--gold-l);background:rgba(212,169,74,.12);border:1px solid rgba(212,169,74,.4);border-radius:99px;padding:5px 12px;margin-bottom:1rem;text-transform:uppercase}
-.hero-eyebrow2 i{width:8px;height:8px;border-radius:50%;background:#3FD07F;box-shadow:0 0 0 0 rgba(63,208,127,.7);animation:fxLive 2s infinite}
-@keyframes fxLive{70%{box-shadow:0 0 0 9px rgba(63,208,127,0)}100%{box-shadow:0 0 0 0 rgba(63,208,127,0)}}
-.hero-who{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:#cfe2d6;margin-bottom:.5rem;letter-spacing:.01em}
-.hero-who b{color:#fff}
-#hero-flashy h1.hero-headline{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.1rem,4.6vw,3.7rem);line-height:1.04;font-weight:700;letter-spacing:-.025em;color:#fff;margin-bottom:1rem;max-width:18ch}
-.hero-headline em{font-style:normal;background:linear-gradient(90deg,var(--gold-l),#9ED8B5);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.6;color:#D3E3DA;max-width:58ch;margin-bottom:1.5rem;font-weight:500}
-.hero-cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.1rem}
-.btn-gold,.btn-ghost{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:10px;min-height:48px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:2px solid transparent;font-family:inherit}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#1b1405;box-shadow:0 8px 22px rgba(212,169,74,.38)}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(212,169,74,.55)}
-.btn-ghost{color:#fff;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.07)}
-.btn-ghost:hover{background:#fff;color:var(--deep);transform:translateY(-2px)}
-.hero-quick{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-bottom:1.3rem}
-.hero-quick span.lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8fb3a0;letter-spacing:.06em;margin-right:.2rem}
-.hero-quick a{font-size:12.5px;font-weight:600;color:#E7F1EA;text-decoration:none;border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:6px 12px;min-height:32px;display:inline-flex;align-items:center;transition:all .18s;background:rgba(255,255,255,.04)}
-.hero-quick a:hover{background:var(--gold);border-color:var(--gold);color:#1b1405}
-#hero-flashy .tag{background:rgba(255,255,255,.08);color:#d9eadf;border:1px solid rgba(255,255,255,.18)}
-#hero-flashy .hero-link-btn{color:#E7F1EA;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35)}
-#hero-flashy .hero-link-btn:hover{background:var(--gold);border-color:var(--gold);color:#1b1405}
-.hero-more{max-width:70ch;margin-top:.4rem}
-.hero-more summary{cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-l);font-weight:600;padding:6px 0;min-height:32px}
-.hero-more .hero-summary{color:#cfe2d6;margin-top:.5rem}
-.hero-more .hero-note{background:rgba(255,255,255,.06);border-left:3px solid var(--gold);border-radius:6px;padding:.8rem 1.1rem;margin-top:.7rem}
-.hero-more .hero-note p{font-size:13px;color:#cfe2d6}.hero-more .hero-note p:first-child{color:#fff;font-weight:700}
-#hero-flashy .hero-photo-wrap{top:50%;transform:translateY(-50%);right:3rem}
-#hero-flashy .hero-photo-wrap.hero-fade-in{animation:none}
-#hero-flashy .hero-photo-glow{display:block;border-radius:50%}
-#hero-flashy .hero-photo-glow::before{inset:-10px;border-radius:50%;background:conic-gradient(from 0deg,var(--gold),#3FA867,#3B6EA5,var(--gold));animation:fxSpin 12s linear infinite;filter:blur(9px);opacity:.7}
-@keyframes fxSpin{to{transform:rotate(360deg)}}
-#hero-flashy .hero-photo{width:190px;height:190px;border-radius:50%;border:4px solid var(--gold);box-shadow:0 14px 36px rgba(0,0,0,.45);background:#0b1a2e}
-#hero-flashy .scroll-cue{color:var(--gold-l)}
 /* generic band + head */
 .rd-sec{max-width:1400px;margin:0 auto 1.4rem;padding:3rem 2.4rem;border-radius:14px;position:relative}
 .rd-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.8rem}
@@ -628,11 +575,6 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visi
 /* responsive */
 @media(max-width:1100px){.dash-grid,.why-grid{grid-template-columns:repeat(2,1fr)}.feat-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:860px){
- #hero-flashy{display:flex;flex-direction:column;padding:2.8rem 1.3rem 3rem;min-height:0}
- #hero-flashy .hero-photo-wrap{position:static;transform:none;order:-1;margin:0 auto 1.2rem}
- #hero-flashy .hero-photo{width:110px;height:110px}
- #hero-flashy .hero-content{max-width:100%;padding-right:0}
- #hero-flashy h1.hero-headline{max-width:none}
  .gmap{grid-template-columns:1fr}
  .rd-sec{padding:2rem 1.2rem}
 }
@@ -645,7 +587,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visi
  .tlx-item .tlx-dot,.tlx-item.tlx-r .tlx-dot{left:3px;right:auto}
 }
 @media(prefers-reduced-motion:reduce){
- .fx-tile,.fx-scan,.fx-pipe,.fx-node,.fx-field,.hero-eyebrow2 i,.gmap-arc,.gmap-pin circle.ring,#hero-flashy .hero-photo-glow::before{animation:none !important}
+ .fx-tile,.fx-scan,.fx-pipe,.fx-node,.fx-field,.hero-eyebrow2 i,.gmap-arc,.gmap-pin circle.ring{animation:none !important}
  .tlx-item{opacity:1;transform:none;transition:none}.dash-card,.why-card,.feat-card,.project-card,.opp-tag{transition:none}
  .fx-tile{opacity:.06}
 }
@@ -654,7 +596,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visi
 
 </head>
 <body>
-<a class="skip-link" href="#dashboard">Skip to content</a>
+<a class="skip-link" href="#quicknav">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
 <defs>
 <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></symbol>
@@ -741,45 +683,30 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visi
       }
     })();
   </script>
-  <div class="hero-fx" id="hero-fx" aria-hidden="true"></div>
   <div class="hero-content hero-fade-in">
-    <p class="hero-eyebrow2"><i></i>Open to research &amp; R&amp;D roles &middot; Athens, Greece</p>
-    <p class="hero-who"><b>Naziru Halilu</b> &middot; Erasmus Mundus SUSTAGRI Scholar</p>
-    <h1 class="hero-headline hero-name-gradient-off">Building AI Systems for <em>Sustainable Agriculture</em></h1>
-    <p class="hero-sub">Agricultural Engineer and Erasmus Mundus Research Scholar specializing in Computer Vision, Geospatial AI, Precision Irrigation, and Digital Agriculture.</p>
-    <div class="hero-cta-row">
-      <a class="btn-gold" href="#featured" onclick="event.preventDefault();rdGo('featured')"><svg class="ic" aria-hidden="true"><use href="#i-flask"/></svg>Explore Research</a>
-      <a class="btn-ghost" href="Naziru_Halilu_CV.pdf" download><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg>Download CV</a>
-    </div>
-    <nav class="hero-quick" aria-label="Quick links">
-      <span class="lbl">FIND FAST</span>
-      <a href="#education" onclick="event.preventDefault();jumpTo('education')">Education</a>
-      <a href="#skills" onclick="event.preventDefault();jumpTo('skills')">Skills</a>
-      <a href="#awards" onclick="event.preventDefault();jumpTo('awards')">Achievements</a>
-      <a href="#publications" onclick="event.preventDefault();jumpTo('publications')">Publications</a>
-      <a href="#featured" onclick="event.preventDefault();rdGo('featured')">Research areas</a>
-      <a href="#contact" onclick="event.preventDefault();jumpTo('contact')">Contact</a>
-    </nav>
-    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.1rem;">
+    <p class="hero-coord mono">&#128205; ATHENS, GREECE</p>
+    <h1 class="hero-name-gradient">Naziru HALILU</h1>
+    <p style="font-size:13.5px; color:var(--ink-soft); font-weight:600; margin-top:-0.9rem; margin-bottom:1.1rem;">EMJMD SUSTAGRI Research Scholar &nbsp;|&nbsp; Agricultural Engineer</p>
+    <p class="hero-summary">Agricultural engineer with expertise across digital agriculture (computer vision, geospatial machine learning, and precision farming), specialized in building phenotyping, crop-stress, erosion, and predictive biophysical modeling systems that turn raw field signals into decisions before problems become visible.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.3rem;">
       <span class="tag">Digital Agriculture</span>
       <span class="tag">Smart Irrigation &amp; Agro-Hydrology</span>
       <span class="tag">Plant Phenotyping &amp; Crop Stress</span>
       <span class="tag">Agricultural Robotics</span>
     </div>
-    <div class="hero-links-row" style="margin-top:0.2rem; margin-bottom:.6rem;">
-      <a href="https://github.com/halilunaziru73-creator" target="_blank" rel="noopener" class="hero-link-btn">GitHub &rarr;</a>
-      <a href="https://orcid.org/0009-0006-2324-9599" target="_blank" rel="noopener" class="hero-link-btn">ORCID &rarr;</a>
-      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" rel="noopener" class="hero-link-btn">Zenodo records &rarr;</a>
+
+    <div class="hero-links-row" style="margin-top:0.5rem;">
+      <a href="https://github.com/halilunaziru73-creator" target="_blank" class="hero-link-btn">GitHub &rarr;</a>
+      <a href="https://orcid.org/0009-0006-2324-9599" target="_blank" class="hero-link-btn">ORCID &rarr;</a>
+      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" class="hero-link-btn">Zenodo records &rarr;</a>
     </div>
-    <details class="hero-more">
-      <summary>Read the full profile</summary>
-      <p style="font-size:13.5px; color:#cfe2d6; font-weight:600; margin-top:.4rem;">EMJMD SUSTAGRI Research Scholar &nbsp;|&nbsp; Agricultural Engineer</p>
-      <p class="hero-summary">Agricultural engineer with expertise across digital agriculture (computer vision, geospatial machine learning, and precision farming), specialized in building phenotyping, crop-stress, erosion, and predictive biophysical modeling systems that turn raw field signals into decisions before problems become visible.</p>
-      <div class="hero-note">
-        <p>For recruiters and collaborators:</p>
-        <p>Open to Academic positions, research engineer, and farm manager roles, with a focus on computer vision, geospatial machine learning, digital agriculture, and management decisions. Reach out via the Contact section below.</p>
-      </div>
-    </details>
+
+    <div style="background:linear-gradient(135deg,rgba(31,77,46,0.08),rgba(76,140,107,0.08)); border-left:3px solid #4C8C6B; border-radius:6px; padding:0.8rem 1.1rem; margin-top:0.3rem; max-width:70ch;">
+      <p style="font-size:13px; color:var(--ink); font-weight:600;">For recruiters and collaborators:</p>
+      <p style="font-size:13px; color:var(--ink-soft);">Open to Academic positions, research engineer, and farm manager roles, with a focus on computer vision, geospatial machine learning, digital agriculture, and management decisions. Reach out via the Contact section below.</p>
+    </div>
+
   </div>
   <div class="hero-photo-wrap hero-fade-in">
     <div class="hero-photo-glow">
@@ -934,26 +861,26 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visi
   }
 </style>
 
-<section id="dashboard" class="rd-sec rd-dark" aria-labelledby="dash-h">
+<section id="dashboard" class="hidden-section rd-sec rd-dark" aria-labelledby="dash-h">
   <div class="rd-head"><h2 id="dash-h">Impact at a glance</h2><p>Verified numbers from this portfolio. Tap any card to see the evidence.</p></div>
   <div class="dash-grid">
     <a class="dash-card" href="#education" onclick="event.preventDefault();jumpTo('education')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-grad"/></svg></span><span class="dash-num">EMJMD</span><span class="dash-lab">Erasmus Mundus Scholar</span><span class="dash-sub">EU-funded joint master's &middot; Spain, Portugal, Greece</span></a>
     <a class="dash-card" href="#education" onclick="event.preventDefault();jumpTo('education')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-medal"/></svg></span><span class="dash-num"><span data-count="4.77" data-dec="2">4.77</span><small> /5.00</small></span><span class="dash-lab">Top 1% Graduate</span><span class="dash-sub">B.Eng. First Class &middot; CGPA</span></a>
     <a class="dash-card" href="#publications" onclick="event.preventDefault();jumpTo('publications')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><span class="dash-num"><span data-count="11">11</span></span><span class="dash-lab">Publications</span><span class="dash-sub">5 published &middot; 3 under review &middot; 3 preprints</span></a>
     <a class="dash-card" href="https://github.com/halilunaziru73-creator?tab=repositories" target="_blank" rel="noopener"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></span><span class="dash-num"><span data-count="15">15</span></span><span class="dash-lab">Open-source Repositories</span><span class="dash-sub">Documented &amp; reproducible</span></a>
-    <a class="dash-card" href="#projects" onclick="event.preventDefault();rdGo('featured')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-orbit"/></svg></span><span class="dash-num"><span data-count="3">3</span></span><span class="dash-lab">Remote Sensing Projects</span><span class="dash-sub">Sentinel-2 STADOS &middot; RGB indexing &middot; GEE</span></a>
+    <a class="dash-card" href="#projects" onclick="event.preventDefault();jumpTo('featured')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-orbit"/></svg></span><span class="dash-num"><span data-count="3">3</span></span><span class="dash-lab">Remote Sensing Projects</span><span class="dash-sub">Sentinel-2 STADOS &middot; RGB indexing &middot; GEE</span></a>
     <a class="dash-card" href="#impact" onclick="event.preventDefault();rdGo('impact')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></span><span class="dash-num"><span data-count="10">10</span></span><span class="dash-lab">Countries Worked In</span><span class="dash-sub">Fieldwork, study &amp; research</span></a>
     <a class="dash-card" href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" rel="noopener"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg></span><span class="dash-num"><span data-count="14">14</span></span><span class="dash-lab">Dataset Releases</span><span class="dash-sub">Zenodo DOIs, permanently archived</span></a>
     <a class="dash-card" href="#awards" onclick="event.preventDefault();jumpTo('awards')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg></span><span class="dash-num"><span data-count="16">16</span></span><span class="dash-lab">Awards &amp; Honors</span><span class="dash-sub">Academic, EU and community</span></a>
   </div>
 </section>
 
-<section id="whyhire" class="rd-sec rd-light" aria-labelledby="why-h">
+<section id="whyhire" class="hidden-section rd-sec rd-light" aria-labelledby="why-h">
   <div class="rd-head"><h2 id="why-h">Why Hire Me?</h2><p>Eight capabilities, each backed by released code, data or a paper.</p></div>
   <div class="why-grid" id="why-grid"></div>
 </section>
 
-<section id="opportunities" class="rd-sec rd-green" aria-labelledby="opp-h">
+<section id="opportunities" class="hidden-section rd-sec rd-green" aria-labelledby="opp-h">
   <div class="rd-head"><h2 id="opp-h">Open To Opportunities</h2><p>Roles where I can turn field signals into decisions. Tap a role to get in touch.</p></div>
   <div class="opp-wrap" id="opp-wrap"></div>
   <div class="opp-foot">
@@ -969,6 +896,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visi
     <span class="section-note mono" style="color:rgba(255,255,255,0.85);">click a tile to jump &amp; expand</span>
   </div>
   <div class="quicknav-grid" style="position:relative; z-index:1;">
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('dashboard');}" onclick="jumpTo('dashboard')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #14532D"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E3B2A,#4C8C6B);">📈</span><span class="quicknav-label">Impact Dashboard</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('featured');}" onclick="jumpTo('featured')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">⭐</span><span class="quicknav-label">Featured Research</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('whyhire');}" onclick="jumpTo('whyhire')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">✅</span><span class="quicknav-label">Why Hire Me?</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('opportunities');}" onclick="jumpTo('opportunities')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">🤝</span><span class="quicknav-label">Open To Opportunities</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('education');}" onclick="jumpTo('education')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #1F4D2E"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('courses');}" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('experience');}" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
@@ -1071,7 +1002,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visi
     </div>
   </div>
 </div></section>
-<section id="featured" class="rd-sec rd-light" aria-labelledby="feat-h" style="scroll-margin-top:20px">
+<section id="featured" class="hidden-section rd-sec rd-light" aria-labelledby="feat-h" style="scroll-margin-top:20px">
   <div class="rd-head"><h2 id="feat-h">Featured Research</h2><p>The six strongest projects. The full list is in the Project index below.</p></div>
   <div class="feat-grid" id="feat-grid"></div>
   <p style="margin-top:1.3rem"><a class="fl" href="#projects" onclick="event.preventDefault();jumpTo('projects')">Open the full Project index &rarr;</a></p>
