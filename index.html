@@ -181,7 +181,7 @@
   .layer-canvas::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#D4A94A,#B8763F); border-radius: 5px; }
   .layer-canvas { scrollbar-width: thin; scrollbar-color: #D4A94A rgba(0,0,0,0.05); }
   .layer-desc { font-size: 14px; color: #4A3B18; font-weight: 500; margin-bottom: 1.4rem; max-width: 62ch; }
-  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2.4rem 2.2rem; padding: 26px 24px 10px; }
   .project-card { border: 1px solid var(--line); border-radius: 8px; padding: 0; background: var(--paper-raised); overflow: hidden;
     box-shadow: 0 3px 10px rgba(0,0,0,0.05); transition: transform .2s ease, box-shadow .2s ease; }
   .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
@@ -247,7 +247,22 @@
   #education .tl-item { border: 5px solid #000000; padding: 1.1rem 1.2rem 1.5rem 2rem; margin-bottom: 1rem; }
   #teaching .tl-item { border: 5px solid #E07A3F; padding: 1.1rem 1.2rem 1.5rem 2rem; margin-bottom: 1rem; }
   #publications .pub-item { border: 5px solid #D4A94A; border-radius: 8px; padding: 0.9rem 1.1rem; margin-bottom: 0.8rem; }
-  #projects .project-card { border: 5px solid #D4A94A !important; }
+  /* advanced golden jewellery frame for every project: faceted gold moulding, fillet lines, pearl bead rail, jewelled corners that rotate ruby / sapphire / emerald / amethyst */
+  #projects .project-card { --g1:#6B4E0E; --g2:#F7DC8A; --g3:#B8860B; --g4:#FFF3C4; --g5:#8A6A1A; --j1:#E0115F; --j2:#0F52BA; --j3:#1FA75A; --j4:#8E44AD;
+    position: relative; overflow: visible !important; border: 14px solid transparent !important; border-radius: 3px !important; background-clip: padding-box; margin: 4px;
+    border-image: linear-gradient(135deg, var(--g1) 0%, var(--g2) 9%, var(--g3) 20%, var(--g4) 32%, var(--g5) 44%, var(--g2) 56%, var(--g3) 68%, var(--g4) 80%, var(--g2) 91%, var(--g1) 100%) 1 !important;
+    box-shadow: 0 0 0 1px #3E2C06, 0 0 0 3px var(--g2), 0 0 0 4.5px #3E2C06, 0 12px 24px rgba(60,40,0,0.38), inset 0 0 0 1.5px #3E2C06, inset 0 0 0 4px var(--g2), inset 0 0 0 5.5px var(--g5), inset 0 0 14px rgba(90,60,0,0.25) !important; }
+  #projects .project-card:nth-child(4n+2) { --j1:#0F52BA; --j2:#1FA75A; --j3:#8E44AD; --j4:#E0115F; }
+  #projects .project-card:nth-child(4n+3) { --j1:#1FA75A; --j2:#8E44AD; --j3:#E0115F; --j4:#0F52BA; }
+  #projects .project-card:nth-child(4n+4) { --j1:#8E44AD; --j2:#E0115F; --j3:#0F52BA; --j4:#1FA75A; }
+  #projects .project-card::after { content: ''; position: absolute; inset: 7px; border: 3px dotted var(--g3); pointer-events: none; z-index: 2; opacity: 0.9; filter: drop-shadow(0 0 0.5px #fff8); }
+  #projects .project-card .jw { position: absolute; width: 28px; height: 28px; z-index: 4; pointer-events: none; border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #fff 0 8%, transparent 10%), radial-gradient(circle at 34% 30%, var(--jc) 0 50%, color-mix(in srgb, var(--jc) 50%, #000) 100%);
+    box-shadow: 0 0 0 3px var(--g3), 0 0 0 4.5px var(--g1), 0 0 0 6px var(--g2), 0 2px 5px rgba(0,0,0,0.5); transform: scale(0.62); }
+  #projects .project-card .jw.tl { top: -20px; left: -20px; --jc: var(--j1); } #projects .project-card .jw.tr { top: -20px; right: -20px; --jc: var(--j2); }
+  #projects .project-card .jw.bl { bottom: -20px; left: -20px; --jc: var(--j3); } #projects .project-card .jw.br { bottom: -20px; right: -20px; --jc: var(--j4); }
+  #projects .project-card .jw-top { position: absolute; top: -21px; left: 50%; transform: translateX(-50%); z-index: 4; width: 44px; height: 14px; pointer-events: none; border-radius: 8px;
+    background: radial-gradient(ellipse at 50% 35%, #fff 0 5%, transparent 8%), radial-gradient(ellipse, var(--j2) 0 50%, color-mix(in srgb, var(--j2) 50%, #000) 100%); box-shadow: 0 0 0 2.5px var(--g3), 0 0 0 4px var(--g1), 0 0 0 5.5px var(--g2), 0 2px 4px rgba(0,0,0,0.45); }
   #skills .skill-card { border: 5px solid #2FA85A; }
   #conferences .tag { border: 5px solid #16A0A0 !important; }
   #memberships .tag { border: 5px solid #C2408C !important; }
@@ -2440,8 +2455,7 @@ function renderProjects() {
     const zenodoTag = p.zenodo ? ('<span class="doi-tag mono" style="margin-left:6px;">Zenodo: ' + p.zenodo + '</span>') : '';
     const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
-    card.style.borderTop = '4px solid ' + cardColor;
-    card.style.setProperty('border', '5px solid ' + cardColor, 'important');
+    card.style.setProperty('--cc', cardColor);
     card.style.background = '#FFFFFF';
     card.innerHTML =
       '<div class="project-body">' +
@@ -2472,6 +2486,8 @@ function renderProjects() {
         '</div>' :
         '<img class="project-thumb" src="' + p.thumb + '" alt="' + p.name + '" loading="lazy" style="border-top-color:' + cardColor + ';">') +
       ((doiTag || zenodoTag) ? '<div style="padding:0.8rem 1.2rem;">' + doiTag + zenodoTag + '</div>' : '');
+    ['tl', 'tr', 'bl', 'br'].forEach(c => { const g = document.createElement('span'); g.className = 'jw ' + c; card.appendChild(g); });
+    const gt = document.createElement('span'); gt.className = 'jw-top'; card.appendChild(gt);
     grid.appendChild(card);
   });
   fetchLiveGitHubStats(projects);
