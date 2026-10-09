@@ -821,6 +821,60 @@
   </div>
 </section>
 
+<section id="whyhire" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.6), rgba(251,238,198,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #B8763F; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('whyhire')">
+    <h2>Why Hire Me?</h2>
+    <span class="section-note mono">Each capability is backed by released code, data or a paper.</span>
+  <span class="accordion-chevron" id="chevron-whyhire">&#9660;</span></div><div class="section-body" id="body-whyhire">
+  <div class="why-grid" id="why-grid"></div>
+</div>
+</section>
+
+<section id="opportunities" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.6), rgba(251,238,198,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #B8763F; border-radius:8px;">
+  <div class="section-head accordion-head" onclick="toggleSection('opportunities')">
+    <h2>Open To Opportunities</h2>
+    <span class="section-note mono">Tap a role to get in touch</span>
+  <span class="accordion-chevron" id="chevron-opportunities">&#9660;</span></div><div class="section-body" id="body-opportunities">
+  <div class="opp-wrap" id="opp-wrap"></div>
+  <div class="opp-foot">
+    <a class="btn-gold" href="#contact" onclick="event.preventDefault();jumpTo('contact')"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Contact me</a>
+    <a class="btn-ghost" href="Naziru_Halilu_CV.pdf" download><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg>Download CV</a>
+    <span class="note">EMJMD completes in 2027 &middot; currently based in Athens, Greece.</span>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="hidden-section" style="background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-radius:8px;">
+  <div class="contact-panel">
+    <div>
+      <h2>Get in touch about a collaboration, dataset, or project.</h2>
+      <p>Reach out directly, or send a message below. It goes straight to my inbox.</p>
+      <div class="email-chips" style="margin-top:1.5rem;">
+        <a href="mailto:halilu.175366@e.unavarra.es" class="email-chip chip-blue">&#9993;&#65039; halilu.175366@e.unavarra.es</a>
+        <a href="mailto:al2025174166@alunos.utad.pt" class="email-chip chip-green">&#9993;&#65039; al2025174166@alunos.utad.pt</a>
+        <a href="mailto:naziru.175366@aua.gr" class="email-chip chip-purple">&#9993;&#65039; naziru.175366@aua.gr</a>
+        <a href="mailto:naziruhalilu73@gmail.com" class="email-chip chip-orange">&#9993;&#65039; naziruhalilu73@gmail.com</a>
+        <span class="email-chip chip-navy">&#128222; +34 6 5296 7216</span>
+        <span class="email-chip chip-navy">&#128222; +234 906 729 9824</span>
+        <a href="https://www.linkedin.com/in/naziru-halilu-a9a815313" target="_blank" class="email-chip chip-blue">&#128100; LinkedIn</a>
+      </div>
+      <div style="margin-top:1.6rem; padding:1.2rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(6px); border-radius:10px; border:1px solid var(--line); display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://halilunaziru73-creator.github.io" alt="QR code linking to this portfolio" style="border-radius:8px; border:1px solid var(--line); background:white; padding:5px; flex-shrink:0;">
+        <div>
+          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.3rem; color:#1A2318;">Scan to Open This Portfolio</h3>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input class="contact-field" id="c-name" type="text" placeholder="Your name">
+      <input class="contact-field" id="c-email" type="email" placeholder="Your email">
+      <textarea class="contact-field" id="c-msg" placeholder="Your message"></textarea>
+      <button class="contact-btn" id="c-btn" onclick="sendMessage()">Send message</button>
+      <p class="contact-status" id="c-status"></p>
+    </div>
+  </div>
+</section>
+
 <section id="publications" class="hidden-section" style="background: linear-gradient(rgba(245,217,174,0.6), rgba(245,217,174,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #B8763F;; border-radius:8px;">
   <div class="section-head accordion-head" onclick="toggleSection('publications')">
     <h2>Publications</h2>
@@ -2119,61 +2173,13 @@
 
 
 
-<section id="whyhire" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.6), rgba(251,238,198,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #B8763F; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('whyhire')">
-    <h2>Why Hire Me?</h2>
-    <span class="section-note mono">Each capability is backed by released code, data or a paper.</span>
-  <span class="accordion-chevron" id="chevron-whyhire">&#9660;</span></div><div class="section-body" id="body-whyhire">
-  <div class="why-grid" id="why-grid"></div>
-</div>
-</section>
-
-<section id="opportunities" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.6), rgba(251,238,198,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #B8763F; border-radius:8px;">
-  <div class="section-head accordion-head" onclick="toggleSection('opportunities')">
-    <h2>Open To Opportunities</h2>
-    <span class="section-note mono">Tap a role to get in touch</span>
-  <span class="accordion-chevron" id="chevron-opportunities">&#9660;</span></div><div class="section-body" id="body-opportunities">
-  <div class="opp-wrap" id="opp-wrap"></div>
-  <div class="opp-foot">
-    <a class="btn-gold" href="#contact" onclick="event.preventDefault();jumpTo('contact')"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Contact me</a>
-    <a class="btn-ghost" href="Naziru_Halilu_CV.pdf" download><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg>Download CV</a>
-    <span class="note">EMJMD completes in 2027 &middot; currently based in Athens, Greece.</span>
-  </div>
-</div>
-</section>
 
 
 
-<section id="contact" class="hidden-section" style="background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-radius:8px;">
-  <div class="contact-panel">
-    <div>
-      <h2>Get in touch about a collaboration, dataset, or project.</h2>
-      <p>Reach out directly, or send a message below. It goes straight to my inbox.</p>
-      <div class="email-chips" style="margin-top:1.5rem;">
-        <a href="mailto:halilu.175366@e.unavarra.es" class="email-chip chip-blue">&#9993;&#65039; halilu.175366@e.unavarra.es</a>
-        <a href="mailto:al2025174166@alunos.utad.pt" class="email-chip chip-green">&#9993;&#65039; al2025174166@alunos.utad.pt</a>
-        <a href="mailto:naziru.175366@aua.gr" class="email-chip chip-purple">&#9993;&#65039; naziru.175366@aua.gr</a>
-        <a href="mailto:naziruhalilu73@gmail.com" class="email-chip chip-orange">&#9993;&#65039; naziruhalilu73@gmail.com</a>
-        <span class="email-chip chip-navy">&#128222; +34 6 5296 7216</span>
-        <span class="email-chip chip-navy">&#128222; +234 906 729 9824</span>
-        <a href="https://www.linkedin.com/in/naziru-halilu-a9a815313" target="_blank" class="email-chip chip-blue">&#128100; LinkedIn</a>
-      </div>
-      <div style="margin-top:1.6rem; padding:1.2rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(6px); border-radius:10px; border:1px solid var(--line); display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://halilunaziru73-creator.github.io" alt="QR code linking to this portfolio" style="border-radius:8px; border:1px solid var(--line); background:white; padding:5px; flex-shrink:0;">
-        <div>
-          <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.3rem; color:#1A2318;">Scan to Open This Portfolio</h3>
-        </div>
-      </div>
-    </div>
-    <div>
-      <input class="contact-field" id="c-name" type="text" placeholder="Your name">
-      <input class="contact-field" id="c-email" type="email" placeholder="Your email">
-      <textarea class="contact-field" id="c-msg" placeholder="Your message"></textarea>
-      <button class="contact-btn" id="c-btn" onclick="sendMessage()">Send message</button>
-      <p class="contact-status" id="c-status"></p>
-    </div>
-  </div>
-</section>
+
+
+
+
 
 <footer>
   <p>&copy; 2026 Naziru Halilu &middot; Athens, Greece &middot; <a href="#news" onclick="event.preventDefault(); jumpTo('news');" style="color:inherit; text-decoration:underline;">Updates</a> &middot; <a href="#fieldnews" onclick="event.preventDefault(); jumpTo('fieldnews');" style="color:inherit; text-decoration:underline;">Field News</a> &middot; <a href="Naziru_Halilu_Full_Portfolio.pdf" target="_blank" style="color:inherit; text-decoration:underline;">Full Portfolio</a></p>
