@@ -390,24 +390,41 @@
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  .gallery-grid { column-count: 4; column-gap: 0.6rem; }
+  .gallery-grid { column-count: 4; column-gap: 1.7rem; padding: 0.6rem 0.5rem 0; }
   .gallery-item { break-inside: avoid; margin-bottom: 0.8rem; display: block; }
   .gallery-thumb { width: 100%; height: auto; object-fit: contain; border-radius: 5px 5px 0 0; border: 3px solid #D4A94A;
     border-bottom: none; cursor: pointer; transition: transform .15s, box-shadow .15s, border-color .15s; display: block; }
   .gallery-caption { font-size: 11px; font-weight: 700; color: var(--ink); background: var(--paper-raised);
     border: 3px solid #D4A94A; border-top: none; border-radius: 0 0 5px 5px; padding: 5px 8px; line-height: 1.3; }
   .gallery-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-color: #F5D06B; }
-  /* ornate framed gallery: gilded moulding, inner bead line, cream mat, drop shadow; metals cycle */
-  .gallery-grid .gallery-thumb { --fa:#6B4E0E; --fb:#F7DC8A; --fc:#B8860B; --fd:#FFF3C4; --fe:#8A6A1A;
-    box-sizing: border-box; border-radius: 2px; padding: 7px; background: #FBF5E4; border: 11px solid transparent;
+  /* ornate framed gallery: the whole figure is the frame. Moulding, bead line, cream mat, corner rosettes, year cartouche on the top rail, engraved caption plaque inside the mat. Metals cycle. */
+  .gallery-grid .gallery-item { --fa:#6B4E0E; --fb:#F7DC8A; --fc:#B8860B; --fd:#FFF3C4; --fe:#8A6A1A; --ink:#3F2C05; --mat:#FBF5E4; --matb:#EFE2BD;
+    position: relative; box-sizing: border-box; margin: 20px 0 18px; padding: 9px 9px 8px; background: var(--mat); border: 12px solid transparent; border-radius: 1px;
     border-image: linear-gradient(135deg, var(--fa) 0%, var(--fb) 14%, var(--fc) 30%, var(--fd) 46%, var(--fe) 62%, var(--fb) 80%, var(--fa) 100%) 1;
-    box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 9px 18px rgba(40,25,0,0.38), inset 0 0 0 1.5px var(--fa), inset 0 0 8px rgba(0,0,0,0.25);
-    margin: 7px 0 15px; }
-  .gallery-grid .gallery-thumb.fm1 { --fa:#4A4F55; --fb:#E9EDF1; --fc:#9AA3AD; --fd:#FFFFFF; --fe:#6C757D; }
-  .gallery-grid .gallery-thumb.fm2 { --fa:#7A3F2E; --fb:#F6C4AE; --fc:#C9806A; --fd:#FFE6DA; --fe:#9A5A47; }
-  .gallery-grid .gallery-thumb.fm3 { --fa:#4A2E12; --fb:#D9A66B; --fc:#8C5A24; --fd:#F0CFA0; --fe:#5E3A16; }
-  .gallery-grid .gallery-thumb:hover { transform: scale(1.03) rotate(-0.4deg); box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 14px 26px rgba(40,25,0,0.45), inset 0 0 0 1.5px var(--fa); border-color: transparent; }
-  @keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(245,208,107,0.75); } 70% { box-shadow: 0 0 0 14px rgba(245,208,107,0); } 100% { box-shadow: 0 0 0 0 rgba(245,208,107,0); } }
+    box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 10px 20px rgba(40,25,0,0.38), inset 0 0 0 1.5px var(--fa), inset 0 0 0 4px var(--matb), inset 0 0 12px rgba(0,0,0,0.22);
+    transition: transform .18s, box-shadow .18s; }
+  .gallery-grid .gallery-item.fm1 { --fa:#4A4F55; --fb:#E9EDF1; --fc:#9AA3AD; --fd:#FFFFFF; --fe:#6C757D; --ink:#262B30; --mat:#F5F7F9; --matb:#DCE1E6; }
+  .gallery-grid .gallery-item.fm2 { --fa:#7A3F2E; --fb:#F6C4AE; --fc:#C9806A; --fd:#FFE6DA; --fe:#9A5A47; --ink:#4E2216; --mat:#FCF1EC; --matb:#EFCFC2; }
+  .gallery-grid .gallery-item.fm3 { --fa:#4A2E12; --fb:#D9A66B; --fc:#8C5A24; --fd:#F0CFA0; --fe:#5E3A16; --ink:#33200B; --mat:#F7EEDF; --matb:#E4CFA9; }
+  .gallery-grid .gallery-item:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 16px 28px rgba(40,25,0,0.45), inset 0 0 0 1.5px var(--fa), inset 0 0 0 4px var(--matb); }
+  .gallery-grid .gallery-thumb { width: 100%; height: auto; display: block; border: 0; border-radius: 0; padding: 0; margin: 0; background: #111; cursor: pointer;
+    box-shadow: 0 0 0 1px var(--fa), 0 0 0 3px var(--fb), 0 0 0 4px var(--fa), inset 0 0 14px rgba(0,0,0,0.35); transition: none; }
+  .gallery-grid .gallery-thumb:hover { transform: none; box-shadow: 0 0 0 1px var(--fa), 0 0 0 3px var(--fb), 0 0 0 4px var(--fa), inset 0 0 14px rgba(0,0,0,0.35); border: 0; }
+  .gallery-grid .gallery-caption { margin: 11px 3px 2px; padding: 6px 9px 7px; font: italic 600 11.4px/1.38 Georgia, 'Times New Roman', serif; color: var(--ink); text-align: center; letter-spacing: 0.15px;
+    background: linear-gradient(180deg, var(--fd) 0%, var(--fb) 55%, var(--fc) 140%); border: 1px solid var(--fa); border-radius: 3px; text-shadow: 0 1px 0 rgba(255,255,255,0.65);
+    box-shadow: inset 0 0 0 2px var(--mat), inset 0 0 0 3px var(--fe), 0 1px 2px rgba(0,0,0,0.25); }
+  .gallery-grid .g-year { position: absolute; top: -21px; left: 50%; transform: translateX(-50%); z-index: 2; padding: 2px 15px 3px; font: 800 11.5px/1.2 Georgia, serif; letter-spacing: 1.4px; color: var(--ink); white-space: nowrap;
+    background: linear-gradient(180deg, var(--fd), var(--fb) 60%, var(--fc)); border: 1px solid var(--fa); border-radius: 9px; text-shadow: 0 1px 0 rgba(255,255,255,0.7); box-shadow: 0 0 0 2px var(--mat), 0 0 0 3px var(--fe), 0 2px 4px rgba(0,0,0,0.35); }
+  .gallery-grid .g-corner { position: absolute; width: 17px; height: 17px; border-radius: 50%; z-index: 2; pointer-events: none;
+    background: radial-gradient(circle at 35% 30%, var(--fd) 0 18%, var(--fb) 19% 42%, var(--fc) 43% 68%, var(--fa) 69% 100%); box-shadow: 0 0 0 1.5px var(--fa), 0 1px 3px rgba(0,0,0,0.4); }
+  .gallery-grid .g-corner.tl { top: -15px; left: -15px; } .gallery-grid .g-corner.tr { top: -15px; right: -15px; }
+  .gallery-grid .g-corner.bl { bottom: -15px; left: -15px; } .gallery-grid .g-corner.br { bottom: -15px; right: -15px; }
+  .live-chip { font-family: inherit; font-size: 0.64rem; font-weight: 800; line-height: 1; padding: 0.3rem 0.55rem; border-radius: 12px; border: 1.5px solid #D4A94A; background: rgba(13,17,23,0.88); color: #F5D06B; cursor: pointer; }
+  .live-chip.on { background: #D4A94A; color: #1A1400; }
+  .project-grid .project-card { display: flex; flex-direction: column; }
+  .project-grid .project-card .project-thumb, .project-grid .project-card .project-thumb-wrap { height: 220px; }
+  .project-grid .project-card .project-thumb { object-fit: contain; }
+  .project-grid .project-card > .project-body { flex: 1 1 auto; }
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,20,18,0.92); z-index: 100;
     align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
   .lightbox.open { display: flex; }
@@ -2413,10 +2430,14 @@ function renderProjects() {
       '</div>' +
       '</div>' +
       (p.liveEmbed ?
-        '<div class="live-embed-wrap" style="position:relative; border-top: 4px solid ' + cardColor + '; background:#0D1117;">' +
-          '<div class="live-hint" style="background:#161B22; color:#F5D06B; font-size:0.8rem; font-weight:800; padding:0.55rem 0.9rem; text-align:center; border-bottom:2px solid #D4A94A; animation: livePulse 1.8s infinite;">&#128070; Interactive, try it: drag the purple trigger on the gauge, click a soil, move the sensor</div>' +
-          '<iframe class="live-embed" src="' + p.iframeThumb + '?embed=' + p.liveEmbed + '#scene=' + p.liveEmbed + '" loading="lazy" title="Interactive irrigation rule: drag the trigger, click a soil" style="width:100%; aspect-ratio:640/672; border:none; display:block; background:#0D1117;"></iframe>' +
-          '<a href="' + p.iframeThumb + '#scene=n1" target="_blank" style="display:block; text-align:center; background:#D4A94A; color:#1A1400; font-size:0.82rem; font-weight:800; padding:0.5rem; text-decoration:none;">Open the full explorer, all 13 views &#8599;</a>' +
+        '<div class="live-embed-wrap" data-base="' + p.iframeThumb + '" style="position:relative; height:220px; overflow:hidden; border-top: 4px solid ' + cardColor + '; background:#0D1117;">' +
+          '<iframe class="live-embed" src="' + p.iframeThumb + '?embed=n1&vy=60" loading="lazy" title="Interactive irrigation rule and soil-column evaporation" style="width:100%; height:100%; border:none; display:block; background:#0D1117;"></iframe>' +
+          '<div style="position:absolute; top:6px; left:6px; display:flex; gap:5px; pointer-events:auto;">' +
+            '<button type="button" class="live-chip on" onclick="liveSwitch(this,\'n1\',60)">Irrigation rule</button>' +
+            '<button type="button" class="live-chip" onclick="liveSwitch(this,\'e1\',40)">Evaporation</button>' +
+          '</div>' +
+          '<a href="' + p.iframeThumb + '#scene=n1" target="_blank" style="position:absolute; top:6px; right:6px; background:#D4A94A; color:#1A1400; font-size:0.64rem; font-weight:800; padding:0.3rem 0.6rem; border-radius:12px; text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.4);">View full DSS &#8599;</a>' +
+          '<div class="live-hint" style="position:absolute; left:6px; bottom:6px; background:rgba(13,17,23,0.9); color:#F5D06B; font-size:0.7rem; font-weight:800; padding:0.28rem 0.65rem; border-radius:12px; border:1.5px solid #D4A94A; pointer-events:none; animation: livePulse 1.8s infinite;">&#128070; Try it: drag, click, explore</div>' +
         '</div>' :
       p.iframeThumb ?
         '<div class="project-thumb-wrap" onclick="window.open(\'' + p.iframeThumb + '\', \'_blank\')" title="Click to open the full interactive widget" style="position:relative; cursor:pointer; border-top: 4px solid ' + cardColor + ';">' +
@@ -2710,14 +2731,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.gallery-grid .gallery-thumb').forEach(img => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'gallery-item';
+  const YR = /[,;]?\s*((?:19|20)\d\d(?:\s*(?:to|-|\u2013)\s*(?:19|20)\d\d)?)\s*$/;
+  document.querySelectorAll('.gallery-grid .gallery-thumb').forEach((img, i) => {
+    const wrapper = document.createElement('figure');
+    wrapper.className = 'gallery-item' + (i % 4 ? ' fm' + (i % 4) : '');
     img.parentNode.insertBefore(wrapper, img);
     wrapper.appendChild(img);
-    const caption = document.createElement('p');
+    const alt = (img.alt || 'Photo').trim(), m = alt.match(YR);
+    const year = m ? m[1].replace(/\s*to\s*/, ' \u2013 ') : '';
+    const text = (m ? alt.replace(YR, '') : alt).replace(/^./, c => c.toUpperCase());
+    ['tl', 'tr', 'bl', 'br'].forEach(c => { const d = document.createElement('span'); d.className = 'g-corner ' + c; wrapper.appendChild(d); });
+    if (year) { const y = document.createElement('span'); y.className = 'g-year'; y.textContent = year; wrapper.appendChild(y); }
+    const caption = document.createElement('figcaption');
     caption.className = 'gallery-caption';
-    caption.textContent = img.alt || 'Photo';
+    caption.textContent = text;
     wrapper.appendChild(caption);
   });
 });
@@ -3140,11 +3167,16 @@ document.querySelectorAll('#publications .pub-item').forEach(function(e,i){e.sty
 (function(){var J=['#0F52BA','#0B7A4B','#9B111E','#7B3FA0','#D99A00','#1B9AAA','#7A1F2B','#6F9C1F','#3B3F9E','#C26A0A','#00A86B','#B8336A'];
 document.querySelectorAll('#skills .skill-card').forEach(function(e,i){e.style.setProperty('border-color',J[i%J.length],'important');});})();
 
-/* metal finish cycle for gallery frames: gold, silver, rose gold, bronze */
-(function(){document.querySelectorAll('#gallery .gallery-thumb').forEach(function(e,i){var m=i%4;if(m)e.classList.add('fm'+m);});})();
+
 
 /* hide the live-embed hint once the visitor clicks into the widget */
 window.addEventListener('blur',function(){setTimeout(function(){var a=document.activeElement;if(a&&a.classList&&a.classList.contains('live-embed')){var h=a.parentNode.querySelector('.live-hint');if(h)h.style.display='none';}},0);});
+
+function liveSwitch(btn, sc, vy) {
+  var w = btn.closest('.live-embed-wrap'); if (!w) return;
+  w.querySelectorAll('.live-chip').forEach(function (c) { c.classList.toggle('on', c === btn); });
+  w.querySelector('iframe').src = w.dataset.base + '?embed=' + sc + '&vy=' + vy;
+}
 </script>
 </body>
 <!-- cache-refresh-2026-09-20T21:59:20.562652 -->
