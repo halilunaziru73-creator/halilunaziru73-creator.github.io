@@ -248,7 +248,7 @@
   #teaching .tl-item { border: 5px solid #E07A3F; padding: 1.1rem 1.2rem 1.5rem 2rem; margin-bottom: 1rem; }
   #publications .pub-item { border: 5px solid #D4A94A; border-radius: 8px; padding: 0.9rem 1.1rem; margin-bottom: 0.8rem; }
   #projects .project-card { border: 5px solid #D4A94A !important; }
-  #skills .skill-card { border: 5px solid #2FA85A !important; }
+  #skills .skill-card { border: 5px solid #2FA85A; }
   #conferences .tag { border: 5px solid #16A0A0 !important; }
   #memberships .tag { border: 5px solid #C2408C !important; }
   #referees .referee-card { border: 5px solid #2E7DE8 !important; }
@@ -3118,6 +3118,10 @@ try{ qkItems.splice(1,0,
 /* jewel-tone border per publication */
 (function(){var J=['#0F52BA','#0B7A4B','#9B111E','#7B3FA0','#D99A00','#1B9AAA','#7A1F2B','#6F9C1F','#3B3F9E','#C26A0A','#00A86B','#B8336A'];
 document.querySelectorAll('#publications .pub-item').forEach(function(e,i){e.style.borderColor=J[i%J.length];});})();
+
+/* jewel-tone border per skill */
+(function(){var J=['#0F52BA','#0B7A4B','#9B111E','#7B3FA0','#D99A00','#1B9AAA','#7A1F2B','#6F9C1F','#3B3F9E','#C26A0A','#00A86B','#B8336A'];
+document.querySelectorAll('#skills .skill-card').forEach(function(e,i){e.style.setProperty('border-color',J[i%J.length],'important');});})();
 </script>
 </body>
 <!-- cache-refresh-2026-09-20T21:59:20.562652 -->
