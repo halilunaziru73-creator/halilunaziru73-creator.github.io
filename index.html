@@ -2254,11 +2254,10 @@ const projectColorPalette = [
   "#E35C4C", "#0B4FA8", "#4C8C6B", "#B8763F", "#6E5A8C", "#3B6EA5",
   "#D4A94A", "#2E3A52", "#B23A2E", "#00A896",
 ];
-function projectUniqueColor(repo) {
-  let hash = 0;
-  for (let i = 0; i < repo.length; i++) { hash = (hash * 31 + repo.charCodeAt(i)) >>> 0; }
-  return projectColorPalette[hash % projectColorPalette.length];
-}
+const PROJECT_ORDER = ['Coupled-Water-Fluxes','NaCROP','Geometry-Agnostic','STADOS','Multitask','Digital-Twin','Hybrid-CNN','Operationalizing','Real-Time-RGB','GIS-based','GIS-Monitoring-of-Vineyard','GIS-Monitoring-of-Grape','Zaria-Crop','Integrated-Decision','Geospatial-data'];
+const PROJECT_COLORS = ['#0096C7','#2E9E5B','#7B3FBF','#E8590C','#C2255C','#1971C2','#0CA678','#D4A017','#E03131','#5F3DC4','#2F9E44','#F08C00','#3B5BDB','#9C36B5','#0B7285'];
+function projectRank(repo) { const i = PROJECT_ORDER.findIndex(k => repo.indexOf(k) === 0); return i < 0 ? 99 : i; }
+function projectUniqueColor(repo) { const i = projectRank(repo); return PROJECT_COLORS[i % PROJECT_COLORS.length]; }
 
 // Add falling water droplets to every section using the water background image
 document.addEventListener('DOMContentLoaded', function() {
@@ -2327,7 +2326,7 @@ function hexToRgba(hex, alpha) {
 }
 
 function allProjects() {
-  return domains.flatMap(d => d.projects.map(p => ({...p, color: d.color})));
+  return domains.flatMap(d => d.projects.map(p => ({...p, color: d.color}))).sort((a, b) => projectRank(a.repo) - projectRank(b.repo));
 }
 function renderLayers() {
   const list = document.getElementById('layers-list');
@@ -2359,7 +2358,7 @@ function renderProjects() {
     description = 'All 16 repositories across every research domain.';
   } else {
     const d = domains.find(x => x.key === activeKey);
-    projects = d.projects.map(p => ({...p, color: d.color}));
+    projects = d.projects.map(p => ({...p, color: d.color})).sort((a, b) => projectRank(a.repo) - projectRank(b.repo));
     description = d.desc;
   }
   desc.textContent = description;
@@ -2374,6 +2373,7 @@ function renderProjects() {
     const cardColor = projectUniqueColor(p.repo);
     card.style.borderLeft = 'none';
     card.style.borderTop = '4px solid ' + cardColor;
+    card.style.setProperty('border', '5px solid ' + cardColor, 'important');
     card.style.background = '#FFFFFF';
     card.innerHTML =
       '<div class="project-body">' +
@@ -3069,7 +3069,7 @@ var WHY=[
   ['Best Project, Best Graduating Student and other honours','#awards']]]
 ];
 var WHY_COL=[['#14532D','#4C8C6B'],['#0B6FA4','#2FB6E0'],['#8C5A2B','#D69A4E'],['#6E5A8C','#A98BD8'],['#0E7C7B','#2FC2C0'],['#B23A2E','#F0705A'],['#1F4D8C','#5A8FD8'],['#7A5C00','#E3B83C'],['#3B6EA5','#7EC2FF'],['#B8763F','#E0A159'],['#9B2D6E','#E070B0']];
-var NOV=['Coupled-Water-Fluxes','Geometry-Agnostic','STADOS','Multitask','Digital-Twin','Hybrid-CNN','Operationalizing','NaCROP','Real-Time-RGB','GIS-based','GIS-Monitoring-of-Vineyard','GIS-Monitoring-of-Grape','Zaria-Crop','Integrated-Decision','Geospatial-data'];
+var NOV=['Coupled-Water-Fluxes','NaCROP','Geometry-Agnostic','STADOS','Multitask','Digital-Twin','Hybrid-CNN','Operationalizing','Real-Time-RGB','GIS-based','GIS-Monitoring-of-Vineyard','GIS-Monitoring-of-Grape','Zaria-Crop','Integrated-Decision','Geospatial-data'];
 function repoOf(u){ if(u.indexOf('Coupled-Water-Fluxes')>-1) return 'Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops'; if(u.indexOf(G)===0) return u.slice(G.length); return null; }
 function novRank(u){var r=repoOf(u); if(!r) return 99; for(var i=0;i<NOV.length;i++){if(r.indexOf(NOV[i])===0) return i;} return 98;}
 (function(){var g=$('#why-grid'); if(!g) return;
