@@ -428,8 +428,110 @@
   "knowsAbout": ["Computer Vision", "Geospatial Machine Learning", "Digital Agriculture", "Remote Sensing", "Precision Agriculture"]
 }
 </script>
+<style id="rd-css">
+:root{--deep:#0E3B2A;--deep2:#14532D;--navy-d:#0B1A2E;--navy-m:#13294B;--gold:#D4A94A;--gold-l:#F5D06B;--mint:#9ED8B5;--card:#fff;--rd-line:#E3E6DC}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-0.14em}
+/* generic band + head */
+.rd-sec{max-width:1400px;margin:0 auto 1.4rem;padding:3rem 2.4rem;border-radius:14px;position:relative}
+.rd-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.rd-head h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.55rem,3vw,2.15rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.rd-head h2::after{content:'';display:block;width:54px;height:4px;border-radius:3px;margin-top:.55rem;background:linear-gradient(90deg,var(--gold),var(--deep2))}
+.rd-head p{font-size:14px;max-width:56ch}
+.rd-dark{background:linear-gradient(135deg,var(--navy-d),var(--navy-m) 55%,var(--deep));color:#EAF3EC;overflow:hidden}
+.rd-dark .rd-head h2{color:#fff}.rd-dark .rd-head p{color:#b9cdc2}
+.rd-light{background:#fff;border:1px solid var(--rd-line);box-shadow:0 10px 30px rgba(14,59,42,.07)}
+.rd-light .rd-head h2{color:var(--deep)}.rd-light .rd-head p{color:var(--ink-soft)}
+.rd-green{background:linear-gradient(135deg,var(--deep),var(--deep2));color:#EAF3EC}
+.rd-green .rd-head h2{color:#fff}.rd-green .rd-head p{color:#c4dccd}
+/* dashboard */
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.dash-card{position:relative;display:flex;flex-direction:column;gap:.15rem;background:#fff;color:var(--ink);border-radius:14px;padding:1.15rem 1.15rem 1rem;text-decoration:none;border-top:4px solid var(--gold);box-shadow:0 8px 22px rgba(0,0,0,.2);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;overflow:hidden;min-height:136px}
+.dash-card::after{content:'';position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(212,169,74,.28),transparent 70%);transition:transform .4s}
+.dash-card:hover,.dash-card:focus-visible{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 0 2px var(--gold)}
+.dash-card:hover::after{transform:scale(1.8)}
+.dash-ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--deep),var(--deep2));margin-bottom:.45rem;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.dash-card:hover .dash-ic{transform:rotate(-8deg) scale(1.12)}
+.dash-num{font-family:'Space Grotesk',sans-serif;font-size:2.15rem;font-weight:700;line-height:1;color:var(--deep);letter-spacing:-.02em}
+.dash-num small{font-size:.95rem;font-weight:600;color:var(--ink-soft)}
+.dash-lab{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.25;margin-top:.2rem}
+.dash-sub{font-size:11.5px;color:var(--ink-soft);line-height:1.35;font-weight:500}
+/* why hire */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.why-card{background:#F8FAF6;border:1px solid var(--rd-line);border-radius:14px;padding:1.2rem;position:relative;transition:transform .25s,box-shadow .25s,border-color .25s,background .25s;display:flex;flex-direction:column;gap:.5rem}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(14,59,42,.14);border-color:var(--gold);background:#fff}
+.why-top{display:flex;align-items:center;gap:.7rem}
+.why-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:23px;background:linear-gradient(135deg,var(--deep),var(--deep2));color:var(--gold-l);flex:none}
+.why-chk{margin-left:auto;width:24px;height:24px;border-radius:50%;background:#E4F3E9;color:#177a3d;display:grid;place-items:center;font-size:14px}
+.why-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.02rem;font-weight:700;color:var(--deep);line-height:1.2}
+.why-card p{font-size:13px;color:var(--ink-soft);line-height:1.5}
+.why-card a.ev{margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;color:#8a5a12;text-decoration:none;display:inline-flex;gap:.3rem;align-items:center;min-height:28px}
+.why-card a.ev:hover{text-decoration:underline}
+/* opportunities */
+.opp-wrap{display:flex;flex-wrap:wrap;gap:.65rem}
+.opp-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1.5px solid rgba(245,208,107,.55);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:99px;text-decoration:none;min-height:44px;transition:all .2s}
+.opp-tag:hover{background:var(--gold);border-color:var(--gold);color:#1b1405;transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.3)}
+.opp-tag .ic{color:var(--gold-l)}.opp-tag:hover .ic{color:#1b1405}
+.opp-foot{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem;align-items:center}
+.opp-foot .note{font-size:13px;color:#c4dccd}
+/* featured */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.feat-card{background:#fff;border:1px solid var(--rd-line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(14,59,42,.08);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s}
+.feat-card:hover{transform:translateY(-8px);box-shadow:0 22px 48px rgba(14,59,42,.22);border-color:var(--gold)}
+.feat-img{position:relative;height:190px;background:var(--navy-d);overflow:hidden}
+.feat-img img{width:100%;height:100%;object-fit:contain;transition:transform .6s ease}
+.feat-card:hover .feat-img img,.project-card:hover .pc-img img{transform:scale(1.07)}
+.feat-img .st{position:absolute;left:12px;top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:4px 10px;border-radius:99px;background:rgba(11,26,46,.88);color:var(--gold-l);border:1px solid rgba(212,169,74,.5);text-transform:uppercase}
+.feat-body{padding:1.15rem 1.2rem 1.2rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.feat-body h3{font-family:'Space Grotesk',sans-serif;font-size:1.12rem;line-height:1.2;color:var(--deep);font-weight:700}
+.feat-body p.sum{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+.impact-chip{display:inline-flex;align-items:center;gap:.45rem;align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--deep),var(--deep2));padding:6px 12px;border-radius:8px}
+.impact-chip .ic{color:var(--gold-l)}
+.feat-links,.badge-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:auto;padding-top:.4rem}
+.fl{display:inline-flex;align-items:center;gap:.35rem;font-size:12.5px;font-weight:700;text-decoration:none;border-radius:8px;padding:7px 11px;min-height:34px;border:1.5px solid var(--deep2);color:var(--deep2);background:#fff;transition:all .18s}
+.fl:hover{background:var(--deep2);color:#fff}
+.fl.pri{background:var(--deep2);color:#fff}.fl.pri:hover{background:var(--gold);border-color:var(--gold);color:#1b1405}
+.bdg{display:inline-flex;align-items:center;gap:.3rem;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:700;border-radius:99px;padding:3px 9px;text-decoration:none;border:1px solid;line-height:1.5}
+.bdg.doi{background:#FFF6DD;color:#7a5200;border-color:#E3C26B}
+.bdg.gh{background:#EEF1F6;color:#1f2d46;border-color:#c9d2e3}
+.bdg.pub{background:#E8F3EC;color:#14532D;border-color:#aed3bb}
+.bdg.ds{background:#EAF0FB;color:#1c4a8a;border-color:#b6cbee}
+.bdg.rev{background:#FDEEE6;color:#9a4311;border-color:#f0c2a4}
+.bdg.pre{background:#F1EAF8;color:#5a3d86;border-color:#d4c3ea}
+.bdg.pos{background:#fff;color:var(--deep);border-color:var(--gold)}
+@media(max-width:1100px){.dash-grid,.why-grid{grid-template-columns:repeat(2,1fr)}.feat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.rd-sec{padding:2rem 1.2rem}}
+@media(max-width:640px){.dash-grid{gap:.7rem}.dash-card{padding:.9rem;min-height:120px}.dash-num{font-size:1.7rem}.why-grid,.feat-grid{grid-template-columns:1fr}.btn-gold,.btn-ghost{flex:1 1 100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.dash-card,.why-card,.feat-card,.opp-tag{transition:none}}
+</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+<symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></symbol>
+<symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13L7 21l5-3 5 3-1.5-8"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 013 3v13a2 2 0 00-2-2H4z"/><path d="M20 4h-6a3 3 0 00-1 .2V20a2 2 0 012-2h5z"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></symbol>
+<symbol id="i-orbit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0z"/><path d="M8 6H4v1a4 4 0 004 4M16 6h4v1a4 4 0 01-4 4M12 13v4M8 21h8M10 17h4"/></symbol>
+<symbol id="i-net" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="12" cy="11" r="2"/><path d="M7.5 7.5l3 2.5M16.5 7.5l-3 2.5M12 13v3"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-term" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C9 4 4 9 4 16c0 2 .5 3 1 4 1-3 3-6 7-8-3 3-4 5-5 8 8 1 13-5 13-16z"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 19a2 2 0 002 3h12a2 2 0 002-3l-6-10V3"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 15c3 0 5 1.5 5 4"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12M7 11l5 5 5-5M4 21h16"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="i-gh" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.500M15 21v-3.500c0-1 .1-1.400-.5-2 2.800-.3 5.500-1.400 5.500-6a4.600 4.600 0 00-1.300-3.200 4.200 4.200 0 00-.1-3.200s-1.100-.3-3.500 1.300a12 12 0 00-6.200 0C6.500 2.800 5.400 3.100 5.400 3.100a4.200 4.200 0 00-.1 3.200A4.600 4.600 0 004 9.500c0 4.600 2.700 5.700 5.500 6-.6.600-.6 1.200-.5 2V21"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol></defs></svg>
+
 
 <nav id="mobile-nav" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:998; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-top:1px solid var(--line); padding:0.6rem 0.4rem; box-shadow:0 -4px 16px rgba(0,0,0,0.08);">
   <div style="display:flex; justify-content:space-around; align-items:center; max-width:480px; margin:0 auto;">
@@ -687,6 +789,10 @@
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('referees');}" onclick="jumpTo('referees')" style="background:linear-gradient(160deg,#EAF1FB,#D6E4F5); border: 5px solid #7EC2FF"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#7EC2FF);">📝</span><span class="quicknav-label">Referees</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('travels');}" onclick="jumpTo('travels')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #3FA867"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#3FA867);">🌍</span><span class="quicknav-label">Travels</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('gallery');}" onclick="jumpTo('gallery')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #FF7A5C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#FF7A5C);">📸</span><span class="quicknav-label">Gallery</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('dashboard');}" onclick="jumpTo('dashboard')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #14532D"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E3B2A,#4C8C6B);">📈</span><span class="quicknav-label">Impact Dashboard</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('featured');}" onclick="jumpTo('featured')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">⭐</span><span class="quicknav-label">Featured Research</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('whyhire');}" onclick="jumpTo('whyhire')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">✅</span><span class="quicknav-label">Why Hire Me?</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('opportunities');}" onclick="jumpTo('opportunities')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">🤝</span><span class="quicknav-label">Open To Opportunities</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('contact');}" onclick="jumpTo('contact')" style="background:linear-gradient(160deg,#E4EFFB,#CDE3F9); border: 5px solid #00C2A8"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#00C2A8);">✉️</span><span class="quicknav-label">Contact</span></div>
   </div>
 </section>
@@ -1987,6 +2093,41 @@
   </div>
 </section>
 
+<section id="dashboard" class="hidden-section rd-sec rd-dark" aria-labelledby="dash-h">
+  <div class="rd-head"><h2 id="dash-h">Impact at a glance</h2><p>Verified numbers from this portfolio. Tap any card to see the evidence.</p></div>
+  <div class="dash-grid">
+    <a class="dash-card" href="#education" onclick="event.preventDefault();jumpTo('education')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-grad"/></svg></span><span class="dash-num">EMJMD</span><span class="dash-lab">Erasmus Mundus Scholar</span><span class="dash-sub">EU-funded joint master's &middot; Spain, Portugal, Greece</span></a>
+    <a class="dash-card" href="#education" onclick="event.preventDefault();jumpTo('education')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-medal"/></svg></span><span class="dash-num"><span data-count="4.77" data-dec="2">4.77</span><small> /5.00</small></span><span class="dash-lab">Top 1% Graduate</span><span class="dash-sub">B.Eng. First Class &middot; CGPA</span></a>
+    <a class="dash-card" href="#publications" onclick="event.preventDefault();jumpTo('publications')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><span class="dash-num"><span data-count="11">11</span></span><span class="dash-lab">Publications</span><span class="dash-sub">5 published &middot; 3 under review &middot; 3 preprints</span></a>
+    <a class="dash-card" href="https://github.com/halilunaziru73-creator?tab=repositories" target="_blank" rel="noopener"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></span><span class="dash-num"><span data-count="15">15</span></span><span class="dash-lab">Open-source Repositories</span><span class="dash-sub">Documented &amp; reproducible</span></a>
+    <a class="dash-card" href="#projects" onclick="event.preventDefault();jumpTo('featured')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-orbit"/></svg></span><span class="dash-num"><span data-count="3">3</span></span><span class="dash-lab">Remote Sensing Projects</span><span class="dash-sub">Sentinel-2 STADOS &middot; RGB indexing &middot; GEE</span></a>
+    <a class="dash-card" href="#impact" onclick="event.preventDefault();jumpTo('impact')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></span><span class="dash-num"><span data-count="10">10</span></span><span class="dash-lab">Countries Worked In</span><span class="dash-sub">Fieldwork, study &amp; research</span></a>
+    <a class="dash-card" href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" rel="noopener"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-db"/></svg></span><span class="dash-num"><span data-count="14">14</span></span><span class="dash-lab">Dataset Releases</span><span class="dash-sub">Zenodo DOIs, permanently archived</span></a>
+    <a class="dash-card" href="#awards" onclick="event.preventDefault();jumpTo('awards')"><span class="dash-ic"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg></span><span class="dash-num"><span data-count="16">16</span></span><span class="dash-lab">Awards &amp; Honors</span><span class="dash-sub">Academic, EU and community</span></a>
+  </div>
+</section>
+
+<section id="whyhire" class="hidden-section rd-sec rd-light" aria-labelledby="why-h">
+  <div class="rd-head"><h2 id="why-h">Why Hire Me?</h2><p>Eight capabilities, each backed by released code, data or a paper.</p></div>
+  <div class="why-grid" id="why-grid"></div>
+</section>
+
+<section id="opportunities" class="hidden-section rd-sec rd-green" aria-labelledby="opp-h">
+  <div class="rd-head"><h2 id="opp-h">Open To Opportunities</h2><p>Roles where I can turn field signals into decisions. Tap a role to get in touch.</p></div>
+  <div class="opp-wrap" id="opp-wrap"></div>
+  <div class="opp-foot">
+    <a class="btn-gold" href="#contact" onclick="event.preventDefault();jumpTo('contact')"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Contact me</a>
+    <a class="btn-ghost" href="Naziru_Halilu_CV.pdf" download><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg>Download CV</a>
+    <span class="note">EMJMD completes in 2027 &middot; currently based in Athens, Greece.</span>
+  </div>
+</section>
+
+<section id="featured" class="hidden-section rd-sec rd-light" aria-labelledby="feat-h" style="scroll-margin-top:20px">
+  <div class="rd-head"><h2 id="feat-h">Featured Research</h2><p>The six strongest projects. The full list is in the Project index below.</p></div>
+  <div class="feat-grid" id="feat-grid"></div>
+  <p style="margin-top:1.3rem"><a class="fl" href="#projects" onclick="event.preventDefault();jumpTo('projects')">Open the full Project index &rarr;</a></p>
+</section>
+
 <section id="contact" class="hidden-section" style="background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-radius:8px;">
   <div class="contact-panel">
     <div>
@@ -2850,6 +2991,79 @@ function jumpTo(id) {
   })();
 </script>
 
+<script>
+(function(){
+'use strict';
+var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s,r){return (r||document).querySelector(s);} function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+function ic(n){return '<svg class="ic" aria-hidden="true"><use href="#i-'+n+'"/></svg>';}
+/* ---------- impact dashboard counters ---------- */
+(function(){
+  var els=$$('[data-count]'); if(!els.length) return;
+  function set(el,v){var d=+el.getAttribute('data-dec')||0; el.textContent=v.toFixed(d);}
+  function run(el){var to=+el.getAttribute('data-count'); if(RM){set(el,to);return;}
+    var t0=null; function f(t){if(!t0)t0=t; var k=Math.min(1,(t-t0)/1300); k=1-Math.pow(1-k,3); set(el,to*k); if(k<1)requestAnimationFrame(f);} requestAnimationFrame(f);}
+  if(!('IntersectionObserver' in window)){return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});},{threshold:.4});
+  els.forEach(function(el){io.observe(el);});
+})();
+
+/* ---------- Why hire me ---------- */
+var WHY=[
+ ['net','AI & Machine Learning','Deep and contrastive learning for agronomic imaging and sediment-transport prediction.','GACL: 64.4% vs 5.3% chance','https://github.com/halilunaziru73-creator/Geometry-Agnostic-Contrastive-Learning-GACL'],
+ ['eye','Computer Vision','Crop-disease recognition, vegetation indexing and phenotyping on UAV and handheld imagery.','Real-time RGB indexing, published','https://github.com/halilunaziru73-creator/Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery'],
+ ['term','Python Development','Modular research software with desktop GUIs, released openly with DOIs.','NaCROP: 4-step crop simulation','https://github.com/halilunaziru73-creator/NaCROP'],
+ ['orbit','Remote Sensing','Sentinel-2 radiometric harmonisation and NDVI-based forecasting.','STADOS: 39% & 31% less variance','https://github.com/halilunaziru73-creator/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction'],
+ ['map','GIS & Geospatial Analytics','Vector and raster analysis, Google Earth Engine, kriging and suitability mapping.','Brix forecast R² = 0.9784','https://github.com/halilunaziru73-creator/GIS-Monitoring-of-Vineyard-Ripening-Brix'],
+ ['leaf','Precision Agriculture','Soil and crop variability mapping, irrigation scheduling and input-cost reduction.','2.69 t lime saved','https://github.com/halilunaziru73-creator/Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems'],
+ ['flask','Scientific Programming','Reproducible simulation pipelines, open data and interactive explorers.','10,190 simulations, 10 soils','https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html'],
+ ['users','Research Leadership','Led national student bodies, tutored undergraduates and drives first-author papers.','Teaching & leadership record','#teaching']
+];
+(function(){var g=$('#why-grid'); if(!g) return;
+ g.innerHTML=WHY.map(function(w){var int=w[4].charAt(0)==='#';
+  return '<article class="why-card"><div class="why-top"><span class="why-ic">'+ic(w[0])+'</span><span class="why-chk" aria-hidden="true">'+ic('check')+'</span></div><h3>'+w[1]+'</h3><p>'+w[2]+'</p>'+
+   (int?'<a class="ev" href="'+w[4]+'" onclick="event.preventDefault();jumpTo(\''+w[4].slice(1)+'\')">'+w[3]+' &rarr;</a>':'<a class="ev" target="_blank" rel="noopener" href="'+w[4]+'">'+w[3]+' &rarr;</a>')+'</article>';}).join('');})();
+
+/* ---------- Open to opportunities ---------- */
+(function(){var w=$('#opp-wrap'); if(!w) return;
+ var R=['Research Scientist','Research Engineer','Agricultural Data Scientist','Computer Vision Engineer','Geospatial AI Engineer','Precision Agriculture Specialist','PhD Opportunities','R&D Positions'];
+ w.innerHTML=R.map(function(r){return '<a class="opp-tag" href="#contact" data-role="'+r.replace(/&/g,'&amp;')+'">'+ic('check')+r.replace(/&/g,'&amp;')+'</a>';}).join('');
+ $$('.opp-tag',w).forEach(function(a){a.addEventListener('click',function(e){e.preventDefault(); jumpTo('contact');
+  var m=$('#c-msg'); if(m && !m.value){m.value='Hello Naziru, I would like to discuss a '+a.getAttribute('data-role').replace('&amp;','&')+' opportunity.';}});});
+})();
+
+/* ---------- Featured research ---------- */
+var BASE='https://github.com/halilunaziru73-creator/';
+var FEAT=[
+ {t:'NaCROP',img:'thumbs/NaCROP.jpg',sum:'A modular Python desktop tool that turns weather and soil data into irrigation schedules and canopy-to-yield forecasts for five smallholder crops.',m:'4-step crop-growth simulation, 5 crops',repo:'NaCROP',data:'10.5281/zenodo.22741130',st:'Software',soft:BASE+'NaCROP/releases/download/v1.1.0/NaCROP.exe'},
+ {t:'Digital Twin for Gully Biocontrol',img:'thumbs2/Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp.jpg',sum:'A Bayesian-assimilated digital twin that evaluates Morning Glory biocontrol of gully erosion.',m:'47.8% less soil loss',repo:'Digital-Twin-for-the-Evaluation-of-Experimental-Gully-Biocontrol-Using-Morning-Glory-Ipomoea-spp',data:'10.5281/zenodo.21760023',paper:'10.5281/zenodo.21760023',st:'Under review'},
+ {t:'GACL: Geometry-Agnostic Contrastive Learning',img:'thumbs2/Geometry-Agnostic-Contrastive-Learning-GACL.jpg',sum:'A geometry-invariant contrastive framework that carries crop-disease recognition across imaging conditions.',m:'64.4% accuracy vs 5.3% chance, 19 classes',repo:'Geometry-Agnostic-Contrastive-Learning-GACL',data:'10.5281/zenodo.21760025',paper:'10.5281/zenodo.21760025',st:'Under review'},
+ {t:'MSRK: Multitask Singularity Regression Kriging',img:'thumbs2/Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction.jpg',sum:'Multifractal singularity indices coupled with multitask kriging for sharper soil-nutrient and yield maps.',m:'~20% lower residual kriging uncertainty',repo:'Multitask-Singularity-Regression-Kriging-for-Spatio-Temporal-Soil-NPK-Crop-Stress-Yield-Prediction',data:'10.5281/zenodo.21798402',paper:'10.5281/zenodo.21798402',st:'Preprint'},
+ {t:'STADOS: Dark Object Subtraction',img:'thumbs/STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction.jpg',sum:'A self-consistent dark-object subtraction framework that harmonises Sentinel-2 NDVI across dates.',m:'39% & 31% less temporal variance',repo:'STADOS-Spectral-Temporal-Adaptive-Dark-Object-Subtraction',data:'10.5281/zenodo.21997000',paper:'10.5281/zenodo.21997000',st:'Preprint'},
+ {t:'Coupled Water Fluxes & Pore-Scale Dynamics',img:'thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg',sum:'A soil-gated irrigation trigger law and mulch water-balance regime map from 10,190 simulations, with a live interactive explorer.',m:'10,190 simulations, 10 soils',repo:'Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops',data:'10.5281/zenodo.23043626',st:'Open data',explorer:'https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html'}
+];
+(function(){var g=$('#feat-grid'); if(!g) return;
+ g.innerHTML=FEAT.map(function(f){
+  var same=f.paper&&f.paper===f.data, L='';
+  L+='<a class="fl pri" target="_blank" rel="noopener" href="'+BASE+f.repo+'">'+ic('code')+' Repository</a>';
+  if(f.explorer) L+='<a class="fl" target="_blank" rel="noopener" href="'+f.explorer+'">'+ic('play')+' Live explorer</a>';
+  if(f.soft) L+='<a class="fl" target="_blank" rel="noopener" href="'+f.soft+'">'+ic('down')+' Software</a>';
+  L+='<a class="fl" target="_blank" rel="noopener" href="https://doi.org/'+f.data+'">'+ic('db')+' '+(same?'Paper & data':'Data')+'</a>';
+  if(f.paper&&!same) L+='<a class="fl" target="_blank" rel="noopener" href="https://doi.org/'+f.paper+'">'+ic('doc')+' Paper</a>';
+  return '<article class="feat-card"><div class="feat-img"><img src="'+f.img+'" alt="Cover figure for '+f.t.replace(/"/g,'')+'" loading="lazy"><span class="st">'+f.st+'</span></div>'+
+   '<div class="feat-body"><h3>'+f.t+'</h3><p class="sum">'+f.sum+'</p><span class="impact-chip">'+ic('chart')+f.m+'</span>'+
+   '<div class="badge-row" style="padding:0"><a class="bdg doi" target="_blank" rel="noopener" href="https://doi.org/'+f.data+'">DOI '+f.data+'</a></div>'+
+   '<div class="feat-links">'+L+'</div></div></article>';}).join('');})();
+
+/* ---------- search palette entries ---------- */
+try{ qkItems.splice(1,0,
+ {label:'Impact dashboard',key:'dashboard',icon:'📈',color:'#14532D'},
+ {label:'Why Hire Me?',key:'whyhire',icon:'✅',color:'#14532D'},
+ {label:'Open To Opportunities',key:'opportunities',icon:'🤝',color:'#D4A94A'},
+ {label:'Featured Research',key:'featured',icon:'⭐',color:'#D4A94A'},
+ {label:'Global impact map',key:'impact',icon:'🌍',color:'#3B6EA5'}); }catch(e){}
+})();
+</script>
 </body>
 <!-- cache-refresh-2026-09-20T21:59:20.562652 -->
 </html>
