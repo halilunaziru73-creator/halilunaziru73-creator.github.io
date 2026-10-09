@@ -293,6 +293,177 @@
   #projects .project-card .project-body .metric { display: table; margin-left: auto; margin-right: auto; text-align: center; }
   #projects .project-card .project-body .gh-live-stats { text-align: center; }
   #projects .project-card .project-body .project-links { justify-content: center; }
+  #skills .skill-card { border: 5px solid #2FA85A; }
+  #conferences .tag { border: 5px solid #16A0A0 !important; }
+  #memberships .tag { border: 5px solid #C2408C !important; }
+  #referees .referee-card { border: 5px solid #2E7DE8 !important; }
+  #certifications .referee-card { border-width: 5px !important; border-style: solid !important; }
+  .cert-group-honorary .referee-card { border-color: #D4A94A !important; }
+  .cert-group-training .referee-card { border-color: #3B6EA5 !important; }
+  .cert-group-recognition .referee-card { border-color: #6E5A8C !important; }
+  .cert-group-waec .referee-card { border-color: #B23A2E !important; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px;
+    border-radius: 50%; background: var(--paper); border: 2px solid var(--blue); }
+  .tl-date { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--blue); margin-bottom: 0.3rem; }
+  .tl-item h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.2rem; }
+  #experience .tl-date { font-size: 13px; font-weight: 800; color: #B8763F; }
+  #experience .tl-item h3 { font-size: 17px; color: #1F4D2E; }
+  #experience .tl-item p { font-size: 14.5px; }
+  #experience .tl-org { font-size: 13.5px; }
+  #experience .tl-item ul li { font-size: 14.5px; line-height: 1.65; }
+  #experience .tl-item ul li a { color: #0B4FA8; font-weight: 700; }
+  .tl-item .tl-org { font-size: 13px; color: var(--ink-soft); margin-bottom: 0.35rem; font-style: italic; display: flex; align-items: center; flex-wrap: nowrap; gap: 2px; }
+  .tl-item p { font-size: 13.2px; color: var(--ink-soft); font-weight: 500; }
+  .tl-item ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+  .tl-item ul li { font-size: 13.2px; color: var(--ink-soft); margin-bottom: 0.5rem; line-height: 1.5; font-weight: 500; }
+  .tl-item ul li a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .tl-item ul li a:hover { text-decoration: underline; }
+
+  /* skills */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .skill-card { border: 1px solid var(--line); border-radius: 5px; padding: 1rem 1.1rem; background: var(--paper-raised); }
+  .skill-card h4 { font-size: 12.5px; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  .skill-card p { font-size: 12.8px; color: var(--ink-soft); }
+
+  /* awards / memberships / conferences as tag lists */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag { font-size: 12.5px; border: 1px solid var(--line); border-radius: 999px; padding: 0.4rem 0.9rem;
+    background: var(--paper-raised); color: var(--ink-soft); }
+  .tag b { color: var(--ink); font-weight: 500; }
+  #awards .tag b { font-weight: 400; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+
+  .referee-card { border: 1px solid var(--line); border-radius: 5px; padding: 1rem 1.2rem; background: var(--paper-raised); }
+  .referee-card h4 { font-size: 13.5px; font-weight: 600; margin-bottom: 0.2rem; }
+  .referee-card p { font-size: 12.5px; color: var(--ink-soft); }
+  .course-group { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 0.7rem; background: white; overflow: hidden; position: relative; }
+  .course-sig-watermark { position: absolute; width: 300px; max-width: 55%; opacity: 0.95; pointer-events: none; z-index: 0; filter: contrast(1.35) saturate(1.6); }
+  .course-sig-watermark.wm-1 { top: 8%; left: 4%; transform: rotate(-14deg); }
+  .course-sig-watermark.wm-2 { top: 8%; right: 4%; left: auto; transform: rotate(12deg); }
+  .course-sig-watermark.wm-3 { bottom: 6%; left: 4%; transform: rotate(10deg); }
+  .course-sig-watermark.wm-4 { bottom: 6%; right: 4%; left: auto; transform: rotate(-11deg); }
+  .course-sig-watermark.wm-5 { top: 50%; left: 50%; width: 340px; max-width: 62%; opacity: 0.6;
+    transform: translate(-50%,-50%) rotate(0deg); }
+  .course-group > summary, .course-group > div { position: relative; z-index: 1; }
+  .doc-slant-card { padding: 0.8rem; border: 2px solid #D4A94A; border-radius: 10px; background: rgba(255,255,255,0.5); }
+  .doc-slant-img { width: 100%; border-radius: 6px; border: 1px solid var(--line); cursor: pointer;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.16); transition: transform .25s ease, box-shadow .25s ease; background: white; }
+  .doc-slant-img:hover { transform: rotate(0deg) scale(1.03) !important; box-shadow: 0 16px 32px rgba(0,0,0,0.24); }
+  .course-group summary { cursor: pointer; padding: 0.9rem 1.1rem; font-weight: 600; font-size: 13.5px;
+    list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .course-group summary::-webkit-details-marker { display: none; }
+  .course-group summary::before { content: '+'; margin-right: 0.6rem; color: var(--orange); font-weight: 700; }
+  .course-group[open] summary::before { content: '\u2212'; }
+  #cat-machinery[open] { background: #FFFFFF !important; }
+  #cat-soilwater[open] { background: #FFFFFF !important; }
+  #cat-datasci[open] { background: #FFFFFF !important; }
+  #cat-processing[open] { background: #FFFFFF !important; }
+  #cat-mechanical[open] { background: #FFFFFF !important; }
+  #cat-electrical[open] { background: #FFFFFF !important; }
+  #cat-mathstat[open] { background: #FFFFFF !important; }
+  #cat-agronomy[open] { background: #FFFFFF !important; }
+  #cat-management[open] { background: #FFFFFF !important; }
+  #cat-projects[open] { background: #FFFFFF !important; }
+  .course-group[open] .course-sig-watermark { opacity: 0.95 !important; }
+  .course-count { font-weight: 400; color: var(--ink-soft); font-size: 11px; }
+  .course-table { border: 2px solid var(--navy); border-radius: 6px; overflow: hidden; }
+  .course-row { display: grid; grid-template-columns: 90px 1fr 70px 90px 70px; gap: 0.6rem; padding: 0.55rem 1.1rem;
+    border-bottom: 1px solid var(--line); position: relative; z-index: 1; align-items: center; }
+  .course-row:last-child { border-bottom: none; }
+  .course-row-head { background: var(--navy); font-weight: 700; font-size: 10.5px; color: #FFFFFF !important; }
+  .course-row-head .course-code, .course-row-head .course-name, .course-row-head .course-credit,
+  .course-row-head .course-grade, .course-row-head .course-prog { color: #FFFFFF !important; }
+  .course-row:not(.course-row-head) { background: transparent; }
+  .course-row:not(.course-row-head):nth-of-type(even) { background: rgba(0,0,0,0.03); }
+  .course-row.emjmd-row { background: rgba(31,77,46,0.07) !important; }
+  .course-code { color: #0B3D91; font-weight: 800; }
+  .course-name { color: #000000; font-weight: 800; display: inline-flex; align-items: center; flex-wrap: nowrap; gap: 4px; }
+  .course-credit { color: #7A3E00; font-weight: 800; }
+  .course-grade { color: #0A6B2E; font-weight: 800; }
+  .course-prog { color: #8B1A1A; font-weight: 800; }
+  @media (max-width: 700px) {
+    .course-row { grid-template-columns: 70px 1fr 55px; }
+    .course-grade, .course-prog { display: none; }
+    body { line-height: 1.65; }
+    section { padding: 1.9rem 1.3rem; }
+    .hero-summary { font-size: 14.5px; line-height: 1.75; }
+    .tl-item p, #experience .tl-item p { font-size: 14px; line-height: 1.6; }
+    .tl-item ul li, #experience .tl-item ul li { font-size: 13.5px; line-height: 1.6; }
+    .skill-card p, .pub-item p { font-size: 13px; line-height: 1.55; }
+    h2 { margin-bottom: 0.6rem; }
+    .section-head { margin-bottom: 1rem; }
+  }
+
+  .contact-panel { background: var(--navy); color: #F0F1EC; border-radius: 8px; padding: 3rem 2.5rem;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; }
+  .contact-panel h2 { font-size: 1.6rem; font-weight: 600; margin-bottom: 0.9rem; max-width: 22ch; }
+  .contact-panel p { color: #c3c9d4; font-size: 14px; max-width: 42ch; }
+  .contact-field { width: 100%; padding: 10px 12px; border-radius: 5px; border: 1px solid #45516b;
+    background: #262f45; color: #F0F1EC; font-size: 13.5px; font-family: inherit; margin-bottom: 10px; }
+  .contact-field::placeholder { color: #8a93a8; }
+  textarea.contact-field { min-height: 90px; resize: vertical; }
+  .contact-btn { background: var(--blue); color: #fff; border: none; border-radius: 5px; padding: 10px 20px;
+    font-size: 13.5px; font-weight: 500; cursor: pointer; font-family: inherit; }
+  .contact-status { font-size: 12.5px; margin-top: 10px; display: none; }
+  .contact-status.ok { color: #7fd0a0; display: block; }
+  .contact-status.err { color: #e6928d; display: block; }
+
+  footer { max-width: 1400px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; display: flex;
+    justify-content: space-between; align-items: center; border-top: 1px solid var(--line); margin-top: 1rem; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 12.5px; color: var(--ink-soft); }
+  footer .foot-links { display: flex; gap: 1.4rem; }
+  footer .foot-links a { font-size: 12.5px; text-decoration: none; color: var(--ink-soft); }
+  footer .foot-links a:hover { color: var(--blue); }
+
+  @media (max-width: 860px) {
+    .gallery-grid { column-count: 2; }
+    .hero { padding-top: 2.5rem; }
+    .hero-content { max-width: 100%; padding-right: 100px; }
+    .hero-photo-wrap { top: 2rem; right: 1.2rem; }
+    .hero-photo { width: 80px; height: 80px; margin: 0; display: block; }
+    .hero h1 { font-size: 2rem; }
+    .stat-strip { flex-wrap: wrap; row-gap: 1rem; }
+    .stat { flex: 1 1 45%; }
+    .layers-shell { grid-template-columns: 1fr; }
+    .layers-list { border-right: none; border-bottom: 1px solid var(--line); display: flex; overflow-x: auto; }
+    .layer-item { border-bottom: none; border-right: 1px solid var(--line); white-space: nowrap; }
+    .contact-panel { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  .gallery-grid { column-count: 4; column-gap: 1.7rem; padding: 0.6rem 0.5rem 0; }
+  .gallery-item { break-inside: avoid; margin-bottom: 0.8rem; display: block; }
+  .gallery-thumb { width: 100%; height: auto; object-fit: contain; border-radius: 5px 5px 0 0; border: 3px solid #D4A94A;
+    border-bottom: none; cursor: pointer; transition: transform .15s, box-shadow .15s, border-color .15s; display: block; }
+  .gallery-caption { font-size: 11px; font-weight: 700; color: var(--ink); background: var(--paper-raised);
+    border: 3px solid #D4A94A; border-top: none; border-radius: 0 0 5px 5px; padding: 5px 8px; line-height: 1.3; }
+  .gallery-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-color: #F5D06B; }
+  /* ornate framed gallery: the whole figure is the frame. Moulding, bead line, cream mat, corner rosettes, year cartouche on the top rail, engraved caption plaque inside the mat. Metals cycle. */
+  :is(.gallery-grid, .lightbox) .gallery-item { --fa:#6B4E0E; --fb:#F7DC8A; --fc:#B8860B; --fd:#FFF3C4; --fe:#8A6A1A; --ink:#3F2C05; --mat:#FBF5E4; --matb:#EFE2BD;
+    position: relative; box-sizing: border-box; margin: 20px 0 18px; padding: 9px 9px 8px; display: block; background: var(--mat); border: 12px solid transparent; border-radius: 1px;
+    border-image: linear-gradient(135deg, var(--fa) 0%, var(--fb) 14%, var(--fc) 30%, var(--fd) 46%, var(--fe) 62%, var(--fb) 80%, var(--fa) 100%) 1;
+    box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 10px 20px rgba(40,25,0,0.38), inset 0 0 0 1.5px var(--fa), inset 0 0 0 4px var(--matb), inset 0 0 12px rgba(0,0,0,0.22);
+    transition: transform .18s, box-shadow .18s; }
+  :is(.gallery-grid, .lightbox) .gallery-item.fm1 { --fa:#4A4F55; --fb:#E9EDF1; --fc:#9AA3AD; --fd:#FFFFFF; --fe:#6C757D; --ink:#262B30; --mat:#F5F7F9; --matb:#DCE1E6; }
+  :is(.gallery-grid, .lightbox) .gallery-item.fm2 { --fa:#7A3F2E; --fb:#F6C4AE; --fc:#C9806A; --fd:#FFE6DA; --fe:#9A5A47; --ink:#4E2216; --mat:#FCF1EC; --matb:#EFCFC2; }
+  :is(.gallery-grid, .lightbox) .gallery-item.fm3 { --fa:#4A2E12; --fb:#D9A66B; --fc:#8C5A24; --fd:#F0CFA0; --fe:#5E3A16; --ink:#33200B; --mat:#F7EEDF; --matb:#E4CFA9; }
+  :is(.gallery-grid, .lightbox) .gallery-item:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 16px 28px rgba(40,25,0,0.45), inset 0 0 0 1.5px var(--fa), inset 0 0 0 4px var(--matb); }
+  :is(.gallery-grid, .lightbox) .gallery-thumb { width: 100%; height: auto; display: block; border: 0; border-radius: 0; padding: 0; margin: 0; background: #111; cursor: pointer;
+    box-shadow: 0 0 0 1px var(--fa), 0 0 0 3px var(--fb), 0 0 0 4px var(--fa), inset 0 0 14px rgba(0,0,0,0.35); transition: none; }
+  :is(.gallery-grid, .lightbox) .gallery-thumb:hover { transform: none; box-shadow: 0 0 0 1px var(--fa), 0 0 0 3px var(--fb), 0 0 0 4px var(--fa), inset 0 0 14px rgba(0,0,0,0.35); border: 0; }
+  :is(.gallery-grid, .lightbox) .gallery-caption { margin: 11px 3px 2px; padding: 6px 9px 7px; font: italic 600 11.4px/1.38 Georgia, 'Times New Roman', serif; color: var(--ink); text-align: center; letter-spacing: 0.15px;
+    background: linear-gradient(180deg, var(--fd) 0%, var(--fb) 55%, var(--fc) 140%); border: 1px solid var(--fa); border-radius: 3px; text-shadow: 0 1px 0 rgba(255,255,255,0.65);
+    box-shadow: inset 0 0 0 2px var(--mat), inset 0 0 0 3px var(--fe), 0 1px 2px rgba(0,0,0,0.25); }
+  :is(.gallery-grid, .lightbox) .g-year { position: absolute; top: -21px; left: 50%; transform: translateX(-50%); z-index: 2; padding: 2px 15px 3px; font: 800 11.5px/1.2 Georgia, serif; letter-spacing: 1.4px; color: var(--ink); white-space: nowrap;
+    background: linear-gradient(180deg, var(--fd), var(--fb) 60%, var(--fc)); border: 1px solid var(--fa); border-radius: 9px; text-shadow: 0 1px 0 rgba(255,255,255,0.7); box-shadow: 0 0 0 2px var(--mat), 0 0 0 3px var(--fe), 0 2px 4px rgba(0,0,0,0.35); }
+  :is(.gallery-grid, .lightbox) .g-corner { position: absolute; width: 17px; height: 17px; border-radius: 50%; z-index: 2; pointer-events: none;
+    background: radial-gradient(circle at 35% 30%, var(--fd) 0 18%, var(--fb) 19% 42%, var(--fc) 43% 68%, var(--fa) 69% 100%); box-shadow: 0 0 0 1.5px var(--fa), 0 1px 3px rgba(0,0,0,0.4); }
+  :is(.gallery-grid, .lightbox) .g-corner.tl { top: -15px; left: -15px; } :is(.gallery-grid, .lightbox) .g-corner.tr { top: -15px; right: -15px; }
+  :is(.gallery-grid, .lightbox) .g-corner.bl { bottom: -15px; left: -15px; } :is(.gallery-grid, .lightbox) .g-corner.br { bottom: -15px; right: -15px; }
   .live-chip { font-family: inherit; font-size: 0.64rem; font-weight: 800; line-height: 1; padding: 0.3rem 0.55rem; border-radius: 12px; border: 1.5px solid #D4A94A; background: rgba(13,17,23,0.88); color: #F5D06B; cursor: pointer; }
   .live-chip.on { background: #D4A94A; color: #1A1400; }
   .project-grid .project-card { display: flex; flex-direction: column; }
@@ -326,6 +497,20 @@
   .lightbox .lbframe.cframe img.cimg { height: 62vh !important; width: min(76vw, 90vh) !important; max-height: none; max-width: none; object-fit: contain; }
   .lightbox .lbframe.gallery-item .gallery-caption { font-size: 14px; }
   .lightbox .lbframe .cplate { font-size: 12.5px; }
+  /* travels: ornate framed map and itinerary strip */
+  #travels .tframe { --fa:#6B4E0E; --fb:#F7DC8A; --fc:#B8860B; --fd:#FFF3C4; --fe:#8A6A1A; --ink:#3F2C05; --mat:#FBF5E4; --matb:#EFE2BD;
+    position: relative; box-sizing: border-box; margin: 26px 6px 22px; padding: 9px; background: var(--mat); border: 13px solid transparent; border-radius: 1px;
+    border-image: linear-gradient(135deg, var(--fa) 0%, var(--fb) 12%, var(--fc) 26%, var(--fd) 40%, var(--fe) 54%, var(--fb) 70%, var(--fc) 84%, var(--fa) 100%) 1;
+    box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 12px 24px rgba(40,25,0,0.38), inset 0 0 0 1.5px var(--fa), inset 0 0 0 4px var(--matb), inset 0 0 12px rgba(0,0,0,0.2); }
+  #travels .tframe.silver { --fa:#4A4F55; --fb:#E9EDF1; --fc:#9AA3AD; --fd:#FFFFFF; --fe:#6C757D; --ink:#262B30; --mat:#F5F7F9; --matb:#DCE1E6; }
+  #travels .tframe #tour-map-wrap, #travels #tour-map-wrap > div { box-shadow: 0 0 0 1px var(--fa), 0 0 0 3px var(--fb), 0 0 0 4px var(--fa); }
+  #travels .tframe .g-corner { position: absolute; width: 19px; height: 19px; border-radius: 50%; z-index: 7; pointer-events: none;
+    background: radial-gradient(circle at 35% 30%, var(--fd) 0 18%, var(--fb) 19% 42%, var(--fc) 43% 68%, var(--fa) 69% 100%); box-shadow: 0 0 0 1.5px var(--fa), 0 1px 3px rgba(0,0,0,0.4); }
+  #travels .tframe .g-corner.tl { top: -17px; left: -17px; } #travels .tframe .g-corner.tr { top: -17px; right: -17px; }
+  #travels .tframe .g-corner.bl { bottom: -17px; left: -17px; } #travels .tframe .g-corner.br { bottom: -17px; right: -17px; }
+  #travels .tframe .g-year { position: absolute; top: -24px; left: 50%; transform: translateX(-50%); z-index: 8; padding: 3px 18px 4px; font: 800 12px/1.2 Georgia, serif; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink); white-space: nowrap;
+    background: linear-gradient(180deg, var(--fd), var(--fb) 60%, var(--fc)); border: 1px solid var(--fa); border-radius: 10px; text-shadow: 0 1px 0 rgba(255,255,255,0.7); box-shadow: 0 0 0 2px var(--mat), 0 0 0 3px var(--fe), 0 2px 4px rgba(0,0,0,0.35); }
+  #travels .tframe #tour-strip-wrap { margin-top: 0 !important; border-radius: 0 !important; background: #fff !important; box-shadow: inset 0 0 0 1px var(--fa), inset 0 0 0 3px var(--fb), inset 0 0 0 4px var(--fa); }
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,20,18,0.92); z-index: 100;
     align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
   .lightbox.open { display: flex; }
@@ -1759,9 +1944,7 @@
   </div>
   <p style="font-size:13.5px; color:var(--ink-soft); margin-bottom:1.4rem; max-width:70ch;">From Zaria, Nigeria, through Spain (Pamplona, Madrid, Barcelona), Portugal, Greece, Qatar, Morocco, Ethiopia, France, Italy, and Germany, over the course of research travel, conferences, and the Erasmus Mundus programme.</p>
 
-  <div id="tour-map-wrap" style="position:relative; width:100%; border-radius:14px; overflow:hidden; padding: 6px;
-    background: linear-gradient(120deg, #D4A94A, #E35C4C, #8E5AC7, #3B6EA5, #2FA85A, #D4A94A); background-size: 300% 300%;
-    animation: tourMapBorderShift 8s ease infinite; box-shadow: 0 10px 28px rgba(0,0,0,0.2);">
+  <div id="tour-map-wrap" class="tframe" style="position:relative; width:100%;">
     <div style="position:relative; width:100%; border-radius:10px; overflow:hidden; background:#F2E8D0;">
       <img src="tour_map_bg.jpg" alt="Illustrated tour map of 10 countries visited" style="width:100%; height:auto; display:block;">
       <div id="tour-marker" style="position:absolute; font-size:22px; transform:translate(-50%,-50%); transition: left 1.4s ease-in-out, top 1.4s ease-in-out; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4)); z-index:5;">&#9992;&#65039;</div>
@@ -3114,6 +3297,15 @@ function liveSwitch(btn, sc, vy) {
   w.querySelectorAll('.live-chip').forEach(function (c) { c.classList.toggle('on', c === btn); });
   w.querySelector('iframe').src = w.dataset.base + '?embed=' + sc + '&vy=' + vy;
 }
+
+/* travels: ornate frames around the map and the itinerary strip */
+document.addEventListener('DOMContentLoaded', function () {
+  const deco = (fr, label) => { ['tl', 'tr', 'bl', 'br'].forEach(c => { const d = document.createElement('span'); d.className = 'g-corner ' + c; fr.appendChild(d); });
+    const y = document.createElement('span'); y.className = 'g-year'; y.textContent = label; fr.appendChild(y); };
+  const map = document.getElementById('tour-map-wrap'); if (map) deco(map, 'Zaria \u2192 Athens \u00b7 10 countries');
+  const sw = document.getElementById('tour-strip-wrap');
+  if (sw) { const f = document.createElement('div'); f.className = 'tframe silver'; sw.parentNode.insertBefore(f, sw); f.appendChild(sw); deco(f, 'Itinerary'); }
+});
 </script>
 </body>
 <!-- cache-refresh-2026-09-20T21:59:20.562652 -->
