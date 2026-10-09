@@ -3114,6 +3114,10 @@ try{ qkItems.splice(1,0,
  {label:'Why Hire Me?',key:'whyhire',icon:'✅',color:'#14532D'},
  {label:'Open To Opportunities',key:'opportunities',icon:'🤝',color:'#D4A94A'}); }catch(e){}
 })();
+
+/* jewel-tone border per publication */
+(function(){var J=['#0F52BA','#0B7A4B','#9B111E','#7B3FA0','#D99A00','#1B9AAA','#7A1F2B','#6F9C1F','#3B3F9E','#C26A0A','#00A86B','#B8336A'];
+document.querySelectorAll('#publications .pub-item').forEach(function(e,i){e.style.borderColor=J[i%J.length];});})();
 </script>
 </body>
 <!-- cache-refresh-2026-09-20T21:59:20.562652 -->
