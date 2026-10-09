@@ -397,6 +397,16 @@
   .gallery-caption { font-size: 11px; font-weight: 700; color: var(--ink); background: var(--paper-raised);
     border: 3px solid #D4A94A; border-top: none; border-radius: 0 0 5px 5px; padding: 5px 8px; line-height: 1.3; }
   .gallery-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-color: #F5D06B; }
+  /* ornate framed gallery: gilded moulding, inner bead line, cream mat, drop shadow; metals cycle */
+  .gallery-grid .gallery-thumb { --fa:#6B4E0E; --fb:#F7DC8A; --fc:#B8860B; --fd:#FFF3C4; --fe:#8A6A1A;
+    box-sizing: border-box; border-radius: 2px; padding: 7px; background: #FBF5E4; border: 11px solid transparent;
+    border-image: linear-gradient(135deg, var(--fa) 0%, var(--fb) 14%, var(--fc) 30%, var(--fd) 46%, var(--fe) 62%, var(--fb) 80%, var(--fa) 100%) 1;
+    box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 9px 18px rgba(40,25,0,0.38), inset 0 0 0 1.5px var(--fa), inset 0 0 8px rgba(0,0,0,0.25);
+    margin: 7px 0 15px; }
+  .gallery-grid .gallery-thumb.fm1 { --fa:#4A4F55; --fb:#E9EDF1; --fc:#9AA3AD; --fd:#FFFFFF; --fe:#6C757D; }
+  .gallery-grid .gallery-thumb.fm2 { --fa:#7A3F2E; --fb:#F6C4AE; --fc:#C9806A; --fd:#FFE6DA; --fe:#9A5A47; }
+  .gallery-grid .gallery-thumb.fm3 { --fa:#4A2E12; --fb:#D9A66B; --fc:#8C5A24; --fd:#F0CFA0; --fe:#5E3A16; }
+  .gallery-grid .gallery-thumb:hover { transform: scale(1.03) rotate(-0.4deg); box-shadow: 0 0 0 1.5px var(--fa), 0 0 0 4px var(--fb), 0 0 0 5.5px var(--fa), 0 14px 26px rgba(40,25,0,0.45), inset 0 0 0 1.5px var(--fa); border-color: transparent; }
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,20,18,0.92); z-index: 100;
     align-items: center; justify-content: center; padding: 2rem; cursor: zoom-out; }
   .lightbox.open { display: flex; }
@@ -3122,6 +3132,9 @@ document.querySelectorAll('#publications .pub-item').forEach(function(e,i){e.sty
 /* jewel-tone border per skill */
 (function(){var J=['#0F52BA','#0B7A4B','#9B111E','#7B3FA0','#D99A00','#1B9AAA','#7A1F2B','#6F9C1F','#3B3F9E','#C26A0A','#00A86B','#B8336A'];
 document.querySelectorAll('#skills .skill-card').forEach(function(e,i){e.style.setProperty('border-color',J[i%J.length],'important');});})();
+
+/* metal finish cycle for gallery frames: gold, silver, rose gold, bronze */
+(function(){document.querySelectorAll('#gallery .gallery-thumb').forEach(function(e,i){var m=i%4;if(m)e.classList.add('fm'+m);});})();
 </script>
 </body>
 <!-- cache-refresh-2026-09-20T21:59:20.562652 -->
