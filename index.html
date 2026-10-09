@@ -2436,8 +2436,7 @@ function renderProjects() {
             '<button type="button" class="live-chip on" onclick="liveSwitch(this,\'n1\',60)">Irrigation rule</button>' +
             '<button type="button" class="live-chip" onclick="liveSwitch(this,\'e1\',40)">Evaporation</button>' +
           '</div>' +
-          '<a href="' + p.iframeThumb + '#scene=n1" target="_blank" style="position:absolute; top:6px; right:6px; background:#D4A94A; color:#1A1400; font-size:0.64rem; font-weight:800; padding:0.3rem 0.6rem; border-radius:12px; text-decoration:none; box-shadow:0 2px 6px rgba(0,0,0,0.4);">View full DSS &#8599;</a>' +
-          '<div class="live-hint" style="position:absolute; left:6px; bottom:6px; background:rgba(13,17,23,0.9); color:#F5D06B; font-size:0.7rem; font-weight:800; padding:0.28rem 0.65rem; border-radius:12px; border:1.5px solid #D4A94A; pointer-events:none; animation: livePulse 1.8s infinite;">&#128070; Try it: drag, click, explore</div>' +
+          '<a class="live-hint" href="' + p.iframeThumb + '#scene=n1" target="_blank" style="position:absolute; left:6px; right:6px; bottom:6px; text-align:center; background:#D4A94A; color:#1A1400; font-size:0.86rem; font-weight:900; letter-spacing:0.2px; padding:0.4rem 0.7rem; border-radius:12px; border:2px solid #1A1400; text-decoration:none; box-shadow:0 3px 10px rgba(0,0,0,0.5); animation: livePulse 1.8s infinite;">CLICK TO VIEW THE FULL DSS &#8599;</a>' +
         '</div>' :
       p.iframeThumb ?
         '<div class="project-thumb-wrap" onclick="window.open(\'' + p.iframeThumb + '\', \'_blank\')" title="Click to open the full interactive widget" style="position:relative; cursor:pointer; border-top: 4px solid ' + cardColor + ';">' +
@@ -3169,8 +3168,6 @@ document.querySelectorAll('#skills .skill-card').forEach(function(e,i){e.style.s
 
 
 
-/* hide the live-embed hint once the visitor clicks into the widget */
-window.addEventListener('blur',function(){setTimeout(function(){var a=document.activeElement;if(a&&a.classList&&a.classList.contains('live-embed')){var h=a.parentNode.querySelector('.live-hint');if(h)h.style.display='none';}},0);});
 
 function liveSwitch(btn, sc, vy) {
   var w = btn.closest('.live-embed-wrap'); if (!w) return;
