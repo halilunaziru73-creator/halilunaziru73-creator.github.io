@@ -816,6 +816,14 @@ document.addEventListener('click',function(e){var s=e.target.closest&&e.target.c
 #education .tl-item a,#education .tl-item a.mono{font-family:'Playfair Display',Georgia,serif!important;font-weight:800!important;font-size:1.08rem!important;color:#08307a!important;-webkit-text-fill-color:#08307a!important;text-shadow:none!important}
 #education .tl-item span.mono{color:#5a3b00!important;font-size:1rem!important}
 </style>
+<style id="herorole">
+.hero-name-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hero-role{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:2.15rem;line-height:1.15;letter-spacing:-.01em;margin:0 0 1.2rem;color:var(--navy,#13294B);display:flex;flex-wrap:wrap;align-items:center;gap:.2rem .9rem}
+.hero-role span:first-child{background:linear-gradient(90deg,#13294B,#1f4d2e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-role span:last-child{color:#1f4d2e}
+.hero-role i{width:11px;height:11px;transform:rotate(45deg);border-radius:2px;flex:none;background:linear-gradient(135deg,#fff3c4,#e4bd58 45%,#8f6510);box-shadow:0 0 0 1.5px #5a3d05,0 0 8px rgba(233,195,106,.8)}
+@media(max-width:860px){.hero-role{font-size:1.45rem}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -907,8 +915,8 @@ document.addEventListener('click',function(e){var s=e.target.closest&&e.target.c
   </script>
   <div class="hero-content hero-fade-in">
     <p class="hero-coord mono">&#128205; ATHENS, GREECE</p>
-    <h1 class="hero-name-gradient">Naziru HALILU</h1>
-    <p style="font-size:13.5px; color:var(--ink-soft); font-weight:600; margin-top:-0.9rem; margin-bottom:1.1rem;">EMJMD SUSTAGRI Research Scholar &nbsp;|&nbsp; Agricultural Engineer</p>
+    <h1 class="hero-name-gradient hero-name-sr">Naziru HALILU</h1>
+    <p class="hero-role"><span>EMJMD SUSTAGRI Research Scholar</span><i></i><span>Agricultural Engineer</span></p>
     <p class="hero-summary">Agricultural engineer with expertise across digital agriculture (computer vision, geospatial machine learning, and precision farming), specialized in building phenotyping, crop-stress, erosion, and predictive biophysical modeling systems that turn raw field signals into decisions before problems become visible.</p>
 
     <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.3rem;">
