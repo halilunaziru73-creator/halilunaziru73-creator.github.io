@@ -661,6 +661,31 @@
  .hero-content{padding-right:0!important}
 }
 </style>
+<style id="goldframe">
+.gf-wrap{width:236px}
+.gf{position:relative;width:200px;height:200px;margin:0 auto;border-radius:50%;padding:11px;
+  background:conic-gradient(from 200deg,#6f4f0c,#f8e29b,#d4a94a,#fff4c2,#b8860b,#f3d77f,#7d5a10,#ecca6b,#fff0b0,#a97a12,#6f4f0c);
+  box-shadow:0 0 0 1px #3d2a04,0 0 0 3px #f1d27c,0 0 0 4px #7a5710,0 16px 34px rgba(120,84,10,.5),0 0 46px rgba(226,178,60,.55)}
+.gf::before{content:"";position:absolute;inset:-9px;border-radius:50%;z-index:-1;background:radial-gradient(circle,rgba(246,208,107,.55),rgba(246,208,107,0) 68%);animation:gfPulse 3.6s ease-in-out infinite}
+.gf-beads{position:absolute;inset:2px;border-radius:50%;background:repeating-conic-gradient(rgba(255,248,214,.95) 0 2.4deg,transparent 2.4deg 7.5deg);-webkit-mask:radial-gradient(farthest-side,transparent 92%,#000 93%,#000 100%);mask:radial-gradient(farthest-side,transparent 92%,#000 93%,#000 100%);opacity:.85}
+.gf-in{position:relative;width:100%;height:100%;border-radius:50%;padding:5px;background:linear-gradient(145deg,#2d1f06,#0c0801);box-shadow:inset 0 0 0 2px #e6c25f,inset 0 3px 10px rgba(0,0,0,.7),0 0 0 2px #7a5710}
+.gf .hero-photo{display:block;width:100%!important;height:100%!important;border-radius:50%!important;object-fit:cover;border:2px solid #f6de9a!important;mix-blend-mode:normal!important;-webkit-mask-image:none!important;mask-image:none!important;filter:brightness(1.05) contrast(1.04) saturate(1.05);box-shadow:none!important;margin:0!important}
+.gf-shine{position:absolute;inset:0;border-radius:50%;pointer-events:none;background:conic-gradient(from 0deg,transparent 0 78%,rgba(255,255,255,.9) 88%,transparent 96%);-webkit-mask:radial-gradient(farthest-side,transparent 88%,#000 89%);mask:radial-gradient(farthest-side,transparent 88%,#000 89%);animation:gfSpin 6s linear infinite}
+.gf-gem{position:absolute;left:50%;bottom:-10px;width:20px;height:20px;margin-left:-10px;transform:rotate(45deg);border-radius:3px;z-index:3;background:linear-gradient(135deg,#fff7d1,#e0b64e 45%,#8f6510);box-shadow:0 0 0 1.5px #4a3508,0 3px 8px rgba(0,0,0,.4),inset 0 0 6px rgba(255,255,255,.6)}
+.gf-plate{position:relative;margin-top:-6px;padding:22px 12px 11px;border-radius:12px;text-align:center;color:#2a1b05;overflow:hidden;
+  background:linear-gradient(180deg,#fbeaa9 0%,#e4bd58 38%,#c79a2e 62%,#a67914 100%);
+  border:1px solid #6b4a07;box-shadow:0 10px 24px rgba(100,70,5,.45),inset 0 1px 0 #fff6c9,inset 0 0 0 2px rgba(255,255,255,.22),inset 0 -2px 0 rgba(90,60,5,.35)}
+.gf-plate::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:gfSweep 5.5s ease-in-out infinite}
+.gf-name{display:block;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:19px;letter-spacing:.05em;line-height:1.1;text-transform:uppercase;text-shadow:0 1px 0 rgba(255,246,201,.8),0 -1px 0 rgba(90,60,5,.25)}
+.gf-rule{display:block;height:2px;margin:7px auto 6px;width:70%;border-radius:2px;background:linear-gradient(90deg,transparent,#5a3d05,transparent)}
+.gf-deg{display:block;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:10.2px;line-height:1.38;letter-spacing:.01em;margin-top:2px;text-shadow:0 1px 0 rgba(255,246,201,.65)}
+@keyframes gfSpin{to{transform:rotate(360deg)}}
+@keyframes gfSweep{0%,55%{left:-60%}100%{left:130%}}
+@keyframes gfPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+@media(min-width:861px){.hero-content{max-width:calc(100% - 270px)}.hero-photo-wrap{top:1.6rem;right:2rem}}
+@media(max-width:860px){.gf-wrap{width:min(270px,86vw);margin-top:2.4rem!important}.gf{width:158px;height:158px;padding:9px}.gf-name{font-size:17px}.gf-deg{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.gf-shine,.gf-plate::after,.gf::before{animation:none}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -769,9 +794,19 @@
       <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" class="hero-link-btn">Zenodo records &rarr;</a>
     </div>
   </div>
-  <div class="hero-photo-wrap hero-fade-in">
-    <div class="hero-photo-glow">
-      <img class="hero-photo" src="avatar-v3.jpg" alt="Naziru Halilu">
+  <div class="hero-photo-wrap hero-fade-in gf-wrap">
+    <div class="gf" aria-hidden="false">
+      <span class="gf-beads"></span>
+      <div class="gf-in"><img class="hero-photo" src="avatar-v3.jpg" alt="Naziru Halilu"></div>
+      <span class="gf-shine"></span>
+      <span class="gf-gem"></span>
+    </div>
+    <div class="gf-plate">
+      <b class="gf-name">Naziru HALILU</b>
+      <span class="gf-rule"></span>
+      <span class="gf-deg">N.D (Agric. Eng. Tech)</span>
+      <span class="gf-deg">B.Eng (Agric. &amp; Bioresources)</span>
+      <span class="gf-deg">EMJMD (Cutting-Edge Technologies for Sustainable Agriculture)</span>
     </div>
   </div>
   <a href="#quicknav" class="scroll-cue" aria-label="Scroll down">
