@@ -695,6 +695,26 @@
 .quicknav-tile:hover{box-shadow:0 0 0 1px #4a2f0a,0 14px 28px rgba(150,100,20,.55),0 0 18px rgba(233,195,106,.55)!important}
 .quicknav-tile:focus-visible{outline:3px solid #F6DE9A;outline-offset:3px}
 </style>
+<style id="diamondgroups">
+#courses .course-group{border:1.5px solid #C9A03E;border-radius:10px;box-shadow:0 2px 8px rgba(120,84,10,.18);transition:box-shadow .3s}
+#courses .course-group[open]{box-shadow:0 0 0 1px #8a6414,0 8px 24px rgba(184,134,11,.4),0 0 22px rgba(246,222,154,.55)}
+#courses .course-group>summary{position:relative;overflow:hidden;color:#2a1b05;
+  background:linear-gradient(135deg,rgba(255,255,255,.55) 0 25%,transparent 25% 50%,rgba(255,255,255,.35) 50% 75%,transparent 75%) 0 0/26px 26px,linear-gradient(100deg,#fbeaa9,#eec95f 40%,#d9a93f 70%,#f6de9a)}
+#courses .course-group[open]>summary{border-bottom:1.5px solid #9a6f12;background:linear-gradient(135deg,rgba(255,255,255,.6) 0 25%,transparent 25% 50%,rgba(255,255,255,.4) 50% 75%,transparent 75%) 0 0/26px 26px,linear-gradient(100deg,#fff3c0,#f3d06c 40%,#e0b24a 70%,#fbe7a0)}
+#courses .course-group>summary::before{content:""!important;flex:none;width:15px;height:15px;margin-right:.8rem!important;transform:rotate(45deg);border-radius:2px;
+  background:linear-gradient(135deg,#fffbe0 0%,#f0cf6a 35%,#b8860b 70%,#fbe7a0 100%);box-shadow:0 0 0 1.5px #5a3d05,0 0 8px rgba(255,228,140,.9),inset 0 0 4px rgba(255,255,255,.9);transition:transform .45s,box-shadow .3s}
+#courses .course-group[open]>summary::before{content:""!important;transform:rotate(225deg) scale(1.25);box-shadow:0 0 0 1.5px #5a3d05,0 0 14px rgba(255,214,90,1),inset 0 0 5px #fff}
+#courses .course-group>summary::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-20deg);pointer-events:none;opacity:0}
+#courses .course-group>summary.dz-pop::after{opacity:1;animation:dzSweep .8s ease-out}
+#courses .course-group>summary.dz-pop::before{animation:dzBurst .8s ease-out}
+#courses .course-group>summary .course-count{color:#5a3d05;font-weight:600}
+@keyframes dzSweep{from{left:-40%}to{left:120%}}
+@keyframes dzBurst{0%{box-shadow:0 0 0 1.5px #5a3d05,0 0 0 0 rgba(255,220,110,.9)}100%{box-shadow:0 0 0 1.5px #5a3d05,0 0 0 18px rgba(255,220,110,0)}}
+@media(prefers-reduced-motion:reduce){#courses .course-group>summary.dz-pop::after,#courses .course-group>summary.dz-pop::before{animation:none}}
+</style>
+<script>
+document.addEventListener('click',function(e){var s=e.target.closest&&e.target.closest('#courses .course-group>summary');if(!s)return;s.classList.remove('dz-pop');void s.offsetWidth;s.classList.add('dz-pop');setTimeout(function(){s.classList.remove('dz-pop')},900)});
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
