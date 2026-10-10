@@ -867,6 +867,34 @@ body{padding-left:22px!important;padding-right:22px!important;padding-top:6px}
 .quicknav-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))!important}
 @media(max-width:640px){body{padding-left:12px!important;padding-right:12px!important}}
 </style>
+<style id="herov2">
+.hero{display:grid!important;grid-template-columns:minmax(0,41rem) minmax(300px,380px);justify-content:center;align-items:center;column-gap:clamp(2rem,7vw,7rem);padding:4.5rem clamp(1.5rem,4vw,3rem) 4.2rem!important}
+.hero-content{max-width:none!important;padding:0!important}
+.hero-eyebrow{display:inline-block;margin:0 0 .9rem;padding:.4rem .95rem;border-radius:999px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;color:#14532D;background:rgba(20,83,45,.1);border:1px solid rgba(20,83,45,.35)}
+.hero-h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,5.2vw,4.1rem);line-height:1.04;letter-spacing:-.025em;margin:0 0 1.4rem;color:#0E2A47}
+.hero-summary{max-width:36rem;font-size:1.06rem!important;line-height:1.7;text-align:left!important;margin:0 0 .8rem!important;color:#34413a}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.5rem}
+.hero-name-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hero-card{position:relative;z-index:2;padding:2rem 1.8rem 1.6rem;border-radius:24px;text-align:center;
+  background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 18px 44px rgba(20,60,40,.16),0 2px 6px rgba(20,60,40,.08),inset 0 1px 0 #fff}
+.hero-card::before{content:"";position:absolute;left:28%;right:28%;top:0;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,transparent,#C9A03E,transparent)}
+.hero-card-photo{display:block;width:150px;height:150px;margin:0 auto 1.1rem;border-radius:50%;object-fit:cover;background:#fff;border:3px solid #fff;box-shadow:0 0 0 2px #C9A03E,0 10px 24px rgba(20,60,40,.22)}
+.hero-card-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.55rem;letter-spacing:-.01em;margin:0 0 .6rem;color:#0E2A47}
+.hero-card-deg{list-style:none;margin:0 0 1.3rem;padding:0;font-size:.92rem;line-height:1.45;color:#3b4a43}
+.hero-card-deg li{padding:.4rem .3rem;border-top:1px solid rgba(20,83,45,.14)}
+.hero-card-deg li:first-child{border-top:0}
+.hero-card-links{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;padding-top:1.1rem;border-top:1px solid rgba(20,83,45,.18)}
+.hc-link{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.65rem .3rem;border-radius:12px;text-decoration:none;font-weight:700;font-size:.82rem;color:#14532D;background:rgba(20,83,45,.08);border:1px solid rgba(20,83,45,.22);transition:background .18s,color .18s,transform .18s,box-shadow .18s}
+.hc-link svg{width:22px;height:22px}
+.hc-link:hover,.hc-link:focus-visible{background:#14532D;color:#fff;transform:translateY(-2px);box-shadow:0 8px 16px rgba(20,83,45,.3);outline:none}
+@media(max-width:860px){.hero{display:flex!important;flex-direction:column;padding:3.6rem 1.2rem 3.5rem!important}.hero-card{order:-1;width:min(380px,100%);margin:0 auto 1.6rem}.hero-h1{font-size:2.3rem}.hero-summary{font-size:1rem!important}}
+</style>
+<style id="herov2b">
+.hero .hero-eyebrow{font-family:'Space Grotesk',sans-serif!important;color:#14532D!important;font-size:.88rem!important;margin:0 0 1rem!important}
+.hero .hero-h1{margin:0 0 1.5rem!important;color:#0E2A47!important;font-size:clamp(2.6rem,5.2vw,4.1rem)!important;line-height:1.05!important}
+.hero .hero-coord{margin-bottom:1rem!important}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -958,38 +986,31 @@ body{padding-left:22px!important;padding-right:22px!important;padding-top:6px}
   </script>
   <div class="hero-content hero-fade-in">
     <p class="hero-coord mono">&#128205; ATHENS, GREECE</p>
-    <h1 class="hero-name-gradient hero-name-sr">Naziru HALILU</h1>
-    <p class="hero-role"><span>EMJMD SUSTAGRI Research Scholar</span><i></i><span>Agricultural Engineer</span></p>
-    <p class="hero-summary">Agricultural engineer with expertise across digital agriculture (computer vision, geospatial machine learning, and precision farming), specialized in building phenotyping, crop-stress, erosion, and predictive biophysical modeling systems that turn raw field signals into decisions before problems become visible.</p>
-
-    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.3rem;">
+    <p class="hero-eyebrow">EMJMD SUSTAGRI Research Scholar</p>
+    <h1 class="hero-h1"><span class="hero-name-sr">Naziru HALILU, </span>Agricultural Engineer</h1>
+    <p class="hero-summary">I work across digital agriculture: computer vision, geospatial machine learning and precision farming.</p>
+    <p class="hero-summary">I build phenotyping, crop-stress, erosion and predictive biophysical models that turn raw field signals into decisions before problems become visible.</p>
+    <div class="hero-tags">
       <span class="tag">Digital Agriculture</span>
       <span class="tag">Smart Irrigation &amp; Agro-Hydrology</span>
       <span class="tag">Plant Phenotyping &amp; Crop Stress</span>
       <span class="tag">Agricultural Robotics</span>
     </div>
-
-    <div class="hero-links-row" style="margin-top:0.5rem;">
-      <a href="https://github.com/halilunaziru73-creator" target="_blank" class="hero-link-btn">GitHub &rarr;</a>
-      <a href="https://orcid.org/0009-0006-2324-9599" target="_blank" class="hero-link-btn">ORCID &rarr;</a>
-      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" class="hero-link-btn">Zenodo records &rarr;</a>
-    </div>
   </div>
-  <div class="hero-photo-wrap hero-fade-in gf-wrap">
-    <div class="gf" aria-hidden="false">
-      <span class="gf-beads"></span>
-      <div class="gf-in"><img class="hero-photo" src="avatar-v3.jpg" alt="Naziru Halilu"></div>
-      <span class="gf-shine"></span>
-      <span class="gf-gem"></span>
+  <aside class="hero-card hero-fade-in" aria-label="Profile">
+    <img class="hero-card-photo" src="avatar-v3.jpg" alt="Naziru Halilu">
+    <h2 class="hero-card-name">Naziru HALILU</h2>
+    <ul class="hero-card-deg">
+      <li>N.D (Agric. Eng. Tech)</li>
+      <li>B.Eng (Agric. &amp; Bioresources)</li>
+      <li>EMJMD (Cutting-Edge Technologies for Sustainable Agriculture)</li>
+    </ul>
+    <div class="hero-card-links">
+      <a href="https://github.com/halilunaziru73-creator" target="_blank" rel="noopener" class="hc-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.500.1-3.100 0 0 1-.3 3.200 1.200a11 11 0 0 1 5.800 0C17 5.800 18 6.100 18 6.100c.7 1.600.3 2.800.1 3.100.8.800 1.200 1.800 1.200 3.100 0 4.400-2.700 5.400-5.300 5.700.4.400.8 1.100.8 2.200v3.200c0 .3.2.7.8.6A11.500 11.500 0 0 0 23.500 12 11.500 11.500 0 0 0 12 .5Z"/></svg><span>GitHub</span></a>
+      <a href="https://orcid.org/0009-0006-2324-9599" target="_blank" rel="noopener" class="hc-link"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path fill="#fff" d="M8 7.2h1.600v9.600H8zM8.800 5.300a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM11.200 7.200h3.100c2.800 0 4.200 2 4.200 4.800s-1.500 4.800-4.200 4.800h-3.100zm1.600 1.400v6.800h1.400c1.900 0 2.700-1.300 2.700-3.400s-.8-3.400-2.700-3.400z"/></svg><span>ORCID</span></a>
+      <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Halilu%2C%20Naziru%22" target="_blank" rel="noopener" class="hc-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 3h16l-1.500 3.500L9.600 17.500H20V21H4l1.500-3.500L14.400 6.500H4z"/></svg><span>Zenodo</span></a>
     </div>
-    <div class="gf-plate">
-      <b class="gf-name">Naziru HALILU</b>
-      <span class="gf-rule"></span>
-      <span class="gf-deg">N.D (Agric. Eng. Tech)</span>
-      <span class="gf-deg">B.Eng (Agric. &amp; Bioresources)</span>
-      <span class="gf-deg">EMJMD (Cutting-Edge Technologies for Sustainable Agriculture)</span>
-    </div>
-  </div>
+  </aside>
   <a href="#quicknav" class="scroll-cue" aria-label="Scroll down">
     <span>Explore my research</span>
     <div class="scroll-chevron">&#8595;</div>
