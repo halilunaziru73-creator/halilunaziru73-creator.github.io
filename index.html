@@ -749,6 +749,15 @@ document.addEventListener('click',function(e){var s=e.target.closest&&e.target.c
 #courses .course-group>summary .course-count{position:absolute;right:1.4rem;top:50%;transform:translateY(-50%);margin:0!important}
 @media(max-width:640px){#courses .course-group>summary,#courses .course-group[open]>summary{padding:.9rem 3rem .9rem 2.8rem!important}#courses .course-group>summary::before{left:1rem}#courses .course-group>summary .course-count{display:none}}
 </style>
+<style id="plategroups">
+#courses .course-group>summary,#courses .course-group[open]>summary{
+  background:linear-gradient(180deg,#fbeaa9 0%,#e4bd58 38%,#c79a2e 62%,#a67914 100%)!important;color:#2a1b05!important;
+  font-family:'Space Grotesk',sans-serif!important;font-weight:800!important;font-size:14.5px!important;letter-spacing:.05em;text-transform:uppercase;
+  text-shadow:0 1px 0 rgba(255,246,201,.8),0 -1px 0 rgba(90,60,5,.25)!important;
+  box-shadow:inset 0 1px 0 #fff6c9,inset 0 0 0 2px rgba(255,255,255,.22),inset 0 -2px 0 rgba(90,60,5,.35)}
+#courses .course-group>summary .course-count{color:#2a1b05!important;font-family:'IBM Plex Mono',monospace!important;font-weight:600!important;font-size:10.5px;letter-spacing:.01em;text-transform:none;text-shadow:0 1px 0 rgba(255,246,201,.65)}
+#courses .course-group[open]>summary{border-bottom:2px solid #6b4a07!important}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
