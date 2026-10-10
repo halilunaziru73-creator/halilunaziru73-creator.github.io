@@ -738,6 +738,17 @@ document.addEventListener('click',function(e){var s=e.target.closest&&e.target.c
 #courses .course-group>summary{justify-content:flex-start!important}
 #courses .course-group>summary .course-count{margin-left:auto}
 </style>
+<style id="goldgroups">
+#courses .course-group,#courses .course-group[open]{border:0!important;border-radius:12px;box-shadow:0 0 0 1px #4a2f0a,0 8px 18px rgba(70,42,8,.35)!important}
+#courses .course-group::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:5px;pointer-events:none;z-index:6;
+  background:conic-gradient(from 160deg,#8a5a1c,#e9c36a,#b27a2a,#f6de9a,#7a4a14,#d9a94c,#9a6620,#f1d27c,#6e4210,#c99438,#8a5a1c);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+#courses .course-group>summary,#courses .course-group[open]>summary{justify-content:center!important;text-align:center;padding:1rem 5.5rem!important;border-bottom:0!important;position:relative}
+#courses .course-group[open]>summary{border-bottom:2px solid #8a5a1c!important}
+#courses .course-group>summary::before{position:absolute;left:1.5rem;top:50%;margin:-7.5px 0 0!important}
+#courses .course-group>summary .course-count{position:absolute;right:1.4rem;top:50%;transform:translateY(-50%);margin:0!important}
+@media(max-width:640px){#courses .course-group>summary,#courses .course-group[open]>summary{padding:.9rem 3rem .9rem 2.8rem!important}#courses .course-group>summary::before{left:1rem}#courses .course-group>summary .course-count{display:none}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
