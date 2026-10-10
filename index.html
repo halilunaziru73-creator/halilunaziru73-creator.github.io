@@ -715,6 +715,12 @@
 <script>
 document.addEventListener('click',function(e){var s=e.target.closest&&e.target.closest('#courses .course-group>summary');if(!s)return;s.classList.remove('dz-pop');void s.offsetWidth;s.classList.add('dz-pop');setTimeout(function(){s.classList.remove('dz-pop')},900)});
 </script>
+<style id="tweaks2">
+#courses .course-group,#courses .course-group[open]{border:1px solid var(--line)!important;box-shadow:none!important}
+#courses .course-group[open]>summary{border-bottom:1px solid var(--line)}
+.quicknav-tile .quicknav-label{color:#070A08!important;font-weight:800!important;font-size:12.5px!important;line-height:1.25!important;text-shadow:0 1px 0 rgba(255,255,255,.35)!important;letter-spacing:0}
+.quicknav-tile:hover .quicknav-label{color:#000!important}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
