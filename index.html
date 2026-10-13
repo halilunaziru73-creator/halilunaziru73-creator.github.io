@@ -1048,6 +1048,27 @@ section,.rd-sec{padding-left:clamp(1.2rem,2.6vw,2.4rem)!important;padding-right:
 @media(min-width:1300px){#quicknav .quicknav-grid{grid-template-columns:repeat(7,minmax(0,1fr))!important}}
 @media(max-width:760px){#quicknav .quicknav-icon{width:40cqw!important;height:40cqw!important;font-size:23cqw!important}#quicknav .quicknav-tile .quicknav-label{font-size:12.5px!important}}
 </style>
+<style id="impress">
+/* first-impression polish: depth, rhythm, gentle motion */
+.hero{box-shadow:0 30px 70px -28px rgba(14,59,42,.45),0 2px 0 rgba(255,255,255,.7) inset!important;border:1px solid rgba(166,121,20,.28)!important}
+.hero .hero-h1{letter-spacing:-.022em!important;background:linear-gradient(100deg,#0c2a3f 0%,#12405a 55%,#14532D 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.hero .hero-h1 .sr-only{-webkit-text-fill-color:initial}
+.hero-summary{color:#243238!important}
+.hero-tags .hero-tag,.hero-tags>*{transition:transform .22s ease,box-shadow .22s ease}
+.hero-tags>*:hover{transform:translateY(-2px);box-shadow:0 8px 18px -8px rgba(166,121,20,.55)}
+.hero-card{box-shadow:0 28px 55px -22px rgba(90,60,5,.6),0 0 0 6px rgba(228,189,88,.16),inset 0 1px 0 rgba(255,255,255,.8)!important;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.hero-card:hover{transform:translateY(-4px) rotate(-.4deg)}
+.hc-link{transition:transform .2s ease,box-shadow .2s ease}
+.hc-link:hover{transform:translateY(-2px);box-shadow:0 10px 18px -8px rgba(90,60,5,.55)}
+#quicknav{box-shadow:0 30px 70px -30px rgba(7,40,28,.7)!important}
+#quicknav .quicknav-tile{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,filter .28s ease}
+#quicknav .quicknav-tile:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 18px 30px -12px rgba(0,0,0,.55),0 0 0 1px rgba(246,222,154,.8);filter:saturate(1.12) brightness(1.04)}
+#quicknav .section-head h2{letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+@keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-content{animation:heroIn .7s cubic-bezier(.2,.8,.2,1) both}
+.hero-card{animation:heroIn .8s .12s cubic-bezier(.2,.8,.2,1) both}
+@media(prefers-reduced-motion:reduce){.hero-content,.hero-card{animation:none}.hero-card:hover,#quicknav .quicknav-tile:hover{transform:none}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
