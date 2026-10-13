@@ -1015,6 +1015,26 @@ body::before{border-color:#0E3B2A!important;
 #courses .course-group>summary .course-count{color:#111!important;text-shadow:none!important}
 #courses .course-group[open]>summary{border-bottom:2px solid #c79a2e!important}
 </style>
+<style id="comfortwidth">
+@media(max-width:640px){#quicknav .section-head{flex-direction:column!important;align-items:flex-start!important;gap:.4rem}#quicknav .section-head h2{white-space:nowrap}#quicknav{padding:2rem 1.2rem!important}}
+header{border-bottom:0!important}
+@media(min-width:861px) and (max-width:1100px){
+.hero{grid-template-columns:minmax(0,1fr) 290px!important;column-gap:1.6rem!important;align-items:start!important}
+.hero-card{margin-top:.4rem}
+.hero .hero-eyebrow{font-size:.78rem!important}
+.hero .hero-h1{font-size:clamp(2.3rem,4.6vw,3rem)!important}}
+@media(max-width:860px){body{padding-bottom:84px!important}footer{padding-bottom:2rem}}
+header{max-width:1180px!important;margin-left:auto!important;margin-right:auto!important}
+body{padding-left:clamp(30px,4.5vw,72px)!important;padding-right:clamp(30px,4.5vw,72px)!important;padding-top:clamp(18px,2.2vw,34px)!important;padding-bottom:clamp(18px,2.2vw,34px)!important}
+.hero,section,.rd-sec,#hero-flashy,footer,.nav-wrap{max-width:1180px!important;margin-left:auto!important;margin-right:auto!important}
+.hero{padding-left:clamp(1.6rem,3.5vw,3.4rem)!important;padding-right:clamp(1.6rem,3.5vw,3.4rem)!important}
+section,.rd-sec{padding-left:clamp(1.2rem,2.6vw,2.4rem)!important;padding-right:clamp(1.2rem,2.6vw,2.4rem)!important}
+.hero-summary{max-width:46rem}
+.quicknav-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media(max-width:760px){.quicknav-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:440px){.quicknav-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:640px){body{padding-left:20px!important;padding-right:20px!important}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1289,7 +1309,7 @@ body::before{border-color:#0E3B2A!important;
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('courses');}" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('experience');}" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('publications');}" onclick="jumpTo('publications')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Publications</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">&#11088;&#128193;</span><span class="quicknav-label">Projects</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">&#128193;</span><span class="quicknav-label">Projects</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('skills');}" onclick="jumpTo('skills')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">🛠️</span><span class="quicknav-label">Skills</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('teaching');}" onclick="jumpTo('teaching')" style="background:linear-gradient(160deg,#F3EDE4,#EDE0D0); border: 5px solid #C79860"><span class="quicknav-icon" style="background:linear-gradient(135deg,#8C6B4F,#C79860);">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('awards');}" onclick="jumpTo('awards')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🏆</span><span class="quicknav-label">Awards</span></div>
