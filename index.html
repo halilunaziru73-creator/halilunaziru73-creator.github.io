@@ -1068,6 +1068,11 @@ body{position:relative}
 @media(prefers-reduced-motion:reduce){#gutterdeco .gd{animation:none}}
 @media print{#gutterdeco{display:none!important}}
 </style>
+<style id="gd-dl-css">
+#gutterdeco .gd-dl{background:linear-gradient(135deg,#1B7A43,#14532D)!important;border-color:#D4A94A!important;box-shadow:0 8px 20px rgba(20,83,45,.4)}
+#gutterdeco .gd-dl .gd-tag,#gutterdeco .gd-dl .gd-lab,#gutterdeco .gd-dl .gd-num{color:#fff!important;opacity:1}
+#gutterdeco .gd-dl .gd-num{font-size:clamp(.95rem,1.25vw,1.25rem)}
+</style>
 <style id="a11y-tags">
 .hero-tags .tag{color:#1B1F18!important;font-weight:700!important;border-color:#8A6414!important}
 #gutterdeco .gd-tag{color:#6B4F10!important}
@@ -1518,6 +1523,7 @@ section[style*="D4A94A"]{border-color:rgba(212,169,74,.5)!important}
     </div>
     <div class="layer-canvas">
       <p class="layer-desc" id="layer-desc"></p>
+      <a href="https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/releases/latest/download/SWAFL.exe" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin:0 0 1rem;padding:.85rem 1.1rem;border-radius:14px;background:linear-gradient(135deg,#1B7A43,#14532D);border:2px solid #D4A94A;color:#fff;text-decoration:none;box-shadow:0 6px 18px rgba(20,83,45,.35)"><span style="font-size:1.6rem">&#11015;</span><span style="flex:1;min-width:220px"><b style="font-size:1.05rem">Download SWAFL Desktop for Windows</b><br><span style="font-size:12.5px;opacity:.92">Irrigation design (surface, drip, sprinkler), irrigation schedules and the 10,190-simulation soil-water model. Free, no installation: double-click SWAFL.exe.</span></span><span style="background:#D4A94A;color:#1A1400;font-weight:900;padding:.45rem .9rem;border-radius:12px">SWAFL.exe</span></a>
       <p style="font-size:11.5px; color:#6B5A32; font-weight:600; margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem;">
         <span style="animation: scrollBounce 1.6s ease-in-out infinite;">&#8595;</span> Scroll down to see all projects
       </p>
@@ -2742,7 +2748,7 @@ const domains = [
     key: "irrigation", label: "Irrigation & Water Mgmt", color: "#00B4D8", icon: "🚿",
     desc: "How much water a crop needs and when to apply it, farm-level decision-making.",
     projects: [
-      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", iframeThumb: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html", liveEmbed: "n1", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/" },
+      { name: "\u2b50 Coupled Water Fluxes and Pore Scale Dynamics", metric: "10,190 simulations, 10 soils, 67 figures", desc: "Soil-gated irrigation trigger law, mulch water-balance partition, and evaporation-drainage regime map across ten soils.", dataDoi: "10.5281/zenodo.23043626", software: "https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/releases/latest/download/SWAFL.exe", repo: "Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops", thumb: "thumbs2/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops.jpg", iframeThumb: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html", liveEmbed: "n1", videos: "https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/05_Videos/" },
       { name: "NaCROP", metric: "4-step crop-growth simulation", desc: "ET, soil-water balance, irrigation scheduling, plus canopy-to-yield growth simulation for 5 crops.", doi: "10.5281/zenodo.22741130", repo: "NaCROP", thumb: "thumbs/NaCROP.jpg", software: "https://github.com/halilunaziru73-creator/NaCROP/releases/download/v1.1.0/NaCROP.exe" },
       { name: "Zaria Crop ET and Irrigation DSS", metric: "399.1mm net irrigation, closes to 0.1mm", desc: "Ten-equation ET engine and verified soil-water balance for irrigation scheduling around Zaria.", doi: "10.5281/zenodo.22076048", repo: "Zaria-Crop-ET-and-Irrigation-DSS", thumb: "thumbs/Zaria-Crop-ET-and-Irrigation-DSS.jpg" }
     ]
@@ -2930,7 +2936,7 @@ function renderProjects() {
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank">Repository &rarr;</a>' +
         (p.videos ? '<a href="' + p.videos + '" target="_blank">Videos &rarr;</a>' : '') +
         (p.dataDoi ? '<a href="https://doi.org/' + p.dataDoi + '" target="_blank" style="border: 2px solid #2E7DE8; border-radius: 14px; padding: 3px 10px; display: inline-block; font-weight: 700; color: #2E7DE8;">Data &rarr;</a>' : '') +
-        (p.software ? '<a href="' + p.software + '" target="_blank" style="border: 2px solid #B8763F; border-radius: 14px; padding: 3px 10px; display: inline-block; font-weight: 700; color: #B8763F;">&#11015; Download software</a>' : '') +
+        (p.software ? '<a href="' + p.software + '" target="_blank" rel="noopener" style="background: linear-gradient(135deg,#1B7A43,#14532D); border: 2px solid #D4A94A; border-radius: 14px; padding: 6px 14px; display: inline-block; font-weight: 800; font-size: 13.5px; color: #fff; box-shadow: 0 4px 12px rgba(20,83,45,.35);">&#11015; Download software (Windows)</a>' : '') +
       '</div>' +
       '</div>' +
       (p.liveEmbed ?
@@ -3670,8 +3676,10 @@ document.addEventListener('DOMContentLoaded', function () {
 var R='https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Results/04_Interactive_Charts/10_SWAFL_Fused_Explorer.html#scene=n1';
 var G='https://github.com/halilunaziru73-creator/';
 var logos=[['logo_sustagri.png','SUSTAGRI'],['logo_eu.png','European Union'],['logo_upna.png','UPNA'],['logo_utad.png','UTAD'],['logo_aua.png','AUA'],['logo_abu.png','ABU'],['logo_iar.jpg','IAR'],['logo_naerls.jpg','NAERLS'],['logo_ncam.jpg','NCAM']];
+var DL='https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/releases/latest/download/SWAFL.exe';
 var stats=[
 ['GIS & ML systems','2.69 t','lime saved, 3 campaigns',G+'Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems'],
+['SWAFL DESKTOP','\u2b07 Download','free Windows app','DL'],
 ['SWAFL DSS','10,190','simulations \u00b7 10 soils \u00b7 67 figures \u2197',R],
 ['NaCROP software','5 crops','\u2b07 download the app',G+'NaCROP/releases/download/v1.1.0/NaCROP.exe'],
 ['RGB indexing software','Real-time','\u2b07 download the app',G+'Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery/releases/download/v1.1.0/main.exe'],
@@ -3685,10 +3693,11 @@ var stats=[
 ];
 var host=document.getElementById('gutterdeco');if(!host)return;
 function place(a,i,n,side){a.style.top=(3+i*(90/(n-1))).toFixed(2)+'%';a.style[side]=(side==='left'?2.2:3.8)+'vw';host.appendChild(a)}
+var dlL=document.createElement('a');dlL.className='gd gd-dl';dlL.target='_blank';dlL.rel='noopener';dlL.href=DL;dlL.innerHTML='<div class="gd-tag">SWAFL DESKTOP</div><div class="gd-num">\u2b07 Download</div><div class="gd-lab">free Windows app</div>';place(dlL,0,logos.length+1,'left');
 logos.forEach(function(it,i){var a=document.createElement('a');a.className='gd gd-logo';a.href='#education';
  a.setAttribute('onclick',"if(window.jumpTo){event.preventDefault();jumpTo('education')}");
- a.innerHTML='<img src="'+it[0]+'" alt="'+it[1]+' logo" loading="lazy">';place(a,i,logos.length,'left')});
-stats.forEach(function(it,i){var a=document.createElement('a');a.className='gd';a.target='_blank';a.rel='noopener';a.href=it[3];
+ a.innerHTML='<img src="'+it[0]+'" alt="'+it[1]+' logo" loading="lazy">';place(a,i+1,logos.length+1,'left')});
+stats.forEach(function(it,i){var a=document.createElement('a');a.className='gd'+(it[3]==='DL'?' gd-dl':'');if(it[3]==='DL')it[3]=DL;a.target='_blank';a.rel='noopener';a.href=it[3];
  a.innerHTML='<div class="gd-tag">'+it[0]+'</div><div class="gd-num">'+it[1]+'</div><div class="gd-lab">'+it[2]+'</div>';place(a,i,stats.length,'right')});
 })();
 </script>
