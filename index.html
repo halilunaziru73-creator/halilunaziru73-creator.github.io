@@ -1068,11 +1068,6 @@ body{position:relative}
 @media(prefers-reduced-motion:reduce){#gutterdeco .gd{animation:none}}
 @media print{#gutterdeco{display:none!important}}
 </style>
-<style id="gd-dl-css">
-#gutterdeco .gd-dl{background:linear-gradient(135deg,#1B7A43,#14532D)!important;border-color:#D4A94A!important;box-shadow:0 8px 20px rgba(20,83,45,.4)}
-#gutterdeco .gd-dl .gd-tag,#gutterdeco .gd-dl .gd-lab,#gutterdeco .gd-dl .gd-num{color:#fff!important;opacity:1}
-#gutterdeco .gd-dl .gd-num{font-size:clamp(.95rem,1.25vw,1.25rem)}
-</style>
 <style id="a11y-tags">
 .hero-tags .tag{color:#1B1F18!important;font-weight:700!important;border-color:#8A6414!important}
 #gutterdeco .gd-tag{color:#6B4F10!important}
@@ -3679,7 +3674,7 @@ var logos=[['logo_sustagri.png','SUSTAGRI'],['logo_eu.png','European Union'],['l
 var DL='https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/releases/latest/download/SWAFL.exe';
 var stats=[
 ['GIS & ML systems','2.69 t','lime saved, 3 campaigns',G+'Operationalizing-GIS-and-Machine-Learning-across-Contrasting-Cropping-Systems'],
-['SWAFL DESKTOP','\u2b07 Download','free Windows app','DL'],
+['SWAFL desktop','Windows','\u2b07 download the app','DL'],
 ['SWAFL DSS','10,190','simulations \u00b7 10 soils \u00b7 67 figures \u2197',R],
 ['NaCROP software','5 crops','\u2b07 download the app',G+'NaCROP/releases/download/v1.1.0/NaCROP.exe'],
 ['RGB indexing software','Real-time','\u2b07 download the app',G+'Real-Time-RGB-Proxy-Vegetation-Indexing-and-Texture-Analysis-for-UAV-and-Handheld-Crop-Imagery/releases/download/v1.1.0/main.exe'],
@@ -3693,11 +3688,10 @@ var stats=[
 ];
 var host=document.getElementById('gutterdeco');if(!host)return;
 function place(a,i,n,side){a.style.top=(3+i*(90/(n-1))).toFixed(2)+'%';a.style[side]=(side==='left'?2.2:3.8)+'vw';host.appendChild(a)}
-var dlL=document.createElement('a');dlL.className='gd gd-dl';dlL.target='_blank';dlL.rel='noopener';dlL.href=DL;dlL.innerHTML='<div class="gd-tag">SWAFL DESKTOP</div><div class="gd-num">\u2b07 Download</div><div class="gd-lab">free Windows app</div>';place(dlL,0,logos.length+1,'left');
 logos.forEach(function(it,i){var a=document.createElement('a');a.className='gd gd-logo';a.href='#education';
  a.setAttribute('onclick',"if(window.jumpTo){event.preventDefault();jumpTo('education')}");
- a.innerHTML='<img src="'+it[0]+'" alt="'+it[1]+' logo" loading="lazy">';place(a,i+1,logos.length+1,'left')});
-stats.forEach(function(it,i){var a=document.createElement('a');a.className='gd'+(it[3]==='DL'?' gd-dl':'');if(it[3]==='DL')it[3]=DL;a.target='_blank';a.rel='noopener';a.href=it[3];
+ a.innerHTML='<img src="'+it[0]+'" alt="'+it[1]+' logo" loading="lazy">';place(a,i,logos.length,'left')});
+stats.forEach(function(it,i){var a=document.createElement('a');a.className='gd';if(it[3]==='DL')it[3]=DL;a.target='_blank';a.rel='noopener';a.href=it[3];
  a.innerHTML='<div class="gd-tag">'+it[0]+'</div><div class="gd-num">'+it[1]+'</div><div class="gd-lab">'+it[2]+'</div>';place(a,i,stats.length,'right')});
 })();
 </script>
