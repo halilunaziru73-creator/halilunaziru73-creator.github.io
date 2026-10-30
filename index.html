@@ -219,12 +219,12 @@
   .pub-item .pub-authors { color: var(--ink); }
   .pub-item .pub-authors b { font-weight: 600; }
   .pub-item .pub-venue { color: var(--ink-soft); font-style: italic; }
-  .pub-item a.pub-doi { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: white; background: #8B4513; text-decoration: none;
+  .pub-item a.pub-doi.pub-doi.pub-doi { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: white; background: #8B4513; text-decoration: none;
     display: inline-block; margin-top: 0.4rem; margin-right: 0.5rem; padding: 4px 10px; border-radius: 5px; font-weight: 700; }
-  .pub-item a.pub-doi:hover { opacity: 0.85; }
-  .pub-item a.pub-code { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: white; background: #2F5D5A; text-decoration: none;
+  .pub-item a.pub-doi.pub-doi.pub-doi:hover { opacity: 0.85; }
+  .pub-item a.pub-code.pub-code.pub-code { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: white; background: #2F5D5A; text-decoration: none;
     display: inline-block; margin-top: 0.4rem; padding: 4px 10px; border-radius: 5px; font-weight: 700; }
-  .pub-item a.pub-code:hover { opacity: 0.85; }
+  .pub-item a.pub-code.pub-code.pub-code:hover { opacity: 0.85; }
 
   /* timeline (education + experience) */
   .timeline { border-left: 2px solid var(--line); margin-left: 6px; }
@@ -1092,6 +1092,10 @@ section[style*="D4A94A"]{border-color:rgba(212,169,74,.5)!important}
 .hero-name-gold,.gd-tag{opacity:.95}
 </style>
 <style id="readable-text">
+#publications .section-body .pub-item a.pub-doi.pub-doi.pub-doi,#publications .section-body .pub-item a.pub-doi.pub-doi.pub-doi:visited{background:#7A2E0E!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:14px!important;font-weight:700!important;padding:7px 16px!important;border-radius:6px!important;opacity:1!important;text-shadow:none!important;letter-spacing:.02em}
+#publications .section-body .pub-item a.pub-code.pub-code.pub-code,#publications .section-body .pub-item a.pub-code.pub-code.pub-code:visited{background:#0F3F3C!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:14px!important;font-weight:700!important;padding:7px 16px!important;border-radius:6px!important;opacity:1!important;text-shadow:none!important;letter-spacing:.02em;margin-left:.1rem}
+#publications .section-body .pub-item a.pub-doi.pub-doi.pub-doi:hover,#publications .section-body .pub-item a.pub-code.pub-code.pub-code:hover{filter:brightness(1.25)}
+
 /* readable body text in every opened section */
 .section-body p,.section-body li,.section-body dd,.section-body td{font-size:18.5px!important;line-height:1.7!important}
 .section-body .mono,.section-body .tl-org,.section-body .tl-org *{font-size:17.5px!important}
