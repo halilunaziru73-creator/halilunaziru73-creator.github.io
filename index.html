@@ -1132,6 +1132,22 @@ section[style*="D4A94A"]{border-color:rgba(212,169,74,.5)!important}
 #education .section-head .section-note,#skills .section-head .section-note,#certifications .section-head .section-note,#memberships .section-head .section-note,#experience .section-head .section-note,#publications .section-head .section-note,#awards .section-head .section-note,#news .section-head .section-note,#teaching .section-head .section-note,#referees .section-head .section-note,#fieldnews .section-head .section-note,#conferences .section-head .section-note,#travels .section-head .section-note,#timeline .section-head .section-note{color:var(--pill)!important;font-weight:800!important;opacity:1!important;letter-spacing:.04em}
 #education .section-head .accordion-chevron,#skills .section-head .accordion-chevron,#certifications .section-head .accordion-chevron,#memberships .section-head .accordion-chevron,#experience .section-head .accordion-chevron,#publications .section-head .accordion-chevron,#awards .section-head .accordion-chevron,#news .section-head .accordion-chevron,#teaching .section-head .accordion-chevron,#referees .section-head .accordion-chevron,#fieldnews .section-head .accordion-chevron,#conferences .section-head .accordion-chevron,#travels .section-head .accordion-chevron,#timeline .section-head .accordion-chevron{color:var(--pill)!important}
 </style>
+
+<style id="pi-redesign">
+/* Project index: filter chips on top, full-width grid, one page scroll (no nested scrolling) */
+#projects .layers-shell{display:block!important;border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;border-radius:0!important}
+#projects .layers-list{display:flex!important;flex-wrap:wrap;gap:.55rem;max-height:none!important;overflow:visible!important;border:0!important;background:transparent!important;padding:.2rem 0 1rem;position:sticky;top:0;z-index:20}
+#projects .layers-list-head{display:none!important}
+#projects .layer-item{border:1.5px solid rgba(43,33,16,.22)!important;border-radius:999px;padding:.42rem .85rem .42rem .5rem!important;background:rgba(255,250,232,.92);box-shadow:0 2px 6px rgba(60,40,0,.12);gap:.5rem!important;white-space:nowrap;transform:none!important;transition:transform .18s,box-shadow .18s,background .18s}
+#projects .layer-item:hover{transform:translateY(-2px)!important;box-shadow:0 6px 14px rgba(60,40,0,.2);background:#fff}
+#projects .layer-item .layer-count{margin-left:.3rem!important;background:rgba(43,33,16,.1);border-radius:999px;padding:1px 7px}
+#projects .layer-item[style*="background"] .layer-count{background:rgba(255,255,255,.28)}
+#projects .layer-canvas{max-height:none!important;overflow:visible!important;padding:0!important;background:transparent!important}
+#projects .layer-desc{max-width:none!important;margin:.2rem 0 .4rem!important;font-weight:600;color:#2B2110;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+#projects .project-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))!important;gap:2.6rem 2.2rem!important;padding:30px 14px 20px!important;align-items:stretch}
+#projects .project-grid .project-card{height:100%}
+@media(max-width:700px){#projects .layers-list{flex-wrap:nowrap;overflow-x:auto!important;position:static;-webkit-overflow-scrolling:touch;scrollbar-width:thin}#projects .project-grid{padding:26px 6px 14px!important}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1561,12 +1577,6 @@ section[style*="D4A94A"]{border-color:rgba(212,169,74,.5)!important}
     </div>
     <div class="layer-canvas">
       <p class="layer-desc" id="layer-desc"></p>
-      <p style="font-size:11.5px; color:#6B5A32; font-weight:600; margin-bottom:1rem; display:flex; align-items:center; gap:0.4rem;">
-        <span style="animation: scrollBounce 1.6s ease-in-out infinite;">&#8595;</span> Scroll down to see all projects
-      </p>
-      <style>
-        @keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-      </style>
       <div class="project-grid" id="project-grid"></div>
     </div>
   </div>
@@ -2944,7 +2954,7 @@ function renderProjects() {
   let projects, description;
   if (activeKey === 'all') {
     projects = allProjects();
-    description = 'All 16 repositories across every research domain.';
+    description = 'All ' + projects.length + ' projects across every research domain. Choose a layer above to filter.';
   } else {
     const d = domains.find(x => x.key === activeKey);
     projects = d.projects.map(p => ({...p, color: d.color})).sort((a, b) => projectRank(a.repo) - projectRank(b.repo));
