@@ -2978,7 +2978,7 @@ function renderProjects() {
       '<h3>' + p.name + '</h3>' +
       '<p class="metric mono" style="background:' + cardColor + ';">' + p.metric + '</p>' +
       '<p style="font-weight:600; color:#1A2318;">' + p.desc + '</p>' +
-      '<div class="gh-live-stats mono" id="gh-stats-' + p.repo + '" style="font-size:10.5px; color:var(--ink-soft); margin-bottom:0.6rem;">&#9679; fetching live GitHub data&hellip;</div>' +
+      '<div class="gh-live-stats mono" id="gh-stats-' + p.repo + '" style="display:none"></div>' +
       '<div class="project-links">' +
         '<a href="https://github.com/halilunaziru73-creator/' + p.repo + '" target="_blank">Repository &rarr;</a>' +
         (p.videos ? '<a href="' + p.videos + '" target="_blank">Videos &rarr;</a>' : '') +
@@ -3013,7 +3013,7 @@ function renderProjects() {
     if (parts.length) { const bt = document.createElement('div'); bt.className = 'fr-plq bot'; bt.innerHTML = '<span class="fr-cart fr-doi"><span>' + parts.join(' <i class="fr-sep">&middot;</i> ') + '</span></span>'; card.appendChild(bt); }
     grid.appendChild(card);
   });
-  fetchLiveGitHubStats(projects);
+  /* live GitHub stats line removed */
 }
 
 const ghStatsCache = {};
