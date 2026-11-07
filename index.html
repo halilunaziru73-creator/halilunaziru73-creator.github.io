@@ -1414,44 +1414,27 @@ section[style*="D4A94A"]{border-color:rgba(212,169,74,.5)!important}
 
 <section id="quicknav" class="quicknav-flashy-bg" style="border-radius:16px; padding: 2.6rem 2.4rem; position:relative; overflow:hidden;">
   <div class="section-head" style="border-bottom-color:rgba(255,255,255,0.25); position:relative; z-index:1;">
-    <h2 style="color:white;">Start here</h2>
-    <span class="section-note mono" style="color:rgba(255,255,255,0.85);">choose what you are here for, or press Ctrl K to search</span>
+    <h2 style="color:white;">Explore This Page</h2>
+    <span class="section-note mono" style="color:rgba(255,255,255,0.85);">click a tile to jump &amp; expand</span>
   </div>
-  <div class="qn-paths" style="position:relative; z-index:1;">
-    <article class="qn-path"><div class="qn-path-top"><span class="qn-num">1</span><span class="qn-time">⏱ 2 minutes</span></div><h3>I am hiring</h3><p>See the CV, the roles held and who can vouch for the work.</p><div class="qn-chips"><a class="qn-chip qn-link" href="Naziru_Halilu_CV.pdf">CV (PDF)</a><button type="button" class="qn-chip" onclick="jumpTo('experience')">Experience</button><button type="button" class="qn-chip" onclick="jumpTo('awards')">Awards</button><button type="button" class="qn-chip" onclick="jumpTo('referees')">Referees</button><button type="button" class="qn-chip" onclick="jumpTo('contact')">Contact</button></div></article>
-    <article class="qn-path"><div class="qn-path-top"><span class="qn-num">2</span><span class="qn-time">⏱ 5 minutes</span></div><h3>I supervise or admit students</h3><p>Degrees, records, manuscripts and the academic CV.</p><div class="qn-chips"><button type="button" class="qn-chip" onclick="jumpTo('education')">Education</button><button type="button" class="qn-chip" onclick="jumpTo('courses')">Academic record</button><button type="button" class="qn-chip" onclick="jumpTo('publications')">Manuscripts</button><a class="qn-chip qn-link" href="Naziru_Halilu_CV_Academic.pdf">Academic CV (PDF)</a><button type="button" class="qn-chip" onclick="jumpTo('referees')">Referees</button></div></article>
-    <article class="qn-path"><div class="qn-path-top"><span class="qn-num">3</span><span class="qn-time">⏱ 10 minutes</span></div><h3>I want the software and papers</h3><p>Run the irrigation decision support in the browser and read the method.</p><div class="qn-chips"><a class="qn-chip qn-link" href="https://halilunaziru73-creator.github.io/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/Software/v1.1.0/SWAFL_Desktop/app/index.html?v=1.1.0" target="_blank" rel="noopener">Open SWAFL in the browser</a><a class="qn-chip qn-link" href="https://github.com/halilunaziru73-creator/Coupled-Water-Fluxes-Pore-Scale-Dynamics-Precision-Irrigation-Mulching-Feedback-Loops/raw/main/Software/v1.1.0/SWAFL_Desktop/docs/manual_v1.1.0/SWAFL_Manual_v1.1.0.pdf" target="_blank" rel="noopener">User manual (PDF)</a><button type="button" class="qn-chip" onclick="jumpTo('projects')">Projects</button><button type="button" class="qn-chip" onclick="jumpTo('publications')">Four manuscripts</button><a class="qn-chip qn-link" href="https://github.com/halilunaziru73-creator" target="_blank" rel="noopener">GitHub</a></div></article>
-    <article class="qn-path"><div class="qn-path-top"><span class="qn-num">4</span><span class="qn-time">⏱ 1 minute</span></div><h3>I want to collaborate</h3><p>Open to PhD, research and industry roles in digital agriculture.</p><div class="qn-chips"><button type="button" class="qn-chip" onclick="jumpTo('opportunities')">What I am open to</button><button type="button" class="qn-chip" onclick="jumpTo('conferences')">Conferences</button><button type="button" class="qn-chip" onclick="jumpTo('memberships')">Memberships</button><button type="button" class="qn-chip" onclick="jumpTo('contact')">Contact</button></div></article>
-  </div>
-  <div class="qn-or" style="position:relative; z-index:1;"><span>or browse everything, in order</span></div>
-  <div class="qn-group" style="position:relative; z-index:1;"><div class="qn-group-h"><span class="qn-gn">1</span><b>Research and software</b><i>What I build and publish</i></div>
-  <div class="quicknav-grid">
+  <div class="quicknav-grid" style="position:relative; z-index:1;">
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('education');}" onclick="jumpTo('education')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #1F4D2E"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('courses');}" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('experience');}" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('publications');}" onclick="jumpTo('publications')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">📄</span><span class="quicknav-label">Publications</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('projects');}" onclick="jumpTo('projects')" style="background:linear-gradient(160deg,#FBF3DC,#F5E4B8); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">&#128193;</span><span class="quicknav-label">Projects</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('skills');}" onclick="jumpTo('skills')" style="background:linear-gradient(160deg,#E3F5F4,#CDE8F0); border: 5px solid #2FC2C0"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0E7C7B,#2FC2C0);">🛠️</span><span class="quicknav-label">Skills</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('conferences');}" onclick="jumpTo('conferences')" style="background:linear-gradient(160deg,#EFEAF5,#E5DCF0); border: 5px solid #8E5AC7"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#B48EE0);">🗣️</span><span class="quicknav-label">Conferences</span></div>
-  </div></div>
-  <div class="qn-group" style="position:relative; z-index:1;"><div class="qn-group-h"><span class="qn-gn">2</span><b>Career and service</b><i>Where I have worked and led</i></div>
-  <div class="quicknav-grid">
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('experience');}" onclick="jumpTo('experience')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #E35C4C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#E35C4C);">💼</span><span class="quicknav-label">Experience</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('teaching');}" onclick="jumpTo('teaching')" style="background:linear-gradient(160deg,#F3EDE4,#EDE0D0); border: 5px solid #C79860"><span class="quicknav-icon" style="background:linear-gradient(135deg,#8C6B4F,#C79860);">👨</span><span class="quicknav-label">Teaching & Leadership</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('memberships');}" onclick="jumpTo('memberships')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #F0B36B"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#F0B36B);">🤝</span><span class="quicknav-label">Memberships</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('opportunities');}" onclick="jumpTo('opportunities')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">🤝</span><span class="quicknav-label">Open To Opportunities</span></div>
-  </div></div>
-  <div class="qn-group" style="position:relative; z-index:1;"><div class="qn-group-h"><span class="qn-gn">3</span><b>Education and credentials</b><i>Degrees, records, certificates and prizes</i></div>
-  <div class="quicknav-grid">
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('education');}" onclick="jumpTo('education')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #1F4D2E"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#4C8C6B);">🎓</span><span class="quicknav-label">Education</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('courses');}" onclick="jumpTo('courses')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">📚</span><span class="quicknav-label">Academic Record</span></div>
-    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('certifications');}" onclick="jumpTo('certifications')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #6BBF8C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#6BBF8C);">📜</span><span class="quicknav-label">Certifications</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('awards');}" onclick="jumpTo('awards')" style="background:linear-gradient(160deg,#FDF6E1,#FBEEC6); border: 5px solid #D4A94A"><span class="quicknav-icon" style="background:linear-gradient(135deg,#D4A94A,#F5D06B);">🏆</span><span class="quicknav-label">Awards</span></div>
-  </div></div>
-  <div class="qn-group" style="position:relative; z-index:1;"><div class="qn-group-h"><span class="qn-gn">4</span><b>Beyond the lab</b><i>Places, pictures and people who can vouch for the work</i></div>
-  <div class="quicknav-grid">
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('certifications');}" onclick="jumpTo('certifications')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #6BBF8C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#6BBF8C);">📜</span><span class="quicknav-label">Certifications</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('conferences');}" onclick="jumpTo('conferences')" style="background:linear-gradient(160deg,#EFEAF5,#E5DCF0); border: 5px solid #8E5AC7"><span class="quicknav-icon" style="background:linear-gradient(135deg,#6E5A8C,#B48EE0);">🗣️</span><span class="quicknav-label">Conferences</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('memberships');}" onclick="jumpTo('memberships')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #F0B36B"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#F0B36B);">🤝</span><span class="quicknav-label">Memberships</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('travels');}" onclick="jumpTo('travels')" style="background:linear-gradient(160deg,#E9F4EC,#D9EFDF); border: 5px solid #3FA867"><span class="quicknav-icon" style="background:linear-gradient(135deg,#1F4D2E,#3FA867);">🌍</span><span class="quicknav-label">Travels</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('gallery');}" onclick="jumpTo('gallery')" style="background:linear-gradient(160deg,#FBEAE8,#F5D9D4); border: 5px solid #FF7A5C"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B23A2E,#FF7A5C);">📸</span><span class="quicknav-label">Gallery</span></div>
+    <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('opportunities');}" onclick="jumpTo('opportunities')" style="background:linear-gradient(160deg,#FBF1E4,#F5E3CC); border: 5px solid #B8763F"><span class="quicknav-icon" style="background:linear-gradient(135deg,#B8763F,#E0A159);">🤝</span><span class="quicknav-label">Open To Opportunities</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('referees');}" onclick="jumpTo('referees')" style="background:linear-gradient(160deg,#EAF1FB,#D6E4F5); border: 5px solid #7EC2FF"><span class="quicknav-icon" style="background:linear-gradient(135deg,#3B6EA5,#7EC2FF);">📝</span><span class="quicknav-label">Referees</span></div>
     <div class="quicknav-tile" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();jumpTo('contact');}" onclick="jumpTo('contact')" style="background:linear-gradient(160deg,#E4EFFB,#CDE3F9); border: 5px solid #00C2A8"><span class="quicknav-icon" style="background:linear-gradient(135deg,#0B4FA8,#00C2A8);">✉️</span><span class="quicknav-label">Contact</span></div>
-  </div></div>
+  </div>
 </section>
 
 <section id="opportunities" class="hidden-section" style="background: linear-gradient(rgba(251,238,198,0.6), rgba(251,238,198,0.6)), url('hero_bg.jpg'); background-size: cover; background-position: center 25%; border-top: 5px solid #B8763F; border-radius:8px;">
@@ -3386,8 +3369,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.quicknav-grid').forEach(g => io.observe(g));
-  setTimeout(() => tiles.forEach(t => t.classList.add('qn-visible')), 4000);
+  const grid = document.querySelector('.quicknav-grid');
+  if (grid) io.observe(grid);
 
   // Subtle 3D tilt following the cursor, disabled on touch devices
   const isTouch = window.matchMedia('(pointer: coarse)').matches;
@@ -3814,35 +3797,6 @@ html body #certifications .section-body div[class^="cert-group"][class^="cert-gr
 html body #certifications .section-body div[class^="cert-group"] .referee-card.referee-card.referee-card{background:linear-gradient(180deg,rgba(240,249,243,.42),rgba(222,238,229,.36))!important;border:1.5px solid rgba(47,127,106,.65)!important;box-shadow:none!important}
 html body #certifications .section-body div[class^="cert-group"] .referee-card h4,html body #certifications .section-body div[class^="cert-group"] .referee-card p,html body #certifications .section-body div[class^="cert-group"] > p:not([style*="gradient"]){color:#0F2A22!important;-webkit-text-fill-color:#0F2A22!important}
 html body #certifications .section-body div[class^="cert-group"] .referee-card img{background:rgba(250,252,249,.55)!important;border-bottom:1px solid rgba(47,127,106,.4)!important}
-
-/* Start here: four reader paths, then the sections in four ordered groups */
-.qn-paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem;margin:1.2rem 0 1.6rem}
-.qn-path{background:rgba(255,255,255,.94);border-radius:14px;padding:1.1rem 1.1rem 1.2rem;box-shadow:0 8px 22px rgba(0,0,0,.28);border-top:5px solid #D4A94A;display:flex;flex-direction:column;gap:.55rem}
-.qn-path:nth-child(2){border-top-color:#4C8C6B}.qn-path:nth-child(3){border-top-color:#2F7FC2}.qn-path:nth-child(4){border-top-color:#B8763F}
-.qn-path-top{display:flex;justify-content:space-between;align-items:center}
-.qn-num{width:30px;height:30px;border-radius:50%;background:#12343b;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
-.qn-time{font-size:11.5px;color:#4a5a50;font-weight:700}
-.qn-path h3{margin:.1rem 0 0;font-size:1.12rem;color:#12343b;line-height:1.25}
-.qn-path p{margin:0;font-size:13.5px;line-height:1.45;color:#2b3a33}
-.qn-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;padding-top:.4rem}
-.qn-chip{font:inherit;font-size:12.5px;font-weight:700;color:#12343b;background:#eef4ee;border:1.5px solid #9dbca8;border-radius:999px;padding:.38rem .8rem;cursor:pointer;text-decoration:none;line-height:1.2;transition:background .2s,transform .15s}
-.qn-chip:hover,.qn-chip:focus-visible{background:#12343b;color:#fff;border-color:#12343b;transform:translateY(-1px);outline:none}
-.qn-link{background:#fff4d8;border-color:#d4a94a}
-.qn-or{display:flex;align-items:center;gap:1rem;color:#fff;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:.4rem 0 1rem}
-.qn-or:before,.qn-or:after{content:"";flex:1;height:1px;background:rgba(255,255,255,.35)}
-.qn-group{margin-bottom:1.4rem}
-.qn-group-h{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;color:#fff;margin-bottom:.7rem}
-.qn-group-h b{font-size:1.15rem}.qn-group-h i{font-size:13px;opacity:.85}
-.qn-gn{display:inline-flex;width:26px;height:26px;border-radius:7px;background:#D4A94A;color:#1a2318;font-weight:800;align-items:center;justify-content:center;font-size:14px}
-#quicknav .qn-group .quicknav-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:1rem!important;background:none!important;padding:0!important}
-.qn-group .quicknav-tile{min-height:120px!important}
-@media (max-width:1100px){.qn-paths{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:760px){#quicknav .qn-group .quicknav-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
-@media (max-width:640px){.qn-paths{grid-template-columns:1fr}#quicknav{padding:1.6rem 1rem!important}}
-#quicknav .qn-group .quicknav-icon{font-size:1.7rem!important;margin-bottom:.5rem!important}
-#quicknav .qn-group .quicknav-tile{min-height:112px!important;padding:.8rem .5rem!important}
-#quicknav .qn-group .quicknav-tile .quicknav-label{font-size:13px!important}
-@media print{.qn-paths,.qn-or{display:none}}
 </style>
 </body>
 <!-- cache-refresh-2026-09-20T21:59:20.562652 -->
