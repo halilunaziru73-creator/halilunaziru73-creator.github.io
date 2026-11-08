@@ -1202,7 +1202,7 @@ section[style*="D4A94A"]{border-color:rgba(212,169,74,.5)!important}
 
 
 <header style="height:6px;"></header>
-<div onclick="qkOpen()" style="position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:996; background:rgba(255,255,255,0.92); border:1px solid var(--line); border-radius:20px; padding:5px 12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.1); backdrop-filter:blur(4px);">&#128269; Search &middot; Ctrl K</div>
+<div id="qk-pill" onclick="qkOpen()" style="position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:996; background:rgba(255,255,255,0.92); border:1px solid var(--line); border-radius:20px; padding:5px 12px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.1); backdrop-filter:blur(4px);">&#128269; Search &middot; Ctrl K</div>
 
 <div class="hero" id="hero-flashy">
   <div class="hero-water-bg" aria-hidden="true"></div>
@@ -3512,6 +3512,18 @@ function jumpTo(id) {
 </script>
 
 
+<style id="qk-theme">
+#qk-overlay{background:radial-gradient(ellipse at 50% 20%,rgba(14,59,42,.55),rgba(11,26,46,.72))!important;backdrop-filter:blur(5px)}
+#qk-overlay>div{background:linear-gradient(180deg,#FFFDF3 0%,#F6EFD6 100%)!important;border:2px solid #D4A94A!important;border-radius:16px!important;max-width:520px!important;box-shadow:0 0 0 4px rgba(14,59,42,.9),0 0 0 6px rgba(212,169,74,.85),0 24px 70px rgba(0,0,0,.5)!important}
+#qk-input{background:transparent!important;color:#0E3B2A!important;font-weight:600;border-image:linear-gradient(90deg,#0E3B2A,#4C8C6B,#D4A94A,#8A6A1A) 1!important;border-bottom-width:3px!important}
+#qk-input::placeholder{color:#7A6A3E;font-weight:500}
+#qk-results{scrollbar-width:thin;scrollbar-color:#D4A94A transparent}
+#qk-results .qk-result{color:#0E3B2A!important;border-bottom:1px solid rgba(184,134,11,.25)!important;background:transparent!important}
+#qk-results .qk-result:hover,#qk-results .qk-result.qk-on{background:linear-gradient(90deg,rgba(212,169,74,.28),rgba(158,216,181,.22))!important}
+#qk-results .qk-result>span:first-child{border:2px solid #D4A94A;box-shadow:0 2px 6px rgba(14,59,42,.35)!important}
+#qk-pill{background:linear-gradient(180deg,#14532D,#0E3B2A)!important;color:#F5D06B!important;border:1.5px solid #D4A94A!important;box-shadow:0 3px 10px rgba(14,59,42,.45)!important}
+#qk-pill:hover{background:linear-gradient(180deg,#1b6a3a,#0E3B2A)!important}
+</style>
 <!-- Quick-jump search (Ctrl+K) -->
 <div id="qk-overlay" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.4); align-items:flex-start; justify-content:center; padding-top:12vh;">
   <div style="background:white; border-radius:12px; width:92%; max-width:480px; max-height:60vh; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4); display:flex; flex-direction:column;">
@@ -3556,7 +3568,7 @@ function jumpTo(id) {
     const q = query.toLowerCase();
     const matches = qkItems.filter(i => i.label.toLowerCase().includes(q));
     qkResults.innerHTML = matches.map(i =>
-      '<div class="qk-result" style="display:flex; align-items:center; gap:12px; padding:11px 18px; cursor:pointer; font-size:14px; font-weight:600; color:#1A2318; border-bottom:1px solid #F1F0E8; transition:background .15s;" onmouseover="this.style.background=\'' + i.color + '18\'" onmouseout="this.style.background=\'white\'" onclick="qkGo(\'' + (i.key || '') + '\', ' + !!i.scrollTop + ')">' +
+      '<div class="qk-result" style="display:flex; align-items:center; gap:12px; padding:11px 18px; cursor:pointer; font-size:14px; font-weight:600; color:#1A2318; border-bottom:1px solid #F1F0E8; transition:background .15s;" onclick="qkGo(\'' + (i.key || '') + '\', ' + !!i.scrollTop + ')">' +
       '<span style="width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,' + i.color + ',' + i.color + 'cc); display:flex; align-items:center; justify-content:center; font-size:16px; box-shadow:0 2px 6px rgba(0,0,0,0.2); flex-shrink:0;">' + i.icon + '</span>' +
       '<span>' + i.label + '</span>' +
       '</div>'
