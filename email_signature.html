@@ -2,7 +2,7 @@
 <style>body{font:15px/1.5 Arial,sans-serif;background:#FFFFFF;color:#1A1A1A;margin:0;padding:24px}.w{max-width:760px;margin:auto}.card{background:#FFFFFF;border:1px solid #C2C0BF;border-radius:8px;padding:22px;margin:14px 0}button{background:#A31F34;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:15px;cursor:pointer}button:hover{background:#7D1829}#ok{margin-left:12px;color:#A31F34;font-weight:bold}</style></head><body><div class="w">
 <h2>Email signature</h2><p>Press the button, then paste (Ctrl V) into the Signature box of your webmail. The logos load from the portfolio site, so they show for the people who receive your email.</p>
 <button id="b">Copy signature</button><span id="ok"></span>
-<div class="card"><div id="sig" style="background:#FFFFFF;padding:0;border-radius:6px">
+<div class="card"><div id="sig" style="display:inline-block;background:#FFFFFF;padding:14px 18px;border:4px solid #000000;border-radius:0">
 <table cellpadding="0" cellspacing="0" border="0" width="640" style="width:640px;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#1A1A1A;background:#FFFFFF">
 <tr><td colspan="2" style="padding:0;font-size:0;line-height:0"><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td width="40%" height="5" bgcolor="#A31F34" style="height:5px;font-size:0;line-height:0">&nbsp;</td><td width="20%" height="5" bgcolor="#8A8B8C" style="font-size:0;line-height:0">&nbsp;</td><td width="20%" height="5" bgcolor="#8A8B8C" style="font-size:0;line-height:0">&nbsp;</td><td width="20%" height="5" bgcolor="#1A1A1A" style="font-size:0;line-height:0">&nbsp;</td></tr></table></td></tr>
 <tr><td width="124" valign="top" style="width:124px;padding:18px 0 14px 16px"><img src="https://halilunaziru73-creator.github.io/avatar.jpg" width="104" height="104" alt="Naziru Halilu" style="display:block;border:3px solid #FFFFFF;border-radius:52px;width:104px;height:104px"></td>
@@ -33,7 +33,7 @@
 <td valign="middle" style="padding-right:14px"><img src="https://halilunaziru73-creator.github.io/sig_aua.png" width="20" height="24" alt="Agricultural University of Athens" style="display:block;border:0;height:24px;width:20px"></td>
 <td valign="middle"><img src="https://halilunaziru73-creator.github.io/sig_abu.png" width="22" height="24" alt="Ahmadu Bello University" style="display:block;border:0;height:24px;width:22px"></td>
 </tr></table>
-<div style="font-size:10px;color:#6B6B6B;margin-top:6px;letter-spacing:.2px">Erasmus Mundus Joint Master Degree SUSTAGRI &middot; Navarre &middot; Trás-os-Montes e Alto Douro &middot; Athens</div></td></tr>
+</td></tr>
 </table></div></div>
 <p style="font-size:13px">If your webmail does not keep the logos, use its picture button to add them from these addresses: https://halilunaziru73-creator.github.io/sig_sustagri.png, https://halilunaziru73-creator.github.io/sig_eu.png, https://halilunaziru73-creator.github.io/sig_upna.png</p>
 <script>document.getElementById('b').onclick=function(){var s=document.getElementById('sig'),r=document.createRange();r.selectNode(s);var g=getSelection();g.removeAllRanges();g.addRange(r);var ok=false;try{ok=document.execCommand('copy')}catch(e){}document.getElementById('ok').textContent=ok?'Copied. Paste it into your signature box.':'Selected. Press Ctrl C, then paste it.'}</script></div></body></html>
